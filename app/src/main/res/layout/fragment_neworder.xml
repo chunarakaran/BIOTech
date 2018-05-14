@@ -144,33 +144,31 @@
 
             </android.support.design.widget.TextInputLayout>
 
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_Qty"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="5dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
 
-
-                <AutoCompleteTextView
-                    android:id="@+id/qty"
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/input_Qty"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="text"
                     android:hint="Enter Qty" />
-            </LinearLayout>
+            </android.support.design.widget.TextInputLayout>
 
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_Ltr"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="5dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
 
-
-                <AutoCompleteTextView
-                    android:id="@+id/ltr"
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/input_Ltr"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="text"
                     android:hint="Enter Total Ltr" />
-            </LinearLayout>
+            </android.support.design.widget.TextInputLayout>
 
 
             <Button android:id="@+id/btn_add"

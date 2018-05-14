@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -25,9 +26,9 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.exportershouse.biotech.Adapter.AutoCompleteAdapter;
 import com.exportershouse.biotech.MainActivity;
 import com.exportershouse.biotech.R;
-import com.exportershouse.biotech.Adapter.AutoCompleteAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -60,6 +61,9 @@ public class NewOrderFragment extends Fragment {
 
     TextView orderno,cdate;
 
+    EditText Qty,Ltr;
+    TextView dQty,dLtr,dpart_no;
+
     String[] fruits = {"Apple", "Banana", "Cherry", "Date", "Grape", "Kiwi", "Mango", "Pear"};
 
     @Override
@@ -90,6 +94,13 @@ public class NewOrderFragment extends Fragment {
         actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
         actv.setTextColor(Color.BLACK);
 
+        Qty = (EditText) rootview.findViewById(R.id.input_Qty);
+        Ltr = (EditText) rootview.findViewById(R.id.input_Ltr);
+
+         dQty=(TextView)rootview.findViewById(R.id.Qty);
+         dLtr=(TextView)rootview.findViewById(R.id.Ltr);
+        dpart_no=(TextView)rootview.findViewById(R.id.partno);
+
 
 
         add=(Button)rootview.findViewById(R.id.btn_add);
@@ -105,6 +116,11 @@ public class NewOrderFragment extends Fragment {
                 add.setVisibility(Button.GONE);
                 submit.setVisibility(View.VISIBLE);
                 Layout2.setVisibility(View.VISIBLE);
+
+                dQty.setText(Qty.getText().toString());
+                dLtr.setText(Ltr.getText().toString());
+                dpart_no.setText(part_no.toString());
+
             }
         });
 
