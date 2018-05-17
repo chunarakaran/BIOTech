@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -22,6 +23,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.exportershouse.biotech.Adapter.GetColorDataAdapter;
 import com.exportershouse.biotech.MainActivity;
 import com.exportershouse.biotech.R;
 
@@ -41,8 +43,10 @@ public class DistributorFragment extends Fragment {
 
     Spinner spinner;
 
+    final ArrayList<GetColorDataAdapter> datalist = new ArrayList<>();
+
     String strComp_name,com_name;
-    String URL = "http://192.168.1.207/marketing/public/api/company/view";
+    String URL;
     ArrayList<String> Company;
 
     Fragment fragment = null;
@@ -57,6 +61,8 @@ public class DistributorFragment extends Fragment {
         getActivity().setTitle("New Distributer");
         ((MainActivity) getActivity()).hideBottomNavigationButton();
 
+        URL = getString(R.string.url);
+
         next=(Button)rootview.findViewById(R.id.btn_next);
         spinner=(Spinner)rootview.findViewById(R.id.company_spinner);
         Company=new ArrayList<>();
@@ -64,9 +70,12 @@ public class DistributorFragment extends Fragment {
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+            public void onItemSelected(AdapterView<?> arg0, View view, int position, long row_id)
             {
-                com_name=   spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
+//                com_name=   spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
+                String id = datalist.get(position).getId();
+                Toast.makeText(getContext(),"Id   " +id , Toast.LENGTH_LONG).show();
+
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -109,19 +118,31 @@ public class DistributorFragment extends Fragment {
     private void loadSpinnerData(String url)
     {
         RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
-        StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url+"api/color", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                try{
-                    JSONObject jsonObject=new JSONObject(response);
-                    JSONArray jsonArray=jsonObject.getJSONArray("view_comp");
-                    for(int i=0;i<jsonArray.length();i++){
-                        JSONObject jsonObject1=jsonArray.getJSONObject(i);
-                        String cat_name=jsonObject1.getString("comp_nm");
-                        Company.add(cat_name);
-                    }
 
-                    spinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, Company));
+                final ArrayList<String> list = new ArrayList<>();
+
+                list.clear();
+
+                try{
+                    GetColorDataAdapter GetDatadp ;
+                    JSONObject jsonObject=new JSONObject(response);
+                    JSONObject jsonObject1;
+                    JSONArray jsonArray=jsonObject.getJSONArray("colors");
+                    for(int i=0;i<jsonArray.length();i++){
+                         jsonObject1=jsonArray.getJSONObject(i);
+
+                        GetDatadp = new GetColorDataAdapter();
+                        GetDatadp.setName(jsonObject1.getString("name"));
+                        GetDatadp.setId(jsonObject1.getString("id"));
+                        datalist.add(GetDatadp);
+
+                        list.add(jsonObject1.getString("name"));
+
+                    }
+                    spinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, list));
                 }catch (JSONException e){e.printStackTrace();}
             }
         }, new Response.ErrorListener() {

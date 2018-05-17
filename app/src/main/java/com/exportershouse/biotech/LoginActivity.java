@@ -113,8 +113,8 @@ public class LoginActivity extends AppCompatActivity {
 
         editor = sharedpreferences.edit();
 
-        editor.clear();
-        editor.commit();
+//        editor.clear();
+//        editor.commit();
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
