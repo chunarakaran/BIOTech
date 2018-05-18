@@ -289,7 +289,7 @@
                     android:id="@+id/input_discount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:hint="Discount(%)" />
             </android.support.design.widget.TextInputLayout>
 

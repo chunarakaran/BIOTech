@@ -33,6 +33,7 @@ import com.exportershouse.biotech.Adapter.AutoCompleteAdapter;
 import com.exportershouse.biotech.Adapter.GetBrandDataAdapter;
 import com.exportershouse.biotech.Adapter.GetColorDataAdapter;
 import com.exportershouse.biotech.Adapter.GetPartnoDataAdapter;
+import com.exportershouse.biotech.Database.myDBClass;
 import com.exportershouse.biotech.MainActivity;
 import com.exportershouse.biotech.R;
 
@@ -72,7 +73,8 @@ public class NewOrderFragment extends Fragment {
     String brand_name,color_name,part_no;
     String color_id,brand_id,partno_id;
     String URL;
-    public String Order_no="BIO/1803/1101",sDate;
+    public String Order_no="BIO/1803/1101",sDate,Ono,test;
+
     ArrayList<String> Brand,color,partno;
 
 
@@ -90,7 +92,7 @@ public class NewOrderFragment extends Fragment {
     String User_id;
     public static final String PREFS_NAME = "login";
 
-    String[] fruits = {"Apple", "Banana", "Cherry", "Date", "Grape", "Kiwi", "Mango", "Pear"};
+
 
     String hUid,hBrandid,hOrderno,hDate,hPartyname,hCityname,hColorid,hPartnoid,hQty,hLtr,hTotal,hDis,hRemark;
     //volley
@@ -99,7 +101,6 @@ public class NewOrderFragment extends Fragment {
 
     String HttpUrl = "http://biotechautomfg.com/api/order_add";
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
@@ -107,6 +108,10 @@ public class NewOrderFragment extends Fragment {
         SharedPreferences sp = getActivity().getSharedPreferences(PREFS_NAME, getContext().MODE_PRIVATE);
         SharedPreferences.Editor e = sp.edit();
         User_id = sp.getString("User", "");
+
+        // get Data from SQLite
+        final myDBClass myDb = new myDBClass(getActivity());
+        final String [] myData = myDb.SelectAllData();
 
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
@@ -126,14 +131,14 @@ public class NewOrderFragment extends Fragment {
         ((MainActivity) getActivity()).hideBottomNavigationButton();
 
         //Creating the instance of ArrayAdapter containing list of fruit names
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>
-//                (getActivity(), android.R.layout.select_dialog_item, fruits);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>
+                (getActivity(), android.R.layout.select_dialog_item, myData);
 
         //Getting the instance of AutoCompleteTextView
         actv = (AutoCompleteTextView) rootview.findViewById(R.id.party_name);
         actv.setThreshold(1);//will start working from first character
         int layout = android.R.layout.simple_list_item_1;
-        AutoCompleteAdapter adapter = new AutoCompleteAdapter (getActivity(), layout);
+        AutoCompleteAdapter adapter1 = new AutoCompleteAdapter (getActivity(), layout);
         actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
         actv.setTextColor(Color.BLACK);
 
@@ -176,12 +181,18 @@ public class NewOrderFragment extends Fragment {
                 t1.setVisibility(TextInputLayout.GONE);
                 Layout1.setVisibility(LinearLayout.GONE);
 
+                myDb.InsertData(actv.getText().toString());
+
+
+
             }
         });
 
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                loadOrdernoData(URL);
 
                 add.setVisibility(View.VISIBLE);
                 submit.setVisibility(Button.GONE);
@@ -196,88 +207,7 @@ public class NewOrderFragment extends Fragment {
             @Override
             public void onClick(View view)
             {
-
-
-
-                progressDialog.setMessage("Please Wait, We are Inserting Your Data on Server");
-                progressDialog.show();
-
-//                GetValueFromEditText();
-
-                hUid=User_id.toString();
-                hBrandid=brand_id.toString();
-                hOrderno=Order_no.toString();
-                hDate=sDate.toString();
-                hPartyname=actv.getText().toString().trim();
-                hCityname=CityName.getText().toString().trim();
-                hColorid=color_id.toString();
-                hPartnoid=partno_id.toString();
-                hQty=Qty.getText().toString().trim();
-                hLtr=Ltr.getText().toString().trim();
-                hTotal=Ltr.getText().toString().trim();
-                hDis=Discount.getText().toString().trim();
-                hRemark=Remark.getText().toString().trim();
-
-//                Toast.makeText(getContext(),"Response:-"+hTotal+hDis+hRemark  , Toast.LENGTH_LONG).show();
-
-                StringRequest stringRequest = new StringRequest(Request.Method.GET, HttpUrl+"?user_id="+hUid, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String ServerResponse) {
-
-                        // Hiding the progress dialog after all task complete.
-                        progressDialog.dismiss();
-
-                        // Showing response message coming from server.
-                        Toast.makeText(getActivity(), ServerResponse, Toast.LENGTH_SHORT).show();
-                    }
-                },
-                        new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError volleyError) {
-
-                                // Hiding the progress dialog after all task complete.
-                                progressDialog.dismiss();
-
-                                // Showing error message if something goes wrong.
-                                Toast.makeText(getActivity(), "Error : "+volleyError.toString(), Toast.LENGTH_LONG).show();
-                            }
-                        }) {
-                    @Override
-                    protected Map<String, String> getParams() {
-
-                        // Creating Map String Params.
-                        Map<String, String> params = new HashMap<String, String>();
-
-                        // Adding All values to Params.
-
-                        //Company
-//                        params.put("user_id", hUid);
-                        params.put("brand_name", hBrandid);
-                        params.put("order_no", hOrderno);
-                        params.put("current_date", hDate);
-                        params.put("party_name", hPartyname);
-                        params.put("city", hCityname);
-                        params.put("color_id", hColorid);
-                        params.put("part_id", hPartnoid);
-                        params.put("qty", hQty);
-                        params.put("ltr", hLtr);
-                        params.put("total", hTotal);
-                        params.put("discount", hDis);
-                        params.put("remarks", hRemark);
-
-                        return params;
-                    }
-
-                };
-
-                // Creating RequestQueue.
-                RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-
-                // Adding the StringRequest object into requestQueue.
-                requestQueue.add(stringRequest);
-
-
-
+                Add_Order();
             }
         });
 
@@ -347,7 +277,7 @@ public class NewOrderFragment extends Fragment {
         Date c = Calendar.getInstance().getTime();
         System.out.println("Current time => " + c);
 
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = df.format(c);
         cdate=(TextView)rootview.findViewById(R.id.order_date);
         cdate.setText(formattedDate);
@@ -532,10 +462,10 @@ public class NewOrderFragment extends Fragment {
                 try{
 
                     JSONObject jsonObject=new JSONObject(response);
-                    String order_no=jsonObject.getString("date");
-//                    Order_no=jsonObject.optString("date");
-                    orderno.setText(order_no);
 
+                    String order_no = jsonObject.getString("date");
+
+                    orderno.setText(order_no);
 
                     hideDialog();
                 }catch (JSONException e){e.printStackTrace();}
@@ -571,6 +501,77 @@ public class NewOrderFragment extends Fragment {
         hDis=Discount.getText().toString().trim();
         hRemark=Remark.getText().toString().trim();
 
+    }
+
+    public void Add_Order()
+    {
+        progressDialog.setMessage("Please Wait, We are Inserting Your Data on Server");
+        progressDialog.show();
+
+        GetValueFromEditText();
+
+
+
+//                Toast.makeText(getContext(),"Response:-"+hTotal+hDis+hRemark  , Toast.LENGTH_LONG).show();
+
+        // Creating string request with post method.
+        StringRequest stringRequest1 = new StringRequest(Request.Method.POST, HttpUrl+"?user_id="+hUid+"&brand_name="+hBrandid+"&order_no="+hOrderno+"&current_date="+hDate+"&party_name="+hPartyname
+                +"&city="+hCityname+"&color_id="+hColorid+"&part_id="+hPartnoid+"&qty="+hQty+"&ltr="+hLtr+"&total="+hTotal+"&discount="+hDis+"&remarks="+hRemark,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String ServerResponse) {
+
+                        // Hiding the progress dialog after all task complete.
+                        progressDialog.dismiss();
+
+                        // Showing response message coming from server.
+                        Toast.makeText(getActivity(), ServerResponse, Toast.LENGTH_LONG).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+
+                        // Hiding the progress dialog after all task complete.
+                        progressDialog.dismiss();
+
+                        // Showing error message if something goes wrong.
+                        Toast.makeText(getActivity(), volleyError.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() {
+
+                // Creating Map String Params.
+                Map<String, String> params = new HashMap<String, String>();
+
+                // Adding All values to Params.
+
+                //Company
+                params.put("user_id", hUid);
+                params.put("brand_name", hBrandid);
+                params.put("order_no", hOrderno);
+                params.put("current_date", hDate);
+                params.put("party_name", hPartyname);
+                params.put("city", hCityname);
+                params.put("color_id", hColorid);
+                params.put("part_id", hPartnoid);
+                params.put("qty", hQty);
+                params.put("ltr", hLtr);
+                params.put("total", hTotal);
+                params.put("discount", hDis);
+                params.put("remarks", hRemark);
+
+                return params;
+            }
+
+        };
+
+        // Creating RequestQueue.
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+
+        // Adding the StringRequest object into requestQueue.
+        requestQueue.add(stringRequest1);
     }
 
 
