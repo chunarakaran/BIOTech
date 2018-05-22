@@ -318,7 +318,7 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:id="@+id/input_natureoffirm"
+            android:id="@+id/days"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -332,7 +332,7 @@
                 android:id="@+id/days_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/natureofthefirm"/>
+                android:entries="@array/days"/>
 
         </LinearLayout>
 
