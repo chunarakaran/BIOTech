@@ -11,4 +11,26 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="spinnerItems">
+        <item>Mr</item>
+        <item>Mrs</item>
+        <item>Miss</item>
+        <item>Ms</item>
+    </string-array>
+
+    <string-array name="natureofthefirm">
+        <item>Proprietorship</item>
+        <item>Partnership</item>
+        <item>Pvt.Ltd.</item>
+    </string-array>
+
+
+    <string-array name="company_name">
+        <item>BIO-TECH AUTO MANUFACTURING CO.</item>
+        <item>PHOINEX KLEIN LABORATORIES</item>
+    </string-array>
+
+
 </resources>

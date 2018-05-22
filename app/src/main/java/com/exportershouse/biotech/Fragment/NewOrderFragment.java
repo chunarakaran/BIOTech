@@ -489,7 +489,7 @@ public class NewOrderFragment extends Fragment {
 
         hUid=User_id.toString();
         hBrandid=brand_id.toString();
-        hOrderno=Order_no.toString();
+        hOrderno=orderno.getText().toString();
         hDate=sDate.toString();
         hPartyname=actv.getText().toString().trim();
         hCityname=CityName.getText().toString().trim();

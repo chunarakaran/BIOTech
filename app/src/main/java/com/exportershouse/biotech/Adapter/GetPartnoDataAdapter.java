@@ -1,6 +1,6 @@
 package com.exportershouse.biotech.Adapter;
 
-public class GetPartnoDataAdapter extends GetOrdernoDataAdapter {
+public class GetPartnoDataAdapter extends GetStateDataAdapter {
     String name;
     String id;
 

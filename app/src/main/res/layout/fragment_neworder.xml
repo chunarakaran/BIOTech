@@ -44,7 +44,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:text="Order No:"
                         android:textColor="#000"/>
@@ -53,8 +53,7 @@
                         android:id="@+id/order_no"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="BIO/1803/1101"
-                        android:paddingLeft="20dp"
+                        android:paddingLeft="10dp"
                         android:textColor="#000"/>
             </LinearLayout>
 
@@ -65,7 +64,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:text="Date:"
                     android:textColor="#000"/>
@@ -75,7 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="dd/mm/yyyy"
-                    android:paddingLeft="20dp"
+                    android:paddingLeft="10dp"
                     android:textColor="#000"/>
             </LinearLayout>
 
@@ -293,24 +292,30 @@
                     android:hint="Discount(%)" />
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:id="@+id/input_layout_remark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Remark"
+                    android:textColor="#000"/>
 
                 <EditText
                     android:id="@+id/input_remark"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:background="@drawable/rect_text_edit"
-                    android:hint="Remark"
                     android:inputType="textMultiLine"
                     android:singleLine="true"
                     android:maxLines="5"
                     android:textSize="15dp" />
 
 
-            </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
 
 
 

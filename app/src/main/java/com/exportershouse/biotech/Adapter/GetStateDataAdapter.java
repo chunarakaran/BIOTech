@@ -1,6 +1,6 @@
 package com.exportershouse.biotech.Adapter;
 
-public class GetOrdernoDataAdapter {
+public class GetStateDataAdapter {
     String name;
     String id;
 
