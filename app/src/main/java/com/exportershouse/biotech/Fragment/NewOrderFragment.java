@@ -117,6 +117,7 @@ public class NewOrderFragment extends Fragment {
         //change R.layout.yourlayoutfilename for each of your fragments
         rootview= inflater.inflate(R.layout.fragment_neworder, container, false);
 
+
         URL = getString(R.string.url);
 
 
