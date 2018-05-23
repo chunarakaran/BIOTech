@@ -1,6 +1,8 @@
 package com.exportershouse.biotech.Fragment;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,12 +10,34 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.exportershouse.biotech.Adapter.GetStateDataAdapter;
 import com.exportershouse.biotech.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Shrey on 24-04-2018.
@@ -24,15 +48,46 @@ public class LeaveRequestFragment extends Fragment {
     View rootview;
 
     private Calendar mcalendar;
-    EditText fromDate, toDate;
+    EditText fromDate, toDate,remark;
     private int day,month,year;
+
+    Button send;
+
+    String URL;
+
+    Spinner leaveSpinner;
+    final ArrayList<GetStateDataAdapter> Leavedatalist = new ArrayList<>();
+
+
+    String User_id;
+    public static final String PREFS_NAME = "login";
+
+    String leaveid;
+
+    String hUid,hLeaveid,hfromDate,htoDate,hRemark;
+
+    //volley
+    RequestQueue requestQueue;
+    ProgressDialog progressDialog;
+
+    String HttpUrl = "http://biotechautomfg.com/api/leave_type";
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        SharedPreferences sp = getActivity().getSharedPreferences(PREFS_NAME, getContext().MODE_PRIVATE);
+        SharedPreferences.Editor e = sp.edit();
+        User_id = sp.getString("User", "");
+
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
         rootview= inflater.inflate(R.layout.fragment_leaverequest, container, false);
+
+
+        requestQueue = Volley.newRequestQueue(getActivity());
+        progressDialog = new ProgressDialog(getActivity());
+
 
         fromDate=(EditText)rootview.findViewById(R.id.input_fromDate);
         toDate=(EditText)rootview.findViewById(R.id.input_toDate);
@@ -40,6 +95,32 @@ public class LeaveRequestFragment extends Fragment {
         day=mcalendar.get(Calendar.DAY_OF_MONTH);
         year=mcalendar.get(Calendar.YEAR);
         month=mcalendar.get(Calendar.MONTH);
+
+        URL = getString(R.string.url);
+
+        send=(Button)rootview.findViewById(R.id.btn_submit);
+        remark=(EditText)rootview.findViewById(R.id.input_remark);
+
+        leaveSpinner=(Spinner)rootview.findViewById(R.id.leave_spinner);
+
+        loadLeaveType_SpinnerData(URL);
+
+        leaveSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View view, int position, long row_id)
+            {
+//                com_name=   statespinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
+                leaveid = Leavedatalist.get(position).getId();
+//                Toast.makeText(getContext(),"Id   " +leaveid , Toast.LENGTH_LONG).show();
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // DO Nothing here
+            }
+        });
+
+
 
         fromDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +133,13 @@ public class LeaveRequestFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 DateDialog1();
+            }
+        });
+
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Add_Leave();
             }
         });
 
@@ -81,7 +169,7 @@ public class LeaveRequestFragment extends Fragment {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
             {
-                fromDate.setText(dayOfMonth + "/" + monthOfYear + "/" + year);
+                fromDate.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
             }};
         DatePickerDialog dpDialog=new DatePickerDialog(getActivity(), listener, year, month, day);
         dpDialog.show();
@@ -93,11 +181,123 @@ public class LeaveRequestFragment extends Fragment {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
             {
-                toDate.setText(dayOfMonth + "/" + monthOfYear + "/" + year);
+                toDate.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
             }};
         DatePickerDialog dpDialog=new DatePickerDialog(getActivity(), listener, year, month, day);
         dpDialog.show();
     }
 
+
+    private void loadLeaveType_SpinnerData(String url)
+    {
+        RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url+"api/view_leave_type", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                final ArrayList<String> list = new ArrayList<>();
+
+                list.clear();
+
+                try{
+                    GetStateDataAdapter GetDatadp ;
+                    JSONObject jsonObject=new JSONObject(response);
+                    JSONObject jsonObject1;
+                    JSONArray jsonArray=jsonObject.getJSONArray("view_leave_type");
+                    for(int i=0;i<jsonArray.length();i++){
+                        jsonObject1=jsonArray.getJSONObject(i);
+
+                        GetDatadp = new GetStateDataAdapter();
+                        GetDatadp.setName(jsonObject1.getString("leave_type"));
+                        GetDatadp.setId(jsonObject1.getString("id"));
+                        Leavedatalist.add(GetDatadp);
+
+                        list.add(jsonObject1.getString("leave_type"));
+
+                    }
+                    leaveSpinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, list));
+                }catch (JSONException e){e.printStackTrace();}
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
+
+    public void GetValueFromEditText()
+    {
+        hUid=User_id.toString();
+        hLeaveid=leaveid.toString();
+        hfromDate=fromDate.getText().toString().trim();
+        htoDate=toDate.getText().toString().trim();
+        hRemark=remark.getText().toString().trim();
+
+    }
+
+    public void Add_Leave()
+    {
+        progressDialog.setMessage("Please Wait, We are Inserting Your Data on Server");
+        progressDialog.show();
+
+        GetValueFromEditText();
+
+        // Creating string request with post method.
+        StringRequest stringRequest1 = new StringRequest(Request.Method.POST, HttpUrl,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String ServerResponse) {
+
+                        // Hiding the progress dialog after all task complete.
+                        progressDialog.dismiss();
+
+                        // Showing response message coming from server.
+                        Toast.makeText(getActivity(), ServerResponse, Toast.LENGTH_LONG).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+
+                        // Hiding the progress dialog after all task complete.
+                        progressDialog.dismiss();
+
+                        // Showing error message if something goes wrong.
+                        Toast.makeText(getActivity(), volleyError.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() {
+
+                // Creating Map String Params.
+                Map<String, String> params = new HashMap<String, String>();
+
+                // Adding All values to Params.
+
+                //Company
+                params.put("user_id", hUid);
+                params.put("leave_type", hLeaveid);
+                params.put("from_date", hfromDate);
+                params.put("to_date", htoDate);
+                params.put("remark", hRemark);
+
+                return params;
+            }
+
+        };
+
+        // Creating RequestQueue.
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+
+        // Adding the StringRequest object into requestQueue.
+        requestQueue.add(stringRequest1);
+
+    }
 
 }
