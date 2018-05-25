@@ -414,11 +414,7 @@ public class NextDistributorFragment extends Fragment implements View.OnClickLis
 
     }
 
-    public void goToAttract(View v)
-    {
-        Intent intent = new Intent(getActivity(), MainActivity.class);
-        startActivity(intent);
-    }
+
 
 
 

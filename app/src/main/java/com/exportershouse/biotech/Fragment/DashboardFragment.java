@@ -88,7 +88,7 @@ public class DashboardFragment extends Fragment {
                             transection.addToBackStack(null).commit();
                             break;
                         case 2:
-                            fragment=new LeaveFragment();
+                            fragment=new LeaveRequestFragment();
                             transection.replace(R.id.container,fragment);
                             transection.addToBackStack(null).commit();
                             break;

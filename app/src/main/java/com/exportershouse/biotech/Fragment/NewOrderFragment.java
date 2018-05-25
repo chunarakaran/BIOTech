@@ -1,12 +1,14 @@
 package com.exportershouse.biotech.Fragment;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +39,8 @@ import com.exportershouse.biotech.Adapter.GetPartnoDataAdapter;
 import com.exportershouse.biotech.Database.myDBClass;
 import com.exportershouse.biotech.MainActivity;
 import com.exportershouse.biotech.R;
+import com.shashank.sony.fancygifdialoglib.FancyGifDialog;
+import com.shashank.sony.fancygifdialoglib.FancyGifDialogListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -578,7 +582,37 @@ public class NewOrderFragment extends Fragment {
                         progressDialog.dismiss();
 
                         // Showing response message coming from server.
-                        Toast.makeText(getActivity(), ServerResponse, Toast.LENGTH_LONG).show();
+//                        Toast.makeText(getActivity(), ServerResponse, Toast.LENGTH_LONG).show();
+                        new FancyGifDialog.Builder(getActivity())
+                                .setTitle("Order Added Successfully")
+                                .setMessage("Do you want to Add Another")
+                                .setNegativeBtnText("No")
+                                .setPositiveBtnBackground("#FF4081")
+                                .setPositiveBtnText("Yes")
+                                .setNegativeBtnBackground("#FFA9A7A8")
+                                .setGifResource(R.drawable.check)   //Pass your Gif here
+                                .isCancellable(true)
+                                .OnPositiveClicked(new FancyGifDialogListener() {
+                                    @Override
+                                    public void OnClick() {
+//                                        Toast.makeText(getActivity(),"Ok",Toast.LENGTH_SHORT).show();
+                                        FragmentTransaction transection=getFragmentManager().beginTransaction();
+                                        NewOrderFragment mfragment=new NewOrderFragment();
+                                        transection.replace(R.id.container, mfragment);
+                                        transection.addToBackStack(null).commit();
+                                    }
+                                })
+                                .OnNegativeClicked(new FancyGifDialogListener() {
+                                    @Override
+                                    public void OnClick() {
+//
+                                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                                        startActivity(intent);
+                                    }
+                                })
+                                .build();
+
+
                     }
                 },
                 new Response.ErrorListener() {

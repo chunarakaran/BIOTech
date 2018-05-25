@@ -2,6 +2,7 @@ package com.exportershouse.biotech.Fragment;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -27,7 +28,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.exportershouse.biotech.Adapter.GetStateDataAdapter;
+import com.exportershouse.biotech.MainActivity;
 import com.exportershouse.biotech.R;
+import com.shashank.sony.fancygifdialoglib.FancyGifDialog;
+import com.shashank.sony.fancygifdialoglib.FancyGifDialogListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,6 +50,7 @@ import java.util.Map;
 public class LeaveRequestFragment extends Fragment {
 
     View rootview;
+    private ProgressDialog pDialog;
 
     private Calendar mcalendar;
     EditText fromDate, toDate,remark;
@@ -84,6 +89,11 @@ public class LeaveRequestFragment extends Fragment {
         //change R.layout.yourlayoutfilename for each of your fragments
         rootview= inflater.inflate(R.layout.fragment_leaverequest, container, false);
 
+        getActivity().setTitle("Leave Request");
+
+        // Progress dialog
+        pDialog = new ProgressDialog(getActivity());
+        pDialog.setCancelable(false);
 
         requestQueue = Volley.newRequestQueue(getActivity());
         progressDialog = new ProgressDialog(getActivity());
@@ -190,6 +200,9 @@ public class LeaveRequestFragment extends Fragment {
 
     private void loadLeaveType_SpinnerData(String url)
     {
+        pDialog.setMessage("Please Wait ...");
+        showDialog();
+
         RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
         StringRequest stringRequest=new StringRequest(Request.Method.GET, url+"api/view_leave_type", new Response.Listener<String>() {
             @Override
@@ -216,6 +229,7 @@ public class LeaveRequestFragment extends Fragment {
 
                     }
                     leaveSpinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, list));
+                    hideDialog();
                 }catch (JSONException e){e.printStackTrace();}
             }
         }, new Response.ErrorListener() {
@@ -258,7 +272,35 @@ public class LeaveRequestFragment extends Fragment {
                         progressDialog.dismiss();
 
                         // Showing response message coming from server.
-                        Toast.makeText(getActivity(), ServerResponse, Toast.LENGTH_LONG).show();
+//                        Toast.makeText(getActivity(), ServerResponse, Toast.LENGTH_LONG).show();
+                        new FancyGifDialog.Builder(getActivity())
+                                .setTitle("Success")
+                                .setMessage("Your Leave Request Send Successfully")
+                                .setNegativeBtnText("Cancel")
+                                .setPositiveBtnBackground("#FF4081")
+                                .setPositiveBtnText("Ok")
+                                .setNegativeBtnBackground("#FFA9A7A8")
+                                .setGifResource(R.drawable.check)   //Pass your Gif here
+                                .isCancellable(false)
+                                .OnPositiveClicked(new FancyGifDialogListener() {
+                                    @Override
+                                    public void OnClick() {
+//                                        Toast.makeText(getActivity(),"Ok",Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                                        startActivity(intent);
+                                    }
+                                })
+                                .OnNegativeClicked(new FancyGifDialogListener() {
+                                    @Override
+                                    public void OnClick() {
+//
+                                        fromDate.setText("");
+                                        toDate.setText("");
+                                        remark.setText("");
+                                    }
+                                })
+                                .build();
+
                     }
                 },
                 new Response.ErrorListener() {
@@ -298,6 +340,17 @@ public class LeaveRequestFragment extends Fragment {
         // Adding the StringRequest object into requestQueue.
         requestQueue.add(stringRequest1);
 
+    }
+
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 
 }
