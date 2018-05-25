@@ -60,7 +60,7 @@
             android:orientation="horizontal">
 
             <Spinner
-                android:id="@+id/name"
+                android:id="@+id/name_firm"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:entries="@array/spinnerItems" />
@@ -249,7 +249,7 @@
             android:orientation="horizontal">
 
             <Spinner
-                android:id="@+id/nameparty"
+                android:id="@+id/name_party"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:entries="@array/spinnerItems" />

@@ -32,6 +32,7 @@ import com.android.volley.toolbox.Volley;
 import com.exportershouse.biotech.Adapter.AutoCompleteAdapter;
 import com.exportershouse.biotech.Adapter.GetBrandDataAdapter;
 import com.exportershouse.biotech.Adapter.GetColorDataAdapter;
+import com.exportershouse.biotech.Adapter.GetOrderDataAdapter;
 import com.exportershouse.biotech.Adapter.GetPartnoDataAdapter;
 import com.exportershouse.biotech.Database.myDBClass;
 import com.exportershouse.biotech.MainActivity;
@@ -66,7 +67,7 @@ public class NewOrderFragment extends Fragment {
     final ArrayList<GetBrandDataAdapter> datalist = new ArrayList<GetBrandDataAdapter>();
     final ArrayList<GetColorDataAdapter> datalist1 = new ArrayList<>();
     final ArrayList<GetPartnoDataAdapter> datalist2 = new ArrayList<>();
-//    final ArrayList<GetOrdernoDataAdapter> datalist3 = new ArrayList<>();
+    final ArrayList<GetOrderDataAdapter> datalist3 = new ArrayList<>();
 
 
 
@@ -83,6 +84,7 @@ public class NewOrderFragment extends Fragment {
     TextView orderno,cdate;
 
     AutoCompleteTextView actv;
+
 
     EditText Qty,Ltr,CityName,Discount,Remark;
     TextView dQty,dLtr,dpart_no,dSrno,dTotal;
@@ -112,6 +114,8 @@ public class NewOrderFragment extends Fragment {
         // get Data from SQLite
         final myDBClass myDb = new myDBClass(getActivity());
         final String [] myData = myDb.SelectAllData();
+        myDb.InsertData("demo");
+
 
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
@@ -131,16 +135,13 @@ public class NewOrderFragment extends Fragment {
         getActivity().setTitle("New Order");
         ((MainActivity) getActivity()).hideBottomNavigationButton();
 
-        //Creating the instance of ArrayAdapter containing list of fruit names
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                (getActivity(), android.R.layout.select_dialog_item, myData);
 
         //Getting the instance of AutoCompleteTextView
         actv = (AutoCompleteTextView) rootview.findViewById(R.id.party_name);
         actv.setThreshold(1);//will start working from first character
-        int layout = android.R.layout.simple_list_item_1;
-        AutoCompleteAdapter adapter1 = new AutoCompleteAdapter (getActivity(), layout);
-        actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
+//        int layout = android.R.layout.simple_list_item_1;
+//        AutoCompleteAdapter adapter1 = new AutoCompleteAdapter (getActivity(), layout);
+      //  actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
         actv.setTextColor(Color.BLACK);
 
         Qty = (EditText) rootview.findViewById(R.id.input_Qty);
@@ -274,6 +275,8 @@ public class NewOrderFragment extends Fragment {
         loadOrdernoData(URL);
 //        orderno.setText(Order_no);
 
+        loadOrderData(URL);
+
 
         Date c = Calendar.getInstance().getTime();
         System.out.println("Current time => " + c);
@@ -386,6 +389,7 @@ public class NewOrderFragment extends Fragment {
 
                     }
 
+//                    actv.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, list));
                     color_spinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, list));
                     hideDialog();
                 }catch (JSONException e){e.printStackTrace();}
@@ -483,6 +487,54 @@ public class NewOrderFragment extends Fragment {
         stringRequest.setRetryPolicy(policy);
         requestQueue.add(stringRequest);
     }
+
+
+    private void loadOrderData(String url)
+    {
+        pDialog.setMessage("Please Wait ...");
+        showDialog();
+
+        RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url+"api/view_order", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                final ArrayList<String> list = new ArrayList<>();
+                list.clear();
+                try{
+                    GetOrderDataAdapter GetDatadp ;
+                    JSONObject jsonObject=new JSONObject(response);
+                    JSONArray jsonArray=jsonObject.getJSONArray("view_order");
+                    for(int i=0;i<jsonArray.length();i++){
+                        JSONObject jsonObject1=jsonArray.getJSONObject(i);
+
+                        GetDatadp = new GetOrderDataAdapter();
+                        GetDatadp.setName(jsonObject1.getString("party_name"));
+                        GetDatadp.setId(jsonObject1.getString("id"));
+                        datalist3.add(GetDatadp);
+
+                        list.add(jsonObject1.getString("party_name"));
+
+                    }
+
+                    actv.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, list));
+//                    color_spinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, list));
+                    hideDialog();
+                }catch (JSONException e){e.printStackTrace();}
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+
+            }
+        });
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
 
 
     public void GetValueFromEditText()

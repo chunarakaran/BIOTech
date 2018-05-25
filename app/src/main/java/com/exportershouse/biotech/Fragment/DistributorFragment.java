@@ -46,10 +46,15 @@ public class DistributorFragment extends Fragment {
 
     View rootview;
 
-    Spinner spinner,statespinner,partyspinner,daysspinner;
+    Spinner spinner,statespinner,partyspinner,daysspinner,nameFirm,nameParty;
     TextView cdate;
     
     EditText iname,iaddress,icity,ipincode,idistrict,iemail,ilandline,imobileno,iFpan_no,iGST_no,iFparty_name,iName_conPerson,iMobile_conPerson,iYearlyTarg,iTrans_name;
+
+    String SnameFirm,SnameParty,Scompanyname,Sstateid,Spartyname,Sdaysname;
+
+    String Hdate,Hiname,Hiaddress,Hicity,Hipincode,Hidistrict,Hiemail,Hilandline,Himobileno,HiFpan_no,HiGST_no,HiFparty_name,HiName_conPerson,HiMobile_conPerson,HiYearlyTarg,HiTrans_name,
+            Hcompanyname,Hstateid,Hpartyname,Hdaysname,HnameFirm,HnameParty;
 
     final ArrayList<GetStateDataAdapter> statedatalist = new ArrayList<>();
 
@@ -73,16 +78,94 @@ public class DistributorFragment extends Fragment {
 
         initialize();
 
+
+
+
         loadState_SpinnerData(URL);
 
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View view, int position, long row_id)
+            {
+//                com_name=   statespinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
+                Scompanyname = spinner.getSelectedItem().toString();
+//                Toast.makeText(getContext(),"Id   " +Hcompanyname , Toast.LENGTH_LONG).show();
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // DO Nothing here
+            }
+        });
 
         statespinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> arg0, View view, int position, long row_id)
             {
 //                com_name=   statespinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
-                String id = statedatalist.get(position).getId();
-                Toast.makeText(getContext(),"Id   " +id , Toast.LENGTH_LONG).show();
+                Sstateid = statedatalist.get(position).getId();
+//                Toast.makeText(getContext(),"Id   " +Hstateid , Toast.LENGTH_LONG).show();
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // DO Nothing here
+            }
+        });
+
+        partyspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View view, int position, long row_id)
+            {
+//                com_name=   statespinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
+                Spartyname = partyspinner.getSelectedItem().toString();
+//                Toast.makeText(getContext(),"Id   " +Hpartyname , Toast.LENGTH_LONG).show();
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // DO Nothing here
+            }
+        });
+
+        daysspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View view, int position, long row_id)
+            {
+//                com_name=   statespinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
+                 Sdaysname = daysspinner.getSelectedItem().toString();
+//                Toast.makeText(getContext(),"Id   " +Hdaysname , Toast.LENGTH_LONG).show();
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // DO Nothing here
+            }
+        });
+
+        nameFirm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View view, int position, long row_id)
+            {
+//                com_name=   statespinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
+                SnameFirm = nameFirm.getSelectedItem().toString();
+//                Toast.makeText(getContext(),"Id   " +SnameFirm , Toast.LENGTH_LONG).show();
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // DO Nothing here
+            }
+        });
+
+        nameParty.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View view, int position, long row_id)
+            {
+//                com_name=   statespinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
+                SnameParty = nameParty.getSelectedItem().toString();
+//                Toast.makeText(getContext(),"Id   " +SnameParty , Toast.LENGTH_LONG).show();
 
             }
             @Override
@@ -103,10 +186,40 @@ public class DistributorFragment extends Fragment {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragment = new NextDistributorFragment();
-                fragmentTransaction.replace(R.id.container, fragment).addToBackStack(null).commit();
+
+                GetValueFromEditText();
+
+                FragmentTransaction transection=getFragmentManager().beginTransaction();
+                NextDistributorFragment mfragment=new NextDistributorFragment();
+
+                Bundle bundle=new Bundle();
+                bundle.putString("Hdate",Hdate);
+                bundle.putString("HnameFirm",HnameFirm+" "+Hiname);
+                bundle.putString("Hiaddress",Hiaddress);
+                bundle.putString("Hicity",Hicity);
+                bundle.putString("Hipincode",Hipincode);
+                bundle.putString("Hidistrict",Hidistrict);
+                bundle.putString("Hiemail",Hiemail);
+                bundle.putString("Hilandline",Hilandline);
+                bundle.putString("Himobileno",Himobileno);
+                bundle.putString("HiFpan_no",HiFpan_no);
+                bundle.putString("HiGST_no",HiGST_no);
+                bundle.putString("HnameParty",HnameParty+" "+HiFparty_name);
+                bundle.putString("HiName_conPerson",HiName_conPerson);
+                bundle.putString("HiMobile_conPerson",HiMobile_conPerson);
+                bundle.putString("HiYearlyTarg",HiYearlyTarg);
+                bundle.putString("HiTrans_name",HiTrans_name);
+                bundle.putString("Hcompanyname",Hcompanyname);
+                bundle.putString("Hstateid",Hstateid);
+                bundle.putString("Hpartyname",Hpartyname);
+                bundle.putString("Hdaysname",Hdaysname);
+
+
+                mfragment.setArguments(bundle);
+
+                transection.replace(R.id.container, mfragment);
+                transection.addToBackStack(null).commit();
+
             }
         });
 
@@ -177,9 +290,14 @@ public class DistributorFragment extends Fragment {
     public void initialize()
     {
         next=(Button)rootview.findViewById(R.id.btn_next);
+
         spinner=(Spinner)rootview.findViewById(R.id.company_spinner);
         statespinner=(Spinner)rootview.findViewById(R.id.state_spinner);
         partyspinner=(Spinner)rootview.findViewById(R.id.natureoffirm_spinner);
+        daysspinner=(Spinner)rootview.findViewById(R.id.days_spinner);
+
+        nameFirm=(Spinner)rootview.findViewById(R.id.name_firm);
+        nameParty=(Spinner)rootview.findViewById(R.id.name_party);
 
         iname=(EditText)rootview.findViewById(R.id.input_name);
         iaddress=(EditText)rootview.findViewById(R.id.input_address);
@@ -198,6 +316,35 @@ public class DistributorFragment extends Fragment {
         iTrans_name=(EditText)rootview.findViewById(R.id.input_transportname);
 
 
+    }
+
+    public void GetValueFromEditText()
+    {
+        Hdate=cdate.getText().toString();
+
+        Hcompanyname=Scompanyname;
+        Hstateid=Sstateid;
+        Hpartyname=Spartyname;
+        Hdaysname=Sdaysname;
+
+        HnameFirm=SnameFirm;
+        HnameParty=SnameParty;
+
+        Hiname=iname.getText().toString();
+        Hiaddress=iaddress.getText().toString();
+        Hicity=icity.getText().toString();
+        Hipincode=ipincode.getText().toString();
+        Hidistrict=idistrict.getText().toString();
+        Hiemail=iemail.getText().toString();
+        Hilandline=ilandline.getText().toString();
+        Himobileno=imobileno.getText().toString();
+        HiFpan_no=iFpan_no.getText().toString();
+        HiGST_no=iGST_no.getText().toString();
+        HiFparty_name=iFparty_name.getText().toString();
+        HiName_conPerson=iName_conPerson.getText().toString();
+        HiMobile_conPerson=iMobile_conPerson.getText().toString();
+        HiYearlyTarg=iYearlyTarg.getText().toString();
+        HiTrans_name=iTrans_name.getText().toString();
     }
 
 
