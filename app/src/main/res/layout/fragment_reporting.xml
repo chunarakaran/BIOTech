@@ -65,24 +65,30 @@
                 android:hint="Enter Party Firm Name" />
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
+        <LinearLayout
             android:id="@+id/input_layout_address"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/input_address"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:background="@drawable/rect_text_edit"
-                android:hint="Address"
                 android:inputType="textMultiLine"
                 android:singleLine="true"
                 android:maxLines="5"
                 android:textSize="15dp" />
 
 
-        </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/input_layout_city"
@@ -191,18 +197,25 @@
                 android:hint="Email Address" />
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_nameofcontper"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/name_Cperson"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/spinnerItems" />
 
             <EditText
                 android:id="@+id/input_nameofcontper"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:hint="Name of Contact Person" />
-        </android.support.design.widget.TextInputLayout>
+                android:hint="Name of Contact Person"
+                android:singleLine="true" />
+
+        </LinearLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/input_layout_mobofcontper"
@@ -267,27 +280,48 @@
 
         <LinearLayout
             android:id="@+id/l1"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <android.support.design.widget.TextInputLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:id="@+id/input_layout_reason"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Reason"
+                    android:textStyle="bold"/>
 
                 <EditText
                     android:id="@+id/input_reason"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:background="@drawable/rect_text_edit"
-                    android:hint="Reason"
                     android:inputType="textMultiLine"
                     android:singleLine="true"
                     android:maxLines="5"
                     android:textSize="15dp" />
 
 
+            </LinearLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_Othbrandname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/input_Othbrandname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="Enter Distributer Name(Under Party)" />
             </android.support.design.widget.TextInputLayout>
+
 
         </LinearLayout>
 
@@ -297,18 +331,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_Othbrandname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/input_Othbrandname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:hint="Enter Distributer Name(Under Party)" />
-        </android.support.design.widget.TextInputLayout>
 
 
         <android.support.design.widget.TextInputLayout
@@ -351,24 +373,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <android.support.design.widget.TextInputLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:id="@+id/input_layout_reason2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Reason"
+                    android:textStyle="bold"/>
 
                 <EditText
                     android:id="@+id/input_reason2"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:background="@drawable/rect_text_edit"
-                    android:hint="Reason"
                     android:inputType="textMultiLine"
                     android:singleLine="true"
                     android:maxLines="5"
                     android:textSize="15dp" />
 
 
-            </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -378,35 +406,68 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <AutoCompleteTextView
+            <EditText
                 android:id="@+id/partno"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:hint="Enter Total Ltr" />
+                android:hint="Enter Part no" />
 
-
-            <AutoCompleteTextView
+            <EditText
                 android:id="@+id/qty"
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:hint="Enter Qty" />
-
-            <AutoCompleteTextView
+                android:paddingLeft="5dp"
+                android:hint="Qty" />
+            <EditText
                 android:id="@+id/ltr"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:hint="Total Ltr" />
+            <Button
+                android:id="@+id/add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Enter Total Ltr" />
+                android:text="Add"/>
 
         </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/input_layout_remark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Remark"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/input_remark"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@drawable/rect_text_edit"
+                    android:inputType="textMultiLine"
+                    android:singleLine="true"
+                    android:maxLines="5"
+                    android:textSize="15dp" />
+
+
+            </LinearLayout>
+
+
+
         </LinearLayout>
 
         <Button android:id="@+id/btn_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Submit"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorAccent"
             android:layout_marginTop="20dp"
             android:textColor="@android:color/white"/>
 

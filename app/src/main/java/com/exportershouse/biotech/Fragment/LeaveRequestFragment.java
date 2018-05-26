@@ -90,6 +90,7 @@ public class LeaveRequestFragment extends Fragment {
         rootview= inflater.inflate(R.layout.fragment_leaverequest, container, false);
 
         getActivity().setTitle("Leave Request");
+        ((MainActivity) getActivity()).hideBottomNavigationButton();
 
         // Progress dialog
         pDialog = new ProgressDialog(getActivity());

@@ -1,5 +1,6 @@
 package com.exportershouse.biotech.Fragment;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -46,6 +47,9 @@ public class DistributorFragment extends Fragment {
 
     View rootview;
 
+    private ProgressDialog pDialog;
+
+
     Spinner spinner,statespinner,partyspinner,daysspinner,nameFirm,nameParty;
     TextView cdate;
     
@@ -76,6 +80,10 @@ public class DistributorFragment extends Fragment {
 
         URL = getString(R.string.url);
 
+        // Progress dialog
+        pDialog = new ProgressDialog(getActivity());
+        pDialog.setCancelable(false);
+
         initialize();
 
 
@@ -103,9 +111,7 @@ public class DistributorFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> arg0, View view, int position, long row_id)
             {
-//                com_name=   statespinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
                 Sstateid = statedatalist.get(position).getId();
-//                Toast.makeText(getContext(),"Id   " +Hstateid , Toast.LENGTH_LONG).show();
 
             }
             @Override
@@ -247,6 +253,9 @@ public class DistributorFragment extends Fragment {
 
     private void loadState_SpinnerData(String url)
     {
+        pDialog.setMessage("Please Wait ...");
+        showDialog();
+
         RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
         StringRequest stringRequest=new StringRequest(Request.Method.GET, url+"api/view_state", new Response.Listener<String>() {
             @Override
@@ -273,6 +282,7 @@ public class DistributorFragment extends Fragment {
 
                     }
                     statespinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, list));
+                    hideDialog();
                 }catch (JSONException e){e.printStackTrace();}
             }
         }, new Response.ErrorListener() {
@@ -345,6 +355,16 @@ public class DistributorFragment extends Fragment {
         HiMobile_conPerson=iMobile_conPerson.getText().toString();
         HiYearlyTarg=iYearlyTarg.getText().toString();
         HiTrans_name=iTrans_name.getText().toString();
+    }
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 
 
