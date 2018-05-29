@@ -1,5 +1,6 @@
 package com.exportershouse.biotech.Fragment;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -111,6 +112,10 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
 
     String Huid,Hdate,Hday,Htime,HdistName,HpName,Haddress,Hcity,Hpincode,Hdistrict,Hstate,Houtlet,Hemail,HperName,HcoperMob,HcoperWA,Hbrand,HbrandReason,HotherBrand,HpartyOrder,HpartyReason,
             Hpartno,Hqty,Hltr,Hremark,HnameFirm;
+
+    String[] str = new String[10];
+    String[] str1 = new String[10];
+    String[] str2 = new String[10];
 
     //volley
     RequestQueue requestQueue;
@@ -332,7 +337,7 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
             public void onClick(View v) {
                 GetValueFromEditText();
 
-//                remark.setText(Hltr);
+//                remark.setText(Hpartno);
 //                Toast.makeText(getActivity(), Hpartno, Toast.LENGTH_LONG).show();
 
                 Add_report();
@@ -464,6 +469,7 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
         requestQueue.add(stringRequest);
     }
 
+    @SuppressLint("NewApi")
     public void GetValueFromEditText()
     {
         radioGroup = (RadioGroup)rootview.findViewById(R.id.radio);
@@ -520,19 +526,24 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
         String[] partno = new String[part.size()];
         for(int i = 0; i < part.size(); i++){
             partno[i]=part.get(i).getText().toString();
-            Hpartno=Arrays.toString(partno);
+            Hpartno=String.join(",",partno);
+
         }
+//        Hpartno=Arrays.toString(partno);
 
         String[] Qty = new String[qty.size()];
         for(int i = 0; i < qty.size(); i++){
             Qty[i]=qty.get(i).getText().toString();
-            Hqty=Arrays.toString(Qty);
+//            Hqty=Arrays.toString(Qty);
+            Hqty=String.join(",",Qty);
+
         }
 
         String[] Ltr = new String[TotalLtr.size()];
         for(int i = 0; i < TotalLtr.size(); i++){
             Ltr[i]=TotalLtr.get(i).getText().toString();
-            Hltr=Arrays.toString(Ltr);
+//            Hltr=Arrays.toString(Ltr);
+            Hltr=String.join(",",Ltr);
         }
 
 
@@ -608,9 +619,9 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
                 params.put("used_our_brand", Hbrand);
                 params.put("party_order", HpartyOrder);
 
-//                params.put("part_no", Hpartno);
-//                params.put("qty", Hqty);
-//                params.put("total_ltr", Hltr);
+                params.put("part_no", Hpartno);
+                params.put("qty",Hqty);
+                params.put("total_ltr",Hltr);
 
                 return params;
             }
