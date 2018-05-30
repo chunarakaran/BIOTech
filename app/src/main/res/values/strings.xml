@@ -9,6 +9,9 @@
 
     <string name="url">http://biotechautomfg.com/</string>
 
+    <string name="url1">http://192.168.1.207/comp_admin/public/</string>
+    <string name="img_url">http://192.168.1.207/comp_admin/public</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
