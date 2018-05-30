@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
@@ -18,15 +17,15 @@ import java.util.List;
  * Created by Juned on 2/8/2017.
  */
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+public class RecyclerViewAdapter1 extends RecyclerView.Adapter<RecyclerViewAdapter1.ViewHolder> {
 
     Context context;
 
-    List<DataAdapter> dataAdapters;
+    List<DataAdapter1> dataAdapters;
 
     ImageLoader imageLoader;
 
-    public RecyclerViewAdapter(List<DataAdapter> getDataAdapter, Context context){
+    public RecyclerViewAdapter1(List<DataAdapter1> getDataAdapter, Context context){
 
         super();
         this.dataAdapters = getDataAdapter;
@@ -37,7 +36,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
 //        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview, parent, false);
-         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.leave_status_view, parent, false);
+         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.order_status_view, parent, false);
 
 
         ViewHolder viewHolder = new ViewHolder(view);
@@ -48,14 +47,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(ViewHolder Viewholder, int position) {
 
-        DataAdapter dataAdapterOBJ =  dataAdapters.get(position);
+        DataAdapter1 dataAdapterOBJ =  dataAdapters.get(position);
 
 
-        Viewholder.ImageTitleTextView.setText(dataAdapterOBJ.getImageTitle());
+        Viewholder.PartyName.setText(dataAdapterOBJ.getPartyName());
 
-        Viewholder.Question_content.setText("From "+dataAdapterOBJ.getFrom_Date()+" To "+dataAdapterOBJ.getTo_Date());
+        Viewholder.Odate.setText(dataAdapterOBJ.getOdate());
 
-        Viewholder.Status.setText(dataAdapterOBJ.getLeaveStatus());
+        Viewholder.OrderNo.setText(dataAdapterOBJ.getOrderNo());
 
 
 
@@ -72,7 +71,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
 
-        public TextView ImageTitleTextView,Question_content,Status;
+        public TextView PartyName,Odate,OrderNo;
         public NetworkImageView VollyImageView;
 
 
@@ -80,10 +79,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
             super(itemView);
 
-            ImageTitleTextView = (TextView) itemView.findViewById(R.id.Question_title) ;
-            Question_content = (TextView) itemView.findViewById(R.id.Question_content) ;
-            Status = (TextView) itemView.findViewById(R.id.status) ;
-
+            PartyName = (TextView) itemView.findViewById(R.id.party_name) ;
+            Odate = (TextView) itemView.findViewById(R.id.date) ;
+            OrderNo = (TextView) itemView.findViewById(R.id.order_no) ;
 
         }
 

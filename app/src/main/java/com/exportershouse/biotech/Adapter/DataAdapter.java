@@ -10,7 +10,7 @@ public class DataAdapter
 
     public String From_Date;
     public String To_Date;
-    public String price;
+    public String Status;
 
     public String getId() {
 
@@ -46,6 +46,14 @@ public class DataAdapter
 
     public void setTo_Date(String to_Date){
         this.To_Date=to_Date;
+    }
+
+    public String getLeaveStatus(){
+        return Status;
+    }
+
+    public void setLeaveStatus(String status){
+        this.Status=status;
     }
 
 

@@ -50,7 +50,7 @@ public class LeaveStatusFragment extends Fragment {
 
 
     private SwipeRefreshLayout swipeLayout;
-    View view;
+
 
 
     List<DataAdapter> ListOfdataAdapter;
@@ -228,6 +228,7 @@ public class LeaveStatusFragment extends Fragment {
                         GetDataAdapter2.setImageTitle(jsonObject1.getString("leave_type"));
                         GetDataAdapter2.setFrom_Date(jsonObject1.getString("from_date"));
                         GetDataAdapter2.setTo_Date(jsonObject1.getString("to_date"));
+                        GetDataAdapter2.setLeaveStatus(jsonObject1.getString("leave_status"));
 
                         Leaveid.add(GetDataAdapter2);
 
