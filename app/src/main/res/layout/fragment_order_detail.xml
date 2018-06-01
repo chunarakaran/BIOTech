@@ -1,132 +1,277 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="wolfsoft.com.ordersummary.MainActivity"
+    android:background="@drawable/od1"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:orientation="vertical"
-        android:background="@drawable/boarder"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:layout_height="match_parent"
+        android:gravity="center"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        >
 
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
-                android:text="Order No"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"/>
+        <FrameLayout
+            android:layout_width="299dp"
+            android:layout_height="450dp"
+            android:background="@drawable/od">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/order_no"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:text="Order No"
-                android:textColor="#000"/>
-        </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ordersummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginLeft="49dp"
+                    >
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/order1"
+                        />
+                    <customfonts.MyTextView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ORDER SUMMARY"
+                        android:textColor="@color/textwhite"
+                        android:textSize="17dp"
+                        android:gravity="center"
+                        android:layout_marginLeft="16dp"
+                        />
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
-                android:text="Order Date"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"/>
 
-            <TextView
-                android:id="@+id/date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:text="Date"
-                android:textColor="#000"/>
-        </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ordernumber"
+                    android:layout_below="@+id/ordersummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="26dp"
+                    >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+                    <customfonts.MyTextView
+                        android:layout_weight="0.8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Your order no.:"
+                        android:textColor="@color/text"
+                        android:textSize="16dp"
+                        android:gravity="right"
+                        android:layout_gravity="center"
+                        />
 
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
-                android:text="Party Name"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"/>
+                    <customfonts.MyTextView
+                        android:id="@+id/order_no"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="#4343"
+                        android:textColor="@color/textred"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="6dp"
+                        android:gravity="left"
+                        android:layout_gravity="center"
+                        />
 
-            <TextView
-                android:id="@+id/party_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:text="Party Name"
-                android:textColor="#000"/>
-        </LinearLayout>
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+                <View
+                    android:id="@+id/div1"
+                    android:layout_below="@+id/ordernumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:background="@color/div"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    ></View>
 
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
-                android:text="City"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"/>
 
-            <TextView
-                android:id="@+id/city"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:text="City"
-                android:textColor="#000"/>
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
-                android:text="Total Case"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"/>
+                <LinearLayout
+                    android:id="@+id/date"
+                    android:layout_below="@+id/div1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="55dp"
+                    >
 
-            <TextView
-                android:id="@+id/total_case"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:text="Total Case"
-                android:textColor="#000"/>
-        </LinearLayout>
+
+                    <ImageView
+
+                        android:layout_width="45dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/date"
+                        android:layout_gravity="right"
+                        />
+                    <customfonts.MyTextView
+                        android:id="@+id/date1"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="May 14, 2016"
+                        android:textColor="@color/textred"
+                        android:textSize="21dp"
+                        android:layout_marginLeft="6dp"
+                        android:gravity="left"
+                        android:layout_gravity="center"
+                        tools:ignore="DuplicateIds" />
+
+                </LinearLayout>
+
+
+                <View
+                    android:id="@+id/div3"
+                    android:layout_below="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:background="@color/div"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    ></View>
+
+
+                <LinearLayout
+                    android:id="@+id/items"
+                    android:layout_below="@+id/div3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="5dp"
+                        >
+
+                        <customfonts.MyTextView
+                            android:layout_marginTop="16dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/pname"
+                            android:text="Party Name"
+                            android:textSize="17dp"
+                            android:textColor="@color/text"
+                            android:drawablePadding="10dp"
+                            />
+
+                        <customfonts.MyTextView
+                            android:layout_marginTop="16dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/city"
+                            android:text="City"
+                            android:textSize="17dp"
+                            android:textColor="@color/text"
+                            android:drawablePadding="10dp"
+                            />
+
+                        <customfonts.MyTextView
+                            android:layout_marginTop="16dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/total"
+                            android:text="Total Case"
+                            android:textSize="17dp"
+                            android:textColor="@color/text"
+                            android:drawablePadding="10dp"
+                            />
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_weight="2"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+
+                        <customfonts.MyTextView
+                            android:id="@+id/party_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Shrama Brothers"
+                            android:textSize="17dp"
+                            android:textColor="@color/textred"
+
+                            />
+
+                        <customfonts.MyTextView
+                            android:id="@+id/city"
+                            android:layout_marginTop="16dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Rajkot"
+                            android:textSize="17dp"
+                            android:textColor="@color/textred"
+
+                            />
+
+                        <customfonts.MyTextView
+                            android:id="@+id/total_case"
+                            android:layout_marginTop="16dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="250"
+                            android:textSize="17dp"
+                            android:textColor="@color/textred"
+
+                            />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+                <View
+                    android:id="@+id/div4"
+                    android:layout_below="@+id/items"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:background="@color/div"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    ></View>
+
+
+
+
+
+            </RelativeLayout>
+        </FrameLayout>
+
 
 
 
     </LinearLayout>
+
 </RelativeLayout>

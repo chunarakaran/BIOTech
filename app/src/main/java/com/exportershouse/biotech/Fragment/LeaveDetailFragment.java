@@ -27,6 +27,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import customfonts.MyTextView;
+
 /**
  * Created by Shrey on 24-04-2018.
  */
@@ -40,7 +42,9 @@ public class LeaveDetailFragment extends Fragment {
 
     String Leaveid;
 
-    TextView Leavetpe,date,status,Remark;
+    MyTextView Leavetpe,From_date,To_date,status,Remark;
+
+//    TextView Leavetpe,date,status,Remark;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,10 +61,11 @@ public class LeaveDetailFragment extends Fragment {
         String Url = getResources().getString(R.string.url);
 
 
-        Leavetpe=(TextView)rootview.findViewById(R.id.leave_type);
-        date=(TextView)rootview.findViewById(R.id.date);
-        status=(TextView)rootview.findViewById(R.id.status);
-        Remark=(TextView)rootview.findViewById(R.id.remark);
+        Leavetpe=(MyTextView) rootview.findViewById(R.id.leave_type);
+        From_date=(MyTextView) rootview.findViewById(R.id.from_date);
+        To_date=(MyTextView) rootview.findViewById(R.id.to_date);
+        status=(MyTextView) rootview.findViewById(R.id.status);
+        Remark=(MyTextView) rootview.findViewById(R.id.remark);
 
         Bundle bundle=getArguments();
         Leaveid=String.valueOf(bundle.getString("leaveid"));
@@ -121,7 +126,8 @@ public class LeaveDetailFragment extends Fragment {
                         Sremark=jsonObject1.getString("remark");
 
                         Leavetpe.setText(leavetype.toString());
-                        date.setText(Fromdate.toString()+" To "+Todate.toString());
+                        From_date.setText(Fromdate.toString());
+                        To_date.setText(Todate.toString());
                         status.setText(Sstatus.toString());
                         Remark.setText(Sremark.toString());
 

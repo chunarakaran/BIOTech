@@ -24,6 +24,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import customfonts.MyTextView;
+
 /**
  * Created by Shrey on 24-04-2018.
  */
@@ -37,7 +43,8 @@ public class OrderDetailFragment extends Fragment {
 
     String Orderid;
 
-    TextView order_no,date,party_name,city,total_case;
+    MyTextView textView,order_no,date,party_name,city,total_case;
+//    TextView order_no,date,party_name,city,total_case;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -54,11 +61,11 @@ public class OrderDetailFragment extends Fragment {
         String Url = getResources().getString(R.string.url);
 
 
-        order_no=(TextView)rootview.findViewById(R.id.order_no);
-        date=(TextView)rootview.findViewById(R.id.date);
-        party_name=(TextView)rootview.findViewById(R.id.party_name);
-        city=(TextView)rootview.findViewById(R.id.city);
-        total_case=(TextView)rootview.findViewById(R.id.total_case);
+        order_no=(MyTextView) rootview.findViewById(R.id.order_no);
+        date=(MyTextView) rootview.findViewById(R.id.date1);
+        party_name=(MyTextView) rootview.findViewById(R.id.party_name);
+        city=(MyTextView) rootview.findViewById(R.id.city);
+        total_case=(MyTextView) rootview.findViewById(R.id.total_case);
 
         Bundle bundle=getArguments();
         Orderid=String.valueOf(bundle.getString("orderid"));
@@ -101,6 +108,7 @@ public class OrderDetailFragment extends Fragment {
         StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
                 try{
                     JSONObject jsonObject=new JSONObject(response);
                     JSONArray jsonArray=jsonObject.getJSONArray("view_order_detail");
@@ -117,6 +125,15 @@ public class OrderDetailFragment extends Fragment {
                         Sparty_name=jsonObject1.getString("party_name");
                         Scity=jsonObject1.getString("city");
                         Stotal_case=jsonObject1.getString("total");
+
+
+//                        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+//                        try {
+//                            Date myDate = df.parse(Sdate);
+//                            date.setText(myDate.toString());
+//                        } catch (ParseException e) {
+//                            e.printStackTrace();
+//                        }
 
                         order_no.setText(Sorder_no.toString());
                         date.setText(Sdate.toString());

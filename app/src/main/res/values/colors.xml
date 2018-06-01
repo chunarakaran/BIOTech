@@ -10,4 +10,9 @@
     <color name="card_pressed">#4caf50</color>
     <color name="card_activated">#CFE9F3</color>
     <color name="card_foreground_activated">#99CFE9F3</color>
+
+    <color name="div">#d5c5a4</color>
+    <color name="text">#32353e</color>
+    <color name="textred">#ca362c</color>
+    <color name="textwhite">#fff</color>
 </resources>
