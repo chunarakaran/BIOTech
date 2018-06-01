@@ -18,6 +18,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.exportershouse.biotech.MainActivity;
 import com.exportershouse.biotech.R;
 
 import org.json.JSONArray;
@@ -53,6 +54,7 @@ public class OrderDetailFragment extends Fragment {
         rootview= inflater.inflate(R.layout.fragment_order_detail, container, false);
 
         getActivity().setTitle("Order Status");
+        ((MainActivity) getActivity()).hideBottomNavigationButton();
 
         // Progress dialog
         pDialog = new ProgressDialog(getActivity());

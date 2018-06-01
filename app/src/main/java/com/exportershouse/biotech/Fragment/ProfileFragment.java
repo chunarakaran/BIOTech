@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.exportershouse.biotech.MainActivity;
 import com.exportershouse.biotech.R;
 
 /**
@@ -23,6 +24,10 @@ public class ProfileFragment extends Fragment {
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
         rootview= inflater.inflate(R.layout.fragment_profile, container, false);
+
+        getActivity().setTitle("Profile");
+        ((MainActivity) getActivity()).hideBottomNavigationButton();
+
 
         rootview.setFocusableInTouchMode(true);
         rootview.requestFocus();

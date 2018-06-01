@@ -29,6 +29,7 @@ import com.android.volley.toolbox.Volley;
 import com.exportershouse.biotech.Adapter.DataAdapter;
 import com.exportershouse.biotech.Adapter.GetStateDataAdapter;
 import com.exportershouse.biotech.Adapter.RecyclerViewAdapter;
+import com.exportershouse.biotech.MainActivity;
 import com.exportershouse.biotech.R;
 
 import org.json.JSONArray;
@@ -80,6 +81,7 @@ public class LeaveStatusFragment extends Fragment {
         User_id = sp.getString("User", "");
 
         getActivity().setTitle("Leave Status");
+        ((MainActivity) getActivity()).hideBottomNavigationButton();
 
         // Progress dialog
         pDialog = new ProgressDialog(getActivity());

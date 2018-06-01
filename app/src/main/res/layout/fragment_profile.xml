@@ -238,10 +238,8 @@
                 android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="#1b193b"
-                android:inputType="textPassword"
-                android:hint="*********"
-                android:textColor="#181737"
+                android:text="Change"
+                android:textColor="#304ffe"
                 android:maxLength="12"
                 android:background="#0000"
                 android:padding="16dp"
@@ -267,7 +265,7 @@
                 android:textSize="21dp"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:text="Facebook"
+                android:text="Gender"
                 android:textColor="#a2a1b8"
                 android:maxLength="12"
                 android:background="#0000"
@@ -275,24 +273,21 @@
                 android:gravity="left"
                 />
 
-            <Switch
+            <customfonts.MyTextView
                 android:layout_weight="1"
-                android:id="@+id/switch1"
+                android:id="@+id/gender"
+                android:textSize="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="#1b193b"
+                android:hint="Male"
+                android:textColor="#181737"
+                android:maxLength="12"
+                android:background="#0000"
                 android:padding="16dp"
-                android:gravity="left"
+                android:gravity="right"
                 />
 
-            <!--<ToggleButton-->
-            <!--android:id="@+id/ToggleButton1"-->
-            <!--android:layout_width="120dp"-->
-            <!--android:layout_height="32dp"-->
-            <!--android:paddingLeft="20dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:background="@drawable/toogle_switch"-->
-
-            <!--/>-->
         </LinearLayout>
 
         <View

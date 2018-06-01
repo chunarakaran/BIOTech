@@ -29,6 +29,7 @@ import com.exportershouse.biotech.Adapter.DataAdapter;
 import com.exportershouse.biotech.Adapter.DataAdapter1;
 import com.exportershouse.biotech.Adapter.RecyclerViewAdapter;
 import com.exportershouse.biotech.Adapter.RecyclerViewAdapter1;
+import com.exportershouse.biotech.MainActivity;
 import com.exportershouse.biotech.R;
 
 import org.json.JSONArray;
@@ -81,6 +82,7 @@ public class OrderStatusFragment extends Fragment {
         User_id = sp.getString("User", "");
 
         getActivity().setTitle("Order Status");
+        ((MainActivity) getActivity()).hideBottomNavigationButton();
 
         // Progress dialog
         pDialog = new ProgressDialog(getActivity());

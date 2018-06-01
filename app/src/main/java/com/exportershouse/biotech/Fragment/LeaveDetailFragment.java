@@ -21,6 +21,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.exportershouse.biotech.Adapter.DataAdapter;
 import com.exportershouse.biotech.Adapter.RecyclerViewAdapter;
+import com.exportershouse.biotech.MainActivity;
 import com.exportershouse.biotech.R;
 
 import org.json.JSONArray;
@@ -53,6 +54,7 @@ public class LeaveDetailFragment extends Fragment {
         rootview= inflater.inflate(R.layout.fragment_leavedetail, container, false);
 
         getActivity().setTitle("Leave Status");
+        ((MainActivity) getActivity()).hideBottomNavigationButton();
 
         // Progress dialog
         pDialog = new ProgressDialog(getActivity());
