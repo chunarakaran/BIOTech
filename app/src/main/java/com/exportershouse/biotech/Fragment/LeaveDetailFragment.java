@@ -133,8 +133,10 @@ public class LeaveDetailFragment extends Fragment {
                         status.setText(Sstatus.toString());
                         Remark.setText(Sremark.toString());
 
-                        if (Sstatus.toString()=="yes") {
-                            status.setTextColor(Color.parseColor("#4caf50"));
+                        if (jsonObject1.getString("leave_status").equalsIgnoreCase("Aprroved")) {
+                            status.setTextColor(Color.GREEN);
+                        } else {
+                            status.setTextColor(Color.RED);
                         }
 
 

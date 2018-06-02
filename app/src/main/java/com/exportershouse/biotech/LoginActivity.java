@@ -161,11 +161,13 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     user_id.setError("User-id does not exist");
                     user_password.setText("");
+                    hideDialog();
                 }
                 else if(response.equalsIgnoreCase("false"))
                 {
                     user_password.setError("Incorrect password");
                     user_password.setText("");
+                    hideDialog();
                 }
                 else
                 {

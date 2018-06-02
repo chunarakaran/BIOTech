@@ -24,6 +24,8 @@ allprojects {
 
         mavenCentral()
         mavenLocal()
+
+
     }
 }
 

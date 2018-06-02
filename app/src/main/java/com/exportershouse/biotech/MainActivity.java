@@ -1,5 +1,6 @@
 package com.exportershouse.biotech;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,6 +21,8 @@ import com.exportershouse.biotech.Fragment.DashboardFragment;
 import com.exportershouse.biotech.Fragment.LeaveStatusFragment;
 import com.exportershouse.biotech.Fragment.OrderStatusFragment;
 import com.exportershouse.biotech.Fragment.ProfileFragment;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -85,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         if (!session.isLoggedIn()) {
             logoutUser();
         }
+
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

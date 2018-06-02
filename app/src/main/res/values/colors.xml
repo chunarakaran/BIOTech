@@ -15,4 +15,20 @@
     <color name="text">#32353e</color>
     <color name="textred">#ca362c</color>
     <color name="textwhite">#fff</color>
+
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+
+
+    <color name="title_color">#000</color>
+    <color name="edit_profile">#5F76BF</color>
+    <color name="bottom_black_bgcolor">#90000000</color>
+
+    <color name="colorTextBlack">#333333</color>
+    <color name="colorTextHint">#e1e1e1</color>
+    <color name="colorTextInfo">#9b9b9b</color>
+    <color name="colorGreen">#A5DE40</color>
+
+
 </resources>

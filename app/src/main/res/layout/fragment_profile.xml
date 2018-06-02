@@ -1,61 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+<ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="ws.wolfsoft.livo.MainActivity">
+    android:layout_height="wrap_content">
 
-
-
-
-
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/linear"
+        android:orientation="vertical"
+        android:background="#fff">
 
-        >
 
-        <ImageView
+
+
+
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/bg1"
-            android:scaleType="centerCrop"
-            android:layout_marginBottom="25dp"
-            />
+            android:layout_height="250dp"
+            android:background="#fff">
+
+
+            <!-- Cover Image -->
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg1" />
+
+
+
+            <!-- Round image -->
+
+            <com.alexzh.circleimageview.CircleImageView
+                android:id="@+id/banar1"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:src="@drawable/pro2"
+                android:layout_marginTop="75dp"
+                android:layout_gravity="center"
+                app:view_borderWidth="2dp"
+                app:view_borderColor="#cccccc" />
+
+
+        </FrameLayout>
 
         <LinearLayout
+            android:id="@+id/linear"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:gravity="top"
-            android:padding="16dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true">
 
 
-            <customfonts.MyTextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Profile"
-                android:textColor="#fff"
-                android:textSize="20dp"
-                android:gravity="center"
-                />
+                android:orientation="horizontal"
+                >
 
 
+                <customfonts.MyTextView
+                    android:layout_weight="1"
+                    android:id="@+id/username1"
+                    android:textSize="21dp"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:text="Username"
+                    android:textColor="#a2a1b8"
+                    android:maxLength="12"
+                    android:background="#0000"
+                    android:padding="16dp"
+                    android:gravity="left"
+                    />
 
 
+                <customfonts.MyTextView
+                    android:layout_weight="1"
+                    android:id="@+id/username"
+                    android:textSize="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Karan Chunara"
+                    android:textColorHint="#181737"
+                    android:textColor="#181737"
+                    android:background="#0000"
+                    android:padding="16dp"
+                    android:gravity="right"
+                    />
+            </LinearLayout>
 
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="bottom">
-
-
-
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#dad8d8"/>
 
 
 
@@ -67,316 +113,223 @@
                 >
 
 
-                <LinearLayout
+
+                <customfonts.MyTextView
                     android:layout_weight="1"
+                    android:id="@+id/emil"
+                    android:textSize="21dp"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textColor="#a2a1b8"
+                    android:maxLength="12"
+                    android:background="#0000"
+                    android:padding="16dp"
+                    android:gravity="left"/>
+
+
+                <customfonts.MyTextView
+                    android:layout_weight="1"
+                    android:id="@+id/email1"
+                    android:textSize="16dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="20dp"
-                    >
+                    android:layout_height="wrap_content"
+                    android:text="chunarakaran@gmail.com"
+                    android:textColor="#181737"
+                    android:background="#0000"
+                    android:padding="16dp"
+                    android:gravity="right"
+                    />
+            </LinearLayout>
 
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#dad8d8"/>
 
-                </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/userimg"
 
-                    android:gravity="bottom"
+                <customfonts.MyTextView
+                    android:layout_weight="1"
+                    android:id="@+id/password"
+                    android:textSize="21dp"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:text="Password"
+                    android:textColor="#a2a1b8"
+                    android:maxLength="12"
+                    android:background="#0000"
+                    android:padding="16dp"
+                    android:gravity="left"
+                    />
 
+                <customfonts.MyTextView
+                    android:layout_weight="1"
+                    android:id="@+id/pass1"
+                    android:textSize="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Change"
+                    android:textColor="#304ffe"
+                    android:maxLength="12"
+                    android:background="#0000"
+                    android:padding="16dp"
+                    android:gravity="right"
+                    />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#dad8d8"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <customfonts.MyTextView
+                    android:layout_weight="1"
+                    android:id="@+id/facebook"
+                    android:textSize="21dp"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:text="Gender"
+                    android:textColor="#a2a1b8"
+                    android:maxLength="12"
+                    android:background="#0000"
+                    android:padding="16dp"
+                    android:gravity="left"
+                    />
+
+                <customfonts.MyTextView
+                    android:layout_weight="1"
+                    android:id="@+id/gender"
+                    android:textSize="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#1b193b"
+                    android:hint="Male"
+                    android:textColor="#181737"
+                    android:maxLength="12"
+                    android:background="#0000"
+                    android:padding="16dp"
+                    android:gravity="right"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#dad8d8"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <customfonts.MyTextView
+                    android:layout_weight="1"
+                    android:id="@+id/twitter"
+                    android:textSize="21dp"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:text="Twitter"
+                    android:textColor="#a2a1b8"
+                    android:maxLength="12"
+                    android:background="#0000"
+                    android:padding="16dp"
+                    android:gravity="left"
                     />
 
 
-
-                <LinearLayout
+                <Switch
                     android:layout_weight="1"
+                    android:id="@+id/switch2"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="20dp"
-                    >
-
-
-
-
-
-
-                </LinearLayout>
-
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:gravity="left"
+                    />
 
 
             </LinearLayout>
-        </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#dad8d8" />
 
 
-    </FrameLayout>
-
-    <LinearLayout
-        android:id="@+id/linear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/username"
-                android:textSize="21dp"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:text="Username"
-                android:textColor="#a2a1b8"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"
-                />
-
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/username1"
-                android:textSize="16dp"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Jay patel"
-                android:textColorHint="#181737"
-                android:textColor="#181737"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="right"
-                />
+                android:orientation="horizontal"
+                >
+
+                <customfonts.MyTextView
+                    android:layout_weight="1"
+                    android:id="@+id/google"
+                    android:textSize="21dp"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:text="Google+"
+                    android:textColor="#a2a1b8"
+                    android:maxLength="12"
+                    android:background="#0000"
+                    android:padding="16dp"
+                    android:gravity="left"
+                    />
+
+                <customfonts.MyTextView
+                    android:layout_weight="1"
+                    android:id="@+id/google1"
+                    android:textSize="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="connected"
+                    android:textColorHint="#181737"
+                    android:maxLength="12"
+                    android:background="#0000"
+                    android:padding="16dp"
+                    android:gravity="right"
+                    />
+            </LinearLayout>
+
+
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dad8d8"/>
-
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/emil"
-                android:textSize="21dp"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:text="Email"
-                android:textColor="#a2a1b8"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"/>
-
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/email1"
-                android:textSize="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="#1b193b"
-                android:hint="chunarakran@gmail.com"
-                android:textColor="#181737"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="right"
-                />
-        </LinearLayout>
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dad8d8"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/password"
-                android:textSize="21dp"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:text="Password"
-                android:textColor="#a2a1b8"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"
-                />
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/pass1"
-                android:textSize="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Change"
-                android:textColor="#304ffe"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="right"
-                />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dad8d8"/>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/facebook"
-                android:textSize="21dp"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:text="Gender"
-                android:textColor="#a2a1b8"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"
-                />
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/gender"
-                android:textSize="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="#1b193b"
-                android:hint="Male"
-                android:textColor="#181737"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="right"
-                />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dad8d8"/>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/twitter"
-                android:textSize="21dp"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:text="Twitter"
-                android:textColor="#a2a1b8"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"
-                />
-
-
-            <Switch
-                android:layout_weight="1"
-                android:id="@+id/switch2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:gravity="left"
-                />
-
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dad8d8" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/google"
-                android:textSize="21dp"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:text="Google+"
-                android:textColor="#a2a1b8"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"
-                />
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/google1"
-                android:textSize="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="connected"
-                android:textColorHint="#181737"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="right"
-                />
-        </LinearLayout>
-
-
-
-
-
-
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="EDIT PROFILE"
+            android:textColor="@color/edit_profile"
+            android:textAlignment="center"
+            android:background="@drawable/rounded"
+            android:layout_marginTop="10dp"
+            android:padding="10dp" />
 
     </LinearLayout>
 
 
+
+</ScrollView>
+
+
 </RelativeLayout>
+
+
+
