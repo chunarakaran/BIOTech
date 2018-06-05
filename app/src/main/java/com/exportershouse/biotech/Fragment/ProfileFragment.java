@@ -9,6 +9,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Shader;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.alexzh.circleimageview.CircleImageView;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -28,6 +30,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.exportershouse.biotech.MainActivity;
 import com.exportershouse.biotech.R;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,7 +48,9 @@ public class ProfileFragment extends Fragment {
 
     private ProgressDialog pDialog;
 
-    MyTextView Name,Email;
+    MyTextView Name,Email,Gender;
+
+    CircleImageView profile;
 
     String User_id;
     public static final String PREFS_NAME = "login";
@@ -63,8 +68,10 @@ public class ProfileFragment extends Fragment {
         getActivity().setTitle("Profile");
         ((MainActivity) getActivity()).hideBottomNavigationButton();
 
+        profile=(CircleImageView)rootview.findViewById(R.id.banar1);
         Name=(MyTextView)rootview.findViewById(R.id.username);
         Email=(MyTextView)rootview.findViewById(R.id.email1);
+        Gender=(MyTextView)rootview.findViewById(R.id.gender);
 
         // Progress dialog
         pDialog = new ProgressDialog(getActivity());
@@ -78,8 +85,9 @@ public class ProfileFragment extends Fragment {
         JSON_HTTP_CALL(HTTP_JSON_URL);
 
 
+
         Bitmap bitmap= BitmapFactory.decodeResource(this.getResources(),
-                R.drawable.pro2);
+                R.drawable.profile1);
 
         ImageView imgv = (ImageView)rootview.findViewById(R.id.banar1);
 
@@ -134,14 +142,21 @@ public class ProfileFragment extends Fragment {
 
                         JSONObject jsonObject1=jsonArray.getJSONObject(i);
 
-                        String name,email,Fromdate,Todate,Sstatus,Sremark;
+                        String name,email,gender,Todate,Sstatus,Sremark;
+
+                        String base_url = getString(R.string.url);
+                        String img_path = base_url+jsonObject1.getString("emp_image");
 
                         jsonObject1.getString("id");
                         name=jsonObject1.getString("name");
                         email=jsonObject1.getString("email");
+                        gender=jsonObject1.getString("gender");
 
+
+                        Picasso.with(getContext()).load(img_path).into(profile);
                         Name.setText(name);
                         Email.setText(email);
+                        Gender.setText(gender);
 
 
                     }

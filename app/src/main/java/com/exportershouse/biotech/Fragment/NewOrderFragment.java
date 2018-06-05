@@ -31,7 +31,6 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.exportershouse.biotech.Adapter.AutoCompleteAdapter;
 import com.exportershouse.biotech.Adapter.GetBrandDataAdapter;
 import com.exportershouse.biotech.Adapter.GetColorDataAdapter;
 import com.exportershouse.biotech.Adapter.GetOrderDataAdapter;
@@ -51,7 +50,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import at.markushi.ui.CircleButton;
 
 /**
  * Created by Shrey on 24-04-2018.
@@ -63,15 +67,43 @@ public class NewOrderFragment extends Fragment {
 
     private ProgressDialog pDialog;
 
+    CircleButton ad,delete;
+
     Button add,submit,edit;
     LinearLayout Layout1,Layout2;
     TextInputLayout t1;
 
-    Spinner brand_spinner,color_spinner,partno_spinner;
+    Spinner brand_spinner,color_spinner,partno_spinner,Test;
     final ArrayList<GetBrandDataAdapter> datalist = new ArrayList<GetBrandDataAdapter>();
     final ArrayList<GetColorDataAdapter> datalist1 = new ArrayList<>();
     final ArrayList<GetPartnoDataAdapter> datalist2 = new ArrayList<>();
     final ArrayList<GetOrderDataAdapter> datalist3 = new ArrayList<>();
+
+
+    public ArrayList<String> color_list = new ArrayList<>();
+    public ArrayList<String> part_list = new ArrayList<>();
+
+
+    private LinearLayout mLayout;
+    int k = -1;
+    int flag;
+    public static Spinner colorSpinner[] = new Spinner[100];
+    public List<Spinner> color_array = new ArrayList<Spinner>();
+
+    private LinearLayout  mLayout1;
+    int k1 = -1;
+    int flag1;
+    public static Spinner partSpinner[] = new Spinner[100];
+    public List<Spinner> part_array = new ArrayList<Spinner>();
+
+    private LinearLayout  mLayout2;
+    int k2 = -1;
+    int flag2;
+    public static EditText textView1[] = new EditText[100];
+    public List<EditText> qty = new ArrayList<EditText>();
+
+
+
 
 
 
@@ -138,6 +170,8 @@ public class NewOrderFragment extends Fragment {
 
         getActivity().setTitle("New Order");
         ((MainActivity) getActivity()).hideBottomNavigationButton();
+
+        initialize();
 
 
         //Getting the instance of AutoCompleteTextView
@@ -241,22 +275,26 @@ public class NewOrderFragment extends Fragment {
         color=new ArrayList<>();
         loadColorSpinnerData(URL);
 
-        color_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
-            {
-                color_name=   color_spinner.getItemAtPosition(color_spinner.getSelectedItemPosition()).toString();
-                color_id = datalist1.get(i).getId();
-//                Toast.makeText(getContext(),"Id   " +color_id , Toast.LENGTH_LONG).show();
-                loadPartnoSpinnerData(URL+"api/part?color_id="+color_id.toString());
+//        color_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+//            {
+//                color_name=   color_spinner.getItemAtPosition(color_spinner.getSelectedItemPosition()).toString();
+//                color_id = datalist1.get(i).getId();
+////                Toast.makeText(getContext(),"Id   " +color_id , Toast.LENGTH_LONG).show();
+//                loadPartnoSpinnerData(URL+"api/part?color_id="+color_id.toString());
+//
+//
+//            }
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//                // DO Nothing here
+//            }
+//        });
 
 
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                // DO Nothing here
-            }
-        });
+
+
 
         partno_spinner=(Spinner)rootview.findViewById(R.id.partno_spinner);
         partno=new ArrayList<>();
@@ -277,9 +315,10 @@ public class NewOrderFragment extends Fragment {
 
         orderno=(TextView)rootview.findViewById(R.id.order_no);
         loadOrdernoData(URL);
-//        orderno.setText(Order_no);
 
         loadOrderData(URL);
+
+
 
 
         Date c = Calendar.getInstance().getTime();
@@ -291,6 +330,26 @@ public class NewOrderFragment extends Fragment {
         cdate.setText(formattedDate);
         sDate=formattedDate;
 
+
+        mLayout = (LinearLayout)rootview.findViewById(R.id.s1);
+        mLayout1 = (LinearLayout)rootview.findViewById(R.id.s2);
+        mLayout2 = (LinearLayout)rootview.findViewById(R.id.s3);
+
+        Add_controls();
+
+        ad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Add_controls();
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Delete_controls();
+            }
+        });
 
 
 
@@ -313,6 +372,99 @@ public class NewOrderFragment extends Fragment {
 
 
         return rootview;
+    }
+
+    public void initialize()
+    {
+        ad=(CircleButton) rootview.findViewById(R.id.ad);
+        delete=(CircleButton) rootview.findViewById(R.id.delete);
+    }
+
+    public void Add_controls()
+    {
+
+        try
+        {
+            k++;
+            flag=k;
+            final LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(300, LinearLayout.LayoutParams.WRAP_CONTENT);
+            lparams.setMargins(1, 20, 1, 0);
+            colorSpinner[flag] = new Spinner(getActivity());
+            colorSpinner[flag].setLayoutParams(lparams);
+            colorSpinner[flag].setId(flag);
+            colorSpinner[flag].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, color_list));
+
+
+            k1++;
+            flag1=k1;
+            final LinearLayout.LayoutParams lparams2 = new LinearLayout.LayoutParams(350, LinearLayout.LayoutParams.WRAP_CONTENT);
+            lparams2.setMargins(1, 20, 1, 0);
+            partSpinner[flag1] = new Spinner(getActivity());
+            partSpinner[flag1].setLayoutParams(lparams2);
+            partSpinner[flag1].setId(flag1);
+            partSpinner[flag1].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, part_list));
+
+
+//            k2++;
+//            flag2=k2;
+//            final LinearLayout.LayoutParams lparams1 = new LinearLayout.LayoutParams(130, LinearLayout.LayoutParams.WRAP_CONTENT);
+//            lparams1.setMargins(1, 20, 1, 0);
+//            textView1[flag2] = new EditText(getActivity());
+//            textView1[flag2].setLayoutParams(lparams1);
+//            textView1[flag2].setHint("Qty");
+//            textView1[flag2].setId(flag2);
+
+
+
+
+
+
+
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        mLayout.addView(colorSpinner[flag]);
+        mLayout1.addView(partSpinner[flag1]);
+//        mLayout2.addView(textView1[flag2]);
+
+
+        color_array.add(colorSpinner[flag]);
+        part_array.add(partSpinner[flag1]);
+//        qty.add(textView1[flag2]);
+
+        colorSpinner[flag].setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+            {
+//                color_name=   color_spinner.getItemAtPosition(color_spinner.getSelectedItemPosition()).toString();
+                color_id = datalist1.get(i).getId();
+//                Toast.makeText(getContext(),"Id   " +color_id , Toast.LENGTH_LONG).show();
+                loadPartnoSpinnerData(URL+"api/part?color_id="+color_id.toString());
+
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // DO Nothing here
+            }
+        });
+
+
+
+    }
+
+    public void Delete_controls()
+    {
+        mLayout.removeView(colorSpinner[flag]);
+        mLayout1.removeView(partSpinner[flag1]);
+//        mLayout2.removeView(textView1[flag2]);
+
+        color_array.remove(colorSpinner[flag]);
+        part_array.remove(partSpinner[flag1]);
+//        qty.remove(textView1[flag2]);
     }
 
     private void loadBrandSpinnerData(String url)
@@ -375,8 +527,8 @@ public class NewOrderFragment extends Fragment {
             @Override
             public void onResponse(String response) {
 
-                final ArrayList<String> list = new ArrayList<>();
-                list.clear();
+
+                color_list.clear();
                 try{
                     GetColorDataAdapter GetDatadp ;
                     JSONObject jsonObject=new JSONObject(response);
@@ -389,12 +541,13 @@ public class NewOrderFragment extends Fragment {
                         GetDatadp.setId(jsonObject1.getString("id"));
                         datalist1.add(GetDatadp);
 
-                        list.add(jsonObject1.getString("name"));
+                        color_list.add(jsonObject1.getString("name"));
 
                     }
 
 //                    actv.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, list));
-                    color_spinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, list));
+                    color_spinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, color_list));
+                    colorSpinner[flag].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, color_list));
                     hideDialog();
                 }catch (JSONException e){e.printStackTrace();}
             }
@@ -422,8 +575,8 @@ public class NewOrderFragment extends Fragment {
             @Override
             public void onResponse(String response) {
 
-                final ArrayList<String> list = new ArrayList<>();
-                list.clear();
+
+                part_list.clear();
                 try{
                     GetPartnoDataAdapter GetDatadp ;
                     JSONObject jsonObject=new JSONObject(response);
@@ -436,13 +589,12 @@ public class NewOrderFragment extends Fragment {
                         GetDatadp.setId(jsonObject1.getString("id"));
                         datalist2.add(GetDatadp);
 
-                        list.add(jsonObject1.getString("part_no"));
+                        part_list.add(jsonObject1.getString("part_no"));
 
-//                        String cat_name=jsonObject1.getString("part_no");
-//                        partno.add(cat_name);
                     }
 
-                    partno_spinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, list));
+                    partno_spinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, part_list));
+                    partSpinner[flag1].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, part_list));
                     hideDialog();
                 }catch (JSONException e){e.printStackTrace();}
             }
