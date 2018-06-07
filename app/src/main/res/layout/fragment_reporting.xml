@@ -320,7 +320,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
-                    android:hint="Enter Distributer Name(Under Party)" />
+                    android:hint="Enter Other Brand Name(With comma)" />
             </android.support.design.widget.TextInputLayout>
 
 

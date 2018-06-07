@@ -1,14 +1,18 @@
 package com.exportershouse.biotech.Fragment;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.pm.ActivityInfoCompat;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +37,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.exportershouse.biotech.Adapter.GetBrandDataAdapter;
 import com.exportershouse.biotech.Adapter.GetColorDataAdapter;
+import com.exportershouse.biotech.Adapter.GetLtrDataAdapter;
 import com.exportershouse.biotech.Adapter.GetOrderDataAdapter;
 import com.exportershouse.biotech.Adapter.GetPartnoDataAdapter;
 import com.exportershouse.biotech.Database.myDBClass;
@@ -78,10 +83,12 @@ public class NewOrderFragment extends Fragment {
     final ArrayList<GetColorDataAdapter> datalist1 = new ArrayList<>();
     final ArrayList<GetPartnoDataAdapter> datalist2 = new ArrayList<>();
     final ArrayList<GetOrderDataAdapter> datalist3 = new ArrayList<>();
+    final ArrayList<GetLtrDataAdapter> datalist4 = new ArrayList<>();
 
 
     public ArrayList<String> color_list = new ArrayList<>();
     public ArrayList<String> part_list = new ArrayList<>();
+    public ArrayList<String> ltr_list = new ArrayList<>();
 
 
     private LinearLayout mLayout;
@@ -101,6 +108,12 @@ public class NewOrderFragment extends Fragment {
     int flag2;
     public static EditText textView1[] = new EditText[100];
     public List<EditText> qty = new ArrayList<EditText>();
+
+    private LinearLayout  mLayout3;
+    int k3 = -1;
+    int flag3;
+    public static Spinner ltrSpinner[] = new Spinner[100];
+    public List<Spinner> ltr_array = new ArrayList<Spinner>();
 
 
 
@@ -170,6 +183,13 @@ public class NewOrderFragment extends Fragment {
 
         getActivity().setTitle("New Order");
         ((MainActivity) getActivity()).hideBottomNavigationButton();
+        // Fragment locked in landscape screen orientation
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        setRetainInstance(true);
+
+
+
+
 
         initialize();
 
@@ -182,8 +202,8 @@ public class NewOrderFragment extends Fragment {
       //  actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
         actv.setTextColor(Color.BLACK);
 
-        Qty = (EditText) rootview.findViewById(R.id.input_Qty);
-        Ltr = (EditText) rootview.findViewById(R.id.input_Ltr);
+//        Qty = (EditText) rootview.findViewById(R.id.input_Qty);
+//        Ltr = (EditText) rootview.findViewById(R.id.input_Ltr);
         CityName = (EditText) rootview.findViewById(R.id.city_name);
         Discount=(EditText)rootview.findViewById(R.id.input_discount);
         Remark=(EditText)rootview.findViewById(R.id.input_remark);
@@ -214,10 +234,10 @@ public class NewOrderFragment extends Fragment {
 
                 Srno=Srno+1;
                 dSrno.setText(String.valueOf(Srno));
-                dQty.setText(Qty.getText().toString());
-                dLtr.setText(Ltr.getText().toString());
-                dTotal.setText(Ltr.getText().toString());
-                dpart_no.setText(part_no.toString());
+//                dQty.setText(Qty.getText().toString());
+//                dLtr.setText(Ltr.getText().toString());
+//                dTotal.setText(Ltr.getText().toString());
+//                dpart_no.setText(part_no.toString());
                 t1.setVisibility(TextInputLayout.GONE);
                 Layout1.setVisibility(LinearLayout.GONE);
 
@@ -271,9 +291,9 @@ public class NewOrderFragment extends Fragment {
             }
         });
 
-        color_spinner=(Spinner)rootview.findViewById(R.id.color_spinner);
-        color=new ArrayList<>();
-        loadColorSpinnerData(URL);
+//        color_spinner=(Spinner)rootview.findViewById(R.id.color_spinner);
+//        color=new ArrayList<>();
+//        loadColorSpinnerData(URL);
 
 //        color_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 //            @Override
@@ -296,22 +316,22 @@ public class NewOrderFragment extends Fragment {
 
 
 
-        partno_spinner=(Spinner)rootview.findViewById(R.id.partno_spinner);
-        partno=new ArrayList<>();
+//        partno_spinner=(Spinner)rootview.findViewById(R.id.partno_spinner);
+//        partno=new ArrayList<>();
 
-        partno_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
-            {
-                part_no=   partno_spinner.getItemAtPosition(partno_spinner.getSelectedItemPosition()).toString();
-                partno_id = datalist2.get(i).getId();
-//                Toast.makeText(getContext(),"Id   " +partno_id , Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                // DO Nothing here
-            }
-        });
+//        partno_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+//            {
+//                part_no=   partno_spinner.getItemAtPosition(partno_spinner.getSelectedItemPosition()).toString();
+//                partno_id = datalist2.get(i).getId();
+////                Toast.makeText(getContext(),"Id   " +partno_id , Toast.LENGTH_LONG).show();
+//            }
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//                // DO Nothing here
+//            }
+//        });
 
         orderno=(TextView)rootview.findViewById(R.id.order_no);
         loadOrdernoData(URL);
@@ -334,6 +354,7 @@ public class NewOrderFragment extends Fragment {
         mLayout = (LinearLayout)rootview.findViewById(R.id.s1);
         mLayout1 = (LinearLayout)rootview.findViewById(R.id.s2);
         mLayout2 = (LinearLayout)rootview.findViewById(R.id.s3);
+        mLayout3 = (LinearLayout)rootview.findViewById(R.id.s4);
 
         Add_controls();
 
@@ -387,34 +408,78 @@ public class NewOrderFragment extends Fragment {
         {
             k++;
             flag=k;
-            final LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(300, LinearLayout.LayoutParams.WRAP_CONTENT);
+            final LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(380, LinearLayout.LayoutParams.WRAP_CONTENT);
             lparams.setMargins(1, 20, 1, 0);
             colorSpinner[flag] = new Spinner(getActivity());
             colorSpinner[flag].setLayoutParams(lparams);
             colorSpinner[flag].setId(flag);
             colorSpinner[flag].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, color_list));
 
+            loadColorSpinnerData(URL);
+
+            colorSpinner[flag].setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+                {
+//                color_name=   color_spinner.getItemAtPosition(color_spinner.getSelectedItemPosition()).toString();
+                    color_id = datalist1.get(i).getId();
+//                Toast.makeText(getContext(),"Id   " +color_id , Toast.LENGTH_LONG).show();
+                    loadPartnoSpinnerData(URL+"api/part?color_id="+color_id.toString());
+
+
+                }
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                    // DO Nothing here
+                }
+            });
+
+
 
             k1++;
             flag1=k1;
-            final LinearLayout.LayoutParams lparams2 = new LinearLayout.LayoutParams(350, LinearLayout.LayoutParams.WRAP_CONTENT);
+            final LinearLayout.LayoutParams lparams2 = new LinearLayout.LayoutParams(380, LinearLayout.LayoutParams.WRAP_CONTENT);
             lparams2.setMargins(1, 20, 1, 0);
             partSpinner[flag1] = new Spinner(getActivity());
             partSpinner[flag1].setLayoutParams(lparams2);
             partSpinner[flag1].setId(flag1);
             partSpinner[flag1].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, part_list));
 
+            partSpinner[flag1].setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+            {
+//                part_no=   partno_spinner.getItemAtPosition(partno_spinner.getSelectedItemPosition()).toString();
+                partno_id = datalist2.get(i).getId();
+//                Toast.makeText(getContext(),"Id   " +partno_id , Toast.LENGTH_LONG).show();
+                loadLtrSpinnerData(URL+"api/ltr?id="+partno_id.toString());
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // DO Nothing here
+            }
+        });
 
-//            k2++;
-//            flag2=k2;
-//            final LinearLayout.LayoutParams lparams1 = new LinearLayout.LayoutParams(130, LinearLayout.LayoutParams.WRAP_CONTENT);
-//            lparams1.setMargins(1, 20, 1, 0);
-//            textView1[flag2] = new EditText(getActivity());
-//            textView1[flag2].setLayoutParams(lparams1);
-//            textView1[flag2].setHint("Qty");
-//            textView1[flag2].setId(flag2);
+
+            k2++;
+            flag2=k2;
+            final LinearLayout.LayoutParams lparams1 = new LinearLayout.LayoutParams(280, LinearLayout.LayoutParams.WRAP_CONTENT);
+            lparams1.setMargins(1, 20, 1, 0);
+            textView1[flag2] = new EditText(getActivity());
+            textView1[flag2].setLayoutParams(lparams1);
+            textView1[flag2].setHint("Enter Qty");
+            textView1[flag2].setId(flag2);
 
 
+
+            k3++;
+            flag3=k3;
+            final LinearLayout.LayoutParams lparams3 = new LinearLayout.LayoutParams(250, LinearLayout.LayoutParams.WRAP_CONTENT);
+            lparams3.setMargins(1, 20, 1, 0);
+            ltrSpinner[flag3] = new Spinner(getActivity());
+            ltrSpinner[flag3].setLayoutParams(lparams3);
+            ltrSpinner[flag3].setId(flag3);
+            ltrSpinner[flag3].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ltr_list));
 
 
 
@@ -428,29 +493,17 @@ public class NewOrderFragment extends Fragment {
 
         mLayout.addView(colorSpinner[flag]);
         mLayout1.addView(partSpinner[flag1]);
-//        mLayout2.addView(textView1[flag2]);
+        mLayout2.addView(textView1[flag2]);
+        mLayout3.addView(ltrSpinner[flag3]);
 
 
         color_array.add(colorSpinner[flag]);
         part_array.add(partSpinner[flag1]);
-//        qty.add(textView1[flag2]);
-
-        colorSpinner[flag].setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
-            {
-//                color_name=   color_spinner.getItemAtPosition(color_spinner.getSelectedItemPosition()).toString();
-                color_id = datalist1.get(i).getId();
-//                Toast.makeText(getContext(),"Id   " +color_id , Toast.LENGTH_LONG).show();
-                loadPartnoSpinnerData(URL+"api/part?color_id="+color_id.toString());
+        qty.add(textView1[flag2]);
+        ltr_array.add(ltrSpinner[flag3]);
 
 
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                // DO Nothing here
-            }
-        });
+
 
 
 
@@ -460,11 +513,13 @@ public class NewOrderFragment extends Fragment {
     {
         mLayout.removeView(colorSpinner[flag]);
         mLayout1.removeView(partSpinner[flag1]);
-//        mLayout2.removeView(textView1[flag2]);
+        mLayout2.removeView(textView1[flag2]);
+        mLayout3.removeView(ltrSpinner[flag3]);
 
         color_array.remove(colorSpinner[flag]);
         part_array.remove(partSpinner[flag1]);
-//        qty.remove(textView1[flag2]);
+        qty.remove(textView1[flag2]);
+        ltr_array.remove(ltrSpinner[flag3]);
     }
 
     private void loadBrandSpinnerData(String url)
@@ -546,7 +601,7 @@ public class NewOrderFragment extends Fragment {
                     }
 
 //                    actv.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, list));
-                    color_spinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, color_list));
+//                    color_spinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, color_list));
                     colorSpinner[flag].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, color_list));
                     hideDialog();
                 }catch (JSONException e){e.printStackTrace();}
@@ -593,7 +648,7 @@ public class NewOrderFragment extends Fragment {
 
                     }
 
-                    partno_spinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, part_list));
+//                    partno_spinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, part_list));
                     partSpinner[flag1].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, part_list));
                     hideDialog();
                 }catch (JSONException e){e.printStackTrace();}
@@ -610,6 +665,52 @@ public class NewOrderFragment extends Fragment {
         stringRequest.setRetryPolicy(policy);
         requestQueue.add(stringRequest);
     }
+
+    private void loadLtrSpinnerData(String url)
+    {
+        pDialog.setMessage("Please Wait ...");
+        showDialog();
+
+        RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+
+                ltr_list.clear();
+                try{
+                    GetLtrDataAdapter GetDatadp ;
+                    JSONObject jsonObject=new JSONObject(response);
+                    JSONArray jsonArray=jsonObject.getJSONArray("ltr");
+                    for(int i=0;i<jsonArray.length();i++){
+                        JSONObject jsonObject1=jsonArray.getJSONObject(i);
+
+                        GetDatadp = new GetLtrDataAdapter();
+                        GetDatadp.setName(jsonObject1.getString("ltr"));
+                        GetDatadp.setId(jsonObject1.getString("id"));
+                        datalist4.add(GetDatadp);
+
+                        ltr_list.add(jsonObject1.getString("ltr"));
+
+                    }
+
+                    ltrSpinner[flag3].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ltr_list));
+                    hideDialog();
+                }catch (JSONException e){e.printStackTrace();}
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+
+            }
+        });
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
 
     private void loadOrdernoData(String url)
     {
@@ -702,10 +803,10 @@ public class NewOrderFragment extends Fragment {
         hDate=sDate.toString();
         hPartyname=actv.getText().toString().trim();
         hCityname=CityName.getText().toString().trim();
-        hColorid=color_id.toString();
-        hPartnoid=partno_id.toString();
-        hQty=Qty.getText().toString().trim();
-        hLtr=Ltr.getText().toString().trim();
+//        hColorid=color_id.toString();
+//        hPartnoid=partno_id.toString();
+//        hQty=Qty.getText().toString().trim();
+//        hLtr=Ltr.getText().toString().trim();
         hTotal=Ltr.getText().toString().trim();
         hDis=Discount.getText().toString().trim();
         hRemark=Remark.getText().toString().trim();
@@ -825,5 +926,6 @@ public class NewOrderFragment extends Fragment {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
+
 
 }

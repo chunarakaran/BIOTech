@@ -1,5 +1,6 @@
 package com.exportershouse.biotech.Fragment;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -38,6 +39,8 @@ public class DashboardFragment extends Fragment {
 
         getActivity().setTitle("Home");
         ((MainActivity) getActivity()).showBottomNavigationButton();
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setRetainInstance(true);
 
         recyclerView = (RecyclerView)rootview.findViewById(R.id.recyclerview1);
 

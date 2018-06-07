@@ -183,6 +183,7 @@ public class LeaveRequestFragment extends Fragment {
                 fromDate.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
             }};
         DatePickerDialog dpDialog=new DatePickerDialog(getActivity(), listener, year, month, day);
+        dpDialog.getDatePicker().setMinDate(mcalendar.getTimeInMillis());
         dpDialog.show();
     }
 
@@ -195,6 +196,7 @@ public class LeaveRequestFragment extends Fragment {
                 toDate.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
             }};
         DatePickerDialog dpDialog=new DatePickerDialog(getActivity(), listener, year, month, day);
+        dpDialog.getDatePicker().setMinDate(mcalendar.getTimeInMillis());
         dpDialog.show();
     }
 
