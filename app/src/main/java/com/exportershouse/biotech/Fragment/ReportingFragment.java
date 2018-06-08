@@ -71,7 +71,7 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
     private RadioButton radioButton,radioButton1,radioButton2;
 
 
-    LinearLayout Layout1,Layout2,Layout3,Layout4;
+    LinearLayout Layout1,Layout2,Layout3,Layout4,Layout5;
     TextView cdate,cday,ctime;
     Spinner statespinner,nameFirm;
     final ArrayList<GetStateDataAdapter> statedatalist = new ArrayList<>();
@@ -208,6 +208,7 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
         Layout2=(LinearLayout)rootview.findViewById(R.id.l2);
         Layout3=(LinearLayout)rootview.findViewById(R.id.sl1);
         Layout4=(LinearLayout)rootview.findViewById(R.id.sl2);
+        Layout5=(LinearLayout)rootview.findViewById(R.id.sl3);
         Layout1.setVisibility(LinearLayout.GONE);
         Layout3.setVisibility(LinearLayout.GONE);
 
@@ -388,13 +389,15 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
             case R.id.partyyes:
                 if (checked)
                     Layout4.setVisibility(LinearLayout.VISIBLE);
+                Layout5.setVisibility(LinearLayout.VISIBLE);
                 Layout3.setVisibility(LinearLayout.GONE);
                 break;
 
             case R.id.partyNo:
                 if (checked)
                     Layout3.setVisibility(LinearLayout.VISIBLE);
-//                Layout4.setVisibility(LinearLayout.GONE);
+                    Layout4.setVisibility(LinearLayout.GONE);
+                    Layout5.setVisibility(LinearLayout.GONE);
                 break;
         }
     }

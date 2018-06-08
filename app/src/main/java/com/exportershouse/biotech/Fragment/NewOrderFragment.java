@@ -1,14 +1,15 @@
 package com.exportershouse.biotech.Fragment;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -152,6 +153,7 @@ public class NewOrderFragment extends Fragment {
 
     String HttpUrl = "http://biotechautomfg.com/api/order_add";
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
@@ -184,8 +186,8 @@ public class NewOrderFragment extends Fragment {
         getActivity().setTitle("New Order");
         ((MainActivity) getActivity()).hideBottomNavigationButton();
         // Fragment locked in landscape screen orientation
-        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        setRetainInstance(true);
+//        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+//        setRetainInstance(true);
 
 
 
@@ -359,6 +361,7 @@ public class NewOrderFragment extends Fragment {
         Add_controls();
 
         ad.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 Add_controls();
@@ -401,6 +404,7 @@ public class NewOrderFragment extends Fragment {
         delete=(CircleButton) rootview.findViewById(R.id.delete);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void Add_controls()
     {
 
@@ -468,6 +472,7 @@ public class NewOrderFragment extends Fragment {
             textView1[flag2] = new EditText(getActivity());
             textView1[flag2].setLayoutParams(lparams1);
             textView1[flag2].setHint("Enter Qty");
+            textView1[flag2].setTooltipText("Hello");
             textView1[flag2].setId(flag2);
 
 
@@ -511,10 +516,14 @@ public class NewOrderFragment extends Fragment {
 
     public void Delete_controls()
     {
-        mLayout.removeView(colorSpinner[flag]);
-        mLayout1.removeView(partSpinner[flag1]);
-        mLayout2.removeView(textView1[flag2]);
-        mLayout3.removeView(ltrSpinner[flag3]);
+        mLayout.removeViewAt(mLayout.getChildCount()-1);
+        mLayout1.removeViewAt(mLayout1.getChildCount()-1);
+        mLayout2.removeViewAt(mLayout2.getChildCount()-1);
+        mLayout3.removeViewAt(mLayout3.getChildCount()-1);
+//        mLayout.removeView(colorSpinner[flag]);
+//        mLayout1.removeView(partSpinner[flag1]);
+//        mLayout2.removeView(textView1[flag2]);
+//        mLayout3.removeView(ltrSpinner[flag3]);
 
         color_array.remove(colorSpinner[flag]);
         part_array.remove(partSpinner[flag1]);

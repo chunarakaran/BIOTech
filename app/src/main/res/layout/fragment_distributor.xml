@@ -69,6 +69,7 @@
                 android:id="@+id/input_name"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                android:inputType="textCapWords"
                 android:hint="Name of the Firm"
                 android:singleLine="true" />
 
@@ -109,7 +110,7 @@
                 android:id="@+id/input_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
+                android:inputType="textCapSentences"
                 android:hint="City" />
         </android.support.design.widget.TextInputLayout>
 
@@ -135,7 +136,7 @@
                 android:id="@+id/input_dis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
+                android:inputType="textCapSentences"
                 android:hint="District" />
         </android.support.design.widget.TextInputLayout>
 
@@ -258,6 +259,7 @@
                 android:id="@+id/input_nameofpro"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                android:inputType="textCapWords"
                 android:hint="Name of(Pro/Par)"
                 android:singleLine="true" />
 
@@ -273,7 +275,7 @@
                 android:id="@+id/input_nameofcontper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:hint="Name of Contact Person" />
         </android.support.design.widget.TextInputLayout>
 
@@ -312,7 +314,7 @@
                 android:id="@+id/input_transportname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:hint="Required Transport Name" />
         </android.support.design.widget.TextInputLayout>
 

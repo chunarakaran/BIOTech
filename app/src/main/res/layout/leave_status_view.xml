@@ -86,17 +86,6 @@
 
         </LinearLayout>
 
-        <!--<TextView-->
-        <!--android:id="@+id/icon_overflow_base"-->
-        <!--style="@style/IconFont.Large"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:minHeight="36dp"-->
-        <!--android:minWidth="36dp"-->
-        <!--android:text="more" />-->
 
     </RelativeLayout>
 

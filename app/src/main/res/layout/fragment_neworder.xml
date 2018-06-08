@@ -90,6 +90,7 @@
                     android:id="@+id/party_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
                     android:hint="Enter Party Name" />
             </LinearLayout>
 
@@ -102,7 +103,7 @@
                     android:id="@+id/city_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="textCapSentences"
                     android:hint="Enter City Name" />
             </android.support.design.widget.TextInputLayout>
 
