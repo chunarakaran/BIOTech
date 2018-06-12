@@ -4,8 +4,10 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -148,9 +150,33 @@ public class LeaveRequestFragment extends Fragment {
         });
 
         send.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-                Add_Leave();
+                final String VfromDate,VtoDate,Vremark;
+                VfromDate = fromDate.getText().toString();
+                VtoDate = toDate.getText().toString();
+                Vremark=remark.getText().toString();
+
+                if(VfromDate.length()==0)
+                {
+                    fromDate.requestFocus();
+                    fromDate.setError("Select Date");
+                }
+                else if (VtoDate.length()==0)
+                {
+                    toDate.requestFocus();
+                    toDate.setError("Select Date");
+                }
+                else if (Vremark.length()==0)
+                {
+                    remark.requestFocus();
+                    remark.setError("Enter Reason");
+                }
+                else {
+                    Add_Leave();
+                }
+
             }
         });
 

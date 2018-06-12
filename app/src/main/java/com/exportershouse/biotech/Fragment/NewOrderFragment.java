@@ -467,7 +467,7 @@ public class NewOrderFragment extends Fragment {
 
             k2++;
             flag2=k2;
-            final LinearLayout.LayoutParams lparams1 = new LinearLayout.LayoutParams(280, LinearLayout.LayoutParams.WRAP_CONTENT);
+            final LinearLayout.LayoutParams lparams1 = new LinearLayout.LayoutParams(380, LinearLayout.LayoutParams.WRAP_CONTENT);
             lparams1.setMargins(1, 20, 1, 0);
             textView1[flag2] = new EditText(getActivity());
             textView1[flag2].setLayoutParams(lparams1);
@@ -479,7 +479,7 @@ public class NewOrderFragment extends Fragment {
 
             k3++;
             flag3=k3;
-            final LinearLayout.LayoutParams lparams3 = new LinearLayout.LayoutParams(250, LinearLayout.LayoutParams.WRAP_CONTENT);
+            final LinearLayout.LayoutParams lparams3 = new LinearLayout.LayoutParams(380, LinearLayout.LayoutParams.WRAP_CONTENT);
             lparams3.setMargins(1, 20, 1, 0);
             ltrSpinner[flag3] = new Spinner(getActivity());
             ltrSpinner[flag3].setLayoutParams(lparams3);
@@ -498,8 +498,8 @@ public class NewOrderFragment extends Fragment {
 
         mLayout.addView(colorSpinner[flag]);
         mLayout1.addView(partSpinner[flag1]);
-        mLayout2.addView(textView1[flag2]);
-        mLayout3.addView(ltrSpinner[flag3]);
+        mLayout.addView(textView1[flag2]);
+        mLayout1.addView(ltrSpinner[flag3]);
 
 
         color_array.add(colorSpinner[flag]);
@@ -518,8 +518,9 @@ public class NewOrderFragment extends Fragment {
     {
         mLayout.removeViewAt(mLayout.getChildCount()-1);
         mLayout1.removeViewAt(mLayout1.getChildCount()-1);
-        mLayout2.removeViewAt(mLayout2.getChildCount()-1);
-        mLayout3.removeViewAt(mLayout3.getChildCount()-1);
+
+//        mLayout2.removeViewAt(mLayout2.getChildCount()-1);
+//        mLayout3.removeViewAt(mLayout3.getChildCount()-1);
 //        mLayout.removeView(colorSpinner[flag]);
 //        mLayout1.removeView(partSpinner[flag1]);
 //        mLayout2.removeView(textView1[flag2]);

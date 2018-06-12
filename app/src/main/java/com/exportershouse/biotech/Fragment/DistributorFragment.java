@@ -193,38 +193,94 @@ public class DistributorFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                GetValueFromEditText();
+                final String Viname,Viaddress,Vicity,Vipincode,Vidistrict,Viemail,Vilandline;
 
-                FragmentTransaction transection=getFragmentManager().beginTransaction();
-                NextDistributorFragment mfragment=new NextDistributorFragment();
+                Viname = iname.getText().toString();
+                Viaddress = iaddress.getText().toString();
+                Vicity = icity.getText().toString();
+                Vipincode = ipincode.getText().toString();
+                Vidistrict = idistrict.getText().toString();
+                Viemail = iemail.getText().toString();
+                Vilandline = ilandline.getText().toString();
 
-                Bundle bundle=new Bundle();
-                bundle.putString("Hdate",Hdate);
-                bundle.putString("HnameFirm",HnameFirm+" "+Hiname);
-                bundle.putString("Hiaddress",Hiaddress);
-                bundle.putString("Hicity",Hicity);
-                bundle.putString("Hipincode",Hipincode);
-                bundle.putString("Hidistrict",Hidistrict);
-                bundle.putString("Hiemail",Hiemail);
-                bundle.putString("Hilandline",Hilandline);
-                bundle.putString("Himobileno",Himobileno);
-                bundle.putString("HiFpan_no",HiFpan_no);
-                bundle.putString("HiGST_no",HiGST_no);
-                bundle.putString("HnameParty",HnameParty+" "+HiFparty_name);
-                bundle.putString("HiName_conPerson",HiName_conPerson);
-                bundle.putString("HiMobile_conPerson",HiMobile_conPerson);
-                bundle.putString("HiYearlyTarg",HiYearlyTarg);
-                bundle.putString("HiTrans_name",HiTrans_name);
-                bundle.putString("Hcompanyname",Hcompanyname);
-                bundle.putString("Hstateid",Hstateid);
-                bundle.putString("Hpartyname",Hpartyname);
-                bundle.putString("Hdaysname",Hdaysname);
+                if(Viname.length()==0)
+                {
+                    iname.requestFocus();
+                    iname.setError("Please Enter Name");
+                }
+                else if (Viaddress.length()==0){
+                    iaddress.requestFocus();
+                    iaddress.setError("Please Enter Address");
+                }
+                else if (Vicity.length()==0){
+                    icity.requestFocus();
+                    icity.setError("Please Enter City");
+                }
+                else if (Vipincode.length()==0){
+                    ipincode.requestFocus();
+                    ipincode.setError("Please Enter Pin code");
+                }
+
+                else if (Vipincode.length()<6||Vipincode.length()>6){
+                    ipincode.requestFocus();
+                    ipincode.setError("Invalid Pin code");
+                }
+                else if (Vidistrict.length()==0){
+                    idistrict.requestFocus();
+                    idistrict.setError("Please Enter District");
+                }
+                else if (Viemail.length()==0){
+                    iemail.requestFocus();
+                    iemail.setError("Please Enter Email");
+                }
+
+                else if (!Viemail.matches("[a-zA-Z0-9._-]+@[a-z]+.[a-z]+")){
+                    iemail.requestFocus();
+                    iemail.setError("Invalid Email Address");
+                }
+                else if (Vilandline.length()>1){
+                    if (!Vilandline.matches("[(]\\d{4}[)]\\s\\d{6}")){
+                        ilandline.requestFocus();
+                        ilandline.setError("Invalid Land line No");
+                    }
+                }
 
 
-                mfragment.setArguments(bundle);
+                else {
 
-                transection.replace(R.id.container, mfragment);
-                transection.addToBackStack(null).commit();
+                    GetValueFromEditText();
+
+                    FragmentTransaction transection = getFragmentManager().beginTransaction();
+                    NextDistributorFragment mfragment = new NextDistributorFragment();
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("Hdate", Hdate);
+                    bundle.putString("HnameFirm", HnameFirm + " " + Hiname);
+                    bundle.putString("Hiaddress", Hiaddress);
+                    bundle.putString("Hicity", Hicity);
+                    bundle.putString("Hipincode", Hipincode);
+                    bundle.putString("Hidistrict", Hidistrict);
+                    bundle.putString("Hiemail", Hiemail);
+                    bundle.putString("Hilandline", Hilandline);
+                    bundle.putString("Himobileno", Himobileno);
+                    bundle.putString("HiFpan_no", HiFpan_no);
+                    bundle.putString("HiGST_no", HiGST_no);
+                    bundle.putString("HnameParty", HnameParty + " " + HiFparty_name);
+                    bundle.putString("HiName_conPerson", HiName_conPerson);
+                    bundle.putString("HiMobile_conPerson", HiMobile_conPerson);
+                    bundle.putString("HiYearlyTarg", HiYearlyTarg);
+                    bundle.putString("HiTrans_name", HiTrans_name);
+                    bundle.putString("Hcompanyname", Hcompanyname);
+                    bundle.putString("Hstateid", Hstateid);
+                    bundle.putString("Hpartyname", Hpartyname);
+                    bundle.putString("Hdaysname", Hdaysname);
+
+
+                    mfragment.setArguments(bundle);
+
+                    transection.replace(R.id.container, mfragment);
+                    transection.addToBackStack(null).commit();
+                }
 
             }
         });
