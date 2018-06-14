@@ -133,94 +133,63 @@
             </LinearLayout>
 
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp">
 
 
-                <TextView
-                    android:layout_width="175dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:text="Select Color"
-                    android:textStyle="bold"
-                    android:textColor="#000"
-                    android:paddingTop="5dp">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="175dp"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="5dp"
-                    android:text="Select Part no"
-                    android:textStyle="bold"
-                    android:textColor="#000"
-                    android:orientation="vertical">
-                </TextView>
-
-                <TextView
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="5dp"
-                    android:text="Enter Qty"
-                    android:textStyle="bold"
-                    android:textColor="#000"
-                    android:orientation="vertical">
-                </TextView>
-
-                <TextView
-                    android:layout_width="175dp"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="5dp"
-                    android:text="Select Ltr"
-                    android:textStyle="bold"
-                    android:textColor="#000"
-                    android:orientation="vertical">
-                </TextView>
-
-
-
-            </LinearLayout>
-
-
+            <View
+                android:layout_width="363dp"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimaryDark"/>
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"/>
+
 
                 <LinearLayout
                     android:id="@+id/s1"
-                    android:layout_width="175dp"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"/>
 
                 <LinearLayout
                     android:id="@+id/s2"
-                    android:layout_width="175dp"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/s3"
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"/>
 
-                <LinearLayout
-                    android:id="@+id/s4"
-                    android:layout_width="175dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                </LinearLayout>
+
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/s3"-->
+                    <!--android:layout_width="130dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="vertical">-->
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/s4"-->
+                    <!--android:layout_width="175dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="vertical">-->
+                <!--</LinearLayout>-->
 
 
 

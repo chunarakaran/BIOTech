@@ -126,7 +126,7 @@ public class OrderDetailFragment extends Fragment {
                         Sdate=jsonObject1.getString("current_date");
                         Sparty_name=jsonObject1.getString("party_name");
                         Scity=jsonObject1.getString("city");
-                        Stotal_case=jsonObject1.getString("total");
+                        Stotal_case=jsonObject1.getString("total_qty_ltr");
 
 
 //                        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");

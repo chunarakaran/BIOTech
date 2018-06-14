@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -91,7 +92,8 @@ public class NewOrderFragment extends Fragment {
     public ArrayList<String> part_list = new ArrayList<>();
     public ArrayList<String> ltr_list = new ArrayList<>();
 
-
+    TextView text1,text2,text3,text4;
+    View view1,view2,view3,view4;
     private LinearLayout mLayout;
     int k = -1;
     int flag;
@@ -356,7 +358,7 @@ public class NewOrderFragment extends Fragment {
         mLayout = (LinearLayout)rootview.findViewById(R.id.s1);
         mLayout1 = (LinearLayout)rootview.findViewById(R.id.s2);
         mLayout2 = (LinearLayout)rootview.findViewById(R.id.s3);
-        mLayout3 = (LinearLayout)rootview.findViewById(R.id.s4);
+//        mLayout3 = (LinearLayout)rootview.findViewById(R.id.s4);
 
         Add_controls();
 
@@ -467,11 +469,12 @@ public class NewOrderFragment extends Fragment {
 
             k2++;
             flag2=k2;
-            final LinearLayout.LayoutParams lparams1 = new LinearLayout.LayoutParams(380, LinearLayout.LayoutParams.WRAP_CONTENT);
+            final LinearLayout.LayoutParams lparams1 = new LinearLayout.LayoutParams(380, 120);
             lparams1.setMargins(1, 20, 1, 0);
             textView1[flag2] = new EditText(getActivity());
             textView1[flag2].setLayoutParams(lparams1);
             textView1[flag2].setHint("Enter Qty");
+            textView1[flag2].setBackgroundResource(R.drawable.rounded_border_edittext);
             textView1[flag2].setTooltipText("Hello");
             textView1[flag2].setId(flag2);
 
@@ -479,16 +482,56 @@ public class NewOrderFragment extends Fragment {
 
             k3++;
             flag3=k3;
-            final LinearLayout.LayoutParams lparams3 = new LinearLayout.LayoutParams(380, LinearLayout.LayoutParams.WRAP_CONTENT);
+            final LinearLayout.LayoutParams lparams3 = new LinearLayout.LayoutParams(380,120);
             lparams3.setMargins(1, 20, 1, 0);
             ltrSpinner[flag3] = new Spinner(getActivity());
             ltrSpinner[flag3].setLayoutParams(lparams3);
             ltrSpinner[flag3].setId(flag3);
             ltrSpinner[flag3].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ltr_list));
 
+            view1=new View(getActivity());
+            view1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 3));
+            view1.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
 
+            view2=new View(getActivity());
+            view2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 3));
+            view2.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
 
+            view3=new View(getActivity());
+            view3.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 3));
+            view3.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
 
+            view4=new View(getActivity());
+            view4.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 3));
+            view4.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+
+            text1=new TextView(getActivity());
+            text1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 40));
+            text1.setText("Select Color");
+            text1.setTypeface(null, Typeface.BOLD);
+            text1.setTextColor(Color.parseColor("#212121"));
+            text1.setPadding(10,0,0,0);
+
+            text2=new TextView(getActivity());
+            text2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 40));
+            text2.setText("Select Part no");
+            text2.setTypeface(null, Typeface.BOLD);
+            text2.setTextColor(Color.parseColor("#212121"));
+            text2.setPadding(10,0,0,0);
+
+            text3=new TextView(getActivity());
+            text3.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 40));
+            text3.setText("Enter QTY");
+            text3.setTypeface(null, Typeface.BOLD);
+            text3.setTextColor(Color.parseColor("#212121"));
+            text3.setPadding(10,0,0,0);
+
+            text4=new TextView(getActivity());
+            text4.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 40));
+            text4.setText("Select LTR");
+            text4.setTypeface(null, Typeface.BOLD);
+            text4.setTextColor(Color.parseColor("#212121"));
+            text4.setPadding(10,0,0,0);
 
         }
         catch(Exception e)
@@ -496,10 +539,21 @@ public class NewOrderFragment extends Fragment {
             e.printStackTrace();
         }
 
+        mLayout.addView(text1);
         mLayout.addView(colorSpinner[flag]);
+        mLayout.addView(view1);
+
+        mLayout1.addView(text2);
         mLayout1.addView(partSpinner[flag1]);
+        mLayout1.addView(view2);
+
+        mLayout.addView(text3);
         mLayout.addView(textView1[flag2]);
+        mLayout.addView(view3);
+
+        mLayout1.addView(text4);
         mLayout1.addView(ltrSpinner[flag3]);
+        mLayout1.addView(view4);
 
 
         color_array.add(colorSpinner[flag]);

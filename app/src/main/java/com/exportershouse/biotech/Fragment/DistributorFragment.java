@@ -2,6 +2,7 @@ package com.exportershouse.biotech.Fragment;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -52,6 +53,8 @@ public class DistributorFragment extends Fragment {
 
     Spinner spinner,statespinner,partyspinner,daysspinner,nameFirm,nameParty;
     TextView cdate;
+
+    TextView Tname,Taddress,Tcity,Tpincode,Tdis;
     
     EditText iname,iaddress,icity,ipincode,idistrict,iemail,ilandline,imobileno,iFpan_no,iGST_no,iFparty_name,iName_conPerson,iMobile_conPerson,iYearlyTarg,iTrans_name;
 
@@ -86,8 +89,7 @@ public class DistributorFragment extends Fragment {
 
         initialize();
 
-
-
+        EditTextFocus();
 
         loadState_SpinnerData(URL);
 
@@ -193,7 +195,7 @@ public class DistributorFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                final String Viname,Viaddress,Vicity,Vipincode,Vidistrict,Viemail,Vilandline;
+                final String Viname,Viaddress,Vicity,Vipincode,Vidistrict,Viemail,Vilandline,Vimobileno,ViFpan_no;
 
                 Viname = iname.getText().toString();
                 Viaddress = iaddress.getText().toString();
@@ -202,11 +204,17 @@ public class DistributorFragment extends Fragment {
                 Vidistrict = idistrict.getText().toString();
                 Viemail = iemail.getText().toString();
                 Vilandline = ilandline.getText().toString();
+                Vimobileno = imobileno.getText().toString();
+                ViFpan_no=iFpan_no.getText().toString();
 
                 if(Viname.length()==0)
                 {
                     iname.requestFocus();
                     iname.setError("Please Enter Name");
+                }
+                else if (!Viname.matches("^[a-zA-Z ]+$")||Viname.contains(" ")){
+                    iname.requestFocus();
+                    iname.setError("Enter Valid Name");
                 }
                 else if (Viaddress.length()==0){
                     iaddress.requestFocus();
@@ -215,6 +223,10 @@ public class DistributorFragment extends Fragment {
                 else if (Vicity.length()==0){
                     icity.requestFocus();
                     icity.setError("Please Enter City");
+                }
+                else if (!Vicity.matches("^[a-zA-Z ]+$")){
+                    icity.requestFocus();
+                    icity.setError("Enter Valid City");
                 }
                 else if (Vipincode.length()==0){
                     ipincode.requestFocus();
@@ -229,6 +241,11 @@ public class DistributorFragment extends Fragment {
                     idistrict.requestFocus();
                     idistrict.setError("Please Enter District");
                 }
+                else if (!Vidistrict.matches("^[a-zA-Z ]+$")){
+                    idistrict.requestFocus();
+                    idistrict.setError("Enter Valid District");
+                }
+
                 else if (Viemail.length()==0){
                     iemail.requestFocus();
                     iemail.setError("Please Enter Email");
@@ -244,6 +261,32 @@ public class DistributorFragment extends Fragment {
                         ilandline.setError("Invalid Land line No");
                     }
                 }
+
+                else if (Vimobileno.length()==0){
+                    imobileno.requestFocus();
+                    imobileno.setError("Please Enter Mobile No");
+                }
+                else if (!Vimobileno.matches("^\\+[0-9]{10,13}$")){
+                    imobileno.requestFocus();
+                    imobileno.setError("Invalid Mobile No");
+                }
+
+                else if (ViFpan_no.length()==0){
+                    iFpan_no.requestFocus();
+                    iFpan_no.setError("Please Enter Pan No");
+                }
+
+                else if (!ViFpan_no.matches("[A-Z]{5}[0-9]{4}[A-Z]{1}")){
+                    iFpan_no.requestFocus();
+                    iFpan_no.setError("Invalid PAN No");
+                }
+
+//                else if (!ViFpan_no.matches("^([0][1-9]|[1-2][0-9]|[3][0-7])([a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}[1-9a-zA-Z]{1}[zZ]{1}[0-9a-zA-Z]{1})+$")){
+//                    iFpan_no.requestFocus();
+//                    iFpan_no.setError("Invalid GST No");
+//                }
+
+
 
 
                 else {
@@ -381,9 +424,134 @@ public class DistributorFragment extends Fragment {
         iYearlyTarg=(EditText)rootview.findViewById(R.id.input_yearlytarget);
         iTrans_name=(EditText)rootview.findViewById(R.id.input_transportname);
 
+        Tname=(TextView)rootview.findViewById(R.id.Tname);
+        Taddress=(TextView)rootview.findViewById(R.id.Taddress);
+        Tcity=(TextView)rootview.findViewById(R.id.Tcity);
+        Tpincode=(TextView)rootview.findViewById(R.id.Tpincode);
+        Tdis=(TextView)rootview.findViewById(R.id.Tdis);
+
 
     }
 
+    public void EditTextFocus()
+    {
+        iname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tname.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (iname.getText().length() > 0)
+                        Tname.setVisibility(View.VISIBLE);
+                    else
+                        Tname.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        iaddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Taddress.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (iaddress.getText().length() > 0)
+                        Taddress.setVisibility(View.VISIBLE);
+                    else
+                        Taddress.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        icity.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tcity.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (icity.getText().length() > 0)
+                        Tcity.setVisibility(View.VISIBLE);
+                    else
+                        Tcity.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        ipincode.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tpincode.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (ipincode.getText().length() > 0)
+                        Tpincode.setVisibility(View.VISIBLE);
+                    else
+                        Tpincode.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        idistrict.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tdis.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (idistrict.getText().length() > 0)
+                        Tdis.setVisibility(View.VISIBLE);
+                    else
+                        Tdis.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+
+    }
     public void GetValueFromEditText()
     {
         Hdate=cdate.getText().toString();

@@ -1,384 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="ws.wolfsoft.livo.MainActivity">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white">
 
+    <!-- Mobile number -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_rounded_input_field" />
 
+        <TextView
+            android:id="@+id/text_dummy_hint_mobile_number"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="28dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="Mobile Number"
+            android:textSize="16sp"
+            android:background="@android:color/white"
+            android:visibility="invisible"/>
 
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="28dp"
+            android:hint="Mobile Number"
+            android:textColorHint="@color/colorPrimary"
+            app:hintTextAppearance="@style/HintTextStyle">
 
-    <FrameLayout
+            <EditText
+                android:id="@+id/edit_mobile_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords"
+                android:singleLine="true"
+                android:backgroundTint="@android:color/transparent"/>
+        </android.support.design.widget.TextInputLayout>
+    </RelativeLayout>
+
+    <!-- Promo code -->
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/linear"
-
-        >
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/bg1"
-            android:scaleType="centerCrop"
-            android:layout_marginBottom="25dp"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:gravity="top"
-            android:padding="16dp">
-
-
-            <customfonts.MyTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Profile"
-                android:textColor="#fff"
-                android:textSize="20dp"
-                android:gravity="center"
-                />
-
-
-
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="bottom">
-
-
-
-
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="20dp"
-                    >
-
-
-
-                </LinearLayout>
-
-                <com.alexzh.circleimageview.CircleImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/userimg"
-                    app:view_borderWidth="2dp"
-                    app:view_borderColor="#cccccc"
-                    android:gravity="bottom"
-
-                    />
-
-
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="20dp"
-                    >
-
-
-
-
-
-
-                </LinearLayout>
-
-
-
-            </LinearLayout>
-        </LinearLayout>
-
-
-    </FrameLayout>
-
-    <LinearLayout
-        android:id="@+id/linear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/username"
-                android:textSize="21dp"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:text="Username"
-                android:textColor="#a2a1b8"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"
-                />
-
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/username1"
-                android:textSize="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Jay patel"
-                android:textColorHint="#181737"
-                android:textColor="#181737"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="right"
-                />
-        </LinearLayout>
+        android:layout_marginTop="8dp">
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dad8d8"/>
+            android:layout_height="52dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_rounded_input_field" />
 
+        <TextView
+            android:id="@+id/text_dummy_hint_promo_code"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="28dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="Promo Code"
+            android:textSize="16sp"
+            android:background="@android:color/white"
+            android:visibility="invisible"/>
 
-
-
-        <LinearLayout
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="28dp"
+            android:hint="Promo Code"
+            android:textColorHint="@android:color/black"
+            app:hintTextAppearance="@style/HintTextStyle">
 
-
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/emil"
-                android:textSize="21dp"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:text="Email"
-                android:textColor="#a2a1b8"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"/>
-
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/email1"
-                android:textSize="16dp"
+            <EditText
+                android:id="@+id/edit_promo_code"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="#1b193b"
-                android:hint="chunarakran@gmail.com"
-                android:textColor="#181737"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="right"
-                />
-        </LinearLayout>
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dad8d8"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/password"
-                android:textSize="21dp"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:text="Password"
-                android:textColor="#a2a1b8"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"
-                />
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/pass1"
-                android:textSize="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Change"
-                android:textColor="#304ffe"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="right"
-                />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dad8d8"/>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/facebook"
-                android:textSize="21dp"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:text="Gender"
-                android:textColor="#a2a1b8"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"
-                />
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/gender"
-                android:textSize="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="#1b193b"
-                android:hint="Male"
-                android:textColor="#181737"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="right"
-                />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dad8d8"/>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/twitter"
-                android:textSize="21dp"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:text="Twitter"
-                android:textColor="#a2a1b8"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"
-                />
-
-
-            <Switch
-                android:layout_weight="1"
-                android:id="@+id/switch2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:gravity="left"
-                />
-
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dad8d8" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/google"
-                android:textSize="21dp"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:text="Google+"
-                android:textColor="#a2a1b8"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="left"
-                />
-
-            <customfonts.MyTextView
-                android:layout_weight="1"
-                android:id="@+id/google1"
-                android:textSize="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="connected"
-                android:textColorHint="#181737"
-                android:maxLength="12"
-                android:background="#0000"
-                android:padding="16dp"
-                android:gravity="right"
-                />
-        </LinearLayout>
-
-
-
-
-
-
-
-    </LinearLayout>
-
-
-</RelativeLayout>
+                android:inputType="text"
+                android:maxLines="1"
+                android:backgroundTint="@android:color/transparent"/>
+        </android.support.design.widget.TextInputLayout>
+    </RelativeLayout>
+</LinearLayout>
