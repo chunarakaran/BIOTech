@@ -15,6 +15,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.pm.ActivityInfoCompat;
+import android.text.InputType;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -474,6 +475,7 @@ public class NewOrderFragment extends Fragment {
             textView1[flag2] = new EditText(getActivity());
             textView1[flag2].setLayoutParams(lparams1);
             textView1[flag2].setHint("Enter Qty");
+            textView1[flag2].setInputType(InputType.TYPE_CLASS_NUMBER);
             textView1[flag2].setBackgroundResource(R.drawable.rounded_border_edittext);
             textView1[flag2].setTooltipText("Hello");
             textView1[flag2].setId(flag2);
