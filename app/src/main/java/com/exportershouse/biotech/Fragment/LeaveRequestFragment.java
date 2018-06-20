@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
@@ -19,6 +20,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -59,6 +61,8 @@ public class LeaveRequestFragment extends Fragment {
     private int day,month,year;
 
     Button send;
+
+    TextView TfromDate,TtoDate,Tremark;
 
     String URL;
 
@@ -101,6 +105,11 @@ public class LeaveRequestFragment extends Fragment {
         requestQueue = Volley.newRequestQueue(getActivity());
         progressDialog = new ProgressDialog(getActivity());
 
+
+
+//        TfromDate=(TextView)rootview.findViewById(R.id.TfromDate);
+//        TtoDate=(TextView)rootview.findViewById(R.id.TtoDate);
+        Tremark=(TextView)rootview.findViewById(R.id.Tremark);
 
         fromDate=(EditText)rootview.findViewById(R.id.input_fromDate);
         toDate=(EditText)rootview.findViewById(R.id.input_toDate);
@@ -180,6 +189,8 @@ public class LeaveRequestFragment extends Fragment {
             }
         });
 
+        EditFocus();
+
         rootview.setFocusableInTouchMode(true);
         rootview.requestFocus();
         rootview.setOnKeyListener(new View.OnKeyListener() {
@@ -224,6 +235,34 @@ public class LeaveRequestFragment extends Fragment {
         DatePickerDialog dpDialog=new DatePickerDialog(getActivity(), listener, year, month, day);
         dpDialog.getDatePicker().setMinDate(mcalendar.getTimeInMillis());
         dpDialog.show();
+    }
+
+    public void EditFocus()
+    {
+        remark.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tremark.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (remark.getText().length() > 0)
+                        Tremark.setVisibility(View.VISIBLE);
+                    else
+                        Tremark.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+
     }
 
 

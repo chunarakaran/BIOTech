@@ -65,21 +65,6 @@
         </RelativeLayout>
 
 
-
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_areacovered"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_areacovered"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="number"-->
-                <!--android:singleLine="true"-->
-                <!--android:hint="Area Covered By Party(in Kilometer)" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -121,21 +106,6 @@
                     android:background="@android:color/transparent"/>
             </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
-
-
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_numofstaff"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_numofstaff"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:singleLine="true"-->
-                <!--android:inputType="number"-->
-                <!--android:hint="Number of Staff(Person)" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -179,19 +149,6 @@
             </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
 
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_numofparty"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_numofparty"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="number"-->
-                <!--android:singleLine="true"-->
-                <!--android:hint="Number of Party's Counter(aprox)" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
 
         <LinearLayout
             android:orientation="vertical"
@@ -323,24 +280,6 @@
             </RelativeLayout>
 
 
-            <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_reason"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_reason"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="100dp"-->
-                <!--android:background="@drawable/rect_text_edit"-->
-                <!--android:hint="Reason"-->
-                <!--android:inputType="textMultiLine"-->
-                <!--android:singleLine="true"-->
-                <!--android:maxLines="5"-->
-                <!--android:textSize="15dp" />-->
-
-
-        <!--</android.support.design.widget.TextInputLayout>-->
 
         </LinearLayout>
 
@@ -393,20 +332,6 @@
             </RelativeLayout>
 
 
-
-            <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_bankName"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_bankName"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="text"-->
-                <!--android:hint="Bank Name" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -450,19 +375,6 @@
             </RelativeLayout>
 
 
-            <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_bankAcno"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_bankAcno"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="text"-->
-                <!--android:hint="Bank Account Number" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -504,20 +416,6 @@
                         android:background="@android:color/transparent"/>
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
-
-
-            <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_bankBrname"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_bankBrname"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="text"-->
-                <!--android:hint="Bank Branch Name" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -561,20 +459,6 @@
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
 
-
-            <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_bankcity"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_bankcity"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="text"-->
-                <!--android:hint="Bank City" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -616,20 +500,6 @@
                         android:background="@android:color/transparent"/>
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
-
-
-            <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_bankifsc"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_bankifsc"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="text"-->
-                <!--android:hint="Bank IFSC Code" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -673,20 +543,6 @@
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
 
-
-            <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_chequeno"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_chequeno"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="text"-->
-                <!--android:hint="Security Cheque No" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -729,19 +585,6 @@
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
 
-
-            <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_pName"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_pName"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="text"-->
-                <!--android:hint="Person Name(Which Sign in Security Cheque)" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
 
         </LinearLayout>
 
