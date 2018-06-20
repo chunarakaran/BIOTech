@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
@@ -79,7 +80,7 @@ public class NewOrderFragment extends Fragment {
 
     Button add,submit,edit;
     LinearLayout Layout1,Layout2;
-    TextInputLayout t1;
+    LinearLayout t1;
 
     Spinner brand_spinner,color_spinner,partno_spinner,Test;
     final ArrayList<GetBrandDataAdapter> datalist = new ArrayList<GetBrandDataAdapter>();
@@ -138,8 +139,9 @@ public class NewOrderFragment extends Fragment {
 
     AutoCompleteTextView actv;
 
+    TextView Tparty_name,Tcity,Tname,Torderby,Tdiscount,Tremark;
 
-    EditText Qty,Ltr,CityName,Discount,Remark;
+    EditText Ltr,CityName,Trsnsportname,orderBy,Discount,Remark;
     TextView dQty,dLtr,dpart_no,dSrno,dTotal;
 
     int Srno=0;
@@ -188,30 +190,12 @@ public class NewOrderFragment extends Fragment {
 
         getActivity().setTitle("New Order");
         ((MainActivity) getActivity()).hideBottomNavigationButton();
-        // Fragment locked in landscape screen orientation
-//        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-//        setRetainInstance(true);
-
-
-
 
 
         initialize();
 
+        EditFocus();
 
-        //Getting the instance of AutoCompleteTextView
-        actv = (AutoCompleteTextView) rootview.findViewById(R.id.party_name);
-        actv.setThreshold(1);//will start working from first character
-//        int layout = android.R.layout.simple_list_item_1;
-//        AutoCompleteAdapter adapter1 = new AutoCompleteAdapter (getActivity(), layout);
-      //  actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
-        actv.setTextColor(Color.BLACK);
-
-//        Qty = (EditText) rootview.findViewById(R.id.input_Qty);
-//        Ltr = (EditText) rootview.findViewById(R.id.input_Ltr);
-        CityName = (EditText) rootview.findViewById(R.id.city_name);
-        Discount=(EditText)rootview.findViewById(R.id.input_discount);
-        Remark=(EditText)rootview.findViewById(R.id.input_remark);
 
         dQty=(TextView)rootview.findViewById(R.id.Qty);
         dLtr=(TextView)rootview.findViewById(R.id.Ltr);
@@ -226,7 +210,7 @@ public class NewOrderFragment extends Fragment {
         edit=(Button)rootview.findViewById(R.id.btn_edit);
         Layout2=(LinearLayout)rootview.findViewById(R.id.l2);
         Layout1=(LinearLayout)rootview.findViewById(R.id.l1);
-        t1=(TextInputLayout)rootview.findViewById(R.id.input_brandname);
+        t1= (LinearLayout) rootview.findViewById(R.id.input_brandname);
         Layout2.setVisibility(LinearLayout.GONE);
         submit.setVisibility(Button.GONE);
 
@@ -243,7 +227,7 @@ public class NewOrderFragment extends Fragment {
 //                dLtr.setText(Ltr.getText().toString());
 //                dTotal.setText(Ltr.getText().toString());
 //                dpart_no.setText(part_no.toString());
-                t1.setVisibility(TextInputLayout.GONE);
+                t1.setVisibility(LinearLayout.GONE);
                 Layout1.setVisibility(LinearLayout.GONE);
 
                 myDb.InsertData(actv.getText().toString());
@@ -405,6 +389,167 @@ public class NewOrderFragment extends Fragment {
     {
         ad=(CircleButton) rootview.findViewById(R.id.ad);
         delete=(CircleButton) rootview.findViewById(R.id.delete);
+
+        actv = (AutoCompleteTextView) rootview.findViewById(R.id.party_name);
+        actv.setThreshold(1);//will start working from first character
+        actv.setTextColor(Color.BLACK);
+
+        CityName = (EditText) rootview.findViewById(R.id.city_name);
+        Trsnsportname = (EditText) rootview.findViewById(R.id.trans_name);
+        orderBy = (EditText) rootview.findViewById(R.id.orderby);
+        Discount=(EditText)rootview.findViewById(R.id.input_discount);
+        Remark=(EditText)rootview.findViewById(R.id.input_remark);
+
+
+        Tparty_name=(TextView)rootview.findViewById(R.id.Tparty_name);
+        Tcity=(TextView)rootview.findViewById(R.id.Tcity);
+        Tname=(TextView)rootview.findViewById(R.id.Tname);
+        Torderby=(TextView)rootview.findViewById(R.id.Torderby);
+        Tdiscount=(TextView)rootview.findViewById(R.id.Tdiscount);
+        Tremark=(TextView)rootview.findViewById(R.id.Tremark);
+    }
+
+    public void EditFocus()
+    {
+        actv.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tparty_name.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (actv.getText().length() > 0)
+                        Tparty_name.setVisibility(View.VISIBLE);
+                    else
+                        Tparty_name.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        CityName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tcity.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (CityName.getText().length() > 0)
+                        Tcity.setVisibility(View.VISIBLE);
+                    else
+                        Tcity.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        Trsnsportname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tname.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (Trsnsportname.getText().length() > 0)
+                        Tname.setVisibility(View.VISIBLE);
+                    else
+                        Tname.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        orderBy.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Torderby.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (orderBy.getText().length() > 0)
+                        Torderby.setVisibility(View.VISIBLE);
+                    else
+                        Torderby.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        Discount.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tdiscount.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (Discount.getText().length() > 0)
+                        Tdiscount.setVisibility(View.VISIBLE);
+                    else
+                        Tdiscount.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+
+        Remark.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tremark.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (Remark.getText().length() > 0)
+                        Tremark.setVisibility(View.VISIBLE);
+                    else
+                        Tremark.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

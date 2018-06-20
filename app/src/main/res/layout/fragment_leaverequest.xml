@@ -59,21 +59,6 @@
         </LinearLayout>
 
 
-
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_fromDate"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_fromDate"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="date"-->
-                <!--android:editable="false"-->
-                <!--android:hint="From Date" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -96,21 +81,6 @@
 
 
         </LinearLayout>
-
-
-
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_toDate"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_toDate"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="date"-->
-                <!--android:hint="To Date" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
 
         <LinearLayout
             android:id="@+id/input_layout_remark"
@@ -161,24 +131,6 @@
                         android:background="@android:color/transparent"/>
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
-
-
-
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Remark"-->
-                <!--android:textColor="#000"/>-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_remark"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="100dp"-->
-                <!--android:background="@drawable/rect_text_edit"-->
-                <!--android:inputType="textMultiLine"-->
-                <!--android:singleLine="true"-->
-                <!--android:maxLines="5"-->
-                <!--android:textSize="15dp" />-->
 
 
         </LinearLayout>
