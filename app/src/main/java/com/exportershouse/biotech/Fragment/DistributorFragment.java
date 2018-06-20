@@ -54,7 +54,7 @@ public class DistributorFragment extends Fragment {
     Spinner spinner,statespinner,partyspinner,daysspinner,nameFirm,nameParty;
     TextView cdate;
 
-    TextView Tname,Taddress,Tcity,Tpincode,Tdis;
+    TextView Tname,Taddress,Tcity,Tpincode,Tdis,Temail,Tlanline,Tmobno,Tpanno,Tgstno,Tnameofpro,Tnameofcontper,Tmboofcontper,Tyearlytarget,Ttransportname;
     
     EditText iname,iaddress,icity,ipincode,idistrict,iemail,ilandline,imobileno,iFpan_no,iGST_no,iFparty_name,iName_conPerson,iMobile_conPerson,iYearlyTarg,iTrans_name;
 
@@ -207,79 +207,79 @@ public class DistributorFragment extends Fragment {
                 Vimobileno = imobileno.getText().toString();
                 ViFpan_no=iFpan_no.getText().toString();
 
-                if(Viname.length()==0)
-                {
-                    iname.requestFocus();
-                    iname.setError("Please Enter Name");
-                }
-                else if (!Viname.matches("^[a-zA-Z ]+$")||Viname.contains(" ")){
-                    iname.requestFocus();
-                    iname.setError("Enter Valid Name");
-                }
-                else if (Viaddress.length()==0){
-                    iaddress.requestFocus();
-                    iaddress.setError("Please Enter Address");
-                }
-                else if (Vicity.length()==0){
-                    icity.requestFocus();
-                    icity.setError("Please Enter City");
-                }
-                else if (!Vicity.matches("^[a-zA-Z ]+$")){
-                    icity.requestFocus();
-                    icity.setError("Enter Valid City");
-                }
-                else if (Vipincode.length()==0){
-                    ipincode.requestFocus();
-                    ipincode.setError("Please Enter Pin code");
-                }
-
-                else if (Vipincode.length()<6||Vipincode.length()>6){
-                    ipincode.requestFocus();
-                    ipincode.setError("Invalid Pin code");
-                }
-                else if (Vidistrict.length()==0){
-                    idistrict.requestFocus();
-                    idistrict.setError("Please Enter District");
-                }
-                else if (!Vidistrict.matches("^[a-zA-Z ]+$")){
-                    idistrict.requestFocus();
-                    idistrict.setError("Enter Valid District");
-                }
-
-                else if (Viemail.length()==0){
-                    iemail.requestFocus();
-                    iemail.setError("Please Enter Email");
-                }
-
-                else if (!Viemail.matches("[a-zA-Z0-9._-]+@[a-z]+.[a-z]+")){
-                    iemail.requestFocus();
-                    iemail.setError("Invalid Email Address");
-                }
-                else if (Vilandline.length()>1){
-                    if (!Vilandline.matches("[(]\\d{4}[)]\\s\\d{6}")){
-                        ilandline.requestFocus();
-                        ilandline.setError("Invalid Land line No");
-                    }
-                }
-
-                else if (Vimobileno.length()==0){
-                    imobileno.requestFocus();
-                    imobileno.setError("Please Enter Mobile No");
-                }
-                else if (!Vimobileno.matches("^\\+[0-9]{10,13}$")){
-                    imobileno.requestFocus();
-                    imobileno.setError("Invalid Mobile No");
-                }
-
-                else if (ViFpan_no.length()==0){
-                    iFpan_no.requestFocus();
-                    iFpan_no.setError("Please Enter Pan No");
-                }
-
-                else if (!ViFpan_no.matches("[A-Z]{5}[0-9]{4}[A-Z]{1}")){
-                    iFpan_no.requestFocus();
-                    iFpan_no.setError("Invalid PAN No");
-                }
+//                if(Viname.length()==0)
+//                {
+//                    iname.requestFocus();
+//                    iname.setError("Please Enter Name");
+//                }
+//                else if (!Viname.matches("^[a-zA-Z ]+$")||Viname.contains(" ")){
+//                    iname.requestFocus();
+//                    iname.setError("Enter Valid Name");
+//                }
+//                else if (Viaddress.length()==0){
+//                    iaddress.requestFocus();
+//                    iaddress.setError("Please Enter Address");
+//                }
+//                else if (Vicity.length()==0){
+//                    icity.requestFocus();
+//                    icity.setError("Please Enter City");
+//                }
+//                else if (!Vicity.matches("^[a-zA-Z ]+$")){
+//                    icity.requestFocus();
+//                    icity.setError("Enter Valid City");
+//                }
+//                else if (Vipincode.length()==0){
+//                    ipincode.requestFocus();
+//                    ipincode.setError("Please Enter Pin code");
+//                }
+//
+//                else if (Vipincode.length()<6||Vipincode.length()>6){
+//                    ipincode.requestFocus();
+//                    ipincode.setError("Invalid Pin code");
+//                }
+//                else if (Vidistrict.length()==0){
+//                    idistrict.requestFocus();
+//                    idistrict.setError("Please Enter District");
+//                }
+//                else if (!Vidistrict.matches("^[a-zA-Z ]+$")){
+//                    idistrict.requestFocus();
+//                    idistrict.setError("Enter Valid District");
+//                }
+//
+//                else if (Viemail.length()==0){
+//                    iemail.requestFocus();
+//                    iemail.setError("Please Enter Email");
+//                }
+//
+//                else if (!Viemail.matches("[a-zA-Z0-9._-]+@[a-z]+.[a-z]+")){
+//                    iemail.requestFocus();
+//                    iemail.setError("Invalid Email Address");
+//                }
+//                else if (Vilandline.length()>1){
+//                    if (!Vilandline.matches("[(]\\d{4}[)]\\s\\d{6}")){
+//                        ilandline.requestFocus();
+//                        ilandline.setError("Invalid Land line No");
+//                    }
+//                }
+//
+//                else if (Vimobileno.length()==0){
+//                    imobileno.requestFocus();
+//                    imobileno.setError("Please Enter Mobile No");
+//                }
+//                else if (!Vimobileno.matches("^\\+[0-9]{10,13}$")){
+//                    imobileno.requestFocus();
+//                    imobileno.setError("Invalid Mobile No");
+//                }
+//
+//                else if (ViFpan_no.length()==0){
+//                    iFpan_no.requestFocus();
+//                    iFpan_no.setError("Please Enter Pan No");
+//                }
+//
+//                else if (!ViFpan_no.matches("[A-Z]{5}[0-9]{4}[A-Z]{1}")){
+//                    iFpan_no.requestFocus();
+//                    iFpan_no.setError("Invalid PAN No");
+//                }
 
 //                else if (!ViFpan_no.matches("^([0][1-9]|[1-2][0-9]|[3][0-7])([a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}[1-9a-zA-Z]{1}[zZ]{1}[0-9a-zA-Z]{1})+$")){
 //                    iFpan_no.requestFocus();
@@ -289,7 +289,7 @@ public class DistributorFragment extends Fragment {
 
 
 
-                else {
+//                else {
 
                     GetValueFromEditText();
 
@@ -323,7 +323,7 @@ public class DistributorFragment extends Fragment {
 
                     transection.replace(R.id.container, mfragment);
                     transection.addToBackStack(null).commit();
-                }
+//                }
 
             }
         });
@@ -429,6 +429,16 @@ public class DistributorFragment extends Fragment {
         Tcity=(TextView)rootview.findViewById(R.id.Tcity);
         Tpincode=(TextView)rootview.findViewById(R.id.Tpincode);
         Tdis=(TextView)rootview.findViewById(R.id.Tdis);
+        Temail=(TextView)rootview.findViewById(R.id.Temail);
+        Tlanline=(TextView)rootview.findViewById(R.id.Tlanline);
+        Tmobno=(TextView)rootview.findViewById(R.id.Tmobno);
+        Tpanno=(TextView)rootview.findViewById(R.id.Tpanno);
+        Tgstno=(TextView)rootview.findViewById(R.id.Tgstno);
+        Tnameofpro=(TextView)rootview.findViewById(R.id.Tnameofpro);
+        Tnameofcontper=(TextView)rootview.findViewById(R.id.Tnameofcontper);
+        Tmboofcontper=(TextView)rootview.findViewById(R.id.Tmboofcontper);
+        Tyearlytarget=(TextView)rootview.findViewById(R.id.Tyearlytarget);
+        Ttransportname=(TextView)rootview.findViewById(R.id.Ttransportname);
 
 
     }
@@ -549,6 +559,238 @@ public class DistributorFragment extends Fragment {
                 }
             }
         });
+
+        iemail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Temail.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (iemail.getText().length() > 0)
+                        Temail.setVisibility(View.VISIBLE);
+                    else
+                        Temail.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        ilandline.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tlanline.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (ilandline.getText().length() > 0)
+                        Tlanline.setVisibility(View.VISIBLE);
+                    else
+                        Tlanline.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        imobileno.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tmobno.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (imobileno.getText().length() > 0)
+                        Tmobno.setVisibility(View.VISIBLE);
+                    else
+                        Tmobno.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        iFpan_no.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tpanno.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (iFpan_no.getText().length() > 0)
+                        Tpanno.setVisibility(View.VISIBLE);
+                    else
+                        Tpanno.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        iGST_no.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tgstno.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (iGST_no.getText().length() > 0)
+                        Tgstno.setVisibility(View.VISIBLE);
+                    else
+                        Tgstno.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        iFparty_name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tnameofpro.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (iFparty_name.getText().length() > 0)
+                        Tnameofpro.setVisibility(View.VISIBLE);
+                    else
+                        Tnameofpro.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        iName_conPerson.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tnameofcontper.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (iName_conPerson.getText().length() > 0)
+                        Tnameofcontper.setVisibility(View.VISIBLE);
+                    else
+                        Tnameofcontper.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        iMobile_conPerson.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tmboofcontper.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (iMobile_conPerson.getText().length() > 0)
+                        Tmboofcontper.setVisibility(View.VISIBLE);
+                    else
+                        Tmboofcontper.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        iYearlyTarg.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tyearlytarget.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (iYearlyTarg.getText().length() > 0)
+                        Tyearlytarget.setVisibility(View.VISIBLE);
+                    else
+                        Tyearlytarget.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        iTrans_name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Ttransportname.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (iTrans_name.getText().length() > 0)
+                        Ttransportname.setVisibility(View.VISIBLE);
+                    else
+                        Ttransportname.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+
 
 
     }

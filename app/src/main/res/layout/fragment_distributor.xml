@@ -35,22 +35,24 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please Select Company Name"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorPrimary"/>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/input_companyname"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Please Select Company Name"
-                android:textColor="@color/colorAccent"/>
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border_edittext">
 
             <Spinner
                 android:id="@+id/company_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:spinnerMode="dropdown"
                 android:entries="@array/company_name"/>
 
         </android.support.design.widget.TextInputLayout>
@@ -61,12 +63,21 @@
             android:orientation="horizontal"
             android:layout_marginTop="5dp">
 
-            <Spinner
-                android:id="@+id/name_firm"
+            <LinearLayout
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="10dp"
-                android:entries="@array/spinnerItems" />
+                android:layout_marginRight="3dp"
+                android:background="@drawable/rounded_border_edittext">
+
+                <Spinner
+                    android:id="@+id/name_firm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:entries="@array/spinnerItems" />
+
+
+            </LinearLayout>
 
 
 
@@ -247,7 +258,7 @@
                     android:id="@+id/input_pincode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textCapWords"
+                    android:inputType="number"
                     android:singleLine="true"
                     android:background="@android:color/transparent"/>
             </android.support.design.widget.TextInputLayout>
@@ -296,136 +307,259 @@
         </RelativeLayout>
 
 
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_dis"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_dis"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="40dp"-->
-                <!--android:inputType="textCapSentences"-->
-                <!--android:padding="10dp"-->
-                <!--android:background="@drawable/rounded_border_edittext"-->
-                <!--android:hint=" District" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="State"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorPrimary"/>
 
         <LinearLayout
             android:orientation="vertical"
             android:id="@+id/input_state"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="State"
-                android:textColor="@color/colorAccent"/>
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border_edittext">
 
             <Spinner
                 android:id="@+id/state_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 />
 
         </LinearLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_email"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/input_email"
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:background="@drawable/rounded_border_edittext"
-                android:hint="Email Address" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_border_edittext" />
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_landlineno"
+            <TextView
+                android:id="@+id/Temail"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="28dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Email Address"
+                android:textSize="16sp"
+                android:background="@android:color/white"
+                android:visibility="invisible"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="28dp"
+                android:layout_marginRight="28dp"
+                android:hint="Email Address"
+                android:textColorHint="@color/colorPrimary"
+                app:hintTextAppearance="@style/HintTextStyle">
+
+                <EditText
+                    android:id="@+id/input_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:background="@android:color/transparent"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/input_lanlineno"
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:inputType="phone"
-                android:padding="10dp"
-                android:background="@drawable/rounded_border_edittext"
-                android:hint="Landline no.(With STD Code)" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_border_edittext" />
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_mobno"
+            <TextView
+                android:id="@+id/Tlanline"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="28dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Landline no.(With STD Code)"
+                android:textSize="16sp"
+                android:background="@android:color/white"
+                android:visibility="invisible"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="28dp"
+                android:layout_marginRight="28dp"
+                android:hint="Landline no.(With STD Code)"
+                android:textColorHint="@color/colorPrimary"
+                app:hintTextAppearance="@style/HintTextStyle">
+
+                <EditText
+                    android:id="@+id/input_lanlineno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:background="@android:color/transparent"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/input_mobno"
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="+91"
-                android:inputType="phone"
-                android:padding="10dp"
-                android:background="@drawable/rounded_border_edittext"
-                android:hint="Mobile No" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_border_edittext" />
+
+            <TextView
+                android:id="@+id/Tmobno"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="28dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Mobile No"
+                android:textSize="16sp"
+                android:background="@android:color/white"
+                android:visibility="invisible"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="28dp"
+                android:layout_marginRight="28dp"
+                android:hint="Mobile No"
+                android:textColorHint="@color/colorPrimary"
+                app:hintTextAppearance="@style/HintTextStyle">
+
+                <EditText
+                    android:id="@+id/input_mobno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:background="@android:color/transparent"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nature of the Firm"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorPrimary"/>
 
         <LinearLayout
             android:orientation="vertical"
             android:id="@+id/input_natureoffirm"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nature of the Firm"
-                android:textColor="@color/colorAccent"/>
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border_edittext">
 
             <Spinner
                 android:id="@+id/natureoffirm_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:entries="@array/natureofthefirm"/>
 
         </LinearLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_panno"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/input_panno"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_border_edittext" />
+
+            <TextView
+                android:id="@+id/Tpanno"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="28dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Firm Pan No"
+                android:textSize="16sp"
+                android:background="@android:color/white"
+                android:visibility="invisible"/>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:padding="10dp"
-                android:background="@drawable/rounded_border_edittext"
-                android:hint="Firm Pan No" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_marginLeft="28dp"
+                android:layout_marginRight="28dp"
+                android:hint="Firm Pan No"
+                android:textColorHint="@color/colorPrimary"
+                app:hintTextAppearance="@style/HintTextStyle">
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_gstno"
+                <EditText
+                    android:id="@+id/input_panno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:background="@android:color/transparent"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/input_gstno"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_border_edittext" />
+
+            <TextView
+                android:id="@+id/Tgstno"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="28dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="GST No"
+                android:textSize="16sp"
+                android:background="@android:color/white"
+                android:visibility="invisible"/>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:padding="10dp"
-                android:background="@drawable/rounded_border_edittext"
-                android:hint="GST No" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_marginLeft="28dp"
+                android:layout_marginRight="28dp"
+                android:hint="GST No"
+                android:textColorHint="@color/colorPrimary"
+                app:hintTextAppearance="@style/HintTextStyle">
+
+                <EditText
+                    android:id="@+id/input_gstno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:background="@android:color/transparent"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -433,101 +567,255 @@
             android:orientation="horizontal"
             android:layout_marginTop="5dp">
 
-            <Spinner
-                android:id="@+id/name_party"
+            <LinearLayout
                 android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:entries="@array/spinnerItems" />
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/rounded_border_edittext">
 
-            <EditText
-                android:id="@+id/input_nameofpro"
+                <Spinner
+                    android:id="@+id/name_party"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:entries="@array/spinnerItems" />
+
+            </LinearLayout>
+
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textCapWords"
-                android:padding="10dp"
-                android:background="@drawable/rounded_border_edittext"
-                android:hint="Name of(Pro/Par)"
-                android:singleLine="true" />
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_border_edittext" />
+
+                <TextView
+                    android:id="@+id/Tnameofpro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="28dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="Name of(Pro/Par)"
+                    android:textSize="16sp"
+                    android:background="@android:color/white"
+                    android:visibility="invisible"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginRight="28dp"
+                    android:hint="Name of(Pro/Par)"
+                    android:textColorHint="@color/colorPrimary"
+                    app:hintTextAppearance="@style/HintTextStyle">
+
+                    <EditText
+                        android:id="@+id/input_nameofpro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"
+                        android:singleLine="true"
+                        android:background="@android:color/transparent"/>
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
 
         </LinearLayout>
 
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_nameofcontper"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/input_nameofcontper"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_border_edittext" />
+
+            <TextView
+                android:id="@+id/Tnameofcontper"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="28dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Name of Contact Person"
+                android:textSize="16sp"
+                android:background="@android:color/white"
+                android:visibility="invisible"/>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords"
-                android:padding="10dp"
-                android:background="@drawable/rounded_border_edittext"
-                android:hint="Name of Contact Person" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_marginLeft="28dp"
+                android:layout_marginRight="28dp"
+                android:hint="Name of Contact Person"
+                android:textColorHint="@color/colorPrimary"
+                app:hintTextAppearance="@style/HintTextStyle">
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_mobofcontper"
+                <EditText
+                    android:id="@+id/input_nameofcontper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:singleLine="true"
+                    android:background="@android:color/transparent"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/input_mboofcontper"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_border_edittext" />
+
+            <TextView
+                android:id="@+id/Tmboofcontper"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="28dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Mobile No of Contact Person"
+                android:textSize="16sp"
+                android:background="@android:color/white"
+                android:visibility="invisible"/>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:padding="10dp"
-                android:background="@drawable/rounded_border_edittext"
-                android:hint="Mobile No of Contact Person" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_marginLeft="28dp"
+                android:layout_marginRight="28dp"
+                android:hint="Mobile No of Contact Person"
+                android:textColorHint="@color/colorPrimary"
+                app:hintTextAppearance="@style/HintTextStyle">
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_yearlytarget"
+                <EditText
+                    android:id="@+id/input_mboofcontper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:background="@android:color/transparent"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/input_yearlytarget"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_border_edittext" />
+
+            <TextView
+                android:id="@+id/Tyearlytarget"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="28dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Yearly Target(minimum)KL"
+                android:textSize="16sp"
+                android:background="@android:color/white"
+                android:visibility="invisible"/>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:padding="10dp"
-                android:background="@drawable/rounded_border_edittext"
-                android:hint="Yearly Target(minimum)KL" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_marginLeft="28dp"
+                android:layout_marginRight="28dp"
+                android:hint="Yearly Target(minimum)KL"
+                android:textColorHint="@color/colorPrimary"
+                app:hintTextAppearance="@style/HintTextStyle">
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_transportname"
+                <EditText
+                    android:id="@+id/input_yearlytarget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:background="@android:color/transparent"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/input_transportname"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_border_edittext" />
+
+            <TextView
+                android:id="@+id/Ttransportname"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="28dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Required Transport Name"
+                android:textSize="16sp"
+                android:background="@android:color/white"
+                android:visibility="invisible"/>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords"
-                android:padding="10dp"
-                android:background="@drawable/rounded_border_edittext"
-                android:hint="Required Transport Name" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_marginLeft="28dp"
+                android:layout_marginRight="28dp"
+                android:hint="Required Transport Name"
+                android:textColorHint="@color/colorPrimary"
+                app:hintTextAppearance="@style/HintTextStyle">
+
+                <EditText
+                    android:id="@+id/input_transportname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:singleLine="true"
+                    android:background="@android:color/transparent"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Market Closing day"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorPrimary"/>
 
         <LinearLayout
             android:orientation="vertical"
             android:id="@+id/days"
+            android:paddingTop="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Market Closing day"
-                android:textColor="@color/colorAccent"/>
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border_edittext">
 
             <Spinner
                 android:id="@+id/days_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:entries="@array/days"/>
 
         </LinearLayout>
@@ -535,12 +823,13 @@
 
 
         <Button android:id="@+id/btn_next"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
             android:text="Next"
-            android:background="@color/colorAccent"
+            android:background="@drawable/round_button"
             android:layout_marginTop="20dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="#FFF"/>
 
 
 
