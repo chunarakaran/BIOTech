@@ -83,19 +83,6 @@
         </RelativeLayout>
 
 
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_name"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_dname"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:singleLine="true"-->
-                <!--android:hint="Enter Distributer Name(Under Party)" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -138,19 +125,6 @@
             </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
 
-
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_pname"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_pname"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:singleLine="true"-->
-                <!--android:hint="Enter Party Firm Name" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -196,31 +170,6 @@
         </RelativeLayout>
 
 
-        <!--<LinearLayout-->
-            <!--android:id="@+id/input_layout_address"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="vertical">-->
-
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Address"-->
-                <!--android:textStyle="bold"/>-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_address"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="100dp"-->
-                <!--android:background="@drawable/rect_text_edit"-->
-                <!--android:inputType="textMultiLine"-->
-                <!--android:singleLine="true"-->
-                <!--android:maxLines="5"-->
-                <!--android:textSize="15dp" />-->
-
-
-        <!--</LinearLayout>-->
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -263,19 +212,6 @@
             </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
 
-
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_city"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_city"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="text"-->
-                <!--android:hint="City" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -320,19 +256,6 @@
         </RelativeLayout>
 
 
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_pincode"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_pincode"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="number"-->
-                <!--android:hint="Pincode" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -375,19 +298,6 @@
             </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
 
-
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_dis"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_dis"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="text"-->
-                <!--android:hint="District" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
 
         <TextView
             android:layout_width="match_parent"
@@ -497,19 +407,6 @@
 
 
 
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_email"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_email"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="textEmailAddress"-->
-                <!--android:hint="Email Address" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -532,12 +429,6 @@
 
             </LinearLayout>
 
-
-            <!--<Spinner-->
-                <!--android:id="@+id/name_Cperson"-->
-                <!--android:layout_width="100dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:entries="@array/spinnerItems" />-->
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -581,13 +472,6 @@
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
 
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_nameofcontper"-->
-                <!--android:layout_width="250dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:hint="Name of Contact Person"-->
-                <!--android:singleLine="true" />-->
 
         </LinearLayout>
 
@@ -633,20 +517,6 @@
             </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
 
-
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_mobofcontper"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_mboofcontper"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="number"-->
-                <!--android:hint="Mobile No of Contact Person" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -689,19 +559,6 @@
             </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
 
-
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:id="@+id/input_layout_Waofcontper"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/input_Wamboofcontper"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:inputType="number"-->
-                <!--android:hint="Whats App No of Contact Person" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
 
         <LinearLayout
             android:orientation="vertical"
@@ -794,33 +651,6 @@
             </RelativeLayout>
 
 
-
-
-            <!--<LinearLayout-->
-                <!--android:orientation="vertical"-->
-                <!--android:id="@+id/input_layout_reason"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Reason"-->
-                    <!--android:textStyle="bold"/>-->
-
-                <!--<EditText-->
-                    <!--android:id="@+id/input_reason"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="100dp"-->
-                    <!--android:background="@drawable/rect_text_edit"-->
-                    <!--android:inputType="textMultiLine"-->
-                    <!--android:singleLine="true"-->
-                    <!--android:maxLines="5"-->
-                    <!--android:textSize="15dp" />-->
-
-
-            <!--</LinearLayout>-->
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -862,20 +692,6 @@
                         android:background="@android:color/transparent"/>
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
-
-
-            <!--<android.support.design.widget.TextInputLayout-->
-                <!--android:id="@+id/input_layout_Othbrandname"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
-
-                <!--<EditText-->
-                    <!--android:id="@+id/input_Othbrandname"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:singleLine="true"-->
-                    <!--android:hint="Enter Other Brand Name(With comma)" />-->
-            <!--</android.support.design.widget.TextInputLayout>-->
 
 
         </LinearLayout>
@@ -975,31 +791,6 @@
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
 
-
-            <!--<LinearLayout-->
-                <!--android:orientation="vertical"-->
-                <!--android:id="@+id/input_layout_reason2"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Reason"-->
-                    <!--android:textStyle="bold"/>-->
-
-                <!--<EditText-->
-                    <!--android:id="@+id/input_reason2"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="100dp"-->
-                    <!--android:background="@drawable/rect_text_edit"-->
-                    <!--android:inputType="textMultiLine"-->
-                    <!--android:singleLine="true"-->
-                    <!--android:maxLines="5"-->
-                    <!--android:textSize="15dp" />-->
-
-
-            <!--</LinearLayout>-->
 
         </LinearLayout>
 
@@ -1105,33 +896,6 @@
                         android:background="@android:color/transparent"/>
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
-
-
-            <!--<LinearLayout-->
-                <!--android:id="@+id/input_layout_remark"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="vertical">-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Remark"-->
-                    <!--android:textStyle="bold"/>-->
-
-                <!--<EditText-->
-                    <!--android:id="@+id/input_remark"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="80dp"-->
-                    <!--android:background="@drawable/rect_text_edit"-->
-                    <!--android:inputType="textMultiLine"-->
-                    <!--android:singleLine="true"-->
-                    <!--android:maxLines="5"-->
-                    <!--android:textSize="15dp" />-->
-
-
-            <!--</LinearLayout>-->
-
 
 
         </LinearLayout>
