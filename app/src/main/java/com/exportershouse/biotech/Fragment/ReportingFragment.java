@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -64,6 +65,8 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
     View rootview;
 
     private ProgressDialog pDialog;
+
+    TextView Tdname,Tpname,Taddress,Tcity,Tpincode,Tdis,Temail,Tnameofcontper,Tmboofcontper,TWamboofcontper,Treason,TOthbrandname,Treason2,Tremark;
 
     EditText distName,pName,Address,city,pincode,district,email,CperName,CperMob,CperWA,BrandReason,BranName,PartyReason,remark;
 
@@ -146,6 +149,8 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
         progressDialog = new ProgressDialog(getActivity());
 
         initialize();
+
+        EditFocus();
 
         loadState_SpinnerData(URL);
 
@@ -424,6 +429,351 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
         BranName=(EditText)rootview.findViewById(R.id.input_Othbrandname);
         PartyReason=(EditText)rootview.findViewById(R.id.input_reason2);
         remark=(EditText)rootview.findViewById(R.id.input_remark);
+
+        Tdname=(TextView)rootview.findViewById(R.id.Tdname);
+        Tpname=(TextView)rootview.findViewById(R.id.Tpname);
+        Taddress=(TextView)rootview.findViewById(R.id.Taddress);
+        Tcity=(TextView)rootview.findViewById(R.id.Tcity);
+        Tpincode=(TextView)rootview.findViewById(R.id.Tpincode);
+        Tdis=(TextView)rootview.findViewById(R.id.Tdis);
+        Temail=(TextView)rootview.findViewById(R.id.Temail);
+        Tnameofcontper=(TextView)rootview.findViewById(R.id.Tnameofcontper);
+        Tmboofcontper=(TextView)rootview.findViewById(R.id.Tmboofcontper);
+        TWamboofcontper=(TextView)rootview.findViewById(R.id.TWamboofcontper);
+        Treason=(TextView)rootview.findViewById(R.id.Treason);
+        TOthbrandname=(TextView)rootview.findViewById(R.id.TOthbrandname);
+        Treason2=(TextView)rootview.findViewById(R.id.Treason2);
+        Tremark=(TextView)rootview.findViewById(R.id.Tremark);
+
+    }
+
+    public void EditFocus()
+    {
+        distName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tdname.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (distName.getText().length() > 0)
+                        Tdname.setVisibility(View.VISIBLE);
+                    else
+                        Tdname.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        pName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tpname.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (pName.getText().length() > 0)
+                        Tpname.setVisibility(View.VISIBLE);
+                    else
+                        Tpname.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        Address.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Taddress.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (Address.getText().length() > 0)
+                        Taddress.setVisibility(View.VISIBLE);
+                    else
+                        Taddress.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        city.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tcity.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (city.getText().length() > 0)
+                        Tcity.setVisibility(View.VISIBLE);
+                    else
+                        Tcity.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        pincode.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tpincode.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (pincode.getText().length() > 0)
+                        Tpincode.setVisibility(View.VISIBLE);
+                    else
+                        Tpincode.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        district.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tdis.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (district.getText().length() > 0)
+                        Tdis.setVisibility(View.VISIBLE);
+                    else
+                        Tdis.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Temail.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (email.getText().length() > 0)
+                        Temail.setVisibility(View.VISIBLE);
+                    else
+                        Temail.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        CperName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tnameofcontper.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (CperName.getText().length() > 0)
+                        Tnameofcontper.setVisibility(View.VISIBLE);
+                    else
+                        Tnameofcontper.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        CperMob.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tmboofcontper.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (distName.getText().length() > 0)
+                        Tmboofcontper.setVisibility(View.VISIBLE);
+                    else
+                        Tmboofcontper.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+
+        CperWA.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            TWamboofcontper.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (CperWA.getText().length() > 0)
+                        TWamboofcontper.setVisibility(View.VISIBLE);
+                    else
+                        TWamboofcontper.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        BrandReason.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Treason.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (BrandReason.getText().length() > 0)
+                        Treason.setVisibility(View.VISIBLE);
+                    else
+                        Treason.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        BranName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            TOthbrandname.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (BranName.getText().length() > 0)
+                        TOthbrandname.setVisibility(View.VISIBLE);
+                    else
+                        TOthbrandname.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        PartyReason.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Treason2.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (PartyReason.getText().length() > 0)
+                        Treason2.setVisibility(View.VISIBLE);
+                    else
+                        Treason2.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        remark.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Tremark.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (distName.getText().length() > 0)
+                        Tremark.setVisibility(View.VISIBLE);
+                    else
+                        Tremark.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+
+
     }
 
     private void loadState_SpinnerData(String url)

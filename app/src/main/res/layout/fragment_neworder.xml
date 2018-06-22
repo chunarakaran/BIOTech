@@ -144,7 +144,7 @@
                         android:id="@+id/party_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textCapWords"
+                        android:inputType="text"
                         android:singleLine="true"
                         android:background="@android:color/transparent"/>
                 </android.support.design.widget.TextInputLayout>
