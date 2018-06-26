@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -25,8 +26,10 @@ import com.exportershouse.biotech.Adapter.SessionManager;
 
 public class LoginActivity extends AppCompatActivity {
 
+
     EditText user_id,user_password;
     Button login_btn;
+    TextView forgot;
     RequestQueue requestQueue1;
     String Url;
 
@@ -91,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
         user_id = (EditText) findViewById(R.id.userEmail);
         user_password = (EditText) findViewById(R.id.userpassword);
         login_btn = (Button) findViewById(R.id.BtnLogin);
+        forgot = (TextView) findViewById(R.id.textView2);
 
         // Progress dialog
         pDialog = new ProgressDialog(this);
@@ -142,6 +146,14 @@ public class LoginActivity extends AppCompatActivity {
 
         });
 
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent f=new Intent(getApplicationContext(),ForgotPasswordActivity.class);
+                startActivity(f);
+                finish();
+            }
+        });
 
 
     }

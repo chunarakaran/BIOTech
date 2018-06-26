@@ -391,21 +391,6 @@ public class NewOrderFragment extends Fragment {
 
 
 
-//        CityName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if(actionId == EditorInfo.IME_ACTION_DONE){
-//                    //do stuff
-//
-//                    Toast.makeText(getActivity(), CityName.getText(), Toast.LENGTH_SHORT).show();
-//                    Trsnsportname.setText(CityName.getText());
-//                    return true;
-//                }
-//                return false;
-//            }
-//        });
-
-
 
         rootview.setFocusableInTouchMode(true);
         rootview.requestFocus();
