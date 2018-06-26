@@ -16,11 +16,14 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.pm.ActivityInfoCompat;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -43,6 +46,7 @@ import com.exportershouse.biotech.Adapter.GetBrandDataAdapter;
 import com.exportershouse.biotech.Adapter.GetColorDataAdapter;
 import com.exportershouse.biotech.Adapter.GetLtrDataAdapter;
 import com.exportershouse.biotech.Adapter.GetOrderDataAdapter;
+import com.exportershouse.biotech.Adapter.GetOtherBrandDataAdapter;
 import com.exportershouse.biotech.Adapter.GetPartnoDataAdapter;
 import com.exportershouse.biotech.Database.myDBClass;
 import com.exportershouse.biotech.MainActivity;
@@ -80,10 +84,11 @@ public class NewOrderFragment extends Fragment {
 
     Button add,submit,edit;
     LinearLayout Layout1,Layout2;
-    LinearLayout t1;
+    LinearLayout t1,t2;
 
-    Spinner brand_spinner,color_spinner,partno_spinner,Test;
+    Spinner brand_spinner,Otherbrand_spinner,color_spinner,partno_spinner,Test;
     final ArrayList<GetBrandDataAdapter> datalist = new ArrayList<GetBrandDataAdapter>();
+    final ArrayList<GetOtherBrandDataAdapter> datalist5 = new ArrayList<>();
     final ArrayList<GetColorDataAdapter> datalist1 = new ArrayList<>();
     final ArrayList<GetPartnoDataAdapter> datalist2 = new ArrayList<>();
     final ArrayList<GetOrderDataAdapter> datalist3 = new ArrayList<>();
@@ -117,7 +122,7 @@ public class NewOrderFragment extends Fragment {
     private LinearLayout  mLayout3;
     int k3 = -1;
     int flag3;
-    public static Spinner ltrSpinner[] = new Spinner[100];
+    public static TextView ltrSpinner[] = new TextView[100];
     public List<Spinner> ltr_array = new ArrayList<Spinner>();
 
 
@@ -211,8 +216,10 @@ public class NewOrderFragment extends Fragment {
         Layout2=(LinearLayout)rootview.findViewById(R.id.l2);
         Layout1=(LinearLayout)rootview.findViewById(R.id.l1);
         t1= (LinearLayout) rootview.findViewById(R.id.input_brandname);
+        t2= (LinearLayout) rootview.findViewById(R.id.input_otherBrand);
         Layout2.setVisibility(LinearLayout.GONE);
         submit.setVisibility(Button.GONE);
+        t2.setVisibility(LinearLayout.GONE);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -246,7 +253,7 @@ public class NewOrderFragment extends Fragment {
                 add.setVisibility(View.VISIBLE);
                 submit.setVisibility(Button.GONE);
                 Layout2.setVisibility(LinearLayout.GONE);
-                t1.setVisibility(TextInputLayout.VISIBLE);
+                t1.setVisibility(LinearLayout.VISIBLE);
                 Layout1.setVisibility(LinearLayout.VISIBLE);
             }
         });
@@ -272,13 +279,33 @@ public class NewOrderFragment extends Fragment {
             {
                 brand_name=   brand_spinner.getItemAtPosition(brand_spinner.getSelectedItemPosition()).toString();
                 brand_id = datalist.get(i).getId();
+                int id;
+                id=Integer.parseInt(brand_id);
 //                Toast.makeText(getContext(),"Id   " +brand_id , Toast.LENGTH_LONG).show();
+
+                if(id==3)
+                {
+                    t2.setVisibility(LinearLayout.VISIBLE);
+                }
+                else {
+                    t2.setVisibility(LinearLayout.GONE);
+                }
+
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 // DO Nothing here
             }
         });
+
+//        if(brand_id=="3")
+//        {
+//            t2.setVisibility(LinearLayout.VISIBLE);
+//        }
+
+        Otherbrand_spinner=(Spinner)rootview.findViewById(R.id.Otherbrand_spinner);
+
+        loadOtherBrandSpinnerData(URL);
 
 //        color_spinner=(Spinner)rootview.findViewById(R.id.color_spinner);
 //        color=new ArrayList<>();
@@ -362,6 +389,21 @@ public class NewOrderFragment extends Fragment {
             }
         });
 
+
+
+//        CityName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//                if(actionId == EditorInfo.IME_ACTION_DONE){
+//                    //do stuff
+//
+//                    Toast.makeText(getActivity(), CityName.getText(), Toast.LENGTH_SHORT).show();
+//                    Trsnsportname.setText(CityName.getText());
+//                    return true;
+//                }
+//                return false;
+//            }
+//        });
 
 
 
@@ -627,14 +669,42 @@ public class NewOrderFragment extends Fragment {
 
 
 
+
+            textView1[flag2].addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                    String c;
+                    c=textView1[flag2].getText().toString();
+                    int a=20,b;
+                    b=Integer.parseInt(c);
+                    int total;
+                    total=b*a;
+                    ltrSpinner[flag3].setText(Integer.toString(total));
+                }
+            });
+
+
             k3++;
             flag3=k3;
             final LinearLayout.LayoutParams lparams3 = new LinearLayout.LayoutParams(380,120);
             lparams3.setMargins(1, 20, 1, 0);
-            ltrSpinner[flag3] = new Spinner(getActivity());
+            ltrSpinner[flag3] = new TextView(getActivity());
             ltrSpinner[flag3].setLayoutParams(lparams3);
+            ltrSpinner[flag3].setText("ltr");
             ltrSpinner[flag3].setId(flag3);
-            ltrSpinner[flag3].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ltr_list));
+
+//            ltrSpinner[flag3].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ltr_list));
 
             view1=new View(getActivity());
             view1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 3));
@@ -675,7 +745,7 @@ public class NewOrderFragment extends Fragment {
 
             text4=new TextView(getActivity());
             text4.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 40));
-            text4.setText("Select LTR");
+            text4.setText("Total LTR");
             text4.setTypeface(null, Typeface.BOLD);
             text4.setTextColor(Color.parseColor("#212121"));
             text4.setPadding(10,0,0,0);
@@ -706,7 +776,7 @@ public class NewOrderFragment extends Fragment {
         color_array.add(colorSpinner[flag]);
         part_array.add(partSpinner[flag1]);
         qty.add(textView1[flag2]);
-        ltr_array.add(ltrSpinner[flag3]);
+//        ltr_array.add(ltrSpinner[flag3]);
 
 
 
@@ -782,6 +852,57 @@ public class NewOrderFragment extends Fragment {
         stringRequest.setRetryPolicy(policy);
         requestQueue.add(stringRequest);
     }
+
+    private void loadOtherBrandSpinnerData(String url)
+    {
+        pDialog.setMessage("Please Wait ...");
+        showDialog();
+
+        RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url+"api/view_other_company", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                final ArrayList<String> list = new ArrayList<>();
+                list.clear();
+
+                try{
+                    GetOtherBrandDataAdapter GetDatadp ;
+                    JSONObject jsonObject=new JSONObject(response);
+                    JSONArray jsonArray=jsonObject.getJSONArray("view_other_company");
+                    for(int i=0;i<jsonArray.length();i++){
+                        JSONObject jsonObject1=jsonArray.getJSONObject(i);
+
+                        GetDatadp = new GetOtherBrandDataAdapter();
+                        GetDatadp.setName(jsonObject1.getString("name"));
+                        GetDatadp.setId(jsonObject1.getString("id"));
+                        datalist5.add(GetDatadp);
+
+                        list.add(jsonObject1.getString("name"));
+
+//                        String brand=jsonObject1.getString("name");
+//                        String bid=jsonObject1.getString("id");
+//                        Brand.add(brand);
+
+                    }
+
+                    Otherbrand_spinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, list));
+                    hideDialog();
+                }catch (JSONException e){e.printStackTrace();}
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+
+            }
+        });
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
 
     private void loadColorSpinnerData(String url)
     {
@@ -905,7 +1026,7 @@ public class NewOrderFragment extends Fragment {
 
                     }
 
-                    ltrSpinner[flag3].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ltr_list));
+//                    ltrSpinner[flag3].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ltr_list));
                     hideDialog();
                 }catch (JSONException e){e.printStackTrace();}
             }

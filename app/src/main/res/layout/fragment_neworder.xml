@@ -46,6 +46,38 @@
 
         </LinearLayout>
 
+
+        <LinearLayout
+            android:id="@+id/input_otherBrand"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:textSize="15dp"
+                android:text="Please Select Company"
+                android:textColor="@color/colorPrimary"/>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_border_edittext">
+
+                <Spinner
+                    android:id="@+id/Otherbrand_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
         <LinearLayout
             android:id="@+id/l1"
             android:layout_width="match_parent"

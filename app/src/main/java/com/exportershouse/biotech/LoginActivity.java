@@ -151,7 +151,7 @@ public class LoginActivity extends AppCompatActivity {
         pDialog.setMessage("Logging in ...");
         showDialog();
 
-        StringRequest jsonobject = new StringRequest(Request.Method.POST, Url+"api/login" + "?email="+user_id.getText().toString()+"&password="+user_password.getText().toString(), new Response.Listener<String>() {
+        StringRequest jsonobject = new StringRequest(Request.Method.POST, Url+"api/login" + "?user_id="+user_id.getText().toString()+"&password="+user_password.getText().toString(), new Response.Listener<String>() {
             @Override
 
             public void onResponse(String response) {

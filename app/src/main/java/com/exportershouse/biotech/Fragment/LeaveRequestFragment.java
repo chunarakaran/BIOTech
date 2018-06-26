@@ -217,7 +217,9 @@ public class LeaveRequestFragment extends Fragment {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
             {
-                fromDate.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+                int Month;
+                Month=monthOfYear+1;
+                fromDate.setText(year + "-" + Month + "-" + dayOfMonth);
             }};
         DatePickerDialog dpDialog=new DatePickerDialog(getActivity(), listener, year, month, day);
         dpDialog.getDatePicker().setMinDate(mcalendar.getTimeInMillis());
@@ -230,7 +232,9 @@ public class LeaveRequestFragment extends Fragment {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
             {
-                toDate.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+                int Month;
+                Month=monthOfYear+1;
+                toDate.setText(year + "-" + Month + "-" + dayOfMonth);
             }};
         DatePickerDialog dpDialog=new DatePickerDialog(getActivity(), listener, year, month, day);
         dpDialog.getDatePicker().setMinDate(mcalendar.getTimeInMillis());

@@ -40,7 +40,7 @@
                 android:inputType="textEmailAddress"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
-                android:hint="Email"
+                android:hint="User ID"
                 android:textColorHint="#fff"
                 android:textColor="#fff"
                 android:layout_marginTop="30dp"
