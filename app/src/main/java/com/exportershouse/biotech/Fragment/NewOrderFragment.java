@@ -643,13 +643,13 @@ public class NewOrderFragment extends Fragment {
             k2++;
             flag2=k2;
             final LinearLayout.LayoutParams lparams1 = new LinearLayout.LayoutParams(380, 120);
-            lparams1.setMargins(1, 20, 1, 0);
+            lparams1.setMargins(5, 20, 1, 5);
             textView1[flag2] = new EditText(getActivity());
             textView1[flag2].setLayoutParams(lparams1);
             textView1[flag2].setHint("Enter Qty");
             textView1[flag2].setInputType(InputType.TYPE_CLASS_NUMBER);
             textView1[flag2].setBackgroundResource(R.drawable.rounded_border_edittext);
-            textView1[flag2].setTooltipText("Hello");
+            textView1[flag2].setPadding(20,0,0,0);
             textView1[flag2].setId(flag2);
 
 
@@ -683,10 +683,13 @@ public class NewOrderFragment extends Fragment {
             k3++;
             flag3=k3;
             final LinearLayout.LayoutParams lparams3 = new LinearLayout.LayoutParams(380,120);
-            lparams3.setMargins(1, 20, 1, 0);
+            lparams3.setMargins(1, 20, 1, 5);
             ltrSpinner[flag3] = new TextView(getActivity());
             ltrSpinner[flag3].setLayoutParams(lparams3);
-            ltrSpinner[flag3].setText("ltr");
+            ltrSpinner[flag3].setText("Ltr");
+            ltrSpinner[flag3].setTypeface(null, Typeface.BOLD);
+            ltrSpinner[flag3].setTextColor(Color.parseColor("#212121"));
+            ltrSpinner[flag3].setPadding(10,0,0,0);
             ltrSpinner[flag3].setId(flag3);
 
 //            ltrSpinner[flag3].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ltr_list));

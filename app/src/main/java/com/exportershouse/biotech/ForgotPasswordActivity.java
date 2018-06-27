@@ -3,19 +3,12 @@ package com.exportershouse.biotech;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import com.exportershouse.biotech.Fragment.ChangePasswordFragment;
-import com.exportershouse.biotech.Fragment.DashboardFragment;
-import com.exportershouse.biotech.Fragment.DistributorFragment;
-import com.exportershouse.biotech.Fragment.NextDistributorFragment;
 
 import customfonts.MyTextView;
 
@@ -75,10 +68,9 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         Reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                android.app.FragmentTransaction transection=getFragmentManager().beginTransaction();
-//                fragment=new ChangePasswordFragment();
-//                transection.replace(R.id.container,fragment);
-//                transection.addToBackStack(null).commit();
+
+                Intent intent = new Intent(getApplicationContext(), ChangePasswordActivity.class);
+                startActivity(intent);
             }
         });
 

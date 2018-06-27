@@ -1,6 +1,7 @@
 package com.exportershouse.biotech.Fragment;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,6 +14,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +30,8 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.exportershouse.biotech.ChangePasswordActivity;
+import com.exportershouse.biotech.ForgotPasswordActivity;
 import com.exportershouse.biotech.MainActivity;
 import com.exportershouse.biotech.R;
 import com.squareup.picasso.Picasso;
@@ -48,7 +52,7 @@ public class ProfileFragment extends Fragment {
 
     private ProgressDialog pDialog;
 
-    MyTextView Name,Email,Gender;
+    MyTextView Name,Email,Gender,changePwd;
 
     CircleImageView profile;
 
@@ -72,6 +76,7 @@ public class ProfileFragment extends Fragment {
         Name=(MyTextView)rootview.findViewById(R.id.username);
         Email=(MyTextView)rootview.findViewById(R.id.email1);
         Gender=(MyTextView)rootview.findViewById(R.id.gender);
+        changePwd=(MyTextView)rootview.findViewById(R.id.pass1);
 
         // Progress dialog
         pDialog = new ProgressDialog(getActivity());
@@ -102,6 +107,15 @@ public class ProfileFragment extends Fragment {
         c.drawCircle(bitmap.getWidth() / 2, bitmap.getHeight() / 2, bitmap.getWidth() / 2, paint);
 
         imgv.setImageBitmap(circleBitmap);
+
+        changePwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(), ChangePasswordActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         rootview.setFocusableInTouchMode(true);
