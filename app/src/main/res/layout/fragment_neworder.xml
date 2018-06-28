@@ -16,6 +16,15 @@
         android:paddingBottom="100dp">
 
 
+        <TextView
+            android:id="@+id/test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textSize="15dp"
+            android:visibility="invisible"
+            android:textColor="@color/colorPrimary"/>
+
 
         <LinearLayout
             android:id="@+id/input_brandname"

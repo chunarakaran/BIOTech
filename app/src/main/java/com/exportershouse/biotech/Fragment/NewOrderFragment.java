@@ -99,6 +99,8 @@ public class NewOrderFragment extends Fragment {
     public ArrayList<String> part_list = new ArrayList<>();
     public ArrayList<String> ltr_list = new ArrayList<>();
 
+    TextView Tltr;
+
     TextView text1,text2,text3,text4;
     View view1,view2,view3,view4;
     private LinearLayout mLayout;
@@ -235,6 +237,7 @@ public class NewOrderFragment extends Fragment {
 //                dTotal.setText(Ltr.getText().toString());
 //                dpart_no.setText(part_no.toString());
                 t1.setVisibility(LinearLayout.GONE);
+                t2.setVisibility(LinearLayout.GONE);
                 Layout1.setVisibility(LinearLayout.GONE);
 
                 myDb.InsertData(actv.getText().toString());
@@ -248,7 +251,7 @@ public class NewOrderFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                loadOrdernoData(URL);
+                loadOrdernoData(URL+"api/order_no?company_id="+brand_id.toString());
 
                 add.setVisibility(View.VISIBLE);
                 submit.setVisibility(Button.GONE);
@@ -291,6 +294,10 @@ public class NewOrderFragment extends Fragment {
                     t2.setVisibility(LinearLayout.GONE);
                 }
 
+                loadOrdernoData(URL+"api/order_no?company_id="+brand_id.toString());
+
+
+
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -298,59 +305,14 @@ public class NewOrderFragment extends Fragment {
             }
         });
 
-//        if(brand_id=="3")
-//        {
-//            t2.setVisibility(LinearLayout.VISIBLE);
-//        }
 
         Otherbrand_spinner=(Spinner)rootview.findViewById(R.id.Otherbrand_spinner);
 
         loadOtherBrandSpinnerData(URL);
 
-//        color_spinner=(Spinner)rootview.findViewById(R.id.color_spinner);
-//        color=new ArrayList<>();
-//        loadColorSpinnerData(URL);
-
-//        color_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
-//            {
-//                color_name=   color_spinner.getItemAtPosition(color_spinner.getSelectedItemPosition()).toString();
-//                color_id = datalist1.get(i).getId();
-////                Toast.makeText(getContext(),"Id   " +color_id , Toast.LENGTH_LONG).show();
-//                loadPartnoSpinnerData(URL+"api/part?color_id="+color_id.toString());
-//
-//
-//            }
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//                // DO Nothing here
-//            }
-//        });
-
-
-
-
-
-//        partno_spinner=(Spinner)rootview.findViewById(R.id.partno_spinner);
-//        partno=new ArrayList<>();
-
-//        partno_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
-//            {
-//                part_no=   partno_spinner.getItemAtPosition(partno_spinner.getSelectedItemPosition()).toString();
-//                partno_id = datalist2.get(i).getId();
-////                Toast.makeText(getContext(),"Id   " +partno_id , Toast.LENGTH_LONG).show();
-//            }
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//                // DO Nothing here
-//            }
-//        });
 
         orderno=(TextView)rootview.findViewById(R.id.order_no);
-        loadOrdernoData(URL);
+
 
         loadOrderData(URL);
 
@@ -434,6 +396,8 @@ public class NewOrderFragment extends Fragment {
         Torderby=(TextView)rootview.findViewById(R.id.Torderby);
         Tdiscount=(TextView)rootview.findViewById(R.id.Tdiscount);
         Tremark=(TextView)rootview.findViewById(R.id.Tremark);
+
+        Tltr=(TextView)rootview.findViewById(R.id.test);
     }
 
     public void EditFocus()
@@ -603,7 +567,14 @@ public class NewOrderFragment extends Fragment {
 //                color_name=   color_spinner.getItemAtPosition(color_spinner.getSelectedItemPosition()).toString();
                     color_id = datalist1.get(i).getId();
 //                Toast.makeText(getContext(),"Id   " +color_id , Toast.LENGTH_LONG).show();
-                    loadPartnoSpinnerData(URL+"api/part?color_id="+color_id.toString());
+
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            loadPartnoSpinnerData(URL+"api/part?company_id="+brand_id.toString()+"&color_id="+color_id.toString());
+                        }
+                    }, 1000);
 
 
                 }
@@ -669,13 +640,24 @@ public class NewOrderFragment extends Fragment {
                 @Override
                 public void afterTextChanged(Editable s) {
 
-                    String c;
+
+                    String c,d;
                     c=textView1[flag2].getText().toString();
-                    int a=20,b;
-                    b=Integer.parseInt(c);
-                    int total;
-                    total=b*a;
-                    ltrSpinner[flag3].setText(Integer.toString(total));
+                    d=Tltr.getText().toString();
+                    int a,b;
+                    if (c.toString().trim().length()>0)
+                    {
+                        b=Integer.parseInt(c);
+                        a=Integer.parseInt(d);
+                        int total;
+                        total=b*a;
+                        ltrSpinner[flag3].setText(Integer.toString(total));
+                    }
+                    else {
+                        ltrSpinner[flag3].setText("0");
+                    }
+
+
                 }
             });
 
@@ -686,7 +668,7 @@ public class NewOrderFragment extends Fragment {
             lparams3.setMargins(1, 20, 1, 5);
             ltrSpinner[flag3] = new TextView(getActivity());
             ltrSpinner[flag3].setLayoutParams(lparams3);
-            ltrSpinner[flag3].setText("Ltr");
+            ltrSpinner[flag3].setText("0");
             ltrSpinner[flag3].setTypeface(null, Typeface.BOLD);
             ltrSpinner[flag3].setTextColor(Color.parseColor("#212121"));
             ltrSpinner[flag3].setPadding(10,0,0,0);
@@ -775,13 +757,13 @@ public class NewOrderFragment extends Fragment {
 
     public void Delete_controls()
     {
-        mLayout.removeViewAt(mLayout.getChildCount()-1);
-        mLayout1.removeViewAt(mLayout1.getChildCount()-1);
+//        mLayout.removeViewAt(mLayout.getChildCount()-1);
+//        mLayout1.removeViewAt(mLayout1.getChildCount()-1);
 
 //        mLayout2.removeViewAt(mLayout2.getChildCount()-1);
 //        mLayout3.removeViewAt(mLayout3.getChildCount()-1);
-//        mLayout.removeView(colorSpinner[flag]);
-//        mLayout1.removeView(partSpinner[flag1]);
+        mLayout.removeView(colorSpinner[flag]);
+        mLayout1.removeView(partSpinner[flag1]);
 //        mLayout2.removeView(textView1[flag2]);
 //        mLayout3.removeView(ltrSpinner[flag3]);
 
@@ -996,25 +978,18 @@ public class NewOrderFragment extends Fragment {
             @Override
             public void onResponse(String response) {
 
-
-                ltr_list.clear();
-                try{
+                try
+                {
                     GetLtrDataAdapter GetDatadp ;
                     JSONObject jsonObject=new JSONObject(response);
-                    JSONArray jsonArray=jsonObject.getJSONArray("ltr");
+                    JSONArray jsonArray=jsonObject.getJSONArray("ltrs");
                     for(int i=0;i<jsonArray.length();i++){
                         JSONObject jsonObject1=jsonArray.getJSONObject(i);
 
-                        GetDatadp = new GetLtrDataAdapter();
-                        GetDatadp.setName(jsonObject1.getString("ltr"));
-                        GetDatadp.setId(jsonObject1.getString("id"));
-                        datalist4.add(GetDatadp);
-
-                        ltr_list.add(jsonObject1.getString("ltr"));
+                        String Ltr = jsonObject1.getString("ltr");
+                        Tltr.setText(Ltr);
 
                     }
-
-//                    ltrSpinner[flag3].setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ltr_list));
                     hideDialog();
                 }catch (JSONException e){e.printStackTrace();}
             }
@@ -1038,7 +1013,7 @@ public class NewOrderFragment extends Fragment {
         showDialog();
 
         RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
-        StringRequest stringRequest=new StringRequest(Request.Method.GET, url+"api/order_no", new Response.Listener<String>() {
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try{
