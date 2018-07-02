@@ -360,6 +360,7 @@ public class LeaveRequestFragment extends Fragment {
 //                                        Toast.makeText(getActivity(),"Ok",Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getActivity(), MainActivity.class);
                                         startActivity(intent);
+//                                        getActivity().getFragmentManager().popBackStack();
                                     }
                                 })
                                 .OnNegativeClicked(new FancyGifDialogListener() {

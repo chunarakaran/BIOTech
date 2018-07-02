@@ -60,6 +60,7 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -115,21 +116,22 @@ public class NewOrderFragment extends Fragment {
     public static Spinner partSpinner[] = new Spinner[100];
     public List<Spinner> part_array = new ArrayList<Spinner>();
 
-    private LinearLayout  mLayout2;
+
     int k2 = -1;
     int flag2;
     public static EditText textView1[] = new EditText[100];
     public List<EditText> qty = new ArrayList<EditText>();
 
-    private LinearLayout  mLayout3;
     int k3 = -1;
     int flag3;
     public static TextView ltrSpinner[] = new TextView[100];
-    public List<Spinner> ltr_array = new ArrayList<Spinner>();
+    public List<TextView> ltr_array = new ArrayList<TextView>();
 
 
 
 
+
+//    String cid[];
 
 
     String brand_name,color_name,part_no;
@@ -137,7 +139,7 @@ public class NewOrderFragment extends Fragment {
     String URL;
     public String Order_no="BIO/1803/1101",sDate,Ono,test;
 
-    ArrayList<String> Brand,color,partno;
+    ArrayList<String> Brand,color,partno,cid;
 
 
 
@@ -158,7 +160,7 @@ public class NewOrderFragment extends Fragment {
 
 
 
-    String hUid,hBrandid,hOrderno,hDate,hPartyname,hCityname,hColorid,hPartnoid,hQty,hLtr,hTotal,hDis,hRemark;
+    String hUid,hBrandid,hOrderno,hDate,hPartyname,hCityname,hColorid,hPartnoid,hQty,hLtr,hTotal,hDis,hRemark,Hcolorid,HPartno,Hqty,Hltr;
     //volley
     RequestQueue requestQueue;
     ProgressDialog progressDialog;
@@ -184,7 +186,6 @@ public class NewOrderFragment extends Fragment {
         //change R.layout.yourlayoutfilename for each of your fragments
         rootview= inflater.inflate(R.layout.fragment_neworder, container, false);
 
-
         URL = getString(R.string.url);
 
 
@@ -204,69 +205,119 @@ public class NewOrderFragment extends Fragment {
         EditFocus();
 
 
-        dQty=(TextView)rootview.findViewById(R.id.Qty);
-        dLtr=(TextView)rootview.findViewById(R.id.Ltr);
-        dpart_no=(TextView)rootview.findViewById(R.id.partno);
-        dSrno=(TextView)rootview.findViewById(R.id.srno);
-        dTotal=(TextView)rootview.findViewById(R.id.total);
+        dQty=(TextView)rootview.findViewById(R.id.TotalQty);
+        dLtr=(TextView)rootview.findViewById(R.id.TotalLtr);
+//        dpart_no=(TextView)rootview.findViewById(R.id.partno);
+//        dSrno=(TextView)rootview.findViewById(R.id.srno);
+//        dTotal=(TextView)rootview.findViewById(R.id.total);
 
 
 
-        add=(Button)rootview.findViewById(R.id.btn_add);
+
         submit=(Button)rootview.findViewById(R.id.btn_submit);
-        edit=(Button)rootview.findViewById(R.id.btn_edit);
-        Layout2=(LinearLayout)rootview.findViewById(R.id.l2);
-        Layout1=(LinearLayout)rootview.findViewById(R.id.l1);
         t1= (LinearLayout) rootview.findViewById(R.id.input_brandname);
         t2= (LinearLayout) rootview.findViewById(R.id.input_otherBrand);
-        Layout2.setVisibility(LinearLayout.GONE);
-        submit.setVisibility(Button.GONE);
         t2.setVisibility(LinearLayout.GONE);
 
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                add.setVisibility(Button.GONE);
-                submit.setVisibility(View.VISIBLE);
-                Layout2.setVisibility(View.VISIBLE);
+//        add.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                add.setVisibility(Button.GONE);
+//                submit.setVisibility(View.VISIBLE);
+//                Layout2.setVisibility(View.VISIBLE);
+//
+//                Srno=Srno+1;
+//                dSrno.setText(String.valueOf(Srno));
+////                dQty.setText(Qty.getText().toString());
+////                dLtr.setText(Ltr.getText().toString());
+////                dTotal.setText(Ltr.getText().toString());
+////                dpart_no.setText(part_no.toString());
+//                t1.setVisibility(LinearLayout.GONE);
+//                t2.setVisibility(LinearLayout.GONE);
+//                Layout1.setVisibility(LinearLayout.GONE);
+//
+//                myDb.InsertData(actv.getText().toString());
+//
+//            }
+//        });
 
-                Srno=Srno+1;
-                dSrno.setText(String.valueOf(Srno));
-//                dQty.setText(Qty.getText().toString());
-//                dLtr.setText(Ltr.getText().toString());
-//                dTotal.setText(Ltr.getText().toString());
-//                dpart_no.setText(part_no.toString());
-                t1.setVisibility(LinearLayout.GONE);
-                t2.setVisibility(LinearLayout.GONE);
-                Layout1.setVisibility(LinearLayout.GONE);
-
-                myDb.InsertData(actv.getText().toString());
-
-
-
-            }
-        });
-
-        edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                loadOrdernoData(URL+"api/order_no?company_id="+brand_id.toString());
-
-                add.setVisibility(View.VISIBLE);
-                submit.setVisibility(Button.GONE);
-                Layout2.setVisibility(LinearLayout.GONE);
-                t1.setVisibility(LinearLayout.VISIBLE);
-                Layout1.setVisibility(LinearLayout.VISIBLE);
-            }
-        });
+//        edit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                loadOrdernoData(URL+"api/order_no?company_id="+brand_id.toString());
+//
+//                add.setVisibility(View.VISIBLE);
+//                submit.setVisibility(Button.GONE);
+//                Layout2.setVisibility(LinearLayout.GONE);
+//                t1.setVisibility(LinearLayout.VISIBLE);
+//                Layout1.setVisibility(LinearLayout.VISIBLE);
+//            }
+//        });
 
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-                Add_Order();
+//                Add_Order();
+
+                String[] Acolorid = new String[color_array.size()];
+                for(int i = 0; i < color_array.size(); i++){
+                    Acolorid[i]= String.valueOf(color_id);//color_array.get(i).getSelectedItem().toString();
+                    Hcolorid=String.join(",",Acolorid);
+                }
+
+                String[] Apartno = new String[part_array.size()];
+                for(int i = 0; i < part_array.size(); i++){
+                    Apartno[i]=part_array.get(i).getSelectedItem().toString();
+                    HPartno=String.join(",",Apartno);
+                }
+
+                String[] Aqty = new String[qty.size()];
+                for(int i = 0; i < qty.size(); i++){
+                    Aqty[i]=qty.get(i).getText().toString();
+                    Hqty=String.join(",",Aqty);
+                }
+
+                String[] Altr = new String[ltr_array.size()];
+                for(int i = 0; i < ltr_array.size(); i++){
+                    Altr[i]=ltr_array.get(i).getText().toString();
+                    Hltr=String.join(",",Altr);
+                }
+
+                int myar[]=new int[Aqty.length];
+
+                for(int i=0;i<Aqty.length;i++)
+                {
+                    myar[i]=Integer.parseInt(Aqty[i]);
+                }
+
+                int sumqty = 0;
+
+                for(int i : myar) {
+                    sumqty += i;
+                }
+
+                int ltar[]=new int[Altr.length];
+
+                for(int i=0;i<Altr.length;i++)
+                {
+                    ltar[i]=Integer.parseInt(Altr[i]);
+                }
+
+                int sumltr = 0;
+
+                for(int i : ltar) {
+                    sumltr += i;
+                }
+
+
+                dQty.setText(Integer.toString(sumqty));
+                dLtr.setText(Integer.toString(sumltr));
+
+
+                Remark.setText(Hcolorid.toString());
             }
         });
 
@@ -317,8 +368,6 @@ public class NewOrderFragment extends Fragment {
         loadOrderData(URL);
 
 
-
-
         Date c = Calendar.getInstance().getTime();
         System.out.println("Current time => " + c);
 
@@ -331,8 +380,6 @@ public class NewOrderFragment extends Fragment {
 
         mLayout = (LinearLayout)rootview.findViewById(R.id.s1);
         mLayout1 = (LinearLayout)rootview.findViewById(R.id.s2);
-        mLayout2 = (LinearLayout)rootview.findViewById(R.id.s3);
-//        mLayout3 = (LinearLayout)rootview.findViewById(R.id.s4);
 
         Add_controls();
 
@@ -350,6 +397,7 @@ public class NewOrderFragment extends Fragment {
                 Delete_controls();
             }
         });
+
 
 
 
@@ -551,7 +599,7 @@ public class NewOrderFragment extends Fragment {
         {
             k++;
             flag=k;
-            final LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(380, LinearLayout.LayoutParams.WRAP_CONTENT);
+            final LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(380,120);
             lparams.setMargins(1, 20, 1, 0);
             colorSpinner[flag] = new Spinner(getActivity());
             colorSpinner[flag].setLayoutParams(lparams);
@@ -568,13 +616,13 @@ public class NewOrderFragment extends Fragment {
                     color_id = datalist1.get(i).getId();
 //                Toast.makeText(getContext(),"Id   " +color_id , Toast.LENGTH_LONG).show();
 
+//                    color_array.clear();
 
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            loadPartnoSpinnerData(URL+"api/part?company_id="+brand_id.toString()+"&color_id="+color_id.toString());
-                        }
-                    }, 1000);
+                    if(color_id.toString().trim().length()>0 && brand_id.toString().trim().length()>0)
+                    {
+
+                        loadPartnoSpinnerData(URL + "api/part?company_id=" + brand_id.toString() + "&color_id=" + color_id.toString());
+                    }
 
 
                 }
@@ -588,7 +636,7 @@ public class NewOrderFragment extends Fragment {
 
             k1++;
             flag1=k1;
-            final LinearLayout.LayoutParams lparams2 = new LinearLayout.LayoutParams(380, LinearLayout.LayoutParams.WRAP_CONTENT);
+            final LinearLayout.LayoutParams lparams2 = new LinearLayout.LayoutParams(380,120);
             lparams2.setMargins(1, 20, 1, 0);
             partSpinner[flag1] = new Spinner(getActivity());
             partSpinner[flag1].setLayoutParams(lparams2);
@@ -652,6 +700,7 @@ public class NewOrderFragment extends Fragment {
                         int total;
                         total=b*a;
                         ltrSpinner[flag3].setText(Integer.toString(total));
+
                     }
                     else {
                         ltrSpinner[flag3].setText("0");
@@ -743,10 +792,13 @@ public class NewOrderFragment extends Fragment {
         mLayout1.addView(view4);
 
 
+
+
         color_array.add(colorSpinner[flag]);
         part_array.add(partSpinner[flag1]);
         qty.add(textView1[flag2]);
-//        ltr_array.add(ltrSpinner[flag3]);
+        ltr_array.add(ltrSpinner[flag3]);
+
 
 
 
@@ -760,12 +812,20 @@ public class NewOrderFragment extends Fragment {
 //        mLayout.removeViewAt(mLayout.getChildCount()-1);
 //        mLayout1.removeViewAt(mLayout1.getChildCount()-1);
 
-//        mLayout2.removeViewAt(mLayout2.getChildCount()-1);
-//        mLayout3.removeViewAt(mLayout3.getChildCount()-1);
         mLayout.removeView(colorSpinner[flag]);
         mLayout1.removeView(partSpinner[flag1]);
-//        mLayout2.removeView(textView1[flag2]);
-//        mLayout3.removeView(ltrSpinner[flag3]);
+        mLayout.removeView(textView1[flag2]);
+        mLayout1.removeView(ltrSpinner[flag3]);
+
+        mLayout.removeView(text1);
+        mLayout1.removeView(text2);
+        mLayout.removeView(text3);
+        mLayout1.removeView(text4);
+
+        mLayout.removeView(view1);
+        mLayout1.removeView(view2);
+        mLayout.removeView(view3);
+        mLayout1.removeView(view4);
 
         color_array.remove(colorSpinner[flag]);
         part_array.remove(partSpinner[flag1]);
