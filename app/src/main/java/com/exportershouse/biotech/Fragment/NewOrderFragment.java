@@ -99,6 +99,7 @@ public class NewOrderFragment extends Fragment {
     public ArrayList<String> color_list = new ArrayList<>();
     public ArrayList<String> part_list = new ArrayList<>();
     public ArrayList<String> ltr_list = new ArrayList<>();
+    public ArrayList<String> list = new ArrayList<String>();
 
     TextView Tltr;
 
@@ -135,7 +136,7 @@ public class NewOrderFragment extends Fragment {
 
 
     String brand_name,color_name,part_no;
-    String color_id,brand_id,partno_id;
+    String color_id,brand_id,otherbrand_id,partno_id;
     String URL;
     public String Order_no="BIO/1803/1101",sDate,Ono,test;
 
@@ -160,7 +161,7 @@ public class NewOrderFragment extends Fragment {
 
 
 
-    String hUid,hBrandid,hOrderno,hDate,hPartyname,hCityname,hColorid,hPartnoid,hQty,hLtr,hTotal,hDis,hRemark,Hcolorid,HPartno,Hqty,Hltr;
+    String hUid,hBrandid,hotherbrand_id,hOrderno,hDate,hPartyname,hCityname,hTrsnsportname,horderBy,hColorid,hPartnoid,hQty,hLtr,Hcolorid,HPartno,Hqty,Hltr,HQtotal,hTotal,hDis,hRemark;
     //volley
     RequestQueue requestQueue;
     ProgressDialog progressDialog;
@@ -260,64 +261,9 @@ public class NewOrderFragment extends Fragment {
             @Override
             public void onClick(View view)
             {
-//                Add_Order();
+                Add_Order();
 
-                String[] Acolorid = new String[color_array.size()];
-                for(int i = 0; i < color_array.size(); i++){
-                    Acolorid[i]= String.valueOf(color_id);//color_array.get(i).getSelectedItem().toString();
-                    Hcolorid=String.join(",",Acolorid);
-                }
-
-                String[] Apartno = new String[part_array.size()];
-                for(int i = 0; i < part_array.size(); i++){
-                    Apartno[i]=part_array.get(i).getSelectedItem().toString();
-                    HPartno=String.join(",",Apartno);
-                }
-
-                String[] Aqty = new String[qty.size()];
-                for(int i = 0; i < qty.size(); i++){
-                    Aqty[i]=qty.get(i).getText().toString();
-                    Hqty=String.join(",",Aqty);
-                }
-
-                String[] Altr = new String[ltr_array.size()];
-                for(int i = 0; i < ltr_array.size(); i++){
-                    Altr[i]=ltr_array.get(i).getText().toString();
-                    Hltr=String.join(",",Altr);
-                }
-
-                int myar[]=new int[Aqty.length];
-
-                for(int i=0;i<Aqty.length;i++)
-                {
-                    myar[i]=Integer.parseInt(Aqty[i]);
-                }
-
-                int sumqty = 0;
-
-                for(int i : myar) {
-                    sumqty += i;
-                }
-
-                int ltar[]=new int[Altr.length];
-
-                for(int i=0;i<Altr.length;i++)
-                {
-                    ltar[i]=Integer.parseInt(Altr[i]);
-                }
-
-                int sumltr = 0;
-
-                for(int i : ltar) {
-                    sumltr += i;
-                }
-
-
-                dQty.setText(Integer.toString(sumqty));
-                dLtr.setText(Integer.toString(sumltr));
-
-
-                Remark.setText(Hcolorid.toString());
+                //Remark.setText(Hcolorid.toString());
             }
         });
 
@@ -361,6 +307,21 @@ public class NewOrderFragment extends Fragment {
 
         loadOtherBrandSpinnerData(URL);
 
+        Otherbrand_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+            {
+
+                otherbrand_id = datalist5.get(i).getId();
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // DO Nothing here
+            }
+        });
+
+
 
         orderno=(TextView)rootview.findViewById(R.id.order_no);
 
@@ -397,6 +358,7 @@ public class NewOrderFragment extends Fragment {
                 Delete_controls();
             }
         });
+
 
 
 
@@ -612,13 +574,11 @@ public class NewOrderFragment extends Fragment {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
                 {
-//                color_name=   color_spinner.getItemAtPosition(color_spinner.getSelectedItemPosition()).toString();
                     color_id = datalist1.get(i).getId();
-//                Toast.makeText(getContext(),"Id   " +color_id , Toast.LENGTH_LONG).show();
 
-//                    color_array.clear();
+                    adapterView.setTag(color_id);
 
-                    if(color_id.toString().trim().length()>0 && brand_id.toString().trim().length()>0)
+                    if(color_id.toString().trim()!=null && brand_id !=null)
                     {
 
                         loadPartnoSpinnerData(URL + "api/part?company_id=" + brand_id.toString() + "&color_id=" + color_id.toString());
@@ -629,8 +589,11 @@ public class NewOrderFragment extends Fragment {
                 @Override
                 public void onNothingSelected(AdapterView<?> adapterView) {
                     // DO Nothing here
+                    list.clear();
                 }
             });
+
+
 
 
 
@@ -693,17 +656,67 @@ public class NewOrderFragment extends Fragment {
                     c=textView1[flag2].getText().toString();
                     d=Tltr.getText().toString();
                     int a,b;
+
+
+
                     if (c.toString().trim().length()>0)
                     {
+
                         b=Integer.parseInt(c);
                         a=Integer.parseInt(d);
                         int total;
                         total=b*a;
                         ltrSpinner[flag3].setText(Integer.toString(total));
 
+
+                        String[] Bqty = new String[qty.size()];
+                        for(int i = 0; i < qty.size(); i++){
+                            Bqty[i]=qty.get(i).getText().toString();
+                        }
+
+                        int myar[]=new int[Bqty.length];
+
+                        for(int i=0;i<Bqty.length;i++)
+                        {
+                            myar[i]=Integer.parseInt(Bqty[i]);
+                        }
+
+                        int sumqty = 0;
+
+                        for(int i : myar) {
+                            sumqty += i;
+                        }
+
+                        dQty.setText(Integer.toString(sumqty));
+
+                        String[] cltr = new String[ltr_array.size()];
+                        for(int i = 0; i < ltr_array.size(); i++){
+                            cltr[i]=ltr_array.get(i).getText().toString();
+
+                        }
+
+                        int ltar[]=new int[cltr.length];
+
+                        for(int i=0;i<cltr.length;i++)
+                        {
+                            ltar[i]=Integer.parseInt(cltr[i]);
+                        }
+
+                        int sumltr = 0;
+
+                        for(int i : ltar) {
+                            sumltr =sumltr + i;
+                        }
+
+                        dLtr.setText(Integer.toString(sumltr));
+
+
                     }
                     else {
+
                         ltrSpinner[flag3].setText("0");
+                        dQty.setText("0");
+                        dLtr.setText("0");
                     }
 
 
@@ -1149,25 +1162,58 @@ public class NewOrderFragment extends Fragment {
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void GetValueFromEditText()
     {
 
         hUid=User_id.toString();
         hBrandid=brand_id.toString();
+        hotherbrand_id="1";//otherbrand_id.toString();
         hOrderno=orderno.getText().toString();
         hDate=sDate.toString();
         hPartyname=actv.getText().toString().trim();
         hCityname=CityName.getText().toString().trim();
-//        hColorid=color_id.toString();
-//        hPartnoid=partno_id.toString();
-//        hQty=Qty.getText().toString().trim();
-//        hLtr=Ltr.getText().toString().trim();
-        hTotal=Ltr.getText().toString().trim();
+        hTrsnsportname=Trsnsportname.getText().toString().trim();
+        horderBy=orderBy.getText().toString().trim();
+
+        String[] Acolorid = new String[color_array.size()];
+        for(int i = 0; i < color_array.size(); i++){
+            // get the saved data
+            Object data = color_array.get(i).getTag();
+            if (data != null) {
+                Acolorid[i] = data.toString();
+            }
+        }
+        Hcolorid=String.join(",",Acolorid);
+
+
+        String[] Apartno = new String[part_array.size()];
+        for(int i = 0; i < part_array.size(); i++){
+            Apartno[i]=part_array.get(i).getSelectedItem().toString();
+            HPartno=String.join(",",Apartno);
+        }
+
+        String[] Aqty = new String[qty.size()];
+        for(int i = 0; i < qty.size(); i++){
+            Aqty[i]=qty.get(i).getText().toString();
+            Hqty=String.join(",",Aqty);
+        }
+
+        String[] Altr = new String[ltr_array.size()];
+        for(int i = 0; i < ltr_array.size(); i++){
+            Altr[i]=ltr_array.get(i).getText().toString();
+            Hltr=String.join(",",Altr);
+        }
+
+
+        hTotal=dLtr.getText().toString().trim();
+        HQtotal=dQty.getText().toString().trim();
         hDis=Discount.getText().toString().trim();
         hRemark=Remark.getText().toString().trim();
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void Add_Order()
     {
         progressDialog.setMessage("Please Wait, We are Inserting Your Data on Server");
@@ -1180,8 +1226,7 @@ public class NewOrderFragment extends Fragment {
 //                Toast.makeText(getContext(),"Response:-"+hTotal+hDis+hRemark  , Toast.LENGTH_LONG).show();
 
         // Creating string request with post method.
-        StringRequest stringRequest1 = new StringRequest(Request.Method.POST, HttpUrl+"?user_id="+hUid+"&brand_name="+hBrandid+"&order_no="+hOrderno+"&current_date="+hDate+"&party_name="+hPartyname
-                +"&city="+hCityname+"&color_id="+hColorid+"&part_id="+hPartnoid+"&qty="+hQty+"&ltr="+hLtr+"&total="+hTotal+"&discount="+hDis+"&remarks="+hRemark,
+        StringRequest stringRequest1 = new StringRequest(Request.Method.POST, HttpUrl,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String ServerResponse) {
@@ -1245,15 +1290,22 @@ public class NewOrderFragment extends Fragment {
                 //Company
                 params.put("user_id", hUid);
                 params.put("brand_name", hBrandid);
+                params.put("other_brand_company", hotherbrand_id);
                 params.put("order_no", hOrderno);
                 params.put("current_date", hDate);
                 params.put("party_name", hPartyname);
                 params.put("city", hCityname);
-                params.put("color_id", hColorid);
-                params.put("part_id", hPartnoid);
-                params.put("qty", hQty);
-                params.put("ltr", hLtr);
-                params.put("total", hTotal);
+                params.put("transport_name", hTrsnsportname);
+                params.put("order_by", horderBy);
+
+                params.put("color_id", Hcolorid);
+                params.put("part_id", HPartno);
+                params.put("qty", Hqty);
+                params.put("ltr", Hltr);
+                params.put("qty_ltr", Hltr);
+
+                params.put("total_qty", HQtotal);
+                params.put("total_qty_ltr", hTotal);
                 params.put("discount", hDis);
                 params.put("remarks", hRemark);
 
@@ -1268,6 +1320,8 @@ public class NewOrderFragment extends Fragment {
         // Adding the StringRequest object into requestQueue.
         requestQueue.add(stringRequest1);
     }
+
+
 
 
 
