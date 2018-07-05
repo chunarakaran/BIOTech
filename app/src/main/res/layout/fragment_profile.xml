@@ -101,7 +101,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#dad8d8"/>
+                android:background="@color/colorPrimaryDark"/>
 
 
 
@@ -146,7 +146,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#dad8d8"/>
+                android:background="@color/colorPrimaryDark"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -183,11 +183,52 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                     android:gravity="right"
                     />
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimaryDark"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+
+
+                <customfonts.MyTextView
+                    android:layout_weight="1"
+                    android:id="@+id/phone"
+                    android:textSize="21dp"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile No"
+                    android:textColor="#a2a1b8"
+                    android:maxLength="12"
+                    android:background="#0000"
+                    android:padding="16dp"
+                    android:gravity="left"/>
+
+
+                <customfonts.MyTextView
+                    android:layout_weight="1"
+                    android:id="@+id/mobno"
+                    android:textSize="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="9737811745"
+                    android:textColor="#181737"
+                    android:background="#0000"
+                    android:padding="16dp"
+                    android:gravity="right"
+                    />
+            </LinearLayout>
+
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#dad8d8"/>
+                android:background="@color/colorPrimaryDark"/>
 
 
             <LinearLayout
@@ -230,7 +271,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#dad8d8"/>
+                android:background="@color/colorPrimaryDark"/>
 
 
             <LinearLayout
@@ -245,7 +286,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                     android:textSize="21dp"
                     android:layout_width="280dp"
                     android:layout_height="wrap_content"
-                    android:text="Twitter"
+                    android:text="City"
                     android:textColor="#a2a1b8"
                     android:maxLength="12"
                     android:background="#0000"
@@ -254,13 +295,19 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                     />
 
 
-                <Switch
+                <customfonts.MyTextView
                     android:layout_weight="1"
-                    android:id="@+id/switch2"
+                    android:id="@+id/Ecity"
+                    android:textSize="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="#1b193b"
+                    android:hint="Jamnagar"
+                    android:textColor="#181737"
+                    android:maxLength="12"
+                    android:background="#0000"
                     android:padding="16dp"
-                    android:gravity="left"
+                    android:gravity="right"
                     />
 
 
@@ -269,7 +316,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#dad8d8" />
+                android:background="@color/colorPrimaryDark" />
 
 
             <LinearLayout
@@ -280,11 +327,11 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
                 <customfonts.MyTextView
                     android:layout_weight="1"
-                    android:id="@+id/google"
+                    android:id="@+id/Country"
                     android:textSize="21dp"
                     android:layout_width="280dp"
                     android:layout_height="wrap_content"
-                    android:text="Google+"
+                    android:text="Country"
                     android:textColor="#a2a1b8"
                     android:maxLength="12"
                     android:background="#0000"
@@ -294,12 +341,12 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
                 <customfonts.MyTextView
                     android:layout_weight="1"
-                    android:id="@+id/google1"
+                    android:id="@+id/country"
                     android:textSize="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="connected"
-                    android:textColorHint="#181737"
+                    android:hint="India"
+                    android:textColor="#000"
                     android:maxLength="12"
                     android:background="#0000"
                     android:padding="16dp"
@@ -310,17 +357,6 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="EDIT PROFILE"
-            android:textColor="@color/edit_profile"
-            android:textAlignment="center"
-            android:background="@drawable/rounded"
-            android:layout_marginTop="10dp"
-            android:padding="10dp" />
 
     </LinearLayout>
 

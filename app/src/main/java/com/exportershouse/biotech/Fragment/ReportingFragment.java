@@ -227,113 +227,19 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
         mLayout1 = (LinearLayout)rootview.findViewById(R.id.s2);
         mLayout2 = (LinearLayout)rootview.findViewById(R.id.s3);
 
-
-        try
-        {
-            k++;
-            flag=k;
-            final LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(320, LinearLayout.LayoutParams.WRAP_CONTENT);
-            lparams.setMargins(1, 20, 1, 0);
-            textView[flag] = new EditText(getActivity());
-            textView[flag].setLayoutParams(lparams);
-            textView[flag].setHint("Enter Part no");
-            textView[flag].setId(flag);
-
-            k1++;
-            flag1=k1;
-            final LinearLayout.LayoutParams lparams1 = new LinearLayout.LayoutParams(150, LinearLayout.LayoutParams.WRAP_CONTENT);
-            lparams1.setMargins(1, 20, 1, 0);
-            textView1[flag1] = new EditText(getActivity());
-            textView1[flag1].setLayoutParams(lparams1);
-            textView1[flag1].setHint("Qty");
-            textView1[flag1].setId(flag1);
-
-            k2++;
-            flag2=k2;
-            final LinearLayout.LayoutParams lparams2 = new LinearLayout.LayoutParams(210, LinearLayout.LayoutParams.WRAP_CONTENT);
-            lparams2.setMargins(1, 20, 1, 0);
-            textView2[flag2] = new EditText(getActivity());
-            textView2[flag2].setLayoutParams(lparams2);
-            textView2[flag2].setHint("Total Ltr");
-            textView2[flag2].setId(flag2);
-
-
-        }
-        catch(Exception x)
-        {
-            x.printStackTrace();
-        }
-        mLayout.addView(textView[flag]);
-        mLayout1.addView(textView1[flag1]);
-        mLayout2.addView(textView2[flag2]);
-
-        part.add(textView[flag]);
-        qty.add(textView1[flag1]);
-        TotalLtr.add(textView2[flag2]);
+        Add_controls();
 
         ad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try
-                {
-                    k++;
-                    flag=k;
-                    final LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(300, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    lparams.setMargins(1, 20, 1, 0);
-                    textView[flag] = new EditText(getActivity());
-                    textView[flag].setLayoutParams(lparams);
-                    textView[flag].setHint("Enter Part no");
-                    textView[flag].setId(flag);
-
-
-
-                    k1++;
-                    flag1=k1;
-                    final LinearLayout.LayoutParams lparams1 = new LinearLayout.LayoutParams(130, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    lparams1.setMargins(1, 20, 1, 0);
-                    textView1[flag1] = new EditText(getActivity());
-                    textView1[flag1].setLayoutParams(lparams1);
-                    textView1[flag1].setHint("Qty");
-                    textView1[flag1].setId(flag1);
-
-                    k2++;
-                    flag2=k2;
-                    final LinearLayout.LayoutParams lparams2 = new LinearLayout.LayoutParams(200, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    lparams2.setMargins(1, 20, 1, 0);
-                    textView2[flag2] = new EditText(getActivity());
-                    textView2[flag2].setLayoutParams(lparams2);
-                    textView2[flag2].setHint("Total Ltr");
-                    textView2[flag2].setId(flag2);
-
-
-                }
-                catch(Exception e)
-                {
-                    e.printStackTrace();
-                }
-
-                mLayout.addView(textView[flag]);
-                mLayout1.addView(textView1[flag1]);
-                mLayout2.addView(textView2[flag2]);
-
-                part.add(textView[flag]);
-                qty.add(textView1[flag1]);
-                TotalLtr.add(textView2[flag2]);
-
+                Add_controls();
             }
         });
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                mLayout.removeView(textView[flag]);
-                mLayout1.removeView(textView1[flag1]);
-                mLayout2.removeView(textView2[flag2]);
-
-                part.remove(textView[flag]);
-                qty.remove(textView1[flag1]);
-                TotalLtr.remove(textView2[flag2]);
+                Delete_controls();
             }
         });
 
@@ -773,6 +679,71 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
         });
 
 
+
+    }
+
+    public void Add_controls()
+    {
+        try
+        {
+            k++;
+            flag=k;
+            final LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(300, LinearLayout.LayoutParams.WRAP_CONTENT);
+            lparams.setMargins(1, 20, 1, 0);
+            textView[flag] = new EditText(getActivity());
+            textView[flag].setLayoutParams(lparams);
+            textView[flag].setHint("Enter Part no");
+            textView[flag].setBackgroundResource(R.drawable.rounded_border_edittext);
+            textView[flag].setId(flag);
+
+
+
+            k1++;
+            flag1=k1;
+            final LinearLayout.LayoutParams lparams1 = new LinearLayout.LayoutParams(130, LinearLayout.LayoutParams.WRAP_CONTENT);
+            lparams1.setMargins(1, 20, 1, 0);
+            textView1[flag1] = new EditText(getActivity());
+            textView1[flag1].setLayoutParams(lparams1);
+            textView1[flag1].setHint("Qty");
+            textView1[flag].setBackgroundResource(R.drawable.rounded_border_edittext);
+            textView1[flag1].setId(flag1);
+
+            k2++;
+            flag2=k2;
+            final LinearLayout.LayoutParams lparams2 = new LinearLayout.LayoutParams(200, LinearLayout.LayoutParams.WRAP_CONTENT);
+            lparams2.setMargins(1, 20, 1, 0);
+            textView2[flag2] = new EditText(getActivity());
+            textView2[flag2].setLayoutParams(lparams2);
+            textView2[flag2].setHint("Total Ltr");
+            textView2[flag2].setBackgroundResource(R.drawable.rounded_border_edittext);
+            textView2[flag2].setId(flag2);
+
+
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        mLayout.addView(textView[flag]);
+        mLayout1.addView(textView1[flag1]);
+        mLayout2.addView(textView2[flag2]);
+
+        part.add(textView[flag]);
+        qty.add(textView1[flag1]);
+        TotalLtr.add(textView2[flag2]);
+
+    }
+
+    public void Delete_controls()
+    {
+        mLayout.removeView(textView[flag]);
+        mLayout1.removeView(textView1[flag1]);
+        mLayout2.removeView(textView2[flag2]);
+
+        part.remove(textView[flag]);
+        qty.remove(textView1[flag1]);
+        TotalLtr.remove(textView2[flag2]);
 
     }
 

@@ -52,7 +52,7 @@ public class ProfileFragment extends Fragment {
 
     private ProgressDialog pDialog;
 
-    MyTextView Name,Email,Gender,changePwd;
+    MyTextView Name,Email,Mobileno,Gender,changePwd,City,Country;
 
     CircleImageView profile;
 
@@ -75,7 +75,10 @@ public class ProfileFragment extends Fragment {
         profile=(CircleImageView)rootview.findViewById(R.id.banar1);
         Name=(MyTextView)rootview.findViewById(R.id.username);
         Email=(MyTextView)rootview.findViewById(R.id.email1);
+        Mobileno=(MyTextView)rootview.findViewById(R.id.mobno);
         Gender=(MyTextView)rootview.findViewById(R.id.gender);
+        City=(MyTextView)rootview.findViewById(R.id.Ecity);
+        Country=(MyTextView)rootview.findViewById(R.id.country);
         changePwd=(MyTextView)rootview.findViewById(R.id.pass1);
 
         // Progress dialog
@@ -156,7 +159,7 @@ public class ProfileFragment extends Fragment {
 
                         JSONObject jsonObject1=jsonArray.getJSONObject(i);
 
-                        String name,email,gender,Todate,Sstatus,Sremark;
+                        String name,email,gender,mobileno,city,country;
 
                         String base_url = getString(R.string.url);
                         String img_path = base_url+jsonObject1.getString("emp_image");
@@ -164,13 +167,19 @@ public class ProfileFragment extends Fragment {
                         jsonObject1.getString("id");
                         name=jsonObject1.getString("name");
                         email=jsonObject1.getString("email");
+                        mobileno=jsonObject1.getString("number");
                         gender=jsonObject1.getString("gender");
+                        city=jsonObject1.getString("city");
+                        country=jsonObject1.getString("country");
 
 
                         Picasso.with(getContext()).load(img_path).into(profile);
                         Name.setText(name);
                         Email.setText(email);
+                        Mobileno.setText(mobileno);
                         Gender.setText(gender);
+                        City.setText(city);
+                        Country.setText(country);
 
 
                     }

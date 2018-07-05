@@ -16,27 +16,38 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="30dp"
+            android:background="@drawable/rounded_border_edittext">
 
             <TextView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="28/04/2018"/>
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/colorPrimary"
+                android:text="28/04/2018"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="80dp"
-                android:text="Saturday"/>
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="50dp"
+                android:text="Saturday"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="70dp"
-                android:text="11:00 pm"/>
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="70dp"
+                android:textColor="@color/colorPrimary"
+                android:text="11:00 pm"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
