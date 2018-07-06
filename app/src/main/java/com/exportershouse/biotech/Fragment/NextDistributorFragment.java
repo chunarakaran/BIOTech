@@ -50,7 +50,7 @@ public class NextDistributorFragment extends Fragment implements View.OnClickLis
     EditText areaCovered,noOfStaff,noOfParties,reason;
     EditText bankName,bankACno,bankBranchname,bankCity,bankIFSC,bankSecurityCheqNo,bankPersonalName;
     private RadioGroup radioGroup,radioGroup1;
-    private RadioButton radioButton,radioButton1;
+    private RadioButton radioButton,radioButton1,VradioYes,VradioNo;
     CheckBox ck1,ck2,ck3,ck4,ck5;
     String c1,c2,c3,c4,c5;
 
@@ -128,7 +128,7 @@ public class NextDistributorFragment extends Fragment implements View.OnClickLis
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Add_distributor();
+                Validation();
             }
         });
 
@@ -178,6 +178,9 @@ public class NextDistributorFragment extends Fragment implements View.OnClickLis
     public void initialize()
     {
         Submit=(Button)rootview.findViewById(R.id.btn_submit);
+
+        VradioYes=(RadioButton)rootview.findViewById(R.id.radioyes);
+        VradioNo=(RadioButton)rootview.findViewById(R.id.radioNo);
 
         areaCovered=(EditText)rootview.findViewById(R.id.input_areacovered);
         noOfStaff=(EditText)rootview.findViewById(R.id.input_numofstaff);
@@ -690,6 +693,149 @@ public class NextDistributorFragment extends Fragment implements View.OnClickLis
 
     }
 
+
+    public void Validation()
+    {
+        final String VareaCovered,VnoOfStaff,VnoOfParties,Vreason,
+                VbankName,VbankACno,VbankBranchname,VbankCity,VbankIFSC,VbankSecurityCheqNo,VbankPersonalName;
+        VareaCovered = areaCovered.getText().toString();
+        VnoOfStaff = noOfStaff.getText().toString();
+        VnoOfParties = noOfParties.getText().toString();
+        Vreason = reason.getText().toString();
+
+        VbankName = bankName.getText().toString();
+        VbankACno = bankACno.getText().toString();
+        VbankBranchname = bankBranchname.getText().toString();
+        VbankCity = bankCity.getText().toString();
+        VbankIFSC = bankIFSC.getText().toString();
+        VbankSecurityCheqNo = bankSecurityCheqNo.getText().toString();
+        VbankPersonalName = bankPersonalName.getText().toString();
+
+        if(VareaCovered.length()==0)
+        {
+            areaCovered.requestFocus();
+            areaCovered.setError("Please Enter Area Covered By Party");
+        }
+        else if (VareaCovered.contains(" ")){
+            areaCovered.requestFocus();
+            areaCovered.setError("Enter Valid Area Covered By Party");
+        }
+
+        else if(VnoOfStaff.length()==0)
+        {
+            noOfStaff.requestFocus();
+            noOfStaff.setError("Please Enter No of Staff");
+        }
+        else if (VnoOfStaff.contains(" ")){
+            noOfStaff.requestFocus();
+            noOfStaff.setError("Enter Valid No of Staff");
+        }
+
+        else if(VnoOfParties.length()==0)
+        {
+            noOfParties.requestFocus();
+            noOfParties.setError("Please Enter No of Parties");
+        }
+        else if (VnoOfParties.contains(" ")){
+            noOfParties.requestFocus();
+            noOfParties.setError("Enter Valid No of Parties");
+        }
+
+        else if (VradioNo.isChecked()){
+            if(Vreason.length()==0)
+            {
+                reason.requestFocus();
+                reason.setError("Please Enter Reason");
+            }
+            else {
+                Add_distributor();
+            }
+        }
+
+        else if (VradioYes.isChecked()){
+
+            if(VbankName.length()==0)
+            {
+                bankName.requestFocus();
+                bankName.setError("Please Enter Bank Name");
+            }
+            else if (!VbankName.matches("^[a-zA-Z ]+$")||VbankName.contains(" ")){
+                bankName.requestFocus();
+                bankName.setError("Enter Valid Bank Name");
+            }
+
+            else if(VbankACno.length()==0)
+            {
+                bankACno.requestFocus();
+                bankACno.setError("Please Enter Bank Account No");
+            }
+            else if (!VbankACno.matches("^\\d{9,18}$")||VbankACno.contains(" ")){
+                bankACno.requestFocus();
+                bankACno.setError("Enter Valid Bank Account No");
+            }
+
+            else if(VbankBranchname.length()==0)
+            {
+                bankBranchname.requestFocus();
+                bankBranchname.setError("Please Enter Bank Branch Name");
+            }
+            else if (VbankBranchname.contains(" ")){
+                bankBranchname.requestFocus();
+                bankBranchname.setError("Enter Valid Bank Branch Name");
+            }
+
+            else if(VbankCity.length()==0)
+            {
+                bankCity.requestFocus();
+                bankCity.setError("Please Enter Bank City Name");
+            }
+            else if (!VbankCity.matches("^[a-zA-Z ]+$")||VbankCity.contains(" ")){
+                bankCity.requestFocus();
+                bankCity.setError("Enter Valid Bank City Name");
+            }
+
+            else if(VbankIFSC.length()==0)
+            {
+                bankIFSC.requestFocus();
+                bankIFSC.setError("Please Enter Bank IFSC Code");
+            }
+            else if (!VbankIFSC.matches("^[A-Za-z]{4}[a-zA-Z0-9]{7}$")||VbankIFSC.contains(" ")){
+                bankIFSC.requestFocus();
+                bankIFSC.setError("Enter Valid Bank IFSC Code");
+            }
+
+            else if(VbankSecurityCheqNo.length()==0)
+            {
+                bankSecurityCheqNo.requestFocus();
+                bankSecurityCheqNo.setError("Please Enter Bank Security Cheque No");
+            }
+            else if (VbankSecurityCheqNo.contains(" ")){
+                bankSecurityCheqNo.requestFocus();
+                bankSecurityCheqNo.setError("Enter Valid Bank Security Cheque No");
+            }
+
+            else if(VbankPersonalName.length()==0)
+            {
+                bankPersonalName.requestFocus();
+                bankPersonalName.setError("Please Enter Person Name");
+            }
+            else if (!VbankPersonalName.matches("^[a-zA-Z ]+$")||VbankPersonalName.contains(" ")){
+                bankPersonalName.requestFocus();
+                bankPersonalName.setError("Enter Valid Person Name");
+            }
+
+            else {
+                Add_distributor();
+            }
+
+
+        }
+
+
+        else {
+            Add_distributor();
+        }
+    }
 
 
 

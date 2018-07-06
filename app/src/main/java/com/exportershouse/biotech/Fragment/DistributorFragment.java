@@ -194,137 +194,7 @@ public class DistributorFragment extends Fragment {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                final String Viname,Viaddress,Vicity,Vipincode,Vidistrict,Viemail,Vilandline,Vimobileno,ViFpan_no;
-
-                Viname = iname.getText().toString();
-                Viaddress = iaddress.getText().toString();
-                Vicity = icity.getText().toString();
-                Vipincode = ipincode.getText().toString();
-                Vidistrict = idistrict.getText().toString();
-                Viemail = iemail.getText().toString();
-                Vilandline = ilandline.getText().toString();
-                Vimobileno = imobileno.getText().toString();
-                ViFpan_no=iFpan_no.getText().toString();
-
-//                if(Viname.length()==0)
-//                {
-//                    iname.requestFocus();
-//                    iname.setError("Please Enter Name");
-//                }
-//                else if (!Viname.matches("^[a-zA-Z ]+$")||Viname.contains(" ")){
-//                    iname.requestFocus();
-//                    iname.setError("Enter Valid Name");
-//                }
-//                else if (Viaddress.length()==0){
-//                    iaddress.requestFocus();
-//                    iaddress.setError("Please Enter Address");
-//                }
-//                else if (Vicity.length()==0){
-//                    icity.requestFocus();
-//                    icity.setError("Please Enter City");
-//                }
-//                else if (!Vicity.matches("^[a-zA-Z ]+$")){
-//                    icity.requestFocus();
-//                    icity.setError("Enter Valid City");
-//                }
-//                else if (Vipincode.length()==0){
-//                    ipincode.requestFocus();
-//                    ipincode.setError("Please Enter Pin code");
-//                }
-//
-//                else if (Vipincode.length()<6||Vipincode.length()>6){
-//                    ipincode.requestFocus();
-//                    ipincode.setError("Invalid Pin code");
-//                }
-//                else if (Vidistrict.length()==0){
-//                    idistrict.requestFocus();
-//                    idistrict.setError("Please Enter District");
-//                }
-//                else if (!Vidistrict.matches("^[a-zA-Z ]+$")){
-//                    idistrict.requestFocus();
-//                    idistrict.setError("Enter Valid District");
-//                }
-//
-//                else if (Viemail.length()==0){
-//                    iemail.requestFocus();
-//                    iemail.setError("Please Enter Email");
-//                }
-//
-//                else if (!Viemail.matches("[a-zA-Z0-9._-]+@[a-z]+.[a-z]+")){
-//                    iemail.requestFocus();
-//                    iemail.setError("Invalid Email Address");
-//                }
-//                else if (Vilandline.length()>1){
-//                    if (!Vilandline.matches("[(]\\d{4}[)]\\s\\d{6}")){
-//                        ilandline.requestFocus();
-//                        ilandline.setError("Invalid Land line No");
-//                    }
-//                }
-//
-//                else if (Vimobileno.length()==0){
-//                    imobileno.requestFocus();
-//                    imobileno.setError("Please Enter Mobile No");
-//                }
-//                else if (!Vimobileno.matches("^\\+[0-9]{10,13}$")){
-//                    imobileno.requestFocus();
-//                    imobileno.setError("Invalid Mobile No");
-//                }
-//
-//                else if (ViFpan_no.length()==0){
-//                    iFpan_no.requestFocus();
-//                    iFpan_no.setError("Please Enter Pan No");
-//                }
-//
-//                else if (!ViFpan_no.matches("[A-Z]{5}[0-9]{4}[A-Z]{1}")){
-//                    iFpan_no.requestFocus();
-//                    iFpan_no.setError("Invalid PAN No");
-//                }
-
-//                else if (!ViFpan_no.matches("^([0][1-9]|[1-2][0-9]|[3][0-7])([a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}[1-9a-zA-Z]{1}[zZ]{1}[0-9a-zA-Z]{1})+$")){
-//                    iFpan_no.requestFocus();
-//                    iFpan_no.setError("Invalid GST No");
-//                }
-
-
-
-
-//                else {
-
-                    GetValueFromEditText();
-
-                    FragmentTransaction transection = getFragmentManager().beginTransaction();
-                    NextDistributorFragment mfragment = new NextDistributorFragment();
-
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Hdate", Hdate);
-                    bundle.putString("HnameFirm", HnameFirm + " " + Hiname);
-                    bundle.putString("Hiaddress", Hiaddress);
-                    bundle.putString("Hicity", Hicity);
-                    bundle.putString("Hipincode", Hipincode);
-                    bundle.putString("Hidistrict", Hidistrict);
-                    bundle.putString("Hiemail", Hiemail);
-                    bundle.putString("Hilandline", Hilandline);
-                    bundle.putString("Himobileno", Himobileno);
-                    bundle.putString("HiFpan_no", HiFpan_no);
-                    bundle.putString("HiGST_no", HiGST_no);
-                    bundle.putString("HnameParty", HnameParty + " " + HiFparty_name);
-                    bundle.putString("HiName_conPerson", HiName_conPerson);
-                    bundle.putString("HiMobile_conPerson", HiMobile_conPerson);
-                    bundle.putString("HiYearlyTarg", HiYearlyTarg);
-                    bundle.putString("HiTrans_name", HiTrans_name);
-                    bundle.putString("Hcompanyname", Hcompanyname);
-                    bundle.putString("Hstateid", Hstateid);
-                    bundle.putString("Hpartyname", Hpartyname);
-                    bundle.putString("Hdaysname", Hdaysname);
-
-
-                    mfragment.setArguments(bundle);
-
-                    transection.replace(R.id.container, mfragment);
-                    transection.addToBackStack(null).commit();
-//                }
-
+                Validation();
             }
         });
 
@@ -821,6 +691,204 @@ public class DistributorFragment extends Fragment {
         HiMobile_conPerson=iMobile_conPerson.getText().toString();
         HiYearlyTarg=iYearlyTarg.getText().toString();
         HiTrans_name=iTrans_name.getText().toString();
+    }
+
+    public void Validation()
+    {
+        final String Viname,Viaddress,Vicity,Vipincode,Vidistrict,Viemail,Vilandline,Vimobileno,ViFpan_no,ViGST_no,
+                ViFparty_name,ViName_conPerson,ViMobile_conPerson,ViYearlyTarg,ViTrans_name;
+
+        Viname = iname.getText().toString();
+        Viaddress = iaddress.getText().toString();
+        Vicity = icity.getText().toString();
+        Vipincode = ipincode.getText().toString();
+        Vidistrict = idistrict.getText().toString();
+        Viemail = iemail.getText().toString();
+        Vilandline = ilandline.getText().toString();
+        Vimobileno = imobileno.getText().toString();
+        ViFpan_no=iFpan_no.getText().toString();
+        ViGST_no=iGST_no.getText().toString();
+        ViFparty_name=iFparty_name.getText().toString();
+        ViName_conPerson=iName_conPerson.getText().toString();
+        ViMobile_conPerson=iMobile_conPerson.getText().toString();
+        ViYearlyTarg=iYearlyTarg.getText().toString();
+        ViTrans_name=iTrans_name.getText().toString();
+
+        if(Viname.length()==0)
+        {
+            iname.requestFocus();
+            iname.setError("Please Enter Name");
+        }
+        else if (!Viname.matches("^[a-zA-Z ]+$")||Viname.contains(" ")){
+            iname.requestFocus();
+            iname.setError("Enter Valid Name");
+        }
+        else if (Viaddress.length()==0||Viaddress.contains(" ")){
+            iaddress.requestFocus();
+            iaddress.setError("Please Enter Address");
+        }
+        else if (Vicity.length()==0){
+            icity.requestFocus();
+            icity.setError("Please Enter City");
+        }
+        else if (!Vicity.matches("^[a-zA-Z ]+$")||Vicity.contains(" ")){
+            icity.requestFocus();
+            icity.setError("Enter Valid City");
+        }
+        else if (Vipincode.length()==0){
+            ipincode.requestFocus();
+            ipincode.setError("Please Enter Pin code");
+        }
+
+        else if (Vipincode.length()<6||Vipincode.length()>6||Vipincode.contains(" ")){
+            ipincode.requestFocus();
+            ipincode.setError("Invalid Pin code");
+        }
+        else if (Vidistrict.length()==0){
+            idistrict.requestFocus();
+            idistrict.setError("Please Enter District");
+        }
+        else if (!Vidistrict.matches("^[a-zA-Z ]+$")||Vidistrict.contains(" ")){
+            idistrict.requestFocus();
+            idistrict.setError("Enter Valid District");
+        }
+
+        else if (Viemail.length()==0){
+            iemail.requestFocus();
+            iemail.setError("Please Enter Email");
+        }
+
+        else if (!Viemail.matches("[a-zA-Z0-9._-]+@[a-z]+.[a-z]+")||Viemail.contains(" ")){
+            iemail.requestFocus();
+            iemail.setError("Invalid Email Address");
+        }
+        else if (Vilandline.length()>1){
+            if (!Vilandline.matches("[(]\\d{4}[)]\\s\\d{6}")){
+                ilandline.requestFocus();
+                ilandline.setError("Invalid Land line No");
+            }
+        }
+
+        else if (Vimobileno.length()==0){
+            imobileno.requestFocus();
+            imobileno.setError("Please Enter Mobile No");
+        }
+        else if (!Vimobileno.matches("^\\+[0-9]{10,13}$")||Vimobileno.contains(" ")){
+            imobileno.requestFocus();
+            imobileno.setError("Invalid Mobile No");
+        }
+
+        else if (ViFpan_no.length()==0){
+            iFpan_no.requestFocus();
+            iFpan_no.setError("Please Enter Pan No");
+        }
+
+        else if (!ViFpan_no.matches("[A-Z]{5}[0-9]{4}[A-Z]{1}")||ViFpan_no.contains(" ")){
+            iFpan_no.requestFocus();
+            iFpan_no.setError("Invalid PAN No");
+        }
+
+        else if (ViGST_no.length()==0){
+            iGST_no.requestFocus();
+            iGST_no.setError("Please Enter GST No");
+        }
+
+
+        else if (!ViGST_no.matches("^([0][1-9]|[1-2][0-9]|[3][0-7])([a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}[1-9a-zA-Z]{1}[zZ]{1}[0-9a-zA-Z]{1})+$")){
+            iGST_no.requestFocus();
+            iGST_no.setError("Invalid GST No");
+        }
+
+        else if(ViFparty_name.length()==0)
+        {
+            iFparty_name.requestFocus();
+            iFparty_name.setError("Please Enter Name Of Pro/Par");
+        }
+        else if (!ViFparty_name.matches("^[a-zA-Z ]+$")||ViFparty_name.contains(" ")){
+            iFparty_name.requestFocus();
+            iFparty_name.setError("Enter Valid Name Of Pro/Par");
+        }
+
+        else if(ViName_conPerson.length()==0)
+        {
+            iName_conPerson.requestFocus();
+            iName_conPerson.setError("Please Enter Name of Contact Person");
+        }
+        else if (!ViName_conPerson.matches("^[a-zA-Z ]+$")||ViName_conPerson.contains(" ")){
+            iName_conPerson.requestFocus();
+            iName_conPerson.setError("Enter Valid Name of Contact Person");
+        }
+
+        else if(ViMobile_conPerson.length()==0)
+        {
+            iMobile_conPerson.requestFocus();
+            iMobile_conPerson.setError("Please Enter Mobile no of Contact Person");
+        }
+        else if (!ViMobile_conPerson.matches("^\\+[0-9]{10,13}$")||ViMobile_conPerson.contains(" ")){
+            iMobile_conPerson.requestFocus();
+            iMobile_conPerson.setError("Enter Valid Mobile no of Contact Person");
+        }
+
+        else if(ViYearlyTarg.length()==0)
+        {
+            iYearlyTarg.requestFocus();
+            iYearlyTarg.setError("Please Enter Yearly Target");
+        }
+        else if (ViYearlyTarg.contains(" ")){
+            iYearlyTarg.requestFocus();
+            iYearlyTarg.setError("Enter Valid Yearly Target");
+        }
+
+        else if(ViTrans_name.length()==0)
+        {
+            iTrans_name.requestFocus();
+            iTrans_name.setError("Please Enter Transport Name");
+        }
+        else if (!ViTrans_name.matches("^[a-zA-Z ]+$")||ViTrans_name.contains(" ")){
+            iTrans_name.requestFocus();
+            iTrans_name.setError("Enter Valid Transport Name");
+        }
+
+
+
+
+        else {
+
+            GetValueFromEditText();
+
+            FragmentTransaction transection = getFragmentManager().beginTransaction();
+            NextDistributorFragment mfragment = new NextDistributorFragment();
+
+            Bundle bundle = new Bundle();
+            bundle.putString("Hdate", Hdate);
+            bundle.putString("HnameFirm", HnameFirm + " " + Hiname);
+            bundle.putString("Hiaddress", Hiaddress);
+            bundle.putString("Hicity", Hicity);
+            bundle.putString("Hipincode", Hipincode);
+            bundle.putString("Hidistrict", Hidistrict);
+            bundle.putString("Hiemail", Hiemail);
+            bundle.putString("Hilandline", Hilandline);
+            bundle.putString("Himobileno", Himobileno);
+            bundle.putString("HiFpan_no", HiFpan_no);
+            bundle.putString("HiGST_no", HiGST_no);
+            bundle.putString("HnameParty", HnameParty + " " + HiFparty_name);
+            bundle.putString("HiName_conPerson", HiName_conPerson);
+            bundle.putString("HiMobile_conPerson", HiMobile_conPerson);
+            bundle.putString("HiYearlyTarg", HiYearlyTarg);
+            bundle.putString("HiTrans_name", HiTrans_name);
+            bundle.putString("Hcompanyname", Hcompanyname);
+            bundle.putString("Hstateid", Hstateid);
+            bundle.putString("Hpartyname", Hpartyname);
+            bundle.putString("Hdaysname", Hdaysname);
+
+
+            mfragment.setArguments(bundle);
+
+            transection.replace(R.id.container, mfragment);
+            transection.addToBackStack(null).commit();
+        }
+
+
     }
 
     private void showDialog() {
