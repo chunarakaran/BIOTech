@@ -362,7 +362,7 @@ public class LeaveRequestFragment extends Fragment {
 
                                         Intent intent = new Intent(getActivity(), MainActivity.class);
                                         startActivity(intent);
-//                                        getActivity().getFragmentManager().beginTransaction().remove().commit();
+                                        getActivity().finish();
 
                                     }
                                 })

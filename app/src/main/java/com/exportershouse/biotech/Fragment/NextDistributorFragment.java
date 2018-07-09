@@ -605,6 +605,7 @@ public class NextDistributorFragment extends Fragment implements View.OnClickLis
                                         fragment=new DistributorFragment();
                                         transection.replace(R.id.container,fragment);
                                         transection.addToBackStack(null).commit();
+                                        getActivity().finish();
                                     }
                                 })
                                 .OnNegativeClicked(new FancyGifDialogListener() {
@@ -613,6 +614,7 @@ public class NextDistributorFragment extends Fragment implements View.OnClickLis
 //
                                         Intent intent = new Intent(getActivity(), MainActivity.class);
                                         startActivity(intent);
+                                        getActivity().finish();
                                     }
                                 })
                                 .build();

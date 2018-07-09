@@ -1309,6 +1309,7 @@ public class NewOrderFragment extends Fragment {
                                         NewOrderFragment mfragment=new NewOrderFragment();
                                         transection.replace(R.id.container, mfragment);
                                         transection.addToBackStack(null).commit();
+                                        getActivity().finish();
                                     }
                                 })
                                 .OnNegativeClicked(new FancyGifDialogListener() {
@@ -1317,6 +1318,7 @@ public class NewOrderFragment extends Fragment {
 //
                                         Intent intent = new Intent(getActivity(), MainActivity.class);
                                         startActivity(intent);
+                                        getActivity().finish();
                                     }
                                 })
                                 .build();

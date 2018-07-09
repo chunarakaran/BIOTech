@@ -1005,7 +1005,39 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
                         progressDialog.dismiss();
 
                         // Showing response message coming from server.
-                        Toast.makeText(getActivity(), ServerResponse, Toast.LENGTH_LONG).show();
+//                        Toast.makeText(getActivity(), ServerResponse, Toast.LENGTH_LONG).show();
+
+                        new FancyGifDialog.Builder(getActivity())
+                                .setTitle("Success")
+                                .setMessage("Your Daily Report Add Successfully")
+                                .setNegativeBtnText("Cancel")
+                                .setPositiveBtnBackground("#FF4081")
+                                .setPositiveBtnText("Ok")
+                                .setNegativeBtnBackground("#FFA9A7A8")
+                                .setGifResource(R.drawable.check)   //Pass your Gif here
+                                .isCancellable(false)
+                                .OnPositiveClicked(new FancyGifDialogListener() {
+                                    @Override
+                                    public void OnClick() {
+//                                        Toast.makeText(getActivity(),"Ok",Toast.LENGTH_SHORT).show();
+
+                                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                                        startActivity(intent);
+                                        getActivity().finish();
+
+                                    }
+                                })
+                                .OnNegativeClicked(new FancyGifDialogListener() {
+                                    @Override
+                                    public void OnClick() {
+//
+//                                        fromDate.setText("");
+//                                        toDate.setText("");
+//                                        remark.setText("");
+                                    }
+                                })
+                                .build();
+
 
                     }
                 },
