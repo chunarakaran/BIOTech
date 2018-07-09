@@ -247,12 +247,125 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GetValueFromEditText();
 
-//                remark.setText(Hpartno);
-//                Toast.makeText(getActivity(), Hpartno, Toast.LENGTH_LONG).show();
+                final String VdistName,VpName,VAddress,Vcity,Vpincode,Vdistrict,Vemail,VCperName,VCperMob,VCperWA,VBrandReason,VBranName,VPartyReason,Vremark;
 
-                Add_report();
+                VdistName = distName.getText().toString();
+                VpName = pName.getText().toString();
+                VAddress = Address.getText().toString();
+                Vcity = city.getText().toString();
+                Vpincode = pincode.getText().toString();
+                Vdistrict = district.getText().toString();
+                Vemail = email.getText().toString();
+                VCperName = CperName.getText().toString();
+                VCperMob = CperMob.getText().toString();
+                VCperWA = CperWA.getText().toString();
+                VBrandReason = BrandReason.getText().toString();
+                VBranName = BranName.getText().toString();
+                VPartyReason = PartyReason.getText().toString();
+                Vremark = remark.getText().toString();
+
+                if(VdistName.length()==0)
+                {
+                    distName.requestFocus();
+                    distName.setError("Please Enter Distributor Name");
+                }
+                else if (!VdistName.matches("^[a-zA-Z ]+$")){
+                    distName.requestFocus();
+                    distName.setError("Enter Valid Distributor Name");
+                }
+                else if(VpName.length()==0)
+                {
+                    pName.requestFocus();
+                    pName.setError("Please Enter Party Name");
+                }
+                else if (!VpName.matches("^[a-zA-Z ]+$")){
+                    pName.requestFocus();
+                    pName.setError("Enter Valid Party Name");
+                }
+                else if(VAddress.length()==0)
+                {
+                    Address.requestFocus();
+                    Address.setError("Please Enter Address");
+                }
+                else if(Vcity.length()==0)
+                {
+                    city.requestFocus();
+                    city.setError("Please Enter City Name");
+                }
+                else if (!Vcity.matches("^[a-zA-Z ]+$")){
+                    city.requestFocus();
+                    city.setError("Enter Valid City Name");
+                }
+
+                else if (Vpincode.length()==0){
+                    pincode.requestFocus();
+                    pincode.setError("Please Enter Pin code");
+                }
+
+                else if (Vpincode.length()<6||Vpincode.length()>6||Vpincode.contains(" ")){
+                    pincode.requestFocus();
+                    pincode.setError("Invalid Pin code");
+                }
+
+                else if(Vdistrict.length()==0)
+                {
+                    district.requestFocus();
+                    district.setError("Please Enter District Name");
+                }
+                else if (!Vdistrict.matches("^[a-zA-Z ]+$")){
+                    district.requestFocus();
+                    district.setError("Enter Valid District Name");
+                }
+
+                else if (Vemail.length()==0){
+                    email.requestFocus();
+                    email.setError("Please Enter Email");
+                }
+
+                else if (!Vemail.matches("[a-zA-Z0-9._-]+@[a-z]+.[a-z]+")||Vemail.contains(" ")){
+                    email.requestFocus();
+                    email.setError("Invalid Email Address");
+                }
+
+                else if(VCperName.length()==0)
+                {
+                    CperName.requestFocus();
+                    CperName.setError("Please Enter Name of Contact Person");
+                }
+                else if (!VCperName.matches("^[a-zA-Z ]+$")){
+                    CperName.requestFocus();
+                    CperName.setError("Enter Valid Name of Contact Person");
+                }
+
+                else if (VCperMob.length()==0){
+                    CperMob.requestFocus();
+                    CperMob.setError("Please Enter Mobile No");
+                }
+                else if (!VCperMob.matches("^\\+[0-9]{10,13}$")||VCperMob.contains(" ")){
+                    CperMob.requestFocus();
+                    CperMob.setError("Invalid Mobile No");
+                }
+
+                else if (VCperWA.length()==0){
+                    CperWA.requestFocus();
+                    CperWA.setError("Please Enter Mobile No");
+                }
+                else if (!VCperWA.matches("^\\+[0-9]{10,13}$")||VCperWA.contains(" ")){
+                    CperWA.requestFocus();
+                    CperWA.setError("Invalid Mobile No");
+                }
+
+                else if (Vremark.length()==0)
+                {
+                    remark.requestFocus();
+                    remark.setError("Please Enter Remark");
+                }
+
+                else{
+                    Add_report();
+                }
+
             }
         });
 

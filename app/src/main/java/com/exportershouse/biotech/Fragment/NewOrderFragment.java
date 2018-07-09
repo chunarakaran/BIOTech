@@ -261,8 +261,64 @@ public class NewOrderFragment extends Fragment {
             @Override
             public void onClick(View view)
             {
-                Add_Order();
 
+                final String Vactv,VCityName,VTrsnsportname,VorderBy,VDiscount,VRemark;
+
+                Vactv = actv.getText().toString();
+                VCityName = CityName.getText().toString();
+                VTrsnsportname = Trsnsportname.getText().toString();
+                VorderBy = orderBy.getText().toString();
+                VDiscount = Discount.getText().toString();
+                VRemark = Remark.getText().toString();
+
+                if(Vactv.length()==0)
+                {
+                    actv.requestFocus();
+                    actv.setError("Please Enter Party Name");
+                }
+                else if (!Vactv.matches("^[a-zA-Z ]+$")){
+                    actv.requestFocus();
+                    actv.setError("Enter Valid Party Name");
+                }
+                else if(VCityName.length()==0)
+                {
+                    CityName.requestFocus();
+                    CityName.setError("Please Enter City Name");
+                }
+                else if (!VCityName.matches("^[a-zA-Z ]+$")||VCityName.contains(" ")){
+                    CityName.requestFocus();
+                    CityName.setError("Enter Valid City Name");
+                }
+                else if(VTrsnsportname.length()==0)
+                {
+                    Trsnsportname.requestFocus();
+                    Trsnsportname.setError("Please Enter Transport Name");
+                }
+                else if (!VTrsnsportname.matches("^[a-zA-Z ]+$")){
+                    Trsnsportname.requestFocus();
+                    Trsnsportname.setError("Enter Valid Transport Name");
+                }
+                else if(VorderBy.length()==0)
+                {
+                    orderBy.requestFocus();
+                    orderBy.setError("Please Enter Order By Name");
+                }
+                else if (!VorderBy.matches("^[a-zA-Z ]+$")){
+                    orderBy.requestFocus();
+                    orderBy.setError("Enter Valid Order By Name");
+                }
+                else if(VDiscount.length()==0)
+                {
+                    Discount.requestFocus();
+                    Discount.setError("Please Enter Discount");
+                }
+                else if (VRemark.length()==0){
+                    Remark.requestFocus();
+                    Remark.setError("Please Enter Remark");
+                }
+                else {
+                    Add_Order();
+                }
                 //Remark.setText(Hcolorid.toString());
             }
         });
