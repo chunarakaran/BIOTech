@@ -1,7 +1,10 @@
 package com.exportershouse.biotech;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -10,6 +13,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -95,6 +99,13 @@ public class MainActivity extends AppCompatActivity {
         fragment = new DashboardFragment();
         fragmentTransaction.replace(R.id.container, fragment).commit();
 
+        if(connected()){
+            Toast.makeText(getApplicationContext(),"Welcome To BioTech" , Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(getApplicationContext(),"User is Not connected" , Toast.LENGTH_LONG).show();
+        }
+
+
     }
 
     public void showBottomNavigationButton() {
@@ -153,6 +164,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private boolean connected(){
+        ConnectivityManager connectivityManager=(ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo !=null && activeNetworkInfo.isConnected();
     }
 
 }

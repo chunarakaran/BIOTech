@@ -1,6 +1,10 @@
 package com.exportershouse.biotech;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +13,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import customfonts.MyTextView;
 
@@ -18,6 +31,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     EditText Email;
     MyTextView backLogin;
     Button Reset;
+    RequestQueue requestQueue1;
+    String Url;
+
+    private ProgressDialog pDialog;
 
     Fragment fragment=null;
 
@@ -32,6 +49,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         Reset=(Button) findViewById(R.id.btn_reset);
 
         backLogin.setText("<< Back to BioTech Login Page");
+
+        // Progress dialog
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
 
         Email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -69,11 +90,96 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), ChangePasswordActivity.class);
-                startActivity(intent);
+                requestQueue1 = Volley.newRequestQueue(getApplicationContext());
+
+                Url = (String) getText(R.string.login_url);
+                if(!Email.getText().toString().isEmpty()) {
+                    if(isNetworkAvailable()) {
+                        check_email();
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(), "Please check your internet connecion or try again.", Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+                else
+                {
+                    Email.setError("You must enter Email Id");
+                }
+
+//                Intent intent = new Intent(getApplicationContext(), ChangePasswordActivity.class);
+//                startActivity(intent);
             }
         });
 
 
     }
+
+    private void check_email()
+    {
+        pDialog.setMessage("Logging in ...");
+        showDialog();
+
+        StringRequest jsonobject = new StringRequest(Request.Method.POST, Url+"api/login" + "?email="+Email.getText().toString(), new Response.Listener<String>() {
+            @Override
+
+            public void onResponse(String response) {
+
+
+                if(response.equalsIgnoreCase("false_email"))
+                {
+                    Email.setError("Email-id does not exist");
+                    hideDialog();
+                }
+                else
+                {
+
+                    Intent i = new Intent(getApplicationContext(),ChangePasswordActivity.class);
+                    startActivity(i);
+//                    finish();
+                    hideDialog();
+                }
+
+
+
+            }
+        },new Response.ErrorListener(){
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),"Server Error", Toast.LENGTH_LONG).show();
+
+                hideDialog();
+            }
+        });
+
+        jsonobject.setRetryPolicy(new DefaultRetryPolicy(100000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        requestQueue1.add(jsonobject);
+    }
+
+    public boolean isNetworkAvailable() {
+
+        ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+
+        boolean isConnected = netInfo != null && netInfo.isConnectedOrConnecting();
+
+        return isConnected;
+    }
+
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
+
 }
