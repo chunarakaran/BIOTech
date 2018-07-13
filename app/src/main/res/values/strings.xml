@@ -45,5 +45,7 @@
         <item>Saturday</item>
     </string-array>
 
+    <string name="quotedesc">Welcome! Where should we deliver to?</string>
+
 
 </resources>

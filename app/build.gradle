@@ -44,5 +44,7 @@ dependencies {
     compile 'com.mikhaellopez:circularimageview:2.0.1'
     compile 'de.hdodenhof:circleimageview:2.1.0'
 
-
+    compile 'com.google.android.gms:play-services-location:10.2.4'
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 }

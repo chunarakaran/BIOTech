@@ -30,5 +30,12 @@
     <color name="colorTextInfo">#9b9b9b</color>
     <color name="colorGreen">#A5DE40</color>
 
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+
+    <color name="proceed_disable">#DEDEDE</color>
+    <color name="proceed_enable">#72D63A</color>
+    <color name="colorWhite">#FFFFFF</color>
+
 
 </resources>

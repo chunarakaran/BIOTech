@@ -1,8 +1,11 @@
 package com.exportershouse.biotech;
 
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -26,6 +29,10 @@ import com.exportershouse.biotech.Fragment.LeaveStatusFragment;
 import com.exportershouse.biotech.Fragment.OrderStatusFragment;
 import com.exportershouse.biotech.Fragment.ProfileFragment;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -35,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
     Fragment fragment = null;
     BottomNavigationView navigation;
     private SessionManager session;
+
+    SharedPreferences sharedpreferences;
+    SharedPreferences.Editor editor;
+    public static final String PREFS_NAME = "LAST_LAUNCH_DATE";
 
 
 //    String language;
@@ -105,8 +116,20 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"User is Not connected" , Toast.LENGTH_LONG).show();
         }
 
+//        AlarmManager alarmanager= (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+//        Intent intent = new Intent(MainActivity.this,DialogService.class);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),0,intent , 0);
+//        alarmanager.setRepeating(AlarmManager.RTC_WAKEUP,System.getTimeInMillis(), AlarmManager.INTERVAL_DAY * 3,pendingIntent );
+
+
+
+
 
     }
+
+
+
+
 
     public void showBottomNavigationButton() {
         navigation.setVisibility(View.VISIBLE);

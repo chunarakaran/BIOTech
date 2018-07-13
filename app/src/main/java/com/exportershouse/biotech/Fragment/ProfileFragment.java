@@ -33,6 +33,7 @@ import com.android.volley.toolbox.Volley;
 import com.exportershouse.biotech.ChangePasswordActivity;
 import com.exportershouse.biotech.ForgotPasswordActivity;
 import com.exportershouse.biotech.MainActivity;
+import com.exportershouse.biotech.MyLocationUsingLocationAPI;
 import com.exportershouse.biotech.R;
 import com.squareup.picasso.Picasso;
 
@@ -115,7 +116,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getActivity(), ChangePasswordActivity.class);
+                Intent intent = new Intent(getActivity(), MyLocationUsingLocationAPI.class);
                 startActivity(intent);
             }
         });

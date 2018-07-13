@@ -807,6 +807,7 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
             textView[flag].setLayoutParams(lparams);
             textView[flag].setHint("Enter Part no");
             textView[flag].setBackgroundResource(R.drawable.rounded_border_edittext);
+            textView[flag].setPadding(20,3,3,3);
             textView[flag].setId(flag);
 
 
@@ -818,7 +819,8 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
             textView1[flag1] = new EditText(getActivity());
             textView1[flag1].setLayoutParams(lparams1);
             textView1[flag1].setHint("Qty");
-            textView1[flag].setBackgroundResource(R.drawable.rounded_border_edittext);
+            textView1[flag1].setBackgroundResource(R.drawable.rounded_border_edittext);
+            textView1[flag1].setPadding(20,3,3,3);
             textView1[flag1].setId(flag1);
 
             k2++;
@@ -829,6 +831,7 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
             textView2[flag2].setLayoutParams(lparams2);
             textView2[flag2].setHint("Total Ltr");
             textView2[flag2].setBackgroundResource(R.drawable.rounded_border_edittext);
+            textView2[flag2].setPadding(20,3,3,3);
             textView2[flag2].setId(flag2);
 
 
