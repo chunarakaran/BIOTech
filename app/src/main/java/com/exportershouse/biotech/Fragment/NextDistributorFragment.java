@@ -761,7 +761,7 @@ public class NextDistributorFragment extends Fragment implements View.OnClickLis
                 bankName.requestFocus();
                 bankName.setError("Please Enter Bank Name");
             }
-            else if (!VbankName.matches("^[a-zA-Z ]+$")||VbankName.contains(" ")){
+            else if (!VbankName.matches("^[a-zA-Z ]+$")){
                 bankName.requestFocus();
                 bankName.setError("Enter Valid Bank Name");
             }
@@ -771,7 +771,7 @@ public class NextDistributorFragment extends Fragment implements View.OnClickLis
                 bankACno.requestFocus();
                 bankACno.setError("Please Enter Bank Account No");
             }
-            else if (!VbankACno.matches("^\\d{9,18}$")||VbankACno.contains(" ")){
+            else if (!VbankACno.matches("^\\d{9,18}$")){
                 bankACno.requestFocus();
                 bankACno.setError("Enter Valid Bank Account No");
             }
@@ -791,7 +791,7 @@ public class NextDistributorFragment extends Fragment implements View.OnClickLis
                 bankCity.requestFocus();
                 bankCity.setError("Please Enter Bank City Name");
             }
-            else if (!VbankCity.matches("^[a-zA-Z ]+$")||VbankCity.contains(" ")){
+            else if (!VbankCity.matches("^[a-zA-Z ]+$")){
                 bankCity.requestFocus();
                 bankCity.setError("Enter Valid Bank City Name");
             }
@@ -801,7 +801,7 @@ public class NextDistributorFragment extends Fragment implements View.OnClickLis
                 bankIFSC.requestFocus();
                 bankIFSC.setError("Please Enter Bank IFSC Code");
             }
-            else if (!VbankIFSC.matches("^[A-Za-z]{4}[a-zA-Z0-9]{7}$")||VbankIFSC.contains(" ")){
+            else if (!VbankIFSC.matches("^[A-Za-z]{4}[a-zA-Z0-9]{7}$")){
                 bankIFSC.requestFocus();
                 bankIFSC.setError("Enter Valid Bank IFSC Code");
             }
@@ -821,7 +821,7 @@ public class NextDistributorFragment extends Fragment implements View.OnClickLis
                 bankPersonalName.requestFocus();
                 bankPersonalName.setError("Please Enter Person Name");
             }
-            else if (!VbankPersonalName.matches("^[a-zA-Z ]+$")||VbankPersonalName.contains(" ")){
+            else if (!VbankPersonalName.matches("^[a-zA-Z ]+$")){
                 bankPersonalName.requestFocus();
                 bankPersonalName.setError("Enter Valid Person Name");
             }

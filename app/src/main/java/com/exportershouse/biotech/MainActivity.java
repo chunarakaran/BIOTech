@@ -174,7 +174,10 @@ public class MainActivity extends AppCompatActivity {
         {
             case R.id.action_settings:
                 logoutUser();
-
+                break;
+            case R.id.action_checkin:
+                Intent intent = new Intent(getApplicationContext(), MyLocationUsingLocationAPI.class);
+                startActivity(intent);
                 break;
 
         }

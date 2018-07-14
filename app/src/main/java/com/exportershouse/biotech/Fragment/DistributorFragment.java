@@ -719,11 +719,11 @@ public class DistributorFragment extends Fragment {
             iname.requestFocus();
             iname.setError("Please Enter Name");
         }
-        else if (!Viname.matches("^[a-zA-Z ]+$")||Viname.contains(" ")){
+        else if (!Viname.matches("^[a-zA-Z ]+$")){
             iname.requestFocus();
             iname.setError("Enter Valid Name");
         }
-        else if (Viaddress.length()==0||Viaddress.contains(" ")){
+        else if (Viaddress.length()==0){
             iaddress.requestFocus();
             iaddress.setError("Please Enter Address");
         }
@@ -731,7 +731,7 @@ public class DistributorFragment extends Fragment {
             icity.requestFocus();
             icity.setError("Please Enter City");
         }
-        else if (!Vicity.matches("^[a-zA-Z ]+$")||Vicity.contains(" ")){
+        else if (!Vicity.matches("^[a-zA-Z ]+$")){
             icity.requestFocus();
             icity.setError("Enter Valid City");
         }
@@ -740,7 +740,7 @@ public class DistributorFragment extends Fragment {
             ipincode.setError("Please Enter Pin code");
         }
 
-        else if (Vipincode.length()<6||Vipincode.length()>6||Vipincode.contains(" ")){
+        else if (Vipincode.length()<6||Vipincode.length()>6){
             ipincode.requestFocus();
             ipincode.setError("Invalid Pin code");
         }
@@ -748,7 +748,7 @@ public class DistributorFragment extends Fragment {
             idistrict.requestFocus();
             idistrict.setError("Please Enter District");
         }
-        else if (!Vidistrict.matches("^[a-zA-Z ]+$")||Vidistrict.contains(" ")){
+        else if (!Vidistrict.matches("^[a-zA-Z ]+$")){
             idistrict.requestFocus();
             idistrict.setError("Enter Valid District");
         }
@@ -762,18 +762,18 @@ public class DistributorFragment extends Fragment {
             iemail.requestFocus();
             iemail.setError("Invalid Email Address");
         }
-        else if (Vilandline.length()>1){
-            if (!Vilandline.matches("[(]\\d{4}[)]\\s\\d{6}")){
-                ilandline.requestFocus();
-                ilandline.setError("Invalid Land line No");
-            }
-        }
+//        else if (Vilandline.length()>1){
+//            if (!Vilandline.matches("[(]\\d{4}[)]\\s\\d{6}")){
+//                ilandline.requestFocus();
+//                ilandline.setError("Invalid Land line No");
+//            }
+//        }
 
         else if (Vimobileno.length()==0){
             imobileno.requestFocus();
             imobileno.setError("Please Enter Mobile No");
         }
-        else if (!Vimobileno.matches("^\\+[0-9]{10,13}$")||Vimobileno.contains(" ")){
+        else if (!Vimobileno.matches("^[0-9]{10}$")||Vimobileno.contains(" ")){
             imobileno.requestFocus();
             imobileno.setError("Invalid Mobile No");
         }
@@ -804,7 +804,7 @@ public class DistributorFragment extends Fragment {
             iFparty_name.requestFocus();
             iFparty_name.setError("Please Enter Name Of Pro/Par");
         }
-        else if (!ViFparty_name.matches("^[a-zA-Z ]+$")||ViFparty_name.contains(" ")){
+        else if (!ViFparty_name.matches("^[a-zA-Z ]+$")){
             iFparty_name.requestFocus();
             iFparty_name.setError("Enter Valid Name Of Pro/Par");
         }
@@ -814,7 +814,7 @@ public class DistributorFragment extends Fragment {
             iName_conPerson.requestFocus();
             iName_conPerson.setError("Please Enter Name of Contact Person");
         }
-        else if (!ViName_conPerson.matches("^[a-zA-Z ]+$")||ViName_conPerson.contains(" ")){
+        else if (!ViName_conPerson.matches("^[a-zA-Z ]+$")){
             iName_conPerson.requestFocus();
             iName_conPerson.setError("Enter Valid Name of Contact Person");
         }
@@ -824,7 +824,7 @@ public class DistributorFragment extends Fragment {
             iMobile_conPerson.requestFocus();
             iMobile_conPerson.setError("Please Enter Mobile no of Contact Person");
         }
-        else if (!ViMobile_conPerson.matches("^\\+[0-9]{10,13}$")||ViMobile_conPerson.contains(" ")){
+        else if (!ViMobile_conPerson.matches("^\\+[0-9]{10,13}$")){
             iMobile_conPerson.requestFocus();
             iMobile_conPerson.setError("Enter Valid Mobile no of Contact Person");
         }
@@ -844,7 +844,7 @@ public class DistributorFragment extends Fragment {
             iTrans_name.requestFocus();
             iTrans_name.setError("Please Enter Transport Name");
         }
-        else if (!ViTrans_name.matches("^[a-zA-Z ]+$")||ViTrans_name.contains(" ")){
+        else if (!ViTrans_name.matches("^[a-zA-Z ]+$")){
             iTrans_name.requestFocus();
             iTrans_name.setError("Enter Valid Transport Name");
         }

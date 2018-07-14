@@ -28,9 +28,9 @@ public class MyLocationUsingHelper extends AppCompatActivity implements Connecti
 
 
     @BindView(R.id.btnLocation)Button btnProceed;
-    @BindView(R.id.tvAddress)TextView tvAddress;
-    @BindView(R.id.tvEmpty)TextView tvEmpty;
-    @BindView(R.id.rlPickLocation)RelativeLayout rlPick;
+//    @BindView(R.id.tvAddress)TextView tvAddress;
+//    @BindView(R.id.tvEmpty)TextView tvEmpty;
+//    @BindView(R.id.rlPickLocation)RelativeLayout rlPick;
 
     private Location mLastLocation;
 
@@ -50,26 +50,26 @@ public class MyLocationUsingHelper extends AppCompatActivity implements Connecti
 
         ButterKnife.bind(this);
 
-        rlPick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                mLastLocation=locationHelper.getLocation();
-
-                if (mLastLocation != null) {
-                    latitude = mLastLocation.getLatitude();
-                    longitude = mLastLocation.getLongitude();
-                    getAddress();
-
-                } else {
-
-                    if(btnProceed.isEnabled())
-                        btnProceed.setEnabled(false);
-
-                    showToast("Couldn't get the location. Make sure location is enabled on the device");
-                }
-            }
-        });
+//        rlPick.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                mLastLocation=locationHelper.getLocation();
+//
+//                if (mLastLocation != null) {
+//                    latitude = mLastLocation.getLatitude();
+//                    longitude = mLastLocation.getLongitude();
+//                    getAddress();
+//
+//                } else {
+//
+//                    if(btnProceed.isEnabled())
+//                        btnProceed.setEnabled(false);
+//
+//                    showToast("Couldn't get the location. Make sure location is enabled on the device");
+//                }
+//            }
+//        });
 
 
 
@@ -135,9 +135,9 @@ public class MyLocationUsingHelper extends AppCompatActivity implements Connecti
                 if (!TextUtils.isEmpty(country))
                     currentLocation+="\n"+country;
 
-                tvEmpty.setVisibility(View.GONE);
-                tvAddress.setText(currentLocation);
-                tvAddress.setVisibility(View.VISIBLE);
+//                tvEmpty.setVisibility(View.GONE);
+//                tvAddress.setText(currentLocation);
+//                tvAddress.setVisibility(View.VISIBLE);
 
                 if(!btnProceed.isEnabled())
                     btnProceed.setEnabled(true);
