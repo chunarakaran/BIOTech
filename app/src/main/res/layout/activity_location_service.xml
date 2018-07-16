@@ -3,6 +3,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#169ad8"
     tools:context="com.exportershouse.biotech.MyLocationUsingHelper">
 
     <LinearLayout
@@ -11,7 +12,6 @@
         android:layout_height="300dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="12dp"
         android:background="@drawable/checkin"
         android:orientation="vertical"
         android:paddingBottom="@dimen/activity_vertical_margin"
@@ -24,30 +24,34 @@
             android:gravity="center"
             android:paddingLeft="35dp"
             android:paddingRight="35dp"
-            android:text="@string/quotedesc"
+            android:text="Welcome BioTech"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/large_text" />
 
     </LinearLayout>
 
 
-
     <Button
         android:id="@+id/btnLocation"
         style="@style/proceedButtonStyle"
-        android:layout_width="349dp"
+        android:background="@drawable/bg_proceed_enable"
+        android:layout_width="150dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="74dp"
-        android:layout_marginStart="17dp"
+        android:layout_marginBottom="111dp"
+        android:layout_marginStart="30dp"
         android:text="Check In" />
 
     <Button
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        style="@style/proceedButtonStyle"
         android:id="@+id/checkout"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        style="@style/proceedButtonStyle"
+        android:background="@drawable/bg_proceed_enable1"
+        android:layout_width="150dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/btnLocation"
+        android:layout_marginEnd="30dp"
         android:text="Check Out" />
+
+
 
 </RelativeLayout>

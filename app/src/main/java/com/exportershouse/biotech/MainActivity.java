@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.exportershouse.biotech.Adapter.SessionManager;
 import com.exportershouse.biotech.Fragment.DashboardFragment;
+import com.exportershouse.biotech.Fragment.InquryStatusFragment;
 import com.exportershouse.biotech.Fragment.LeaveStatusFragment;
 import com.exportershouse.biotech.Fragment.OrderStatusFragment;
 import com.exportershouse.biotech.Fragment.ProfileFragment;
@@ -178,6 +179,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_checkin:
                 Intent intent = new Intent(getApplicationContext(), MyLocationUsingLocationAPI.class);
                 startActivity(intent);
+                break;
+            case R.id.action_inquiry:
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragment = new InquryStatusFragment();
+                fragmentTransaction.replace(R.id.container, fragment).addToBackStack(null).commit();
                 break;
 
         }
