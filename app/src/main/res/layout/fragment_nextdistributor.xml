@@ -51,7 +51,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Area Covered By Party(in Kilometer)"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -94,7 +94,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Number of Staff(Person)"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -136,7 +136,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Number of Party's Counter(aprox)"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -177,6 +177,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Retail"
+                    android:textColor="@color/hint_color12"
                     android:checked="true" />
 
                 <RadioButton
@@ -184,6 +185,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Wholesaler"
+                    android:textColor="@color/hint_color12"
                     android:paddingLeft="5dp"/>
 
             </RadioGroup>
@@ -218,12 +220,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
+                    android:textColor="@color/hint_color12"
                     android:text="Yes" />
 
                 <RadioButton
                     android:id="@+id/radioNo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/hint_color12"
                     android:text="No" />
 
             </RadioGroup>
@@ -265,7 +269,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Reason"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -318,7 +322,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Bank Name"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -361,7 +365,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Bank Account Number"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -404,7 +408,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Bank Branch Name"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -446,7 +450,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Bank City"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -488,7 +492,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Bank IFSC Code"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -530,7 +534,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Security Cheque No"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -572,7 +576,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Person Name(Which Sign in Security Cheque)"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -603,12 +607,13 @@
                 android:layout_marginTop="5dp"
                 android:text="Please Select Document"
                 android:textSize="15dp"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="#000"/>
 
             <CheckBox
                 android:id="@+id/c1"
                 android:tag="checkbox1"
                 android:text="Passport Size Photo"
+                android:textColor="@color/hint_color12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -616,24 +621,28 @@
                 android:id="@+id/c2"
                 android:tag="checkbox1"
                 android:text="Residance/Godown Addressproof"
+                android:textColor="@color/hint_color12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <CheckBox
                 android:id="@+id/c3"
                 android:tag="checkbox1"
                 android:text="Driving Licence/Election Card"
+                android:textColor="@color/hint_color12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <CheckBox
                 android:id="@+id/c4"
                 android:tag="checkbox1"
                 android:text="Pancard"
+                android:textColor="@color/hint_color12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <CheckBox
                 android:id="@+id/c5"
                 android:tag="checkbox1"
                 android:text="Shop Act Licence Copy"
+                android:textColor="@color/hint_color12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>

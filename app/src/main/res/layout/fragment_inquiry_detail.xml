@@ -165,7 +165,7 @@
                             android:layout_marginTop="16dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Discreption"
+                            android:text="Description"
                             android:textSize="17dp"
                             android:textColor="@color/text"
                             android:drawablePadding="13dp"
@@ -292,7 +292,7 @@
 
         </FrameLayout>
 
-        <Button android:id="@+id/btn_next"
+        <Button android:id="@+id/btn_reply"
             android:layout_width="120dp"
             android:layout_height="40dp"
             android:layout_gravity="center"

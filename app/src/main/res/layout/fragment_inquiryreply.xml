@@ -16,11 +16,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="0dp"
-            android:layout_marginBottom="7dp"
-            android:text="Please Select Leave Type"
+            android:layout_marginLeft="5dp"
+            android:text="Inquiry Status"
             android:textSize="15dp"
-            android:textColor="@color/hint_color12"/>
+            android:textColor="#000"/>
 
         <LinearLayout
             android:id="@+id/input_companyname"
@@ -30,58 +29,69 @@
             android:background="@drawable/rounded_border_edittext">
 
             <Spinner
-                android:id="@+id/leave_spinner"
+                android:id="@+id/InqStatus_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:entries="@array/inquiry_status"/>
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/input_layout_reason"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_border_edittext">
+            android:layout_height="wrap_content">
 
 
-            <EditText
-                android:id="@+id/input_fromDate"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="25dp"
-                android:inputType="text"
-                android:hint="From Date"
-                android:focusable="false"
-                android:singleLine="true"
-                android:textColorHint="@color/hint_color12"
-                android:background="@android:color/transparent"/>
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_border_edittext" />
+
+                <TextView
+                    android:id="@+id/Treason"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="28dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="Reason"
+                    android:textSize="16sp"
+                    android:background="@android:color/white"
+                    android:visibility="invisible"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginRight="28dp"
+                    android:hint="Reason"
+                    android:textColorHint="@color/hint_color12"
+                    app:hintTextAppearance="@style/HintTextStyle">
+
+                    <EditText
+                        android:id="@+id/input_reason"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:singleLine="true"
+                        android:maxLines="3"
+                        android:background="@android:color/transparent"/>
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
 
 
         </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_border_edittext">
 
 
-            <EditText
-                android:id="@+id/input_toDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="25dp"
-                android:inputType="text"
-                android:hint="To Date"
-                android:focusable="false"
-                android:singleLine="true"
-                android:textColorHint="@color/hint_color12"
-                android:background="@android:color/transparent"/>
-
-
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/input_layout_remark"
@@ -140,7 +150,7 @@
             android:layout_width="200dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:text="Send For Approve "
+            android:text="Submit"
             android:background="@drawable/round_button"
             android:layout_marginTop="20dp"
             android:textColor="@android:color/white"/>

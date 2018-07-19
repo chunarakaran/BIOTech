@@ -20,10 +20,10 @@
             android:id="@+id/test"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="0dp"
             android:textSize="15dp"
             android:visibility="invisible"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/hint_color12"/>
 
 
         <LinearLayout
@@ -35,10 +35,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="0dp"
+                android:paddingBottom="7dp"
                 android:textSize="15dp"
                 android:text="Please Select Brand"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/hint_color12"/>
 
             <LinearLayout
                 android:layout_marginTop="5dp"
@@ -65,11 +66,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
                 android:textSize="15dp"
                 android:text="Please Select Company"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/hint_color12"/>
 
             <LinearLayout
                 android:layout_marginTop="5dp"
@@ -105,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:text="Order No:"
-                    android:textColor="#000"/>
+                    android:textColor="@color/hint_color12"/>
 
                 <View
                     android:layout_width="1dp"
@@ -118,7 +120,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
-                        android:textColor="#000"/>
+                        android:textColor="@color/hint_color12"/>
             </LinearLayout>
 
             <LinearLayout
@@ -133,7 +135,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:text="Date:"
-                    android:textColor="#000"/>
+                    android:textColor="@color/hint_color12"/>
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
@@ -146,7 +148,7 @@
                     android:layout_height="wrap_content"
                     android:text="dd/mm/yyyy"
                     android:paddingLeft="10dp"
-                    android:textColor="#000"/>
+                    android:textColor="@color/hint_color12"/>
             </LinearLayout>
 
             <RelativeLayout
@@ -178,7 +180,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Party Name"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <AutoCompleteTextView
@@ -222,7 +224,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="City Name"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -264,7 +266,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Transport Name"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -306,7 +308,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Order By"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -414,7 +416,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:text="Total QTY"
-                        android:textColor="#000"/>
+                        android:textColor="@color/hint_color12"/>
 
                     <View
                         android:layout_width="1dp"
@@ -428,7 +430,7 @@
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:paddingLeft="10dp"
-                        android:textColor="#000"/>
+                        android:textColor="@color/hint_color12"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -443,7 +445,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:text="Total Ltr"
-                        android:textColor="#000"/>
+                        android:textColor="@color/hint_color12"/>
                     <View
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
@@ -456,7 +458,7 @@
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:paddingLeft="10dp"
-                        android:textColor="#000"/>
+                        android:textColor="@color/hint_color12"/>
                 </LinearLayout>
 
 
@@ -494,7 +496,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Discount(%)"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -536,7 +538,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Remark"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText

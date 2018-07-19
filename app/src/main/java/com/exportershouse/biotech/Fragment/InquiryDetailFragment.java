@@ -1,13 +1,18 @@
 package com.exportershouse.biotech.Fragment;
 
 import android.app.ProgressDialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.text.Html;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -37,6 +42,8 @@ public class InquiryDetailFragment extends Fragment {
 
     private ProgressDialog pDialog;
 
+    Button Reply;
+
 
     String Inquryid;
 
@@ -58,6 +65,8 @@ public class InquiryDetailFragment extends Fragment {
 
         String Url = getResources().getString(R.string.url);
 
+        Reply=(Button)rootview.findViewById(R.id.btn_reply);
+
 
         party_name=(MyTextView) rootview.findViewById(R.id.party_name);
         conPersonName=(MyTextView) rootview.findViewById(R.id.conPersonName);
@@ -78,6 +87,21 @@ public class InquiryDetailFragment extends Fragment {
         String HTTP_JSON_URL = Url+"api/enquiry_view_id?id="+Inquryid;
 
         JSON_HTTP_CALL(HTTP_JSON_URL);
+
+        Reply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transection=getFragmentManager().beginTransaction();
+                InquiryReplyFragment mfragment=new InquiryReplyFragment();
+
+                Bundle bundle=new Bundle();
+                bundle.putString("Inquryid",Inquryid);
+                mfragment.setArguments(bundle);
+
+                transection.replace(R.id.container, mfragment);
+                transection.addToBackStack(null).commit();
+            }
+        });
 
 
 
@@ -110,6 +134,7 @@ public class InquiryDetailFragment extends Fragment {
 
         RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
         StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(String response) {
 
@@ -146,7 +171,7 @@ public class InquiryDetailFragment extends Fragment {
                         cust_ref.setText(Scust_ref.toString());
                         priority.setText(Spriority.toString());
                         brand.setText(Sbrand.toString());
-                        dis.setText(Sdis.toString());
+                        dis.setText(Html.fromHtml(Sdis.toString(), Html.FROM_HTML_MODE_COMPACT));
 
 
 

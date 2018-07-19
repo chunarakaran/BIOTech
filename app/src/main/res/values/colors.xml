@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#4caf50</color>
     <color name="colorAccent">#303F9F</color>
 
+    <color name="hint_color12">#727272</color>
+
     <!-- card colors -->
     <color name="card_background">#FFF</color>
     <!-- Used by selector -->

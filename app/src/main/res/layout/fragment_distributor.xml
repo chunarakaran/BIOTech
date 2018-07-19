@@ -39,8 +39,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Please Select Company Name"
-            android:paddingLeft="10dp"
-            android:textColor="@color/colorPrimary"/>
+            android:paddingLeft="0dp"
+            android:paddingBottom="7dp"
+            android:textColor="@color/hint_color12"/>
 
         <LinearLayout
             android:id="@+id/input_companyname"
@@ -110,7 +111,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Name of the Firm"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -162,7 +163,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Address Of the Firm"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -209,7 +210,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="City"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -251,7 +252,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Pin code"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -294,7 +295,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="District"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -312,8 +313,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="State"
-            android:paddingLeft="10dp"
-            android:textColor="@color/colorPrimary"/>
+            android:paddingLeft="0dp"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:textColor="@color/hint_color12"/>
 
         <LinearLayout
             android:orientation="vertical"
@@ -359,7 +362,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Email Address"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -401,7 +404,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Landline no.(With STD Code)"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -443,7 +446,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Mobile No"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -461,8 +464,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nature of the Firm"
-            android:paddingLeft="10dp"
-            android:textColor="@color/colorPrimary"/>
+            android:paddingLeft="0dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:textColor="@color/hint_color12"/>
 
         <LinearLayout
             android:orientation="vertical"
@@ -508,7 +513,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Firm Pan No"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -550,7 +555,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="GST No"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -614,7 +619,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Name of(Pro/Par)"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -659,7 +664,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Name of Contact Person"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -701,7 +706,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Mobile No of Contact Person"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -743,7 +748,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Yearly Target(minimum)KL"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -785,7 +790,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Required Transport Name"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -802,9 +807,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Market Closing day"
-            android:paddingTop="5dp"
-            android:paddingLeft="10dp"
-            android:textColor="@color/colorPrimary"/>
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:paddingLeft="0dp"
+            android:textColor="@color/hint_color12"/>
 
         <LinearLayout
             android:orientation="vertical"

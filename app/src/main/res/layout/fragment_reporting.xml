@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/hint_color12"
                 android:text="28/04/2018"
                 android:textStyle="bold"/>
 
@@ -33,7 +33,7 @@
                 android:id="@+id/day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/hint_color12"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="50dp"
                 android:text="Saturday"
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="70dp"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/hint_color12"
                 android:text="11:00 pm"
                 android:textStyle="bold"/>
 
@@ -80,7 +80,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Distributer Name(Under Party)"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -123,7 +123,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Party Firm Name"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -166,7 +166,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Address"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -210,7 +210,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="City"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -253,7 +253,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Pincode"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -296,7 +296,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="District"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -313,11 +313,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="7dp"
             android:textSize="15dp"
             android:text="State"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/hint_color12"/>
 
         <LinearLayout
             android:id="@+id/input_state"
@@ -346,7 +347,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="Available Outlet"
-                android:textColor="#000"
+                android:textColor="@color/hint_color12"
                 android:textSize="15dp"/>
 
             <RadioGroup
@@ -359,6 +360,7 @@
                     android:id="@+id/radioRetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/hint_color12"
                     android:text="Retail"
                     android:checked="true" />
 
@@ -366,6 +368,7 @@
                     android:id="@+id/radioWholesaler"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/hint_color12"
                     android:text="Wholesaler"
                     android:paddingLeft="5dp"/>
 
@@ -403,7 +406,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Email Address"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -470,7 +473,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Name of Contact Person"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -515,7 +518,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Mobile No of Contact Person"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -557,7 +560,7 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginRight="28dp"
                 android:hint="Whats App No of Contact Person"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
                 <EditText
@@ -584,7 +587,7 @@
                 android:layout_height="wrap_content"
                 android:text="Customer Used Our Brand?"
                 android:layout_marginLeft="5dp"
-                android:textColor="#000"
+                android:textColor="@color/hint_color12"
                 android:textSize="15dp"/>
 
             <RadioGroup
@@ -597,6 +600,7 @@
                     android:id="@+id/radioyes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/hint_color12"
                     android:checked="true"
                     android:text="Yes" />
 
@@ -604,6 +608,7 @@
                     android:id="@+id/radioNo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/hint_color12"
                     android:text="No" />
 
             </RadioGroup>
@@ -647,7 +652,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Reason"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -691,7 +696,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Other Brand Name(With comma)"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -728,7 +733,7 @@
                 android:layout_height="wrap_content"
                 android:text="Party's Order"
                 android:layout_marginLeft="5dp"
-                android:textColor="#000"
+                android:textColor="@color/hint_color12"
                 android:textSize="15dp"/>
 
             <RadioGroup
@@ -742,12 +747,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
+                    android:textColor="@color/hint_color12"
                     android:text="Yes" />
 
                 <RadioButton
                     android:id="@+id/partyNo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/hint_color12"
                     android:text="No" />
 
             </RadioGroup>
@@ -788,7 +795,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Reason"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
@@ -894,7 +901,7 @@
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Remark"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
                     <EditText
