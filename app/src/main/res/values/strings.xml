@@ -27,6 +27,10 @@
         <item>Ms</item>
     </string-array>
 
+    <string-array name="country_code">
+        <item>+91</item>
+    </string-array>
+
 
     <string-array name="natureofthefirm">
         <item>Proprietorship</item>

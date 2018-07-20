@@ -94,6 +94,7 @@ public class DistributorFragment extends Fragment {
         loadState_SpinnerData(URL);
 
 
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> arg0, View view, int position, long row_id)

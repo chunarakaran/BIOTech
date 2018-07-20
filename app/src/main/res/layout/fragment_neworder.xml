@@ -8,7 +8,6 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -105,6 +104,7 @@
                 <TextView
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
+                    android:textSize="15dp"
                     android:layout_marginLeft="5dp"
                     android:text="Order No:"
                     android:textColor="@color/hint_color12"/>
@@ -116,11 +116,12 @@
 
 
                 <TextView
-                        android:id="@+id/order_no"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
-                        android:textColor="@color/hint_color12"/>
+                    android:id="@+id/order_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/hint_color12"/>
             </LinearLayout>
 
             <LinearLayout
@@ -133,6 +134,7 @@
                 <TextView
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
+                    android:textSize="15dp"
                     android:layout_marginLeft="5dp"
                     android:text="Date:"
                     android:textColor="@color/hint_color12"/>
@@ -146,6 +148,7 @@
                     android:id="@+id/order_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="15dp"
                     android:text="dd/mm/yyyy"
                     android:paddingLeft="10dp"
                     android:textColor="@color/hint_color12"/>
@@ -166,7 +169,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="2dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="28dp"
+                    android:layout_marginLeft="24dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:text="Party Name"
@@ -187,6 +190,7 @@
                         android:id="@+id/party_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:minHeight="30dp"
                         android:inputType="text"
                         android:singleLine="true"
                         android:background="@android:color/transparent"/>
@@ -210,7 +214,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="2dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="28dp"
+                    android:layout_marginLeft="24dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:text="City Name"
@@ -231,6 +235,7 @@
                         android:id="@+id/city_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:minHeight="30dp"
                         android:inputType="textCapWords"
                         android:singleLine="true"
                         android:background="@android:color/transparent"/>
@@ -252,7 +257,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="2dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="28dp"
+                    android:layout_marginLeft="24dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:text="Transport Name"
@@ -273,6 +278,7 @@
                         android:id="@+id/trans_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:minHeight="30dp"
                         android:inputType="textCapWords"
                         android:singleLine="true"
                         android:background="@android:color/transparent"/>
@@ -294,7 +300,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="2dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="28dp"
+                    android:layout_marginLeft="24dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:text="Order By"
@@ -315,6 +321,7 @@
                         android:id="@+id/orderby"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:minHeight="30dp"
                         android:inputType="textCapWords"
                         android:singleLine="true"
                         android:background="@android:color/transparent"/>
@@ -414,6 +421,7 @@
                     <TextView
                         android:layout_width="178dp"
                         android:layout_height="wrap_content"
+                        android:textSize="15dp"
                         android:layout_marginLeft="5dp"
                         android:text="Total QTY"
                         android:textColor="@color/hint_color12"/>
@@ -428,6 +436,7 @@
                         android:id="@+id/TotalQty"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textSize="15dp"
                         android:text="0"
                         android:paddingLeft="10dp"
                         android:textColor="@color/hint_color12"/>
@@ -443,6 +452,7 @@
                     <TextView
                         android:layout_width="178dp"
                         android:layout_height="wrap_content"
+                        android:textSize="15dp"
                         android:layout_marginLeft="5dp"
                         android:text="Total Ltr"
                         android:textColor="@color/hint_color12"/>
@@ -456,6 +466,7 @@
                         android:id="@+id/TotalLtr"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textSize="15dp"
                         android:text="0"
                         android:paddingLeft="10dp"
                         android:textColor="@color/hint_color12"/>
@@ -482,7 +493,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="2dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="28dp"
+                    android:layout_marginLeft="24dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:text="Discount(%)"
@@ -503,6 +514,7 @@
                         android:id="@+id/input_discount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:minHeight="30dp"
                         android:inputType="number"
                         android:singleLine="true"
                         android:background="@android:color/transparent"/>
@@ -524,7 +536,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="2dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="28dp"
+                    android:layout_marginLeft="24dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:text="Remark"
@@ -535,6 +547,7 @@
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="80dp"
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
                     android:hint="Remark"

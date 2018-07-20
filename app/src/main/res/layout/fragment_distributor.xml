@@ -8,7 +8,6 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -97,8 +96,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="2dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="28dp"
-                    android:paddingLeft="4dp"
+                    android:layout_marginLeft="24dp"
+                    android:paddingStart="4dp"
                     android:paddingRight="4dp"
                     android:text="Name of the Firm"
                     android:textSize="16sp"
@@ -118,9 +117,11 @@
                         android:id="@+id/input_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:minHeight="30dp"
                         android:inputType="textCapWords"
-                        android:singleLine="true"
-                        android:background="@android:color/transparent"/>
+
+                        android:singleLine="true" />
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
 
@@ -149,7 +150,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="2dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="28dp"
+                    android:layout_marginLeft="24dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:text="Address Of the Firm"
@@ -162,6 +163,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="28dp"
                     android:layout_marginRight="28dp"
+                    android:minHeight="80dp"
+                    android:gravity="center"
                     android:hint="Address Of the Firm"
                     android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
@@ -196,7 +199,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="28dp"
+                android:layout_marginLeft="24dp"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
                 android:text="City"
@@ -218,6 +221,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapWords"
+                    android:minHeight="30dp"
                     android:singleLine="true"
                     android:background="@android:color/transparent"/>
             </android.support.design.widget.TextInputLayout>
@@ -238,7 +242,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="28dp"
+                android:layout_marginLeft="24dp"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
                 android:text="Pin code"
@@ -259,6 +263,7 @@
                     android:id="@+id/input_pincode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="30dp"
                     android:inputType="number"
                     android:maxLength="6"
                     android:singleLine="true"
@@ -281,7 +286,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="28dp"
+                android:layout_marginLeft="24dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="District"
@@ -303,6 +308,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapWords"
+                    android:minHeight="30dp"
                     android:singleLine="true"
                     android:background="@android:color/transparent"/>
             </android.support.design.widget.TextInputLayout>
@@ -348,7 +354,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="28dp"
+                android:layout_marginLeft="24dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="Email Address"
@@ -370,6 +376,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
+                    android:minHeight="30dp"
                     android:singleLine="true"
                     android:background="@android:color/transparent"/>
             </android.support.design.widget.TextInputLayout>
@@ -390,7 +397,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="28dp"
+                android:layout_marginLeft="24dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="Landline no.(With STD Code)"
@@ -411,54 +418,85 @@
                     android:id="@+id/input_lanlineno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="30dp"
                     android:inputType="phone"
                     android:singleLine="true"
                     android:background="@android:color/transparent"/>
             </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
 
-            <View
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_border_edittext" />
+                android:layout_marginRight="3dp"
+                android:background="@drawable/rounded_border_edittext">
 
-            <TextView
-                android:id="@+id/Tmobno"
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="28dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:text="Mobile No"
-                android:textSize="16sp"
-                android:background="@android:color/white"
-                android:visibility="invisible"/>
+                <Spinner
+                    android:id="@+id/countory_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:entries="@array/country_code" />
 
-            <android.support.design.widget.TextInputLayout
+
+            </LinearLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="28dp"
-                android:layout_marginRight="28dp"
-                android:hint="Mobile No"
-                android:textColorHint="@color/hint_color12"
-                app:hintTextAppearance="@style/HintTextStyle">
+                android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/input_mobno"
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_border_edittext" />
+
+                <TextView
+                    android:id="@+id/Tmobno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="24dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="Mobile No"
+                    android:textSize="16sp"
+                    android:background="@android:color/white"
+                    android:visibility="invisible"/>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLength="10"
-                    android:inputType="phone"
-                    android:singleLine="true"
-                    android:background="@android:color/transparent"/>
-            </android.support.design.widget.TextInputLayout>
-        </RelativeLayout>
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginRight="28dp"
+                    android:hint="Mobile No"
+                    android:textColorHint="@color/hint_color12"
+                    app:hintTextAppearance="@style/HintTextStyle">
+
+                    <EditText
+                        android:id="@+id/input_mobno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="30dp"
+                        android:maxLength="10"
+                        android:inputType="phone"
+                        android:singleLine="true"
+                        android:background="@android:color/transparent"/>
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
+
+
+
+
+        </LinearLayout>
+
+
 
         <TextView
             android:layout_width="match_parent"
@@ -499,7 +537,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="28dp"
+                android:layout_marginLeft="24dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="Firm Pan No"
@@ -520,6 +558,7 @@
                     android:id="@+id/input_panno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="30dp"
                     android:inputType="text"
                     android:singleLine="true"
                     android:background="@android:color/transparent"/>
@@ -541,7 +580,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="28dp"
+                android:layout_marginLeft="24dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="GST No"
@@ -562,6 +601,7 @@
                     android:id="@+id/input_gstno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="30dp"
                     android:inputType="text"
                     android:singleLine="true"
                     android:background="@android:color/transparent"/>
@@ -605,7 +645,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="2dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="28dp"
+                    android:layout_marginLeft="24dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:text="Name of(Pro/Par)"
@@ -626,6 +666,7 @@
                         android:id="@+id/input_nameofpro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:minHeight="30dp"
                         android:inputType="textCapWords"
                         android:singleLine="true"
                         android:background="@android:color/transparent"/>
@@ -650,7 +691,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="28dp"
+                android:layout_marginLeft="24dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="Name of Contact Person"
@@ -671,53 +712,86 @@
                     android:id="@+id/input_nameofcontper"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="30dp"
                     android:inputType="textCapWords"
                     android:singleLine="true"
                     android:background="@android:color/transparent"/>
             </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <View
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <LinearLayout
+                android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_border_edittext" />
+                android:layout_marginRight="3dp"
+                android:background="@drawable/rounded_border_edittext">
 
-            <TextView
-                android:id="@+id/Tmboofcontper"
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="28dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:text="Mobile No of Contact Person"
-                android:textSize="16sp"
-                android:background="@android:color/white"
-                android:visibility="invisible"/>
+                <Spinner
+                    android:id="@+id/countory_code1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:entries="@array/country_code" />
 
-            <android.support.design.widget.TextInputLayout
+
+            </LinearLayout>
+
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="28dp"
-                android:layout_marginRight="28dp"
-                android:hint="Mobile No of Contact Person"
-                android:textColorHint="@color/hint_color12"
-                app:hintTextAppearance="@style/HintTextStyle">
+                android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/input_mboofcontper"
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_border_edittext" />
+
+                <TextView
+                    android:id="@+id/Tmboofcontper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="24dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="Mobile No of Contact Person"
+                    android:textSize="16sp"
+                    android:background="@android:color/white"
+                    android:visibility="invisible"/>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="phone"
-                    android:singleLine="true"
-                    android:background="@android:color/transparent"/>
-            </android.support.design.widget.TextInputLayout>
-        </RelativeLayout>
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginRight="28dp"
+                    android:hint="Mobile No of Contact Person"
+                    android:textColorHint="@color/hint_color12"
+                    app:hintTextAppearance="@style/HintTextStyle">
+
+                    <EditText
+                        android:id="@+id/input_mboofcontper"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="30dp"
+                        android:inputType="phone"
+                        android:singleLine="true"
+                        android:background="@android:color/transparent"/>
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
+
+
+
+
+        </LinearLayout>
+
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -734,7 +808,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="28dp"
+                android:layout_marginLeft="24dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="Yearly Target(minimum)KL"
@@ -755,6 +829,7 @@
                     android:id="@+id/input_yearlytarget"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="30dp"
                     android:inputType="number"
                     android:singleLine="true"
                     android:background="@android:color/transparent"/>
@@ -776,7 +851,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="28dp"
+                android:layout_marginLeft="24dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="Required Transport Name"
@@ -797,6 +872,7 @@
                     android:id="@+id/input_transportname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="30dp"
                     android:inputType="textCapWords"
                     android:singleLine="true"
                     android:background="@android:color/transparent"/>
@@ -815,7 +891,6 @@
         <LinearLayout
             android:orientation="vertical"
             android:id="@+id/days"
-            android:paddingTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_border_edittext">
