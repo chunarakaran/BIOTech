@@ -54,7 +54,7 @@ public class LeaveDetailFragment extends Fragment {
         rootview= inflater.inflate(R.layout.fragment_leavedetail, container, false);
 
         getActivity().setTitle("Leave Status");
-        ((MainActivity) getActivity()).hideBottomNavigationButton();
+//        ((MainActivity) getActivity()).hideBottomNavigationButton();
 
         // Progress dialog
         pDialog = new ProgressDialog(getActivity());

@@ -32,7 +32,7 @@ public class LeaveFragment extends Fragment implements TabLayout.OnTabSelectedLi
         rootview= inflater.inflate(R.layout.fragment_leave, container, false);
 
         getActivity().setTitle("Leave");
-        ((MainActivity) getActivity()).hideBottomNavigationButton();
+//        ((MainActivity) getActivity()).hideBottomNavigationButton();
 
 
         tabLayout = (TabLayout)rootview.findViewById(R.id.tabLayout);

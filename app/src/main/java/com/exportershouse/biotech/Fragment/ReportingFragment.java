@@ -137,7 +137,7 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
         User_id = sp.getString("User", "");
 
         getActivity().setTitle("Reporting");
-        ((MainActivity) getActivity()).hideBottomNavigationButton();
+//        ((MainActivity) getActivity()).hideBottomNavigationButton();
 
         URL = getString(R.string.url);
 

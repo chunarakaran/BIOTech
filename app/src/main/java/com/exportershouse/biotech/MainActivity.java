@@ -1,8 +1,5 @@
 package com.exportershouse.biotech;
 
-
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,10 +9,17 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -30,18 +34,16 @@ import com.exportershouse.biotech.Fragment.LeaveStatusFragment;
 import com.exportershouse.biotech.Fragment.OrderStatusFragment;
 import com.exportershouse.biotech.Fragment.ProfileFragment;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
 
 
     Fragment fragment = null;
     BottomNavigationView navigation;
+    NavigationView navigationView;
     private SessionManager session;
 
     SharedPreferences sharedpreferences;
@@ -52,51 +54,25 @@ public class MainActivity extends AppCompatActivity {
 //    String language;
 //    public static final String PREFS_NAME = "login";
 
-
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragment = new DashboardFragment();
-                    fragmentTransaction.replace(R.id.container, fragment).commit();
-
-                    return true;
-                case R.id.navigation_leave:
-                    fragmentManager = getSupportFragmentManager();
-                    fragmentTransaction = fragmentManager.beginTransaction();
-                    fragment = new LeaveStatusFragment();
-                    fragmentTransaction.replace(R.id.container, fragment).addToBackStack(null).commit();
-                    return true;
-                case R.id.navigation_order:
-                    fragmentManager = getSupportFragmentManager();
-                    fragmentTransaction = fragmentManager.beginTransaction();
-                    fragment = new OrderStatusFragment();
-                    fragmentTransaction.replace(R.id.container, fragment).addToBackStack(null).commit();
-                    return true;
-                case R.id.navigation_profile:
-                    fragmentManager = getSupportFragmentManager();
-                    fragmentTransaction = fragmentManager.beginTransaction();
-                    fragment = new ProfileFragment();
-                    fragmentTransaction.replace(R.id.container, fragment).addToBackStack(null).commit();
-                    return true;
-            }
-            return false;
-        }
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        displaySelectedScreen(R.id.nav_home);
+
 
         // session manager
         session = new SessionManager(getApplicationContext());
@@ -106,10 +82,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragment = new DashboardFragment();
-        fragmentTransaction.replace(R.id.container, fragment).commit();
 
         if(connected()){
             Toast.makeText(getApplicationContext(),"Welcome To BioTech" , Toast.LENGTH_LONG).show();
@@ -117,48 +89,34 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"User is Not connected" , Toast.LENGTH_LONG).show();
         }
 
-//        AlarmManager alarmanager= (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-//        Intent intent = new Intent(MainActivity.this,DialogService.class);
-//        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),0,intent , 0);
-//        alarmanager.setRepeating(AlarmManager.RTC_WAKEUP,System.getTimeInMillis(), AlarmManager.INTERVAL_DAY * 3,pendingIntent );
-
-
-
-
 
     }
 
 
-
-
-
-    public void showBottomNavigationButton() {
-        navigation.setVisibility(View.VISIBLE);
-    };
-
-    public void hideBottomNavigationButton() {
-        navigation.setVisibility(View.GONE);
-    };
-
-    boolean doubleBackToExitPressedOnce = false;
-
     @Override
     public void onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
-            return;
-        }
-
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce=false;
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            if (checkNavigationMenuItem() != 0)
+            {
+                navigationView.setCheckedItem(R.id.nav_home);
+                fragment = new DashboardFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, fragment).commit();
             }
-        }, 2000);
+            else
+                super.onBackPressed();
+        }
+    }
+
+    private int checkNavigationMenuItem() {
+        Menu menu = navigationView.getMenu();
+        for (int i = 0; i < menu.size(); i++) {
+            if (menu.getItem(i).isChecked())
+                return i;
+        }
+        return -1;
     }
 
     @Override
@@ -184,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragment = new InquryStatusFragment();
-                fragmentTransaction.replace(R.id.container, fragment).addToBackStack(null).commit();
+                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack(null).commit();
                 break;
 
         }
@@ -203,6 +161,56 @@ public class MainActivity extends AppCompatActivity {
         ConnectivityManager connectivityManager=(ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo !=null && activeNetworkInfo.isConnected();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        displaySelectedScreen(item.getItemId());
+        return true;
+    }
+
+
+    private void displaySelectedScreen(int itemId) {
+
+
+
+        //initializing the fragment object which is selected
+        switch (itemId) {
+            case R.id.nav_home:
+                fragment = new DashboardFragment();
+                break;
+
+            case R.id.nav_viewOrder:
+                fragment = new OrderStatusFragment();
+                break;
+
+            case R.id.nav_viewLeave:
+                fragment = new LeaveStatusFragment();
+                break;
+
+            case R.id.nav_profile:
+                fragment = new ProfileFragment();
+                break;
+
+            case R.id.nav_checkin:
+                Intent intent = new Intent(getApplicationContext(), MyLocationUsingLocationAPI.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_inquiry:
+                fragment = new InquryStatusFragment();
+                break;
+
+        }
+
+        //replacing the fragment
+        if (fragment != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_frame, fragment);
+            ft.commit();
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
     }
 
 }

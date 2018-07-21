@@ -79,7 +79,7 @@ public class DistributorFragment extends Fragment {
         rootview= inflater.inflate(R.layout.fragment_distributor, container, false);
 
         getActivity().setTitle("New Distributer");
-        ((MainActivity) getActivity()).hideBottomNavigationButton();
+//        ((MainActivity) getActivity()).hideBottomNavigationButton();
 
         URL = getString(R.string.url);
 

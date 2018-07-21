@@ -3,36 +3,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group
+        android:id="@+id/m1"
+        android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_dashboard_black_24dp"
+            android:title="Dashboard" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_addDist"
+            android:icon="@drawable/ic_add_box_black_24dp"
+            android:title="Add Distributor" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-    </group>
+            android:id="@+id/nav_addDailyreport"
+            android:icon="@drawable/ic_add_box_black_24dp"
+            android:title="Add Daily Report" />
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
+        <item android:title="Order" >
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/nav_newOrder"
+                        android:icon="@drawable/ic_add_box_black_24dp"
+                        android:title="New Order" />
+                    <item
+                        android:id="@+id/nav_viewOrder"
+                        android:icon="@drawable/orderstatus"
+                        android:title="Order Status" />
+                </group>
+            </menu>
+        </item>
+
+
+        <item android:title="Leave" >
+            <menu>
+                <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_addLeave"
+                    android:icon="@drawable/ic_add_box_black_24dp"
+                    android:title="Add Leave" />
+
+                <item
+                    android:id="@+id/nav_viewLeave"
+                    android:icon="@drawable/leavestatus"
+                    android:title="Leave Status" />
+                </group>
+            </menu>
+        </item>
+
+        <item android:title="General" >
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/nav_profile"
+                        android:icon="@drawable/profile"
+                        android:title="Profile" />
+                    <item
+                        android:id="@+id/nav_checkin"
+                        android:icon="@drawable/ic_place_black_24dp"
+                        android:title="Check In/Check Out" />
+                    <item
+                        android:id="@+id/nav_inquiry"
+                        android:icon="@drawable/ic_chat_black_24dp"
+                        android:title="Inquiry" />
+                    <item
+                        android:id="@+id/nav_logout"
+                        android:icon="@drawable/ic_exit_to_app_black_24dp"
+                        android:title="Logout" />
+                </group>
+            </menu>
+        </item>
+
+
+    </group>
 
 </menu>

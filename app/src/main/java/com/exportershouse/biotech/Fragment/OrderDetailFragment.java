@@ -54,7 +54,7 @@ public class OrderDetailFragment extends Fragment {
         rootview= inflater.inflate(R.layout.fragment_order_detail, container, false);
 
         getActivity().setTitle("Order Status");
-        ((MainActivity) getActivity()).hideBottomNavigationButton();
+//        ((MainActivity) getActivity()).hideBottomNavigationButton();
 
         // Progress dialog
         pDialog = new ProgressDialog(getActivity());

@@ -80,7 +80,7 @@ public class InquiryReplyFragment extends Fragment {
         rootview= inflater.inflate(R.layout.fragment_inquiryreply, container, false);
 
         getActivity().setTitle("Inquiry Reply");
-        ((MainActivity) getActivity()).hideBottomNavigationButton();
+//        ((MainActivity) getActivity()).hideBottomNavigationButton();
 
         Bundle bundle=getArguments();
         Inquryid=String.valueOf(bundle.getString("Inquryid"));

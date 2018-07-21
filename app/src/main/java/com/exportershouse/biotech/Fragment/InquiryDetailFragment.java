@@ -57,7 +57,7 @@ public class InquiryDetailFragment extends Fragment {
         rootview= inflater.inflate(R.layout.fragment_inquiry_detail, container, false);
 
         getActivity().setTitle("Inquiry Status");
-        ((MainActivity) getActivity()).hideBottomNavigationButton();
+//        ((MainActivity) getActivity()).hideBottomNavigationButton();
 
         // Progress dialog
         pDialog = new ProgressDialog(getActivity());

@@ -198,7 +198,7 @@ public class NewOrderFragment extends Fragment {
         progressDialog = new ProgressDialog(getActivity());
 
         getActivity().setTitle("New Order");
-        ((MainActivity) getActivity()).hideBottomNavigationButton();
+//        ((MainActivity) getActivity()).hideBottomNavigationButton();
 
 
         initialize();

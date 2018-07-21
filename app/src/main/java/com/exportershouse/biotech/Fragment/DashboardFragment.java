@@ -38,7 +38,7 @@ public class DashboardFragment extends Fragment {
         rootview=inflater.inflate(R.layout.fragment_dashboard, container, false);
 
         getActivity().setTitle("Home");
-        ((MainActivity) getActivity()).showBottomNavigationButton();
+//        ((MainActivity) getActivity()).showBottomNavigationButton();
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setRetainInstance(true);
 
@@ -82,22 +82,22 @@ public class DashboardFragment extends Fragment {
                     {
                         case 0:
                             fragment=new DistributorFragment();
-                            transection.replace(R.id.container,fragment);
+                            transection.replace(R.id.content_frame,fragment);
                             transection.addToBackStack(null).commit();
                             break;
                         case 1:
                             fragment=new NewOrderFragment();
-                            transection.replace(R.id.container,fragment);
+                            transection.replace(R.id.content_frame,fragment);
                             transection.addToBackStack(null).commit();
                             break;
                         case 2:
                             fragment=new LeaveRequestFragment();
-                            transection.replace(R.id.container,fragment);
+                            transection.replace(R.id.content_frame,fragment);
                             transection.addToBackStack(null).commit();
                             break;
                         case 3:
                             fragment=new ReportingFragment();
-                            transection.replace(R.id.container,fragment);
+                            transection.replace(R.id.content_frame,fragment);
                             transection.addToBackStack(null).commit();
                             break;
 

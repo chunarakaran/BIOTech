@@ -81,7 +81,7 @@ public class InquryStatusFragment extends Fragment {
         User_id = sp.getString("User", "");
 
         getActivity().setTitle("Inquiry Status");
-        ((MainActivity) getActivity()).hideBottomNavigationButton();
+//        ((MainActivity) getActivity()).hideBottomNavigationButton();
 
         // Progress dialog
         pDialog = new ProgressDialog(getActivity());
@@ -185,21 +185,21 @@ public class InquryStatusFragment extends Fragment {
         }
 
 
-        rootview.setFocusableInTouchMode(true);
-        rootview.requestFocus();
-        rootview.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-
-                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
-                    // DO WHAT YOU WANT ON BACK PRESSED
-                    getFragmentManager().popBackStack();
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        });
+//        rootview.setFocusableInTouchMode(true);
+//        rootview.requestFocus();
+//        rootview.setOnKeyListener(new View.OnKeyListener() {
+//            @Override
+//            public boolean onKey(View v, int keyCode, KeyEvent event) {
+//
+//                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+//                    // DO WHAT YOU WANT ON BACK PRESSED
+//                    getFragmentManager().popBackStack();
+//                    return true;
+//                } else {
+//                    return false;
+//                }
+//            }
+//        });
 
 
         return rootview;

@@ -71,7 +71,7 @@ public class ProfileFragment extends Fragment {
         User_id = sp.getString("User", "");
 
         getActivity().setTitle("Profile");
-        ((MainActivity) getActivity()).hideBottomNavigationButton();
+//        ((MainActivity) getActivity()).hideBottomNavigationButton();
 
         profile=(CircleImageView)rootview.findViewById(R.id.banar1);
         Name=(MyTextView)rootview.findViewById(R.id.username);
@@ -122,21 +122,21 @@ public class ProfileFragment extends Fragment {
         });
 
 
-        rootview.setFocusableInTouchMode(true);
-        rootview.requestFocus();
-        rootview.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-
-                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
-                    // DO WHAT YOU WANT ON BACK PRESSED
-                    getFragmentManager().popBackStack();
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        });
+//        rootview.setFocusableInTouchMode(true);
+//        rootview.requestFocus();
+//        rootview.setOnKeyListener(new View.OnKeyListener() {
+//            @Override
+//            public boolean onKey(View v, int keyCode, KeyEvent event) {
+//
+//                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+//                    // DO WHAT YOU WANT ON BACK PRESSED
+//                    getFragmentManager().popBackStack();
+//                    return true;
+//                } else {
+//                    return false;
+//                }
+//            }
+//        });
 
 
         return rootview;
