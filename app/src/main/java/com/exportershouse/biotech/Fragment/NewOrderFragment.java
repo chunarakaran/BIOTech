@@ -183,8 +183,7 @@ public class NewOrderFragment extends Fragment {
         myDb.InsertData("demo");
 
 
-        //returning our layout file
-        //change R.layout.yourlayoutfilename for each of your fragments
+
         rootview= inflater.inflate(R.layout.fragment_neworder, container, false);
 
         URL = getString(R.string.url);
@@ -198,7 +197,7 @@ public class NewOrderFragment extends Fragment {
         progressDialog = new ProgressDialog(getActivity());
 
         getActivity().setTitle("New Order");
-//        ((MainActivity) getActivity()).hideBottomNavigationButton();
+
 
 
         initialize();
@@ -208,9 +207,7 @@ public class NewOrderFragment extends Fragment {
 
         dQty=(TextView)rootview.findViewById(R.id.TotalQty);
         dLtr=(TextView)rootview.findViewById(R.id.TotalLtr);
-//        dpart_no=(TextView)rootview.findViewById(R.id.partno);
-//        dSrno=(TextView)rootview.findViewById(R.id.srno);
-//        dTotal=(TextView)rootview.findViewById(R.id.total);
+
 
 
 
@@ -220,41 +217,7 @@ public class NewOrderFragment extends Fragment {
         t2= (LinearLayout) rootview.findViewById(R.id.input_otherBrand);
         t2.setVisibility(LinearLayout.GONE);
 
-//        add.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                add.setVisibility(Button.GONE);
-//                submit.setVisibility(View.VISIBLE);
-//                Layout2.setVisibility(View.VISIBLE);
-//
-//                Srno=Srno+1;
-//                dSrno.setText(String.valueOf(Srno));
-////                dQty.setText(Qty.getText().toString());
-////                dLtr.setText(Ltr.getText().toString());
-////                dTotal.setText(Ltr.getText().toString());
-////                dpart_no.setText(part_no.toString());
-//                t1.setVisibility(LinearLayout.GONE);
-//                t2.setVisibility(LinearLayout.GONE);
-//                Layout1.setVisibility(LinearLayout.GONE);
-//
-//                myDb.InsertData(actv.getText().toString());
-//
-//            }
-//        });
 
-//        edit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                loadOrdernoData(URL+"api/order_no?company_id="+brand_id.toString());
-//
-//                add.setVisibility(View.VISIBLE);
-//                submit.setVisibility(Button.GONE);
-//                Layout2.setVisibility(LinearLayout.GONE);
-//                t1.setVisibility(LinearLayout.VISIBLE);
-//                Layout1.setVisibility(LinearLayout.VISIBLE);
-//            }
-//        });
 
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -618,7 +581,7 @@ public class NewOrderFragment extends Fragment {
             k++;
             flag=k;
             final LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(380,120);
-            lparams.setMargins(1, 20, 1, 0);
+            lparams.setMargins(1, 30, 1, 0);
             colorSpinner[flag] = new Spinner(getActivity());
             colorSpinner[flag].setLayoutParams(lparams);
             colorSpinner[flag].setId(flag);
@@ -656,7 +619,7 @@ public class NewOrderFragment extends Fragment {
             k1++;
             flag1=k1;
             final LinearLayout.LayoutParams lparams2 = new LinearLayout.LayoutParams(380,120);
-            lparams2.setMargins(1, 20, 1, 0);
+            lparams2.setMargins(1, 30, 1, 0);
             partSpinner[flag1] = new Spinner(getActivity());
             partSpinner[flag1].setLayoutParams(lparams2);
             partSpinner[flag1].setId(flag1);
@@ -681,7 +644,7 @@ public class NewOrderFragment extends Fragment {
             k2++;
             flag2=k2;
             final LinearLayout.LayoutParams lparams1 = new LinearLayout.LayoutParams(380, 120);
-            lparams1.setMargins(5, 20, 1, 5);
+            lparams1.setMargins(5, 30, 1, 5);
             textView1[flag2] = new EditText(getActivity());
             textView1[flag2].setLayoutParams(lparams1);
             textView1[flag2].setHint("Enter Qty");
@@ -783,7 +746,7 @@ public class NewOrderFragment extends Fragment {
             k3++;
             flag3=k3;
             final LinearLayout.LayoutParams lparams3 = new LinearLayout.LayoutParams(380,120);
-            lparams3.setMargins(1, 20, 1, 5);
+            lparams3.setMargins(1, 30, 1, 5);
             ltrSpinner[flag3] = new TextView(getActivity());
             ltrSpinner[flag3].setLayoutParams(lparams3);
             ltrSpinner[flag3].setText("0");
@@ -1307,7 +1270,7 @@ public class NewOrderFragment extends Fragment {
 //                                        Toast.makeText(getActivity(),"Ok",Toast.LENGTH_SHORT).show();
                                         FragmentTransaction transection=getFragmentManager().beginTransaction();
                                         NewOrderFragment mfragment=new NewOrderFragment();
-                                        transection.replace(R.id.container, mfragment);
+                                        transection.replace(R.id.content_frame, mfragment);
                                         transection.addToBackStack(null).commit();
                                         getActivity().finish();
                                     }

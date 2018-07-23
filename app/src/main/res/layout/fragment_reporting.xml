@@ -264,7 +264,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="30dp"
-                    android:inputType="text"
+                    android:inputType="number"
+                    android:maxLength="6"
                     android:singleLine="true"
                     android:background="@android:color/transparent"/>
             </android.support.design.widget.TextInputLayout>
@@ -534,6 +535,7 @@
                     android:layout_height="wrap_content"
                     android:minHeight="30dp"
                     android:inputType="phone"
+                    android:maxLength="10"
                     android:singleLine="true"
                     android:background="@android:color/transparent"/>
             </android.support.design.widget.TextInputLayout>
@@ -577,6 +579,7 @@
                     android:layout_height="wrap_content"
                     android:minHeight="30dp"
                     android:inputType="phone"
+                    android:maxLength="10"
                     android:singleLine="true"
                     android:background="@android:color/transparent"/>
             </android.support.design.widget.TextInputLayout>

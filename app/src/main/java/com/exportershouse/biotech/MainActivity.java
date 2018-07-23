@@ -25,16 +25,36 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alexzh.circleimageview.CircleImageView;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.exportershouse.biotech.Adapter.SessionManager;
 import com.exportershouse.biotech.Fragment.DashboardFragment;
+import com.exportershouse.biotech.Fragment.DistributorFragment;
 import com.exportershouse.biotech.Fragment.InquryStatusFragment;
+import com.exportershouse.biotech.Fragment.LeaveRequestFragment;
 import com.exportershouse.biotech.Fragment.LeaveStatusFragment;
+import com.exportershouse.biotech.Fragment.NewOrderFragment;
 import com.exportershouse.biotech.Fragment.OrderStatusFragment;
 import com.exportershouse.biotech.Fragment.ProfileFragment;
+import com.exportershouse.biotech.Fragment.ReportingFragment;
+import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import static java.security.AccessController.getContext;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -46,13 +66,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     private SessionManager session;
 
-    SharedPreferences sharedpreferences;
-    SharedPreferences.Editor editor;
-    public static final String PREFS_NAME = "LAST_LAUNCH_DATE";
+    View hView;
+    CircleImageView User_pic;
+    TextView User_name,User_email;
 
 
-//    String language;
-//    public static final String PREFS_NAME = "login";
+    String User_id;
+    public static final String PREFS_NAME = "login";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +94,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         displaySelectedScreen(R.id.nav_home);
 
+        SharedPreferences sp = getApplicationContext().getSharedPreferences(PREFS_NAME, getApplicationContext().MODE_PRIVATE);
+        SharedPreferences.Editor e = sp.edit();
+        User_id = sp.getString("User", "");
+
+        String Url = getResources().getString(R.string.url);
+        String HTTP_JSON_URL = Url+"api/view_user_profile?user_id="+User_id;
+
+
+        hView =  navigationView.getHeaderView(0);
+        User_pic=(CircleImageView)hView.findViewById(R.id.user_pic);
+        User_name = (TextView)hView.findViewById(R.id.user_name);
+        User_email = (TextView)hView.findViewById(R.id.user_email);
+
+        JSON_HTTP_CALL(HTTP_JSON_URL);
 
         // session manager
         session = new SessionManager(getApplicationContext());
@@ -180,8 +215,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragment = new DashboardFragment();
                 break;
 
+            case R.id.nav_addDist:
+                fragment = new DistributorFragment();
+                break;
+
+            case R.id.nav_addDailyreport:
+                fragment = new ReportingFragment();
+                break;
+
+            case R.id.nav_newOrder:
+                fragment = new NewOrderFragment();
+                break;
+
             case R.id.nav_viewOrder:
                 fragment = new OrderStatusFragment();
+                break;
+
+            case R.id.nav_addLeave:
+                fragment = new LeaveRequestFragment();
                 break;
 
             case R.id.nav_viewLeave:
@@ -199,6 +250,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_inquiry:
                 fragment = new InquryStatusFragment();
                 break;
+            case R.id.nav_logout:
+                logoutUser();
+                break;
 
         }
 
@@ -206,11 +260,65 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_frame, fragment);
+            ft.addToBackStack(null);
             ft.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
+
+    private void JSON_HTTP_CALL(String url)
+    {
+
+
+
+        RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try{
+                    JSONObject jsonObject=new JSONObject(response);
+                    JSONArray jsonArray=jsonObject.getJSONArray("user_pro");
+                    for(int i=0;i<jsonArray.length();i++)
+                    {
+
+                        JSONObject jsonObject1=jsonArray.getJSONObject(i);
+
+                        String name,email,gender,mobileno,city,country;
+
+                        String base_url = getString(R.string.url);
+                        String img_path = base_url+jsonObject1.getString("emp_image");
+
+                        jsonObject1.getString("id");
+                        name=jsonObject1.getString("name");
+                        email=jsonObject1.getString("email");
+
+
+
+                        Picasso.with(getApplicationContext()).load(img_path).into(User_pic);
+                        User_name.setText(name);
+                        User_email.setText(email);
+
+
+
+                    }
+
+
+                }catch (JSONException e){e.printStackTrace();}
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
 
 }

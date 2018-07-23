@@ -342,7 +342,7 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
                     CperMob.requestFocus();
                     CperMob.setError("Please Enter Mobile No");
                 }
-                else if (!VCperMob.matches("^\\+[0-9]{10,13}$")||VCperMob.contains(" ")){
+                else if (!VCperMob.matches("^[0-9]{10}$")||VCperMob.contains(" ")){
                     CperMob.requestFocus();
                     CperMob.setError("Invalid Mobile No");
                 }
@@ -351,7 +351,7 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
                     CperWA.requestFocus();
                     CperWA.setError("Please Enter Mobile No");
                 }
-                else if (!VCperWA.matches("^\\+[0-9]{10,13}$")||VCperWA.contains(" ")){
+                else if (!VCperWA.matches("^[0-9]{10}$")||VCperWA.contains(" ")){
                     CperWA.requestFocus();
                     CperWA.setError("Invalid Mobile No");
                 }
@@ -667,7 +667,7 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
                     }, 100);
                 } else {
                     // Required to show/hide white background behind floating label during focus change
-                    if (distName.getText().length() > 0)
+                    if (CperMob.getText().length() > 0)
                         Tmboofcontper.setVisibility(View.VISIBLE);
                     else
                         Tmboofcontper.setVisibility(View.INVISIBLE);
