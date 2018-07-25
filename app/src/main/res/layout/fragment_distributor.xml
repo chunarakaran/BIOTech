@@ -184,135 +184,171 @@
 
         </LinearLayout>
 
-        <RelativeLayout
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_border_edittext" />
-
-            <TextView
-                android:id="@+id/Tcity"
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="24dp"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                android:text="City"
-                android:textSize="16sp"
-                android:background="@android:color/white"
-                android:visibility="invisible"/>
-
-            <android.support.design.widget.TextInputLayout
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/CategoryName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="28dp"
-                android:layout_marginRight="28dp"
-                android:hint="City"
-                android:textColorHint="@color/hint_color12"
-                app:hintTextAppearance="@style/HintTextStyle">
+                android:inputType="textCapWords"
+                android:hint="City Name" />
+        </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/input_city"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textCapWords"
-                    android:minHeight="30dp"
-                    android:singleLine="true"
-                    android:background="@android:color/transparent"/>
-            </android.support.design.widget.TextInputLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_border_edittext" />
-
-            <TextView
-                android:id="@+id/Tpincode"
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="24dp"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                android:text="Pin code"
-                android:textSize="16sp"
-                android:background="@android:color/white"
-                android:visibility="invisible"/>
-
-            <android.support.design.widget.TextInputLayout
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/CategoryName1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="28dp"
-                android:layout_marginRight="28dp"
-                android:hint="Pin code"
-                android:textColorHint="@color/hint_color12"
-                app:hintTextAppearance="@style/HintTextStyle">
+                android:inputType="textCapWords"
+                android:hint="District Name" />
+        </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/input_pincode"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="30dp"
-                    android:inputType="number"
-                    android:maxLength="6"
-                    android:singleLine="true"
-                    android:background="@android:color/transparent"/>
-            </android.support.design.widget.TextInputLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_border_edittext" />
-
-            <TextView
-                android:id="@+id/Tdis"
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="24dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:text="District"
-                android:textSize="16sp"
-                android:background="@android:color/white"
-                android:visibility="invisible"/>
-
-            <android.support.design.widget.TextInputLayout
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/CategoryName2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="28dp"
-                android:layout_marginRight="28dp"
-                android:hint="District"
-                android:textColorHint="@color/hint_color12"
-                app:hintTextAppearance="@style/HintTextStyle">
+                android:inputType="textCapWords"
+                android:hint="Pincode" />
+        </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/input_dis"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textCapWords"
-                    android:minHeight="30dp"
-                    android:singleLine="true"
-                    android:background="@android:color/transparent"/>
-            </android.support.design.widget.TextInputLayout>
-        </RelativeLayout>
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:background="@drawable/rounded_border_edittext" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/Tcity"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="2dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginLeft="24dp"-->
+                <!--android:paddingLeft="4dp"-->
+                <!--android:paddingRight="4dp"-->
+                <!--android:text="City"-->
+                <!--android:textSize="16sp"-->
+                <!--android:background="@android:color/white"-->
+                <!--android:visibility="invisible"/>-->
+
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="28dp"-->
+                <!--android:layout_marginRight="28dp"-->
+                <!--android:hint="City"-->
+                <!--android:textColorHint="@color/hint_color12"-->
+                <!--app:hintTextAppearance="@style/HintTextStyle">-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/input_city"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:inputType="textCapWords"-->
+                    <!--android:minHeight="30dp"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:background="@android:color/transparent"/>-->
+            <!--</android.support.design.widget.TextInputLayout>-->
+        <!--</RelativeLayout>-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:background="@drawable/rounded_border_edittext" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/Tpincode"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="2dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginLeft="24dp"-->
+                <!--android:paddingLeft="4dp"-->
+                <!--android:paddingRight="4dp"-->
+                <!--android:text="Pin code"-->
+                <!--android:textSize="16sp"-->
+                <!--android:background="@android:color/white"-->
+                <!--android:visibility="invisible"/>-->
+
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="28dp"-->
+                <!--android:layout_marginRight="28dp"-->
+                <!--android:hint="Pin code"-->
+                <!--android:textColorHint="@color/hint_color12"-->
+                <!--app:hintTextAppearance="@style/HintTextStyle">-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/input_pincode"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:minHeight="30dp"-->
+                    <!--android:inputType="number"-->
+                    <!--android:maxLength="6"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:background="@android:color/transparent"/>-->
+            <!--</android.support.design.widget.TextInputLayout>-->
+        <!--</RelativeLayout>-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:background="@drawable/rounded_border_edittext" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/Tdis"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="2dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginLeft="24dp"-->
+                <!--android:paddingLeft="5dp"-->
+                <!--android:paddingRight="5dp"-->
+                <!--android:text="District"-->
+                <!--android:textSize="16sp"-->
+                <!--android:background="@android:color/white"-->
+                <!--android:visibility="invisible"/>-->
+
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="28dp"-->
+                <!--android:layout_marginRight="28dp"-->
+                <!--android:hint="District"-->
+                <!--android:textColorHint="@color/hint_color12"-->
+                <!--app:hintTextAppearance="@style/HintTextStyle">-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/input_dis"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:inputType="textCapWords"-->
+                    <!--android:minHeight="30dp"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:background="@android:color/transparent"/>-->
+            <!--</android.support.design.widget.TextInputLayout>-->
+        <!--</RelativeLayout>-->
 
 
         <TextView
