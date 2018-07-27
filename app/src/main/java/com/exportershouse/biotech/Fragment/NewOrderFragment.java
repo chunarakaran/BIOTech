@@ -18,6 +18,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.pm.ActivityInfoCompat;
 import android.text.Editable;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -1203,25 +1204,25 @@ public class NewOrderFragment extends Fragment {
                 Acolorid[i] = data.toString();
             }
         }
-        Hcolorid=String.join(",",Acolorid);
+        Hcolorid= TextUtils.join(",",Acolorid);
 
 
         String[] Apartno = new String[part_array.size()];
         for(int i = 0; i < part_array.size(); i++){
             Apartno[i]=part_array.get(i).getSelectedItem().toString();
-            HPartno=String.join(",",Apartno);
+            HPartno=TextUtils.join(",",Apartno);
         }
 
         String[] Aqty = new String[qty.size()];
         for(int i = 0; i < qty.size(); i++){
             Aqty[i]=qty.get(i).getText().toString();
-            Hqty=String.join(",",Aqty);
+            Hqty=TextUtils.join(",",Aqty);
         }
 
         String[] Altr = new String[ltr_array.size()];
         for(int i = 0; i < ltr_array.size(); i++){
             Altr[i]=ltr_array.get(i).getText().toString();
-            Hltr=String.join(",",Altr);
+            Hltr=TextUtils.join(",",Altr);
         }
 
 

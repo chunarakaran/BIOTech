@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -966,7 +967,7 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
         String[] partno = new String[part.size()];
         for(int i = 0; i < part.size(); i++){
             partno[i]=part.get(i).getText().toString();
-            Hpartno=String.join(",",partno);
+            Hpartno= TextUtils.join(",",partno);
 
         }
 //        Hpartno=Arrays.toString(partno);
@@ -975,7 +976,7 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
         for(int i = 0; i < qty.size(); i++){
             Qty[i]=qty.get(i).getText().toString();
 //            Hqty=Arrays.toString(Qty);
-            Hqty=String.join(",",Qty);
+            Hqty=TextUtils.join(",",Qty);
 
         }
 
@@ -983,7 +984,7 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
         for(int i = 0; i < TotalLtr.size(); i++){
             Ltr[i]=TotalLtr.get(i).getText().toString();
 //            Hltr=Arrays.toString(Ltr);
-            Hltr=String.join(",",Ltr);
+            Hltr=TextUtils.join(",",Ltr);
         }
 
 
