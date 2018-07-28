@@ -95,7 +95,7 @@ public class NextDistributorFragment extends Fragment implements View.OnClickLis
 
         initialize();
 
-        EditFocus();
+//        EditFocus();
 
         Bundle bundle=getArguments();
         Sdate=String.valueOf(bundle.getString("Hdate"));
@@ -202,279 +202,279 @@ public class NextDistributorFragment extends Fragment implements View.OnClickLis
         ck4=(CheckBox)rootview.findViewById(R.id.c4);
         ck5=(CheckBox)rootview.findViewById(R.id.c5);
 
-        Tareacovered=(TextView)rootview.findViewById(R.id.Tareacovered);
-        Tnumofstaff=(TextView)rootview.findViewById(R.id.Tnumofstaff);
-        Tnumofparty=(TextView)rootview.findViewById(R.id.Tnumofparty);
-
-        Treason=(TextView)rootview.findViewById(R.id.Treason);
-
-        TbankName=(TextView)rootview.findViewById(R.id.TbankName);
-        TbankAcno=(TextView)rootview.findViewById(R.id.TbankAcno);
-        TbankBrname=(TextView)rootview.findViewById(R.id.TbankBrname);
-        Tbankcity=(TextView)rootview.findViewById(R.id.Tbankcity);
-        Tbankifsc=(TextView)rootview.findViewById(R.id.Tbankifsc);
-        Tchequeno=(TextView)rootview.findViewById(R.id.Tchequeno);
-        TpName=(TextView)rootview.findViewById(R.id.TpName);
+//        Tareacovered=(TextView)rootview.findViewById(R.id.Tareacovered);
+//        Tnumofstaff=(TextView)rootview.findViewById(R.id.Tnumofstaff);
+//        Tnumofparty=(TextView)rootview.findViewById(R.id.Tnumofparty);
+//
+//        Treason=(TextView)rootview.findViewById(R.id.Treason);
+//
+//        TbankName=(TextView)rootview.findViewById(R.id.TbankName);
+//        TbankAcno=(TextView)rootview.findViewById(R.id.TbankAcno);
+//        TbankBrname=(TextView)rootview.findViewById(R.id.TbankBrname);
+//        Tbankcity=(TextView)rootview.findViewById(R.id.Tbankcity);
+//        Tbankifsc=(TextView)rootview.findViewById(R.id.Tbankifsc);
+//        Tchequeno=(TextView)rootview.findViewById(R.id.Tchequeno);
+//        TpName=(TextView)rootview.findViewById(R.id.TpName);
     }
 
-    public void EditFocus()
-    {
-        areaCovered.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (hasFocus) {
-                    new Handler().postDelayed(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            // Show white background behind floating label
-                            Tareacovered.setVisibility(View.VISIBLE);
-                        }
-                    }, 100);
-                } else {
-                    // Required to show/hide white background behind floating label during focus change
-                    if (areaCovered.getText().length() > 0)
-                        Tareacovered.setVisibility(View.VISIBLE);
-                    else
-                        Tareacovered.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-        noOfStaff.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (hasFocus) {
-                    new Handler().postDelayed(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            // Show white background behind floating label
-                            Tnumofstaff.setVisibility(View.VISIBLE);
-                        }
-                    }, 100);
-                } else {
-                    // Required to show/hide white background behind floating label during focus change
-                    if (noOfStaff.getText().length() > 0)
-                        Tnumofstaff.setVisibility(View.VISIBLE);
-                    else
-                        Tnumofstaff.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-        noOfParties.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (hasFocus) {
-                    new Handler().postDelayed(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            // Show white background behind floating label
-                            Tnumofparty.setVisibility(View.VISIBLE);
-                        }
-                    }, 100);
-                } else {
-                    // Required to show/hide white background behind floating label during focus change
-                    if (noOfParties.getText().length() > 0)
-                        Tnumofparty.setVisibility(View.VISIBLE);
-                    else
-                        Tnumofparty.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-        reason.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (hasFocus) {
-                    new Handler().postDelayed(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            // Show white background behind floating label
-                            Treason.setVisibility(View.VISIBLE);
-                        }
-                    }, 100);
-                } else {
-                    // Required to show/hide white background behind floating label during focus change
-                    if (reason.getText().length() > 0)
-                        Treason.setVisibility(View.VISIBLE);
-                    else
-                        Treason.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-
-        bankName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (hasFocus) {
-                    new Handler().postDelayed(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            // Show white background behind floating label
-                            TbankName.setVisibility(View.VISIBLE);
-                        }
-                    }, 100);
-                } else {
-                    // Required to show/hide white background behind floating label during focus change
-                    if (bankName.getText().length() > 0)
-                        TbankName.setVisibility(View.VISIBLE);
-                    else
-                        TbankName.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-        bankACno.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (hasFocus) {
-                    new Handler().postDelayed(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            // Show white background behind floating label
-                            TbankAcno.setVisibility(View.VISIBLE);
-                        }
-                    }, 100);
-                } else {
-                    // Required to show/hide white background behind floating label during focus change
-                    if (bankACno.getText().length() > 0)
-                        TbankAcno.setVisibility(View.VISIBLE);
-                    else
-                        TbankAcno.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-        bankBranchname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (hasFocus) {
-                    new Handler().postDelayed(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            // Show white background behind floating label
-                            TbankBrname.setVisibility(View.VISIBLE);
-                        }
-                    }, 100);
-                } else {
-                    // Required to show/hide white background behind floating label during focus change
-                    if (bankBranchname.getText().length() > 0)
-                        TbankBrname.setVisibility(View.VISIBLE);
-                    else
-                        TbankBrname.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-        bankCity.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (hasFocus) {
-                    new Handler().postDelayed(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            // Show white background behind floating label
-                            Tbankcity.setVisibility(View.VISIBLE);
-                        }
-                    }, 100);
-                } else {
-                    // Required to show/hide white background behind floating label during focus change
-                    if (bankCity.getText().length() > 0)
-                        Tbankcity.setVisibility(View.VISIBLE);
-                    else
-                        Tbankcity.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-        bankIFSC.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (hasFocus) {
-                    new Handler().postDelayed(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            // Show white background behind floating label
-                            Tbankifsc.setVisibility(View.VISIBLE);
-                        }
-                    }, 100);
-                } else {
-                    // Required to show/hide white background behind floating label during focus change
-                    if (bankIFSC.getText().length() > 0)
-                        Tbankifsc.setVisibility(View.VISIBLE);
-                    else
-                        Tbankifsc.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-        bankSecurityCheqNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (hasFocus) {
-                    new Handler().postDelayed(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            // Show white background behind floating label
-                            Tchequeno.setVisibility(View.VISIBLE);
-                        }
-                    }, 100);
-                } else {
-                    // Required to show/hide white background behind floating label during focus change
-                    if (bankSecurityCheqNo.getText().length() > 0)
-                        Tchequeno.setVisibility(View.VISIBLE);
-                    else
-                        Tchequeno.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-        bankPersonalName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (hasFocus) {
-                    new Handler().postDelayed(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            // Show white background behind floating label
-                            TpName.setVisibility(View.VISIBLE);
-                        }
-                    }, 100);
-                } else {
-                    // Required to show/hide white background behind floating label during focus change
-                    if (bankPersonalName.getText().length() > 0)
-                        TpName.setVisibility(View.VISIBLE);
-                    else
-                        TpName.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-
-    }
+//    public void EditFocus()
+//    {
+//        areaCovered.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//
+//                if (hasFocus) {
+//                    new Handler().postDelayed(new Runnable() {
+//
+//                        @Override
+//                        public void run() {
+//                            // Show white background behind floating label
+//                            Tareacovered.setVisibility(View.VISIBLE);
+//                        }
+//                    }, 100);
+//                } else {
+//                    // Required to show/hide white background behind floating label during focus change
+//                    if (areaCovered.getText().length() > 0)
+//                        Tareacovered.setVisibility(View.VISIBLE);
+//                    else
+//                        Tareacovered.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
+//
+//        noOfStaff.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//
+//                if (hasFocus) {
+//                    new Handler().postDelayed(new Runnable() {
+//
+//                        @Override
+//                        public void run() {
+//                            // Show white background behind floating label
+//                            Tnumofstaff.setVisibility(View.VISIBLE);
+//                        }
+//                    }, 100);
+//                } else {
+//                    // Required to show/hide white background behind floating label during focus change
+//                    if (noOfStaff.getText().length() > 0)
+//                        Tnumofstaff.setVisibility(View.VISIBLE);
+//                    else
+//                        Tnumofstaff.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
+//
+//        noOfParties.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//
+//                if (hasFocus) {
+//                    new Handler().postDelayed(new Runnable() {
+//
+//                        @Override
+//                        public void run() {
+//                            // Show white background behind floating label
+//                            Tnumofparty.setVisibility(View.VISIBLE);
+//                        }
+//                    }, 100);
+//                } else {
+//                    // Required to show/hide white background behind floating label during focus change
+//                    if (noOfParties.getText().length() > 0)
+//                        Tnumofparty.setVisibility(View.VISIBLE);
+//                    else
+//                        Tnumofparty.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
+//
+//        reason.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//
+//                if (hasFocus) {
+//                    new Handler().postDelayed(new Runnable() {
+//
+//                        @Override
+//                        public void run() {
+//                            // Show white background behind floating label
+//                            Treason.setVisibility(View.VISIBLE);
+//                        }
+//                    }, 100);
+//                } else {
+//                    // Required to show/hide white background behind floating label during focus change
+//                    if (reason.getText().length() > 0)
+//                        Treason.setVisibility(View.VISIBLE);
+//                    else
+//                        Treason.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
+//
+//
+//        bankName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//
+//                if (hasFocus) {
+//                    new Handler().postDelayed(new Runnable() {
+//
+//                        @Override
+//                        public void run() {
+//                            // Show white background behind floating label
+//                            TbankName.setVisibility(View.VISIBLE);
+//                        }
+//                    }, 100);
+//                } else {
+//                    // Required to show/hide white background behind floating label during focus change
+//                    if (bankName.getText().length() > 0)
+//                        TbankName.setVisibility(View.VISIBLE);
+//                    else
+//                        TbankName.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
+//
+//        bankACno.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//
+//                if (hasFocus) {
+//                    new Handler().postDelayed(new Runnable() {
+//
+//                        @Override
+//                        public void run() {
+//                            // Show white background behind floating label
+//                            TbankAcno.setVisibility(View.VISIBLE);
+//                        }
+//                    }, 100);
+//                } else {
+//                    // Required to show/hide white background behind floating label during focus change
+//                    if (bankACno.getText().length() > 0)
+//                        TbankAcno.setVisibility(View.VISIBLE);
+//                    else
+//                        TbankAcno.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
+//
+//        bankBranchname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//
+//                if (hasFocus) {
+//                    new Handler().postDelayed(new Runnable() {
+//
+//                        @Override
+//                        public void run() {
+//                            // Show white background behind floating label
+//                            TbankBrname.setVisibility(View.VISIBLE);
+//                        }
+//                    }, 100);
+//                } else {
+//                    // Required to show/hide white background behind floating label during focus change
+//                    if (bankBranchname.getText().length() > 0)
+//                        TbankBrname.setVisibility(View.VISIBLE);
+//                    else
+//                        TbankBrname.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
+//
+//        bankCity.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//
+//                if (hasFocus) {
+//                    new Handler().postDelayed(new Runnable() {
+//
+//                        @Override
+//                        public void run() {
+//                            // Show white background behind floating label
+//                            Tbankcity.setVisibility(View.VISIBLE);
+//                        }
+//                    }, 100);
+//                } else {
+//                    // Required to show/hide white background behind floating label during focus change
+//                    if (bankCity.getText().length() > 0)
+//                        Tbankcity.setVisibility(View.VISIBLE);
+//                    else
+//                        Tbankcity.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
+//
+//        bankIFSC.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//
+//                if (hasFocus) {
+//                    new Handler().postDelayed(new Runnable() {
+//
+//                        @Override
+//                        public void run() {
+//                            // Show white background behind floating label
+//                            Tbankifsc.setVisibility(View.VISIBLE);
+//                        }
+//                    }, 100);
+//                } else {
+//                    // Required to show/hide white background behind floating label during focus change
+//                    if (bankIFSC.getText().length() > 0)
+//                        Tbankifsc.setVisibility(View.VISIBLE);
+//                    else
+//                        Tbankifsc.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
+//
+//        bankSecurityCheqNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//
+//                if (hasFocus) {
+//                    new Handler().postDelayed(new Runnable() {
+//
+//                        @Override
+//                        public void run() {
+//                            // Show white background behind floating label
+//                            Tchequeno.setVisibility(View.VISIBLE);
+//                        }
+//                    }, 100);
+//                } else {
+//                    // Required to show/hide white background behind floating label during focus change
+//                    if (bankSecurityCheqNo.getText().length() > 0)
+//                        Tchequeno.setVisibility(View.VISIBLE);
+//                    else
+//                        Tchequeno.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
+//
+//        bankPersonalName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//
+//                if (hasFocus) {
+//                    new Handler().postDelayed(new Runnable() {
+//
+//                        @Override
+//                        public void run() {
+//                            // Show white background behind floating label
+//                            TpName.setVisibility(View.VISIBLE);
+//                        }
+//                    }, 100);
+//                } else {
+//                    // Required to show/hide white background behind floating label during focus change
+//                    if (bankPersonalName.getText().length() > 0)
+//                        TpName.setVisibility(View.VISIBLE);
+//                    else
+//                        TpName.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
+//
+//
+//    }
 
     public void GetValueFromEditText()
     {
@@ -603,7 +603,7 @@ public class NextDistributorFragment extends Fragment implements View.OnClickLis
 //                                        Toast.makeText(getActivity(),"Ok",Toast.LENGTH_SHORT).show();
                                         android.support.v4.app.FragmentTransaction transection=getFragmentManager().beginTransaction();
                                         fragment=new DistributorFragment();
-                                        transection.replace(R.id.container,fragment);
+                                        transection.replace(R.id.content_frame,fragment);
                                         transection.addToBackStack(null).commit();
                                         getActivity().finish();
                                     }

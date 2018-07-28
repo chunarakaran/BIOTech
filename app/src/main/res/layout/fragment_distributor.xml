@@ -419,7 +419,6 @@
             android:background="@drawable/iphone_edittext_into_android"
             android:hint="Enter Email Address" >
 
-            <requestFocus />
         </EditText>
 
 
@@ -476,7 +475,6 @@
             android:background="@drawable/iphone_edittext_into_android"
             android:hint="Enter Landline no.(With STD Code)" >
 
-            <requestFocus />
         </EditText>
 
 
@@ -556,7 +554,7 @@
                 android:background="@drawable/iphone_edittext_into_android"
                 android:hint="Enter Mobile No" >
 
-                <requestFocus />
+
             </EditText>
 
 
@@ -645,7 +643,7 @@
             android:background="@drawable/iphone_edittext_into_android"
             android:hint="Enter Firm Pan No" >
 
-            <requestFocus />
+
         </EditText>
 
 
@@ -702,7 +700,7 @@
             android:background="@drawable/iphone_edittext_into_android"
             android:hint="Enter GST No" >
 
-            <requestFocus />
+
         </EditText>
 
 
@@ -780,7 +778,7 @@
                 android:background="@drawable/iphone_edittext_into_android"
                 android:hint="Enter Name of(Pro/Par)" >
 
-                <requestFocus />
+
             </EditText>
 
 
@@ -840,7 +838,7 @@
             android:background="@drawable/iphone_edittext_into_android"
             android:hint="Enter Name of Contact Person" >
 
-            <requestFocus />
+
         </EditText>
 
 
@@ -921,7 +919,7 @@
                 android:background="@drawable/iphone_edittext_into_android"
                 android:hint="Enter Mobile No of Contact Person" >
 
-                <requestFocus />
+
             </EditText>
 
 
@@ -984,8 +982,6 @@
             android:paddingLeft="10dp"
             android:background="@drawable/iphone_edittext_into_android"
             android:hint="Enter Yearly Target(minimum)KL" >
-
-            <requestFocus />
         </EditText>
 
 
@@ -1042,7 +1038,7 @@
             android:background="@drawable/iphone_edittext_into_android"
             android:hint="Enter Required Transport Name" >
 
-            <requestFocus />
+
         </EditText>
 
 

@@ -230,8 +230,8 @@ public class NewOrderFragment extends Fragment {
 
                 Vactv = actv.getText().toString();
                 VCityName = CityName.getText().toString();
-                VTrsnsportname = Trsnsportname.getText().toString();
-                VorderBy = orderBy.getText().toString();
+//                VTrsnsportname = Trsnsportname.getText().toString();
+//                VorderBy = orderBy.getText().toString();
                 VDiscount = Discount.getText().toString();
                 VRemark = Remark.getText().toString();
 
@@ -253,24 +253,24 @@ public class NewOrderFragment extends Fragment {
                     CityName.requestFocus();
                     CityName.setError("Enter Valid City Name");
                 }
-                else if(VTrsnsportname.length()==0)
-                {
-                    Trsnsportname.requestFocus();
-                    Trsnsportname.setError("Please Enter Transport Name");
-                }
-                else if (!VTrsnsportname.matches("^[a-zA-Z ]+$")){
-                    Trsnsportname.requestFocus();
-                    Trsnsportname.setError("Enter Valid Transport Name");
-                }
-                else if(VorderBy.length()==0)
-                {
-                    orderBy.requestFocus();
-                    orderBy.setError("Please Enter Order By Name");
-                }
-                else if (!VorderBy.matches("^[a-zA-Z ]+$")){
-                    orderBy.requestFocus();
-                    orderBy.setError("Enter Valid Order By Name");
-                }
+//                else if(VTrsnsportname.length()==0)
+//                {
+//                    Trsnsportname.requestFocus();
+//                    Trsnsportname.setError("Please Enter Transport Name");
+//                }
+//                else if (!VTrsnsportname.matches("^[a-zA-Z ]+$")){
+//                    Trsnsportname.requestFocus();
+//                    Trsnsportname.setError("Enter Valid Transport Name");
+//                }
+//                else if(VorderBy.length()==0)
+//                {
+//                    orderBy.requestFocus();
+//                    orderBy.setError("Please Enter Order By Name");
+//                }
+//                else if (!VorderBy.matches("^[a-zA-Z ]+$")){
+//                    orderBy.requestFocus();
+//                    orderBy.setError("Enter Valid Order By Name");
+//                }
                 else if(VDiscount.length()==0)
                 {
                     Discount.requestFocus();
@@ -414,16 +414,16 @@ public class NewOrderFragment extends Fragment {
         actv.setTextColor(Color.BLACK);
 
         CityName = (EditText) rootview.findViewById(R.id.city_name);
-        Trsnsportname = (EditText) rootview.findViewById(R.id.trans_name);
-        orderBy = (EditText) rootview.findViewById(R.id.orderby);
+//        Trsnsportname = (EditText) rootview.findViewById(R.id.trans_name);
+//        orderBy = (EditText) rootview.findViewById(R.id.orderby);
         Discount=(EditText)rootview.findViewById(R.id.input_discount);
         Remark=(EditText)rootview.findViewById(R.id.input_remark);
 
 
         Tparty_name=(TextView)rootview.findViewById(R.id.Tparty_name);
         Tcity=(TextView)rootview.findViewById(R.id.Tcity);
-        Tname=(TextView)rootview.findViewById(R.id.Tname);
-        Torderby=(TextView)rootview.findViewById(R.id.Torderby);
+//        Tname=(TextView)rootview.findViewById(R.id.Tname);
+//        Torderby=(TextView)rootview.findViewById(R.id.Torderby);
         Tdiscount=(TextView)rootview.findViewById(R.id.Tdiscount);
         Tremark=(TextView)rootview.findViewById(R.id.Tremark);
 
@@ -478,51 +478,51 @@ public class NewOrderFragment extends Fragment {
             }
         });
 
-        Trsnsportname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (hasFocus) {
-                    new Handler().postDelayed(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            // Show white background behind floating label
-                            Tname.setVisibility(View.VISIBLE);
-                        }
-                    }, 100);
-                } else {
-                    // Required to show/hide white background behind floating label during focus change
-                    if (Trsnsportname.getText().length() > 0)
-                        Tname.setVisibility(View.VISIBLE);
-                    else
-                        Tname.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-        orderBy.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (hasFocus) {
-                    new Handler().postDelayed(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            // Show white background behind floating label
-                            Torderby.setVisibility(View.VISIBLE);
-                        }
-                    }, 100);
-                } else {
-                    // Required to show/hide white background behind floating label during focus change
-                    if (orderBy.getText().length() > 0)
-                        Torderby.setVisibility(View.VISIBLE);
-                    else
-                        Torderby.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
+//        Trsnsportname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//
+//                if (hasFocus) {
+//                    new Handler().postDelayed(new Runnable() {
+//
+//                        @Override
+//                        public void run() {
+//                            // Show white background behind floating label
+//                            Tname.setVisibility(View.VISIBLE);
+//                        }
+//                    }, 100);
+//                } else {
+//                    // Required to show/hide white background behind floating label during focus change
+//                    if (Trsnsportname.getText().length() > 0)
+//                        Tname.setVisibility(View.VISIBLE);
+//                    else
+//                        Tname.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
+//
+//        orderBy.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//
+//                if (hasFocus) {
+//                    new Handler().postDelayed(new Runnable() {
+//
+//                        @Override
+//                        public void run() {
+//                            // Show white background behind floating label
+//                            Torderby.setVisibility(View.VISIBLE);
+//                        }
+//                    }, 100);
+//                } else {
+//                    // Required to show/hide white background behind floating label during focus change
+//                    if (orderBy.getText().length() > 0)
+//                        Torderby.setVisibility(View.VISIBLE);
+//                    else
+//                        Torderby.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
 
         Discount.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -581,8 +581,8 @@ public class NewOrderFragment extends Fragment {
         {
             k++;
             flag=k;
-            final LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(380,120);
-            lparams.setMargins(1, 30, 1, 0);
+            final LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(420,120);
+            lparams.setMargins(1, 20, 1, 0);
             colorSpinner[flag] = new Spinner(getActivity());
             colorSpinner[flag].setLayoutParams(lparams);
             colorSpinner[flag].setId(flag);
@@ -619,8 +619,8 @@ public class NewOrderFragment extends Fragment {
 
             k1++;
             flag1=k1;
-            final LinearLayout.LayoutParams lparams2 = new LinearLayout.LayoutParams(380,120);
-            lparams2.setMargins(1, 30, 1, 0);
+            final LinearLayout.LayoutParams lparams2 = new LinearLayout.LayoutParams(420,120);
+            lparams2.setMargins(1, 20, 1, 0);
             partSpinner[flag1] = new Spinner(getActivity());
             partSpinner[flag1].setLayoutParams(lparams2);
             partSpinner[flag1].setId(flag1);
@@ -645,7 +645,7 @@ public class NewOrderFragment extends Fragment {
             k2++;
             flag2=k2;
             final LinearLayout.LayoutParams lparams1 = new LinearLayout.LayoutParams(380, 120);
-            lparams1.setMargins(5, 30, 1, 5);
+            lparams1.setMargins(10, 20, 1, 10);
             textView1[flag2] = new EditText(getActivity());
             textView1[flag2].setLayoutParams(lparams1);
             textView1[flag2].setHint("Enter Qty");
@@ -775,28 +775,28 @@ public class NewOrderFragment extends Fragment {
             view4.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
 
             text1=new TextView(getActivity());
-            text1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 40));
+            text1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 60));
             text1.setText("Select Color");
             text1.setTypeface(null, Typeface.BOLD);
             text1.setTextColor(Color.parseColor("#212121"));
             text1.setPadding(10,0,0,0);
 
             text2=new TextView(getActivity());
-            text2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 40));
+            text2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 60));
             text2.setText("Select Part no");
             text2.setTypeface(null, Typeface.BOLD);
             text2.setTextColor(Color.parseColor("#212121"));
             text2.setPadding(10,0,0,0);
 
             text3=new TextView(getActivity());
-            text3.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 40));
+            text3.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 60));
             text3.setText("Enter QTY");
             text3.setTypeface(null, Typeface.BOLD);
             text3.setTextColor(Color.parseColor("#212121"));
             text3.setPadding(10,0,0,0);
 
             text4=new TextView(getActivity());
-            text4.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 40));
+            text4.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 60));
             text4.setText("Total LTR");
             text4.setTypeface(null, Typeface.BOLD);
             text4.setTextColor(Color.parseColor("#212121"));
@@ -1193,8 +1193,8 @@ public class NewOrderFragment extends Fragment {
         hDate=sDate.toString();
         hPartyname=actv.getText().toString().trim();
         hCityname=CityName.getText().toString().trim();
-        hTrsnsportname=Trsnsportname.getText().toString().trim();
-        horderBy=orderBy.getText().toString().trim();
+//        hTrsnsportname=Trsnsportname.getText().toString().trim();
+//        horderBy=orderBy.getText().toString().trim();
 
         String[] Acolorid = new String[color_array.size()];
         for(int i = 0; i < color_array.size(); i++){
@@ -1317,8 +1317,8 @@ public class NewOrderFragment extends Fragment {
                 params.put("current_date", hDate);
                 params.put("party_name", hPartyname);
                 params.put("city", hCityname);
-                params.put("transport_name", hTrsnsportname);
-                params.put("order_by", horderBy);
+//                params.put("transport_name", hTrsnsportname);
+//                params.put("order_by", horderBy);
 
                 params.put("color_id", Hcolorid);
                 params.put("part_id", HPartno);

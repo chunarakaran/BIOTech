@@ -21,135 +21,170 @@
             android:textSize="20dp"
             android:textColor="#000"/>
 
-        <RelativeLayout
+        <EditText
+            android:id="@+id/input_areacovered"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_border_edittext" />
-
-            <TextView
-                android:id="@+id/Tareacovered"
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="24dp"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                android:text="Area Covered By Party(in Kilometer)"
-                android:textSize="16sp"
-                android:background="@android:color/white"
-                android:visibility="invisible"/>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="28dp"
-                android:layout_marginRight="28dp"
-                android:hint="Area Covered By Party(in Kilometer)"
-                android:textColorHint="@color/hint_color12"
-                app:hintTextAppearance="@style/HintTextStyle">
-
-                <EditText
-                    android:id="@+id/input_areacovered"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="30dp"
-                    android:inputType="number"
-                    android:singleLine="true"
-                    android:background="@android:color/transparent"/>
-            </android.support.design.widget.TextInputLayout>
-        </RelativeLayout>
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            android:background="@drawable/iphone_edittext_into_android"
+            android:hint="Area Covered By Party(in Kilometer)" >
+        </EditText>
 
 
-        <RelativeLayout
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:background="@drawable/rounded_border_edittext" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/Tareacovered"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="2dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginLeft="24dp"-->
+                <!--android:paddingLeft="4dp"-->
+                <!--android:paddingRight="4dp"-->
+                <!--android:text="Area Covered By Party(in Kilometer)"-->
+                <!--android:textSize="16sp"-->
+                <!--android:background="@android:color/white"-->
+                <!--android:visibility="invisible"/>-->
+
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="28dp"-->
+                <!--android:layout_marginRight="28dp"-->
+                <!--android:hint="Area Covered By Party(in Kilometer)"-->
+                <!--android:textColorHint="@color/hint_color12"-->
+                <!--app:hintTextAppearance="@style/HintTextStyle">-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/input_areacovered"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:minHeight="30dp"-->
+                    <!--android:inputType="number"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:background="@android:color/transparent"/>-->
+            <!--</android.support.design.widget.TextInputLayout>-->
+        <!--</RelativeLayout>-->
+
+        <EditText
+            android:id="@+id/input_numofstaff"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            android:background="@drawable/iphone_edittext_into_android"
+            android:hint="Number of Staff(Person)" >
+        </EditText>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_border_edittext" />
 
-            <TextView
-                android:id="@+id/Tnumofstaff"
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="24dp"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                android:text="Number of Staff(Person)"
-                android:textSize="16sp"
-                android:background="@android:color/white"
-                android:visibility="invisible"/>
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="28dp"
-                android:layout_marginRight="28dp"
-                android:hint="Number of Staff(Person)"
-                android:textColorHint="@color/hint_color12"
-                app:hintTextAppearance="@style/HintTextStyle">
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:background="@drawable/rounded_border_edittext" />-->
 
-                <EditText
-                    android:id="@+id/input_numofstaff"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="30dp"
-                    android:inputType="number"
-                    android:singleLine="true"
-                    android:background="@android:color/transparent"/>
-            </android.support.design.widget.TextInputLayout>
-        </RelativeLayout>
+            <!--<TextView-->
+                <!--android:id="@+id/Tnumofstaff"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="2dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginLeft="24dp"-->
+                <!--android:paddingLeft="4dp"-->
+                <!--android:paddingRight="4dp"-->
+                <!--android:text="Number of Staff(Person)"-->
+                <!--android:textSize="16sp"-->
+                <!--android:background="@android:color/white"-->
+                <!--android:visibility="invisible"/>-->
 
-        <RelativeLayout
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="28dp"-->
+                <!--android:layout_marginRight="28dp"-->
+                <!--android:hint="Number of Staff(Person)"-->
+                <!--android:textColorHint="@color/hint_color12"-->
+                <!--app:hintTextAppearance="@style/HintTextStyle">-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/input_numofstaff"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:minHeight="30dp"-->
+                    <!--android:inputType="number"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:background="@android:color/transparent"/>-->
+            <!--</android.support.design.widget.TextInputLayout>-->
+        <!--</RelativeLayout>-->
+
+        <EditText
+            android:id="@+id/input_numofparty"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            android:background="@drawable/iphone_edittext_into_android"
+            android:hint="Number of Party's Counter(aprox)" >
+        </EditText>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_border_edittext" />
 
-            <TextView
-                android:id="@+id/Tnumofparty"
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="24dp"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                android:text="Number of Party's Counter(aprox)"
-                android:textSize="16sp"
-                android:background="@android:color/white"
-                android:visibility="invisible"/>
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="28dp"
-                android:layout_marginRight="28dp"
-                android:hint="Number of Party's Counter(aprox)"
-                android:textColorHint="@color/hint_color12"
-                app:hintTextAppearance="@style/HintTextStyle">
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:background="@drawable/rounded_border_edittext" />-->
 
-                <EditText
-                    android:id="@+id/input_numofparty"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="30dp"
-                    android:inputType="number"
-                    android:singleLine="true"
-                    android:background="@android:color/transparent"/>
-            </android.support.design.widget.TextInputLayout>
-        </RelativeLayout>
+            <!--<TextView-->
+                <!--android:id="@+id/Tnumofparty"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="2dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginLeft="24dp"-->
+                <!--android:paddingLeft="4dp"-->
+                <!--android:paddingRight="4dp"-->
+                <!--android:text="Number of Party's Counter(aprox)"-->
+                <!--android:textSize="16sp"-->
+                <!--android:background="@android:color/white"-->
+                <!--android:visibility="invisible"/>-->
+
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="28dp"-->
+                <!--android:layout_marginRight="28dp"-->
+                <!--android:hint="Number of Party's Counter(aprox)"-->
+                <!--android:textColorHint="@color/hint_color12"-->
+                <!--app:hintTextAppearance="@style/HintTextStyle">-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/input_numofparty"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:minHeight="30dp"-->
+                    <!--android:inputType="number"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:background="@android:color/transparent"/>-->
+            <!--</android.support.design.widget.TextInputLayout>-->
+        <!--</RelativeLayout>-->
 
 
         <LinearLayout
@@ -158,7 +193,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_border_edittext">
+            android:background="@drawable/iphone_edittext_into_android">
 
             <TextView
                 android:layout_width="match_parent"
@@ -201,7 +236,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_border_edittext">
+            android:background="@drawable/iphone_edittext_into_android">
 
             <TextView
                 android:layout_width="match_parent"
@@ -238,53 +273,66 @@
 
         <LinearLayout
             android:id="@+id/l1"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
-            <RelativeLayout
+            <EditText
+                android:id="@+id/input_reason"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="100dp"
+                android:paddingLeft="10dp"
+                android:inputType="textMultiLine"
+                android:maxLines="3"
+                android:background="@drawable/iphone_edittext_into_android"
+                android:hint="Reason" >
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/rounded_border_edittext" />
+            </EditText>
 
-                <TextView
-                    android:id="@+id/Treason"
-                    android:layout_width="wrap_content"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="24dp"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
-                    android:text="Reason"
-                    android:textSize="16sp"
-                    android:background="@android:color/white"
-                    android:visibility="invisible"/>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="28dp"
-                    android:layout_marginRight="28dp"
-                    android:minHeight="80dp"
-                    android:hint="Reason"
-                    android:textColorHint="@color/hint_color12"
-                    app:hintTextAppearance="@style/HintTextStyle">
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                    <EditText
-                        android:id="@+id/input_reason"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textMultiLine"
-                        android:singleLine="true"
-                        android:maxLines="3"
-                        android:background="@android:color/transparent"/>
-                </android.support.design.widget.TextInputLayout>
-            </RelativeLayout>
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="100dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:background="@drawable/rounded_border_edittext" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/Treason"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="2dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_marginLeft="24dp"-->
+                    <!--android:paddingLeft="4dp"-->
+                    <!--android:paddingRight="4dp"-->
+                    <!--android:text="Reason"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:background="@android:color/white"-->
+                    <!--android:visibility="invisible"/>-->
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="28dp"-->
+                    <!--android:layout_marginRight="28dp"-->
+                    <!--android:minHeight="80dp"-->
+                    <!--android:hint="Reason"-->
+                    <!--android:textColorHint="@color/hint_color12"-->
+                    <!--app:hintTextAppearance="@style/HintTextStyle">-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/input_reason"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:inputType="textMultiLine"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:maxLines="3"-->
+                        <!--android:background="@android:color/transparent"/>-->
+                <!--</android.support.design.widget.TextInputLayout>-->
+            <!--</RelativeLayout>-->
 
 
 
@@ -296,308 +344,399 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <RelativeLayout
+
+            <EditText
+                android:id="@+id/input_bankName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:inputType="textCapWords"
+                android:paddingLeft="10dp"
+                android:background="@drawable/iphone_edittext_into_android"
+                android:hint="Bank Name" >
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/rounded_border_edittext" />
-
-                <TextView
-                    android:id="@+id/TbankName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="24dp"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
-                    android:text="Bank Name"
-                    android:textSize="16sp"
-                    android:background="@android:color/white"
-                    android:visibility="invisible"/>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="28dp"
-                    android:layout_marginRight="28dp"
-                    android:hint="Bank Name"
-                    android:textColorHint="@color/hint_color12"
-                    app:hintTextAppearance="@style/HintTextStyle">
-
-                    <EditText
-                        android:id="@+id/input_bankName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="30dp"
-                        android:inputType="textCapWords"
-                        android:singleLine="true"
-                        android:background="@android:color/transparent"/>
-                </android.support.design.widget.TextInputLayout>
-            </RelativeLayout>
+            </EditText>
 
 
-            <RelativeLayout
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:background="@drawable/rounded_border_edittext" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/TbankName"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="2dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_marginLeft="24dp"-->
+                    <!--android:paddingLeft="4dp"-->
+                    <!--android:paddingRight="4dp"-->
+                    <!--android:text="Bank Name"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:background="@android:color/white"-->
+                    <!--android:visibility="invisible"/>-->
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="28dp"-->
+                    <!--android:layout_marginRight="28dp"-->
+                    <!--android:hint="Bank Name"-->
+                    <!--android:textColorHint="@color/hint_color12"-->
+                    <!--app:hintTextAppearance="@style/HintTextStyle">-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/input_bankName"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:minHeight="30dp"-->
+                        <!--android:inputType="textCapWords"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:background="@android:color/transparent"/>-->
+                <!--</android.support.design.widget.TextInputLayout>-->
+            <!--</RelativeLayout>-->
+
+            <EditText
+                android:id="@+id/input_bankAcno"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:inputType="textCapWords"
+                android:paddingLeft="10dp"
+                android:background="@drawable/iphone_edittext_into_android"
+                android:hint="Bank Account Number" >
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/rounded_border_edittext" />
-
-                <TextView
-                    android:id="@+id/TbankAcno"
-                    android:layout_width="wrap_content"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="24dp"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
-                    android:text="Bank Account Number"
-                    android:textSize="16sp"
-                    android:background="@android:color/white"
-                    android:visibility="invisible"/>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="28dp"
-                    android:layout_marginRight="28dp"
-                    android:hint="Bank Account Number"
-                    android:textColorHint="@color/hint_color12"
-                    app:hintTextAppearance="@style/HintTextStyle">
-
-                    <EditText
-                        android:id="@+id/input_bankAcno"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="30dp"
-                        android:inputType="textCapWords"
-                        android:singleLine="true"
-                        android:background="@android:color/transparent"/>
-                </android.support.design.widget.TextInputLayout>
-            </RelativeLayout>
+            </EditText>
 
 
-            <RelativeLayout
+
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:background="@drawable/rounded_border_edittext" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/TbankAcno"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="2dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_marginLeft="24dp"-->
+                    <!--android:paddingLeft="4dp"-->
+                    <!--android:paddingRight="4dp"-->
+                    <!--android:text="Bank Account Number"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:background="@android:color/white"-->
+                    <!--android:visibility="invisible"/>-->
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="28dp"-->
+                    <!--android:layout_marginRight="28dp"-->
+                    <!--android:hint="Bank Account Number"-->
+                    <!--android:textColorHint="@color/hint_color12"-->
+                    <!--app:hintTextAppearance="@style/HintTextStyle">-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/input_bankAcno"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:minHeight="30dp"-->
+                        <!--android:inputType="textCapWords"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:background="@android:color/transparent"/>-->
+                <!--</android.support.design.widget.TextInputLayout>-->
+            <!--</RelativeLayout>-->
+
+            <EditText
+                android:id="@+id/input_bankBrname"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:inputType="textCapWords"
+                android:paddingLeft="10dp"
+                android:background="@drawable/iphone_edittext_into_android"
+                android:hint="Bank Branch Name" >
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/rounded_border_edittext" />
+            </EditText>
 
-                <TextView
-                    android:id="@+id/TbankBrname"
-                    android:layout_width="wrap_content"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="24dp"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
-                    android:text="Bank Branch Name"
-                    android:textSize="16sp"
-                    android:background="@android:color/white"
-                    android:visibility="invisible"/>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="28dp"
-                    android:layout_marginRight="28dp"
-                    android:hint="Bank Branch Name"
-                    android:textColorHint="@color/hint_color12"
-                    app:hintTextAppearance="@style/HintTextStyle">
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                    <EditText
-                        android:id="@+id/input_bankBrname"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="30dp"
-                        android:inputType="textCapWords"
-                        android:singleLine="true"
-                        android:background="@android:color/transparent"/>
-                </android.support.design.widget.TextInputLayout>
-            </RelativeLayout>
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:background="@drawable/rounded_border_edittext" />-->
 
-            <RelativeLayout
+                <!--<TextView-->
+                    <!--android:id="@+id/TbankBrname"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="2dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_marginLeft="24dp"-->
+                    <!--android:paddingLeft="4dp"-->
+                    <!--android:paddingRight="4dp"-->
+                    <!--android:text="Bank Branch Name"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:background="@android:color/white"-->
+                    <!--android:visibility="invisible"/>-->
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="28dp"-->
+                    <!--android:layout_marginRight="28dp"-->
+                    <!--android:hint="Bank Branch Name"-->
+                    <!--android:textColorHint="@color/hint_color12"-->
+                    <!--app:hintTextAppearance="@style/HintTextStyle">-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/input_bankBrname"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:minHeight="30dp"-->
+                        <!--android:inputType="textCapWords"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:background="@android:color/transparent"/>-->
+                <!--</android.support.design.widget.TextInputLayout>-->
+            <!--</RelativeLayout>-->
+
+            <EditText
+                android:id="@+id/input_bankcity"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:inputType="textCapWords"
+                android:paddingLeft="10dp"
+                android:background="@drawable/iphone_edittext_into_android"
+                android:hint="Bank City" >
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/rounded_border_edittext" />
+            </EditText>
 
-                <TextView
-                    android:id="@+id/Tbankcity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="24dp"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
-                    android:text="Bank City"
-                    android:textSize="16sp"
-                    android:background="@android:color/white"
-                    android:visibility="invisible"/>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="28dp"
-                    android:layout_marginRight="28dp"
-                    android:hint="Bank City"
-                    android:textColorHint="@color/hint_color12"
-                    app:hintTextAppearance="@style/HintTextStyle">
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                    <EditText
-                        android:id="@+id/input_bankcity"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="30dp"
-                        android:inputType="textCapWords"
-                        android:singleLine="true"
-                        android:background="@android:color/transparent"/>
-                </android.support.design.widget.TextInputLayout>
-            </RelativeLayout>
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:background="@drawable/rounded_border_edittext" />-->
 
-            <RelativeLayout
+                <!--<TextView-->
+                    <!--android:id="@+id/Tbankcity"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="2dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_marginLeft="24dp"-->
+                    <!--android:paddingLeft="4dp"-->
+                    <!--android:paddingRight="4dp"-->
+                    <!--android:text="Bank City"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:background="@android:color/white"-->
+                    <!--android:visibility="invisible"/>-->
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="28dp"-->
+                    <!--android:layout_marginRight="28dp"-->
+                    <!--android:hint="Bank City"-->
+                    <!--android:textColorHint="@color/hint_color12"-->
+                    <!--app:hintTextAppearance="@style/HintTextStyle">-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/input_bankcity"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:minHeight="30dp"-->
+                        <!--android:inputType="textCapWords"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:background="@android:color/transparent"/>-->
+                <!--</android.support.design.widget.TextInputLayout>-->
+            <!--</RelativeLayout>-->
+
+            <EditText
+                android:id="@+id/input_bankifsc"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:inputType="textCapWords"
+                android:paddingLeft="10dp"
+                android:background="@drawable/iphone_edittext_into_android"
+                android:hint="Bank IFSC Code" >
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/rounded_border_edittext" />
+            </EditText>
 
-                <TextView
-                    android:id="@+id/Tbankifsc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="24dp"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
-                    android:text="Bank IFSC Code"
-                    android:textSize="16sp"
-                    android:background="@android:color/white"
-                    android:visibility="invisible"/>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="28dp"
-                    android:layout_marginRight="28dp"
-                    android:hint="Bank IFSC Code"
-                    android:textColorHint="@color/hint_color12"
-                    app:hintTextAppearance="@style/HintTextStyle">
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                    <EditText
-                        android:id="@+id/input_bankifsc"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="30dp"
-                        android:inputType="textCapWords"
-                        android:singleLine="true"
-                        android:background="@android:color/transparent"/>
-                </android.support.design.widget.TextInputLayout>
-            </RelativeLayout>
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:background="@drawable/rounded_border_edittext" />-->
 
-            <RelativeLayout
+                <!--<TextView-->
+                    <!--android:id="@+id/Tbankifsc"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="2dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_marginLeft="24dp"-->
+                    <!--android:paddingLeft="4dp"-->
+                    <!--android:paddingRight="4dp"-->
+                    <!--android:text="Bank IFSC Code"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:background="@android:color/white"-->
+                    <!--android:visibility="invisible"/>-->
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="28dp"-->
+                    <!--android:layout_marginRight="28dp"-->
+                    <!--android:hint="Bank IFSC Code"-->
+                    <!--android:textColorHint="@color/hint_color12"-->
+                    <!--app:hintTextAppearance="@style/HintTextStyle">-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/input_bankifsc"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:minHeight="30dp"-->
+                        <!--android:inputType="textCapWords"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:background="@android:color/transparent"/>-->
+                <!--</android.support.design.widget.TextInputLayout>-->
+            <!--</RelativeLayout>-->
+
+            <EditText
+                android:id="@+id/input_chequeno"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:inputType="textCapWords"
+                android:paddingLeft="10dp"
+                android:background="@drawable/iphone_edittext_into_android"
+                android:hint="Security Cheque No" >
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/rounded_border_edittext" />
+            </EditText>
 
-                <TextView
-                    android:id="@+id/Tchequeno"
-                    android:layout_width="wrap_content"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="24dp"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
-                    android:text="Security Cheque No"
-                    android:textSize="16sp"
-                    android:background="@android:color/white"
-                    android:visibility="invisible"/>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="28dp"
-                    android:layout_marginRight="28dp"
-                    android:hint="Security Cheque No"
-                    android:textColorHint="@color/hint_color12"
-                    app:hintTextAppearance="@style/HintTextStyle">
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                    <EditText
-                        android:id="@+id/input_chequeno"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="30dp"
-                        android:inputType="textCapWords"
-                        android:singleLine="true"
-                        android:background="@android:color/transparent"/>
-                </android.support.design.widget.TextInputLayout>
-            </RelativeLayout>
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:background="@drawable/rounded_border_edittext" />-->
 
-            <RelativeLayout
+                <!--<TextView-->
+                    <!--android:id="@+id/Tchequeno"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="2dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_marginLeft="24dp"-->
+                    <!--android:paddingLeft="4dp"-->
+                    <!--android:paddingRight="4dp"-->
+                    <!--android:text="Security Cheque No"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:background="@android:color/white"-->
+                    <!--android:visibility="invisible"/>-->
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="28dp"-->
+                    <!--android:layout_marginRight="28dp"-->
+                    <!--android:hint="Security Cheque No"-->
+                    <!--android:textColorHint="@color/hint_color12"-->
+                    <!--app:hintTextAppearance="@style/HintTextStyle">-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/input_chequeno"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:minHeight="30dp"-->
+                        <!--android:inputType="textCapWords"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:background="@android:color/transparent"/>-->
+                <!--</android.support.design.widget.TextInputLayout>-->
+            <!--</RelativeLayout>-->
+
+            <EditText
+                android:id="@+id/input_pName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:inputType="textCapWords"
+                android:paddingLeft="10dp"
+                android:background="@drawable/iphone_edittext_into_android"
+                android:hint="Person Name(Which Sign in Security Cheque)" >
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/rounded_border_edittext" />
+            </EditText>
 
-                <TextView
-                    android:id="@+id/TpName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="24dp"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
-                    android:text="Person Name(Which Sign in Security Cheque)"
-                    android:textSize="16sp"
-                    android:background="@android:color/white"
-                    android:visibility="invisible"/>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="28dp"
-                    android:layout_marginRight="28dp"
-                    android:hint="Person Name(Which Sign in Security Cheque)"
-                    android:textColorHint="@color/hint_color12"
-                    app:hintTextAppearance="@style/HintTextStyle">
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                    <EditText
-                        android:id="@+id/input_pName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="30dp"
-                        android:inputType="textCapWords"
-                        android:singleLine="true"
-                        android:background="@android:color/transparent"/>
-                </android.support.design.widget.TextInputLayout>
-            </RelativeLayout>
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:background="@drawable/rounded_border_edittext" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/TpName"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="2dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_marginLeft="24dp"-->
+                    <!--android:paddingLeft="4dp"-->
+                    <!--android:paddingRight="4dp"-->
+                    <!--android:text="Person Name(Which Sign in Security Cheque)"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:background="@android:color/white"-->
+                    <!--android:visibility="invisible"/>-->
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="28dp"-->
+                    <!--android:layout_marginRight="28dp"-->
+                    <!--android:hint="Person Name(Which Sign in Security Cheque)"-->
+                    <!--android:textColorHint="@color/hint_color12"-->
+                    <!--app:hintTextAppearance="@style/HintTextStyle">-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/input_pName"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:minHeight="30dp"-->
+                        <!--android:inputType="textCapWords"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:background="@android:color/transparent"/>-->
+                <!--</android.support.design.widget.TextInputLayout>-->
+            <!--</RelativeLayout>-->
 
 
         </LinearLayout>
@@ -608,7 +747,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_border_edittext">
+            android:background="@drawable/iphone_edittext_into_android">
 
             <TextView
                 android:layout_width="match_parent"
