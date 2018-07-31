@@ -162,7 +162,7 @@ public class NewOrderFragment extends Fragment {
 
 
 
-    String hUid,hBrandid,hotherbrand_id,hOrderno,hDate,hPartyname,hCityname,hTrsnsportname,horderBy,hColorid,hPartnoid,hQty,hLtr,Hcolorid,HPartno,Hqty,Hltr,HQtotal,hTotal,hDis,hRemark;
+    String hUid,hBrandid,hotherbrand_id,hOrderno,hDate,hPartyname,hCityname,Hcolorid,HPartno,Hqty,Hltr,HQtotal,hTotal,hDis,hRemark;
     //volley
     RequestQueue requestQueue;
     ProgressDialog progressDialog;
@@ -210,9 +210,6 @@ public class NewOrderFragment extends Fragment {
         dLtr=(TextView)rootview.findViewById(R.id.TotalLtr);
 
 
-
-
-
         submit=(Button)rootview.findViewById(R.id.btn_submit);
         t1= (LinearLayout) rootview.findViewById(R.id.input_brandname);
         t2= (LinearLayout) rootview.findViewById(R.id.input_otherBrand);
@@ -225,65 +222,7 @@ public class NewOrderFragment extends Fragment {
             @Override
             public void onClick(View view)
             {
-
-                final String Vactv,VCityName,VTrsnsportname,VorderBy,VDiscount,VRemark;
-
-                Vactv = actv.getText().toString();
-                VCityName = CityName.getText().toString();
-//                VTrsnsportname = Trsnsportname.getText().toString();
-//                VorderBy = orderBy.getText().toString();
-                VDiscount = Discount.getText().toString();
-                VRemark = Remark.getText().toString();
-
-                if(Vactv.length()==0)
-                {
-                    actv.requestFocus();
-                    actv.setError("Please Enter Party Name");
-                }
-                else if (!Vactv.matches("^[a-zA-Z ]+$")){
-                    actv.requestFocus();
-                    actv.setError("Enter Valid Party Name");
-                }
-                else if(VCityName.length()==0)
-                {
-                    CityName.requestFocus();
-                    CityName.setError("Please Enter City Name");
-                }
-                else if (!VCityName.matches("^[a-zA-Z ]+$")||VCityName.contains(" ")){
-                    CityName.requestFocus();
-                    CityName.setError("Enter Valid City Name");
-                }
-//                else if(VTrsnsportname.length()==0)
-//                {
-//                    Trsnsportname.requestFocus();
-//                    Trsnsportname.setError("Please Enter Transport Name");
-//                }
-//                else if (!VTrsnsportname.matches("^[a-zA-Z ]+$")){
-//                    Trsnsportname.requestFocus();
-//                    Trsnsportname.setError("Enter Valid Transport Name");
-//                }
-//                else if(VorderBy.length()==0)
-//                {
-//                    orderBy.requestFocus();
-//                    orderBy.setError("Please Enter Order By Name");
-//                }
-//                else if (!VorderBy.matches("^[a-zA-Z ]+$")){
-//                    orderBy.requestFocus();
-//                    orderBy.setError("Enter Valid Order By Name");
-//                }
-                else if(VDiscount.length()==0)
-                {
-                    Discount.requestFocus();
-                    Discount.setError("Please Enter Discount");
-                }
-                else if (VRemark.length()==0){
-                    Remark.requestFocus();
-                    Remark.setError("Please Enter Remark");
-                }
-                else {
-                    Add_Order();
-                }
-                //Remark.setText(Hcolorid.toString());
+                Validation();
             }
         });
 
@@ -747,7 +686,7 @@ public class NewOrderFragment extends Fragment {
             k3++;
             flag3=k3;
             final LinearLayout.LayoutParams lparams3 = new LinearLayout.LayoutParams(380,120);
-            lparams3.setMargins(1, 30, 1, 5);
+            lparams3.setMargins(1, 20, 1, 10);
             ltrSpinner[flag3] = new TextView(getActivity());
             ltrSpinner[flag3].setLayoutParams(lparams3);
             ltrSpinner[flag3].setText("0");
@@ -1341,6 +1280,70 @@ public class NewOrderFragment extends Fragment {
 
         // Adding the StringRequest object into requestQueue.
         requestQueue.add(stringRequest1);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void Validation()
+    {
+
+        final String Vactv,VCityName,VTrsnsportname,VorderBy,VDiscount,VRemark;
+
+        Vactv = actv.getText().toString();
+        VCityName = CityName.getText().toString();
+//                VTrsnsportname = Trsnsportname.getText().toString();
+//                VorderBy = orderBy.getText().toString();
+        VDiscount = Discount.getText().toString();
+        VRemark = Remark.getText().toString();
+
+        if(Vactv.length()==0)
+        {
+            actv.requestFocus();
+            actv.setError("Please Enter Party Name");
+        }
+        else if (!Vactv.matches("^[a-zA-Z ]+$")){
+            actv.requestFocus();
+            actv.setError("Enter Valid Party Name");
+        }
+        else if(VCityName.length()==0)
+        {
+            CityName.requestFocus();
+            CityName.setError("Please Enter City Name");
+        }
+        else if (!VCityName.matches("^[a-zA-Z ]+$")||VCityName.contains(" ")){
+            CityName.requestFocus();
+            CityName.setError("Enter Valid City Name");
+        }
+//                else if(VTrsnsportname.length()==0)
+//                {
+//                    Trsnsportname.requestFocus();
+//                    Trsnsportname.setError("Please Enter Transport Name");
+//                }
+//                else if (!VTrsnsportname.matches("^[a-zA-Z ]+$")){
+//                    Trsnsportname.requestFocus();
+//                    Trsnsportname.setError("Enter Valid Transport Name");
+//                }
+//                else if(VorderBy.length()==0)
+//                {
+//                    orderBy.requestFocus();
+//                    orderBy.setError("Please Enter Order By Name");
+//                }
+//                else if (!VorderBy.matches("^[a-zA-Z ]+$")){
+//                    orderBy.requestFocus();
+//                    orderBy.setError("Enter Valid Order By Name");
+//                }
+        else if(VDiscount.length()==0)
+        {
+            Discount.requestFocus();
+            Discount.setError("Please Enter Discount");
+        }
+        else if (VRemark.length()==0){
+            Remark.requestFocus();
+            Remark.setError("Please Enter Remark");
+        }
+        else {
+            Add_Order();
+        }
+
     }
 
 

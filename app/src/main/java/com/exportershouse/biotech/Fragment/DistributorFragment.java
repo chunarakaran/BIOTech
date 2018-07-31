@@ -78,7 +78,7 @@ public class DistributorFragment extends Fragment {
         //change R.layout.yourlayoutfilename for each of your fragments
         rootview= inflater.inflate(R.layout.fragment_distributor, container, false);
 
-        getActivity().setTitle("New Distributer");
+        getActivity().setTitle("New Distributor");
 //        ((MainActivity) getActivity()).hideBottomNavigationButton();
 
         URL = getString(R.string.url);

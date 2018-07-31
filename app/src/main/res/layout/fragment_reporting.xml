@@ -13,6 +13,14 @@
         android:paddingTop="10dp"
         android:paddingBottom="100dp">
 
+        <TextView
+            android:id="@+id/test"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginLeft="0dp"
+            android:textSize="15dp"
+            android:visibility="invisible"
+            android:textColor="@color/hint_color12"/>
 
 
         <LinearLayout
@@ -829,8 +837,39 @@
 
         </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/input_brandname"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <LinearLayout
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:paddingBottom="7dp"
+                    android:textSize="15dp"
+                    android:text="Please Select Brand"
+                    android:textColor="@color/hint_color12"/>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_border_edittext">
+
+                    <Spinner
+                        android:id="@+id/brand_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
             android:id="@+id/sl2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -856,38 +895,55 @@
 
 
         </LinearLayout>
+
+            <View
+                android:id="@+id/sl4"
+                android:layout_width="368dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimaryDark"/>
+
             <LinearLayout
                 android:id="@+id/sl3"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"/>
+
+
                 <LinearLayout
                     android:id="@+id/s1"
-                    android:layout_width="150dp"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
-                    android:paddingTop="5dp"
                     android:orientation="vertical">
+
                 </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"/>
 
                 <LinearLayout
                     android:id="@+id/s2"
-                    android:layout_width="90dp"
+                    android:layout_width="185dp"
                     android:layout_height="wrap_content"
-                    android:paddingTop="5dp"
                     android:orientation="vertical">
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/s3"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="5dp"
-                    android:orientation="vertical">
-                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"/>
 
 
             </LinearLayout>
+
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
