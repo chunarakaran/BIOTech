@@ -99,7 +99,7 @@ public class NewOrderFragment extends Fragment {
 
     public ArrayList<String> color_list = new ArrayList<>();
     public ArrayList<String> part_list = new ArrayList<>();
-    public ArrayList<String> ltr_list = new ArrayList<>();
+    public ArrayList<String> city_list = new ArrayList<String>();
     public ArrayList<String> list = new ArrayList<String>();
 
     TextView Tltr;
@@ -148,11 +148,11 @@ public class NewOrderFragment extends Fragment {
 
     TextView orderno,cdate;
 
-    AutoCompleteTextView actv;
+    AutoCompleteTextView actv,CityName;
 
     TextView Tparty_name,Tcity,Tname,Torderby,Tdiscount,Tremark;
 
-    EditText Ltr,CityName,Trsnsportname,orderBy,Discount,Remark;
+    EditText Discount,Remark;
     TextView dQty,dLtr,dpart_no,dSrno,dTotal;
 
     int Srno=0;
@@ -352,9 +352,10 @@ public class NewOrderFragment extends Fragment {
         actv.setThreshold(1);//will start working from first character
         actv.setTextColor(Color.BLACK);
 
-        CityName = (EditText) rootview.findViewById(R.id.city_name);
-//        Trsnsportname = (EditText) rootview.findViewById(R.id.trans_name);
-//        orderBy = (EditText) rootview.findViewById(R.id.orderby);
+        CityName = (AutoCompleteTextView) rootview.findViewById(R.id.city_name);
+        CityName.setThreshold(1);
+        CityName.setTextColor(Color.BLACK);
+
         Discount=(EditText)rootview.findViewById(R.id.input_discount);
         Remark=(EditText)rootview.findViewById(R.id.input_remark);
 
@@ -1085,6 +1086,7 @@ public class NewOrderFragment extends Fragment {
 
                 final ArrayList<String> list = new ArrayList<>();
                 list.clear();
+                city_list.clear();
                 try{
                     GetOrderDataAdapter GetDatadp ;
                     JSONObject jsonObject=new JSONObject(response);
@@ -1098,10 +1100,12 @@ public class NewOrderFragment extends Fragment {
                         datalist3.add(GetDatadp);
 
                         list.add(jsonObject1.getString("party_name"));
+                        city_list.add(jsonObject1.getString("city"));
 
                     }
 
                     actv.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, list));
+                    CityName.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, city_list));
 //                    color_spinner.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, list));
                     hideDialog();
                 }catch (JSONException e){e.printStackTrace();}

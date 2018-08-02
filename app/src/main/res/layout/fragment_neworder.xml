@@ -244,7 +244,7 @@
                     android:textColorHint="@color/hint_color12"
                     app:hintTextAppearance="@style/HintTextStyle">
 
-                    <EditText
+                    <AutoCompleteTextView
                         android:id="@+id/city_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

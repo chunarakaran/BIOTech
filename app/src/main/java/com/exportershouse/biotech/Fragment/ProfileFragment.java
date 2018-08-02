@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -30,10 +31,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.exportershouse.biotech.ChangePasswordActivity;
-import com.exportershouse.biotech.ForgotPasswordActivity;
-import com.exportershouse.biotech.MainActivity;
-import com.exportershouse.biotech.MyLocationUsingLocationAPI;
+
 import com.exportershouse.biotech.R;
 import com.squareup.picasso.Picasso;
 
@@ -51,6 +49,7 @@ public class ProfileFragment extends Fragment {
 
     View rootview;
 
+    Fragment fragment = null;
     private ProgressDialog pDialog;
 
     MyTextView Name,Email,Mobileno,Gender,changePwd,City,Country;
@@ -116,27 +115,29 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getActivity(), ChangePasswordActivity.class);
-                startActivity(intent);
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragment = new ChangePasswordFragment();
+                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack(null).commit();
             }
         });
 
 
-//        rootview.setFocusableInTouchMode(true);
-//        rootview.requestFocus();
-//        rootview.setOnKeyListener(new View.OnKeyListener() {
-//            @Override
-//            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//
-//                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
-//                    // DO WHAT YOU WANT ON BACK PRESSED
-//                    getFragmentManager().popBackStack();
-//                    return true;
-//                } else {
-//                    return false;
-//                }
-//            }
-//        });
+        rootview.setFocusableInTouchMode(true);
+        rootview.requestFocus();
+        rootview.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+                    // DO WHAT YOU WANT ON BACK PRESSED
+                    getFragmentManager().popBackStack();
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
 
 
         return rootview;

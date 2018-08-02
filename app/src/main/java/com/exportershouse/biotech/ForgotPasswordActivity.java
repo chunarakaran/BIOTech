@@ -108,8 +108,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                     Email.setError("You must enter Email Id");
                 }
 
-//                Intent intent = new Intent(getApplicationContext(), ChangePasswordActivity.class);
-//                startActivity(intent);
             }
         });
 
@@ -121,7 +119,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         pDialog.setMessage("Logging in ...");
         showDialog();
 
-        StringRequest jsonobject = new StringRequest(Request.Method.POST, Url+"api/login" + "?email="+Email.getText().toString(), new Response.Listener<String>() {
+        StringRequest jsonobject = new StringRequest(Request.Method.POST, Url+"api/forgot_pass" + "?email="+Email.getText().toString(), new Response.Listener<String>() {
             @Override
 
             public void onResponse(String response) {
@@ -135,9 +133,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 else
                 {
 
-                    Intent i = new Intent(getApplicationContext(),ChangePasswordActivity.class);
-                    startActivity(i);
-//                    finish();
+                    Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
                     hideDialog();
                 }
 
