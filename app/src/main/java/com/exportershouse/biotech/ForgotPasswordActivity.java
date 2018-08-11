@@ -135,6 +135,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
                     hideDialog();
+
+                    Intent i = new Intent(getApplicationContext(),LoginActivity.class);
+                    startActivity(i);
+                    finish();
                 }
 
 

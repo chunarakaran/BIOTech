@@ -148,9 +148,9 @@ public class NewOrderFragment extends Fragment {
 
     TextView orderno,cdate;
 
-    AutoCompleteTextView actv,CityName;
+    AutoCompleteTextView actv,CityName,Email;
 
-    TextView Tparty_name,Tcity,Tname,Torderby,Tdiscount,Tremark;
+    TextView Tparty_name,Tcity,Temail,Tdiscount,Tremark;
 
     EditText Discount,Remark;
     TextView dQty,dLtr,dpart_no,dSrno,dTotal;
@@ -162,7 +162,7 @@ public class NewOrderFragment extends Fragment {
 
 
 
-    String hUid,hBrandid,hotherbrand_id,hOrderno,hDate,hPartyname,hCityname,Hcolorid,HPartno,Hqty,Hltr,HQtotal,hTotal,hDis,hRemark;
+    String hUid,hBrandid,hotherbrand_id,hOrderno,hDate,hPartyname,hCityname,hEmail,Hcolorid,HPartno,Hqty,Hltr,HQtotal,hTotal,hDis,hRemark;
     //volley
     RequestQueue requestQueue;
     ProgressDialog progressDialog;
@@ -356,12 +356,15 @@ public class NewOrderFragment extends Fragment {
         CityName.setThreshold(1);
         CityName.setTextColor(Color.BLACK);
 
+        Email = (AutoCompleteTextView) rootview.findViewById(R.id.input_email);
+
         Discount=(EditText)rootview.findViewById(R.id.input_discount);
         Remark=(EditText)rootview.findViewById(R.id.input_remark);
 
 
         Tparty_name=(TextView)rootview.findViewById(R.id.Tparty_name);
         Tcity=(TextView)rootview.findViewById(R.id.Tcity);
+        Temail=(TextView)rootview.findViewById(R.id.Temail);
 //        Tname=(TextView)rootview.findViewById(R.id.Tname);
 //        Torderby=(TextView)rootview.findViewById(R.id.Torderby);
         Tdiscount=(TextView)rootview.findViewById(R.id.Tdiscount);
@@ -418,51 +421,29 @@ public class NewOrderFragment extends Fragment {
             }
         });
 
-//        Trsnsportname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View v, boolean hasFocus) {
-//
-//                if (hasFocus) {
-//                    new Handler().postDelayed(new Runnable() {
-//
-//                        @Override
-//                        public void run() {
-//                            // Show white background behind floating label
-//                            Tname.setVisibility(View.VISIBLE);
-//                        }
-//                    }, 100);
-//                } else {
-//                    // Required to show/hide white background behind floating label during focus change
-//                    if (Trsnsportname.getText().length() > 0)
-//                        Tname.setVisibility(View.VISIBLE);
-//                    else
-//                        Tname.setVisibility(View.INVISIBLE);
-//                }
-//            }
-//        });
-//
-//        orderBy.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View v, boolean hasFocus) {
-//
-//                if (hasFocus) {
-//                    new Handler().postDelayed(new Runnable() {
-//
-//                        @Override
-//                        public void run() {
-//                            // Show white background behind floating label
-//                            Torderby.setVisibility(View.VISIBLE);
-//                        }
-//                    }, 100);
-//                } else {
-//                    // Required to show/hide white background behind floating label during focus change
-//                    if (orderBy.getText().length() > 0)
-//                        Torderby.setVisibility(View.VISIBLE);
-//                    else
-//                        Torderby.setVisibility(View.INVISIBLE);
-//                }
-//            }
-//        });
+        Email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (hasFocus) {
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // Show white background behind floating label
+                            Temail.setVisibility(View.VISIBLE);
+                        }
+                    }, 100);
+                } else {
+                    // Required to show/hide white background behind floating label during focus change
+                    if (Email.getText().length() > 0)
+                        Temail.setVisibility(View.VISIBLE);
+                    else
+                        Temail.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
 
         Discount.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -1136,6 +1117,7 @@ public class NewOrderFragment extends Fragment {
         hDate=sDate.toString();
         hPartyname=actv.getText().toString().trim();
         hCityname=CityName.getText().toString().trim();
+        hEmail=Email.getText().toString().trim();
 //        hTrsnsportname=Trsnsportname.getText().toString().trim();
 //        horderBy=orderBy.getText().toString().trim();
 
@@ -1260,7 +1242,7 @@ public class NewOrderFragment extends Fragment {
                 params.put("current_date", hDate);
                 params.put("party_name", hPartyname);
                 params.put("city", hCityname);
-//                params.put("transport_name", hTrsnsportname);
+                params.put("party_email", hEmail);
 //                params.put("order_by", horderBy);
 
                 params.put("color_id", Hcolorid);

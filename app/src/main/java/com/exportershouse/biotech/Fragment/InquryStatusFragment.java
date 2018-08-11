@@ -141,7 +141,7 @@ public class InquryStatusFragment extends Fragment {
                     bundle.putString("Inquryid",Inquryid);
                     mfragment.setArguments(bundle);
 
-                    transection.replace(R.id.container, mfragment);
+                    transection.replace(R.id.content_frame, mfragment);
                     transection.addToBackStack(null).commit();
 
 

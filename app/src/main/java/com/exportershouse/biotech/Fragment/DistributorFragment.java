@@ -869,12 +869,12 @@ public class DistributorFragment extends Fragment {
             bundle.putString("Hidistrict", Hidistrict);
             bundle.putString("Hiemail", Hiemail);
             bundle.putString("Hilandline", Hilandline);
-            bundle.putString("Himobileno", Himobileno);
+            bundle.putString("Himobileno", "+91"+Himobileno);
             bundle.putString("HiFpan_no", HiFpan_no);
             bundle.putString("HiGST_no", HiGST_no);
             bundle.putString("HnameParty", HnameParty + " " + HiFparty_name);
             bundle.putString("HiName_conPerson", HiName_conPerson);
-            bundle.putString("HiMobile_conPerson", HiMobile_conPerson);
+            bundle.putString("HiMobile_conPerson", "+91"+HiMobile_conPerson);
             bundle.putString("HiYearlyTarg", HiYearlyTarg);
             bundle.putString("HiTrans_name", HiTrans_name);
             bundle.putString("Hcompanyname", Hcompanyname);

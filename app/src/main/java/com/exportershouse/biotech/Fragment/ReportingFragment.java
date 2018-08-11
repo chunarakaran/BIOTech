@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -41,6 +42,7 @@ import com.android.volley.toolbox.Volley;
 import com.exportershouse.biotech.Adapter.GetBrandDataAdapter;
 import com.exportershouse.biotech.Adapter.GetColorDataAdapter;
 import com.exportershouse.biotech.Adapter.GetLtrDataAdapter;
+import com.exportershouse.biotech.Adapter.GetOrderDataAdapter;
 import com.exportershouse.biotech.Adapter.GetPartnoDataAdapter;
 import com.exportershouse.biotech.Adapter.GetStateDataAdapter;
 import com.exportershouse.biotech.MainActivity;
@@ -86,9 +88,13 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
     public ArrayList<String> ltr_list = new ArrayList<>();
     public ArrayList<String> list = new ArrayList<String>();
 
+    public ArrayList<String> dist_name = new ArrayList<String>();
+
     TextView Tdname,Tpname,Taddress,Tcity,Tpincode,Tdis,Temail,Tnameofcontper,Tmboofcontper,TWamboofcontper,Treason,TOthbrandname,Treason2,Tremark;
 
-    EditText distName,pName,Address,city,pincode,district,email,CperName,CperMob,CperWA,BrandReason,BranName,PartyReason,remark;
+    EditText pName,Address,city,pincode,district,email,CperName,CperMob,CperWA,BrandReason,BranName,PartyReason,remark;
+
+    AutoCompleteTextView distName;
 
     private RadioGroup radioGroup,radioGroup1,radioGroup2;
     private RadioButton radioButton,radioButton1,radioButton2;
@@ -99,6 +105,7 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
     TextView cdate,cday,ctime;
     Spinner statespinner,nameFirm;
     final ArrayList<GetStateDataAdapter> statedatalist = new ArrayList<>();
+
 
     String URL;
 
@@ -190,6 +197,8 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
         EditFocus();
 
         loadState_SpinnerData(URL);
+
+        view_daily_report(URL);
 
         statespinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -380,7 +389,10 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
 
         statespinner=(Spinner)rootview.findViewById(R.id.state_spinner);
 
-        distName=(EditText)rootview.findViewById(R.id.input_dname);
+        distName=(AutoCompleteTextView)rootview.findViewById(R.id.input_dname);
+        distName.setThreshold(1);
+        distName.setTextColor(Color.BLACK);
+
         pName=(EditText)rootview.findViewById(R.id.input_pname);
         Address=(EditText)rootview.findViewById(R.id.input_address);
         city=(EditText)rootview.findViewById(R.id.input_city);
@@ -1255,6 +1267,43 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
     }
 
 
+    private void view_daily_report(String url)
+    {
+
+        RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url+"api/view_daily_report", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                dist_name.clear();
+                try{
+
+                    JSONObject jsonObject=new JSONObject(response);
+                    JSONArray jsonArray=jsonObject.getJSONArray("view_daily_report");
+                    for(int i=0;i<jsonArray.length();i++){
+                        JSONObject jsonObject1=jsonArray.getJSONObject(i);
+
+                        dist_name.add(jsonObject1.getString("distributer_name"));
+
+                    }
+                    distName.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, dist_name));
+
+                }catch (JSONException e){e.printStackTrace();}
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+
+            }
+        });
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
+
+
     @SuppressLint("NewApi")
     public void GetValueFromEditText()
     {
@@ -1416,8 +1465,8 @@ public class ReportingFragment extends Fragment implements View.OnClickListener 
                 params.put("district", Hdistrict);
                 params.put("email_address", Hemail);
                 params.put("contact_person_name", HnameFirm+" "+HperName);
-                params.put("contact_person_no", HcoperMob);
-                params.put("contact_person_whatsapp_no", HcoperWA);
+                params.put("contact_person_no", "+91"+HcoperMob);
+                params.put("contact_person_whatsapp_no", "+91"+HcoperWA);
                 params.put("brand_reason", HbrandReason);
                 params.put("other_brand_name", HotherBrand);
                 params.put("order_reason", HpartyReason);

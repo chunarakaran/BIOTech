@@ -93,7 +93,7 @@
                 android:textColorHint="@color/hint_color12"
                 app:hintTextAppearance="@style/HintTextStyle">
 
-                <EditText
+                <AutoCompleteTextView
                     android:id="@+id/input_dname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

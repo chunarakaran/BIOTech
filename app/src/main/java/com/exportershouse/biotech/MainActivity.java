@@ -16,6 +16,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -38,7 +39,10 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.exportershouse.biotech.Adapter.DataAdapter2;
+import com.exportershouse.biotech.Adapter.RecyclerViewAdapter2;
 import com.exportershouse.biotech.Adapter.SessionManager;
+import com.exportershouse.biotech.Fragment.ChangePasswordFragment;
 import com.exportershouse.biotech.Fragment.DashboardFragment;
 import com.exportershouse.biotech.Fragment.DistributorFragment;
 import com.exportershouse.biotech.Fragment.InquryStatusFragment;
@@ -70,6 +74,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     CircleImageView User_pic;
     TextView User_name,User_email;
 
+    TextView textCartItemCount;
+    public int mCartItemCount;
 
     String User_id;
     public static final String PREFS_NAME = "login";
@@ -101,6 +107,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String Url = getResources().getString(R.string.url);
         String HTTP_JSON_URL = Url+"api/view_user_profile?user_id="+User_id;
 
+        String notify = Url+"api/enquiry_view?send_person_id="+User_id;
+
 
         hView =  navigationView.getHeaderView(0);
         User_pic=(CircleImageView)hView.findViewById(R.id.user_pic);
@@ -108,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         User_email = (TextView)hView.findViewById(R.id.user_email);
 
         JSON_HTTP_CALL(HTTP_JSON_URL);
+        notification(notify);
 
         // session manager
         session = new SessionManager(getApplicationContext());
@@ -157,31 +166,77 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.main, menu);
-        return super.onCreateOptionsMenu(menu);
+        inflater.inflate(R.menu.menu_main, menu);
+
+        final MenuItem menuItem = menu.findItem(R.id.action_cart);
+
+        View actionView = MenuItemCompat.getActionView(menuItem);
+        textCartItemCount = (TextView) actionView.findViewById(R.id.cart_badge);
+
+//        setupBadge();
+
+        actionView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onOptionsItemSelected(menuItem);
+            }
+        });
+
+        return true;
 
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId())
-        {
-            case R.id.action_settings:
-                logoutUser();
-                break;
-            case R.id.action_checkin:
-                Intent intent = new Intent(getApplicationContext(), MyLocationUsingLocationAPI.class);
-                startActivity(intent);
-                break;
-            case R.id.action_inquiry:
+//        switch(item.getItemId())
+//        {
+//            case R.id.action_settings:
+//                logoutUser();
+//                break;
+//            case R.id.action_checkin:
+//                Intent intent = new Intent(getApplicationContext(), MyLocationUsingLocationAPI.class);
+//                startActivity(intent);
+//                break;
+//            case R.id.action_inquiry:
+//                FragmentManager fragmentManager = getSupportFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                fragment = new InquryStatusFragment();
+//                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack(null).commit();
+//                break;
+//
+//        }
+//        return true;
+
+        switch (item.getItemId()) {
+
+            case R.id.action_cart: {
+
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragment = new InquryStatusFragment();
                 fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack(null).commit();
-                break;
-
+                // Do something
+                return true;
+            }
         }
-        return true;
+        return super.onOptionsItemSelected(item);
+
+    }
+
+    private void setupBadge() {
+
+        if (textCartItemCount != null) {
+            if (mCartItemCount == 0) {
+                if (textCartItemCount.getVisibility() != View.GONE) {
+                    textCartItemCount.setVisibility(View.GONE);
+                }
+            } else {
+                textCartItemCount.setText(String.valueOf(Math.min(mCartItemCount, 99)));
+                if (textCartItemCount.getVisibility() != View.VISIBLE) {
+                    textCartItemCount.setVisibility(View.VISIBLE);
+                }
+            }
+        }
     }
 
     private void logoutUser() {
@@ -280,6 +335,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 try{
                     JSONObject jsonObject=new JSONObject(response);
                     JSONArray jsonArray=jsonObject.getJSONArray("user_pro");
+
                     for(int i=0;i<jsonArray.length();i++)
                     {
 
@@ -319,6 +375,52 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         stringRequest.setRetryPolicy(policy);
         requestQueue.add(stringRequest);
     }
+
+    private void notification(String url)
+    {
+
+        RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try{
+                    JSONObject jsonObject=new JSONObject(response);
+                    JSONArray jsonArray=jsonObject.getJSONArray("view_enquiry");
+                    for(int i=0;i<jsonArray.length();i++)
+                    {
+                        mCartItemCount=jsonArray.length();
+
+                        if (textCartItemCount != null) {
+                            if (mCartItemCount == 0) {
+                                if (textCartItemCount.getVisibility() != View.GONE) {
+                                    textCartItemCount.setVisibility(View.GONE);
+                                }
+                            } else {
+                                textCartItemCount.setText(String.valueOf(Math.min(mCartItemCount, 99)));
+                                if (textCartItemCount.getVisibility() != View.VISIBLE) {
+                                    textCartItemCount.setVisibility(View.VISIBLE);
+                                }
+                            }
+                        }
+
+
+                    }
+
+                }catch (JSONException e){e.printStackTrace();}
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
 
 
 }
